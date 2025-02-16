@@ -12,6 +12,9 @@ targets:
     shortgenius:
         target: typescript
         source: ShortGenius API
+        publish:
+            npm:
+                token: $npm_token
         codeSamples:
             registry:
                 location: registry.speakeasyapi.dev/shortgenius/production/short-genius-api-typescript-code-samples
