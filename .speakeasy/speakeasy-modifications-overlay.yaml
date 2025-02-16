@@ -1,0 +1,20 @@
+overlay: 1.0.0
+x-speakeasy-jsonpath: rfc9535
+info:
+  title: Speakeasy Modifications
+  version: 0.0.2
+  x-speakeasy-metadata:
+    after: ""
+    before: ""
+    type: speakeasy-modifications
+actions:
+  - target: $["paths"]["/health"]["get"]
+    update:
+      x-speakeasy-group: status
+      x-speakeasy-name-override: check
+    x-speakeasy-metadata:
+      after: sdk.status.check()
+      before: sdk.<no_group>.get_/health()
+      created_at: 1739745858915
+      reviewed_at: 1739745869251
+      type: method-name

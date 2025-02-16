@@ -1,0 +1,85 @@
+lockVersion: 2.0.0
+id: f54f0795-3b37-43ef-8a0f-1a7b35a560fb
+management:
+  docChecksum: 2e88a6751e07f0a51950911067956646
+  docVersion: 1.0.0
+  speakeasyVersion: 1.493.0
+  generationVersion: 2.512.4
+  releaseVersion: 0.1.1
+  configChecksum: 432cf0467a21d894c948e899c158cbb2
+features:
+  typescript:
+    additionalDependencies: 0.1.0
+    core: 3.19.0
+    defaultEnabledRetries: 0.1.0
+    devContainers: 2.90.0
+    enumUnions: 0.1.0
+    envVarSecurityUsage: 0.1.2
+    globalSecurityCallbacks: 0.1.0
+    globalServerURLs: 2.82.4
+    groups: 2.81.2
+    nameOverrides: 2.81.2
+    responseFormat: 0.2.3
+    retries: 2.83.0
+    sdkHooks: 0.2.0
+generatedFiles:
+  - .devcontainer/README.md
+  - .devcontainer/devcontainer.json
+  - .devcontainer/setup.sh
+  - .gitattributes
+  - .npmignore
+  - FUNCTIONS.md
+  - RUNTIMES.md
+  - USAGE.md
+  - docs/lib/utils/retryconfig.md
+  - docs/models/operations/gethealthresponsebody.md
+  - docs/models/operations/status.md
+  - docs/sdks/shortgenius/README.md
+  - docs/sdks/status/README.md
+  - eslint.config.mjs
+  - jsr.json
+  - package.json
+  - src/core.ts
+  - src/funcs/statusCheck.ts
+  - src/hooks/hooks.ts
+  - src/hooks/index.ts
+  - src/hooks/types.ts
+  - src/index.ts
+  - src/lib/base64.ts
+  - src/lib/config.ts
+  - src/lib/dlv.ts
+  - src/lib/encodings.ts
+  - src/lib/env.ts
+  - src/lib/files.ts
+  - src/lib/http.ts
+  - src/lib/is-plain-object.ts
+  - src/lib/logger.ts
+  - src/lib/matchers.ts
+  - src/lib/primitives.ts
+  - src/lib/retries.ts
+  - src/lib/schemas.ts
+  - src/lib/sdks.ts
+  - src/lib/security.ts
+  - src/lib/url.ts
+  - src/models/errors/apierror.ts
+  - src/models/errors/httpclienterrors.ts
+  - src/models/errors/index.ts
+  - src/models/errors/sdkvalidationerror.ts
+  - src/models/operations/gethealth.ts
+  - src/models/operations/index.ts
+  - src/sdk/index.ts
+  - src/sdk/sdk.ts
+  - src/sdk/status.ts
+  - src/types/blobs.ts
+  - src/types/constdatetime.ts
+  - src/types/enums.ts
+  - src/types/fp.ts
+  - src/types/index.ts
+  - src/types/operations.ts
+  - src/types/rfcdate.ts
+  - src/types/streams.ts
+  - tsconfig.json
+examples:
+  get_/health: {}
+examplesVersion: 1.0.0
+generatedTests: {}
