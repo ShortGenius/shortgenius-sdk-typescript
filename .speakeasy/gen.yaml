@@ -3,7 +3,7 @@ generation:
   devContainers:
     enabled: true
     schemaPath: https://shortgenius.com/openapi.yaml
-  sdkClassName: Shortgenius
+  sdkClassName: ShortGenius
   maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
@@ -22,8 +22,9 @@ typescript:
     dependencies: {}
     devDependencies: {}
     peerDependencies: {}
-  additionalPackageJSON: {}
-  author: Speakeasy
+  additionalPackageJSON:
+    license: MIT
+  author: ShortGenius
   clientServerStatusCodesAsErrors: true
   defaultErrorName: APIError
   enableCustomCodeRegions: false
