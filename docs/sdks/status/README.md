@@ -14,12 +14,12 @@ Health check
 ### Example Usage
 
 ```typescript
-import { Shortgenius } from "shortgenius";
+import { ShortGenius } from "shortgenius";
 
-const shortgenius = new Shortgenius();
+const shortGenius = new ShortGenius();
 
 async function run() {
-  const result = await shortgenius.status.check();
+  const result = await shortGenius.status.check();
 
   // Handle the result
   console.log(result);
@@ -33,15 +33,15 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { ShortgeniusCore } from "shortgenius/core.js";
+import { ShortGeniusCore } from "shortgenius/core.js";
 import { statusCheck } from "shortgenius/funcs/statusCheck.js";
 
-// Use `ShortgeniusCore` for best tree-shaking performance.
+// Use `ShortGeniusCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const shortgenius = new ShortgeniusCore();
+const shortGenius = new ShortGeniusCore();
 
 async function run() {
-  const res = await statusCheck(shortgenius);
+  const res = await statusCheck(shortGenius);
 
   if (!res.ok) {
     throw res.error;

@@ -5,8 +5,11 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.493.0
   generationVersion: 2.512.4
-  releaseVersion: 0.1.1
-  configChecksum: 432cf0467a21d894c948e899c158cbb2
+  releaseVersion: 0.1.2
+  configChecksum: 722e453ac9688881ff55202966baa565
+  repoURL: https://github.com/ShortGenius/shortgenius-sdk-typescript.git
+  installationURL: https://github.com/ShortGenius/shortgenius-sdk-typescript
+  published: true
 features:
   typescript:
     additionalDependencies: 0.1.0

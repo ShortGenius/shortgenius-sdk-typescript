@@ -19,16 +19,16 @@ specific category of applications.
 ## Example
 
 ```typescript
-import { ShortgeniusCore } from "shortgenius/core.js";
+import { ShortGeniusCore } from "shortgenius/core.js";
 import { statusCheck } from "shortgenius/funcs/statusCheck.js";
 import { SDKValidationError } from "shortgenius/models/errors/sdkvalidationerror.js";
 
-// Use `ShortgeniusCore` for best tree-shaking performance.
+// Use `ShortGeniusCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const shortgenius = new ShortgeniusCore();
+const shortGenius = new ShortGeniusCore();
 
 async function run() {
-  const res = await statusCheck(shortgenius);
+  const res = await statusCheck(shortGenius);
 
   switch (true) {
     case res.ok:

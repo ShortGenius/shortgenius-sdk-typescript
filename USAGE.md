@@ -1,11 +1,11 @@
 <!-- Start SDK Example Usage [usage] -->
 ```typescript
-import { Shortgenius } from "shortgenius";
+import { ShortGenius } from "shortgenius";
 
-const shortgenius = new Shortgenius();
+const shortGenius = new ShortGenius();
 
 async function run() {
-  const result = await shortgenius.status.check();
+  const result = await shortGenius.status.check();
 
   // Handle the result
   console.log(result);

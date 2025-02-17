@@ -1,4 +1,4 @@
-# Shortgenius SDK
+# ShortGenius SDK
 
 ## Overview
 

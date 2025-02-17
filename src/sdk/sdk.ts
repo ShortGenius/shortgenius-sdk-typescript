@@ -5,7 +5,7 @@
 import { ClientSDK } from "../lib/sdks.js";
 import { Status } from "./status.js";
 
-export class Shortgenius extends ClientSDK {
+export class ShortGenius extends ClientSDK {
   private _status?: Status;
   get status(): Status {
     return (this._status ??= new Status(this._options));
