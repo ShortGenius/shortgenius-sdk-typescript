@@ -8,7 +8,7 @@ import { Six } from "shortgenius/models/operations";
 let value: Six = {
   id: "9407ee2d-01f6-4170-9083-952f304445c0",
   url: "https://worst-charm.info/",
-  createdAt: "1724832893533",
+  createdAt: "1724837646847",
 };
 ```
 

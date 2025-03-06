@@ -117,9 +117,7 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.getMusic({
-    id: "<id>",
-  });
+  const result = await shortGenius.getMusic("<id>");
 
   // Handle the result
   console.log(result);
@@ -143,9 +141,7 @@ const shortGenius = new ShortGeniusCore({
 });
 
 async function run() {
-  const res = await getMusic(shortGenius, {
-    id: "<id>",
-  });
+  const res = await getMusic(shortGenius, "<id>");
 
   if (!res.ok) {
     throw res.error;
@@ -164,7 +160,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.GetMusicRequest](../../models/operations/getmusicrequest.md)                                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `id`                                                                                                                                                                           | *string*                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                             | The unique ID of the music genre.                                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -564,9 +560,7 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.getVideo({
-    id: "1da911f6-eb73-4f3c-8df2-bee5ea49dfef",
-  });
+  const result = await shortGenius.getVideo("1da911f6-eb73-4f3c-8df2-bee5ea49dfef");
 
   // Handle the result
   console.log(result);
@@ -590,9 +584,7 @@ const shortGenius = new ShortGeniusCore({
 });
 
 async function run() {
-  const res = await getVideo(shortGenius, {
-    id: "1da911f6-eb73-4f3c-8df2-bee5ea49dfef",
-  });
+  const res = await getVideo(shortGenius, "1da911f6-eb73-4f3c-8df2-bee5ea49dfef");
 
   if (!res.ok) {
     throw res.error;
@@ -611,7 +603,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.GetVideoRequest](../../models/operations/getvideorequest.md)                                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `id`                                                                                                                                                                           | *string*                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                             | The unique ID of the video to retrieve.                                                                                                                                        |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -1016,9 +1008,7 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.getSeries({
-    id: "2c052674-65b4-43c1-b916-2f4dfdcbb4a8",
-  });
+  const result = await shortGenius.getSeries("2c052674-65b4-43c1-b916-2f4dfdcbb4a8");
 
   // Handle the result
   console.log(result);
@@ -1042,9 +1032,7 @@ const shortGenius = new ShortGeniusCore({
 });
 
 async function run() {
-  const res = await getSeries(shortGenius, {
-    id: "2c052674-65b4-43c1-b916-2f4dfdcbb4a8",
-  });
+  const res = await getSeries(shortGenius, "2c052674-65b4-43c1-b916-2f4dfdcbb4a8");
 
   if (!res.ok) {
     throw res.error;
@@ -1063,7 +1051,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.GetSeriesRequest](../../models/operations/getseriesrequest.md)                                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `id`                                                                                                                                                                           | *string*                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                             | The unique ID of the video series to retrieve.                                                                                                                                 |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -1312,9 +1300,7 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.getImage({
-    id: "<id>",
-  });
+  const result = await shortGenius.getImage("<id>");
 
   // Handle the result
   console.log(result);
@@ -1338,9 +1324,7 @@ const shortGenius = new ShortGeniusCore({
 });
 
 async function run() {
-  const res = await getImage(shortGenius, {
-    id: "<id>",
-  });
+  const res = await getImage(shortGenius, "<id>");
 
   if (!res.ok) {
     throw res.error;
@@ -1359,7 +1343,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.GetImageRequest](../../models/operations/getimagerequest.md)                                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `id`                                                                                                                                                                           | *string*                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                             | The unique ID of the image record to retrieve.                                                                                                                                 |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -1608,9 +1592,7 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.getAudio({
-    id: "<id>",
-  });
+  const result = await shortGenius.getAudio("<id>");
 
   // Handle the result
   console.log(result);
@@ -1634,9 +1616,7 @@ const shortGenius = new ShortGeniusCore({
 });
 
 async function run() {
-  const res = await getAudio(shortGenius, {
-    id: "<id>",
-  });
+  const res = await getAudio(shortGenius, "<id>");
 
   if (!res.ok) {
     throw res.error;
@@ -1655,7 +1635,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.GetAudioRequest](../../models/operations/getaudiorequest.md)                                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `id`                                                                                                                                                                           | *string*                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                             | The unique ID of the audio record to retrieve.                                                                                                                                 |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -1758,9 +1738,7 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.getVoice({
-    id: "<id>",
-  });
+  const result = await shortGenius.getVoice("<id>");
 
   // Handle the result
   console.log(result);
@@ -1784,9 +1762,7 @@ const shortGenius = new ShortGeniusCore({
 });
 
 async function run() {
-  const res = await getVoice(shortGenius, {
-    id: "<id>",
-  });
+  const res = await getVoice(shortGenius, "<id>");
 
   if (!res.ok) {
     throw res.error;
@@ -1805,7 +1781,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.GetVoiceRequest](../../models/operations/getvoicerequest.md)                                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `id`                                                                                                                                                                           | *string*                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                             | The unique ID of the voice to retrieve.                                                                                                                                        |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |

@@ -16,7 +16,7 @@ let value: Six2 = {
     id: "<id>",
     ugcCreatorId: "<id>",
     ugcPresetId: "<id>",
-    createdAt: "1712633791965",
+    createdAt: "1712638545785",
   },
   state: "error",
 };
