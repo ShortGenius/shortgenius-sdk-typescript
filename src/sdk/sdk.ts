@@ -3,11 +3,53 @@
  */
 
 import { ClientSDK } from "../lib/sdks.js";
+import { Administration } from "./administration.js";
+import { Audio } from "./audio.js";
+import { Images } from "./images.js";
+import { Music } from "./music.js";
+import { Publishing } from "./publishing.js";
+import { Series } from "./series.js";
 import { Status } from "./status.js";
+import { Videos } from "./videos.js";
 
 export class ShortGenius extends ClientSDK {
+  private _music?: Music;
+  get music(): Music {
+    return (this._music ??= new Music(this._options));
+  }
+
+  private _videos?: Videos;
+  get videos(): Videos {
+    return (this._videos ??= new Videos(this._options));
+  }
+
+  private _series?: Series;
+  get series(): Series {
+    return (this._series ??= new Series(this._options));
+  }
+
+  private _publishing?: Publishing;
+  get publishing(): Publishing {
+    return (this._publishing ??= new Publishing(this._options));
+  }
+
   private _status?: Status;
   get status(): Status {
     return (this._status ??= new Status(this._options));
+  }
+
+  private _images?: Images;
+  get images(): Images {
+    return (this._images ??= new Images(this._options));
+  }
+
+  private _audio?: Audio;
+  get audio(): Audio {
+    return (this._audio ??= new Audio(this._options));
+  }
+
+  private _administration?: Administration;
+  get administration(): Administration {
+    return (this._administration ??= new Administration(this._options));
   }
 }

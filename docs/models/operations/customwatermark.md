@@ -1,0 +1,23 @@
+# CustomWatermark
+
+Custom watermark for the series (paid plans only).
+
+## Example Usage
+
+```typescript
+import { CustomWatermark } from "shortgenius/models/operations";
+
+let value: CustomWatermark = {};
+```
+
+## Fields
+
+| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `captionColor`                                                                                                       | *any*                                                                                                                | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `captionStrokeColor`                                                                                                 | *string*                                                                                                             | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `captionAlignment`                                                                                                   | [operations.GetSeriesIdSeriesCaptionAlignment](../../models/operations/getseriesidseriescaptionalignment.md)         | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `captionFontFamily`                                                                                                  | *string*                                                                                                             | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `captionFontSize`                                                                                                    | *number*                                                                                                             | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `captionTextTransform`                                                                                               | [operations.GetSeriesIdSeriesCaptionTextTransform](../../models/operations/getseriesidseriescaptiontexttransform.md) | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `text`                                                                                                               | *string*                                                                                                             | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |

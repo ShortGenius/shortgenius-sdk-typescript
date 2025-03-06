@@ -1,6 +1,6 @@
 # GetHealthResponseBody
 
-Service is healthy
+Health status response.
 
 ## Example Usage
 
@@ -16,4 +16,4 @@ let value: GetHealthResponseBody = {
 
 | Field                                                  | Type                                                   | Required                                               | Description                                            |
 | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
-| `status`                                               | [operations.Status](../../models/operations/status.md) | :heavy_check_mark:                                     | N/A                                                    |
+| `status`                                               | [operations.Status](../../models/operations/status.md) | :heavy_check_mark:                                     | Indicates if the server is healthy.                    |

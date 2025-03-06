@@ -10,6 +10,9 @@ import { unwrapAsync } from "../types/fp.js";
 export class Status extends ClientSDK {
   /**
    * Health check
+   *
+   * @remarks
+   * Check if the service is running.
    */
   async check(
     options?: RequestOptions,

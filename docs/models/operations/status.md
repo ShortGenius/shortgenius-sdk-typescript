@@ -1,5 +1,7 @@
 # Status
 
+Indicates if the server is healthy.
+
 ## Example Usage
 
 ```typescript

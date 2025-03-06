@@ -1,30 +1,36 @@
 lockVersion: 2.0.0
 id: f54f0795-3b37-43ef-8a0f-1a7b35a560fb
 management:
-  docChecksum: 2e88a6751e07f0a51950911067956646
+  docChecksum: 035b78cebd351aecf5189d930e02599a
   docVersion: 1.0.0
-  speakeasyVersion: 1.493.0
-  generationVersion: 2.512.4
-  releaseVersion: 0.1.2
-  configChecksum: 722e453ac9688881ff55202966baa565
+  speakeasyVersion: 1.510.0
+  generationVersion: 2.541.0
+  releaseVersion: 0.2.0
+  configChecksum: e28a1b056022d5b9a139e5777d1c3bdb
   repoURL: https://github.com/ShortGenius/shortgenius-sdk-typescript.git
   installationURL: https://github.com/ShortGenius/shortgenius-sdk-typescript
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.19.0
+    constsAndDefaults: 0.1.11
+    core: 3.21.3
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
+    globalSecurity: 2.82.13
     globalSecurityCallbacks: 0.1.0
+    globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.4
     groups: 2.81.2
+    mcpServer: 0.4.1
     nameOverrides: 2.81.2
+    nullables: 0.1.1
     responseFormat: 0.2.3
     retries: 2.83.0
     sdkHooks: 0.2.0
+    unions: 2.85.8
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -35,15 +41,460 @@ generatedFiles:
   - RUNTIMES.md
   - USAGE.md
   - docs/lib/utils/retryconfig.md
+  - docs/models/components/artifacts.md
+  - docs/models/components/aspectratio.md
+  - docs/models/components/audio.md
+  - docs/models/components/audiolocale.md
+  - docs/models/components/audiostate.md
+  - docs/models/components/captionalignment.md
+  - docs/models/components/captionanimation.md
+  - docs/models/components/captiondisplay.md
+  - docs/models/components/captiontexttransform.md
+  - docs/models/components/categories.md
+  - docs/models/components/category.md
+  - docs/models/components/connection.md
+  - docs/models/components/connectiontype.md
+  - docs/models/components/contenttype.md
+  - docs/models/components/customwatermark.md
+  - docs/models/components/data.md
+  - docs/models/components/draftquizvideo.md
+  - docs/models/components/draftscene.md
+  - docs/models/components/draftvideo.md
+  - docs/models/components/five.md
+  - docs/models/components/four.md
+  - docs/models/components/image.md
+  - docs/models/components/imageaspectratio.md
+  - docs/models/components/imageinfo.md
+  - docs/models/components/images.md
+  - docs/models/components/imagestyle.md
+  - docs/models/components/large.md
+  - docs/models/components/links.md
+  - docs/models/components/locale.md
+  - docs/models/components/maskimage.md
+  - docs/models/components/media.md
+  - docs/models/components/mediadata.md
+  - docs/models/components/mediaimage.md
+  - docs/models/components/mediametadata.md
+  - docs/models/components/mediaresults.md
+  - docs/models/components/mediasource.md
+  - docs/models/components/mediastate.md
+  - docs/models/components/medium.md
+  - docs/models/components/metadata.md
+  - docs/models/components/musicgenre.md
+  - docs/models/components/one.md
+  - docs/models/components/one1.md
+  - docs/models/components/one2.md
+  - docs/models/components/one3.md
+  - docs/models/components/one4.md
+  - docs/models/components/one5.md
+  - docs/models/components/one6.md
+  - docs/models/components/onedata.md
+  - docs/models/components/oneimage.md
+  - docs/models/components/onelinks.md
+  - docs/models/components/oneuser.md
+  - docs/models/components/options.md
+  - docs/models/components/privacylevel.md
+  - docs/models/components/profileimage.md
+  - docs/models/components/publishingstate.md
+  - docs/models/components/quality.md
+  - docs/models/components/questions.md
+  - docs/models/components/quiz.md
+  - docs/models/components/recommendations.md
+  - docs/models/components/recommendedforlocales.md
+  - docs/models/components/result.md
+  - docs/models/components/results.md
+  - docs/models/components/schedule.md
+  - docs/models/components/security.md
+  - docs/models/components/series.md
+  - docs/models/components/series1data.md
+  - docs/models/components/series1thumbnaildata.md
+  - docs/models/components/series1thumbnailmedia1data.md
+  - docs/models/components/series1thumbnailmedia6data.md
+  - docs/models/components/series1thumbnailmedia7data.md
+  - docs/models/components/series1thumbnailmediadata.md
+  - docs/models/components/series2data.md
+  - docs/models/components/series2metadata.md
+  - docs/models/components/series2source.md
+  - docs/models/components/series2state.md
+  - docs/models/components/series2thumbnaildata.md
+  - docs/models/components/series2thumbnailmetadata.md
+  - docs/models/components/series2thumbnailsource.md
+  - docs/models/components/series2thumbnailstate.md
+  - docs/models/components/series3data.md
+  - docs/models/components/series3metadata.md
+  - docs/models/components/series3source.md
+  - docs/models/components/series3state.md
+  - docs/models/components/series3thumbnaildata.md
+  - docs/models/components/series3thumbnailmediadata.md
+  - docs/models/components/series3thumbnailmediametadata.md
+  - docs/models/components/series3thumbnailmediasource.md
+  - docs/models/components/series3thumbnailmediastate.md
+  - docs/models/components/series3thumbnailmetadata.md
+  - docs/models/components/series3thumbnailsource.md
+  - docs/models/components/series3thumbnailstate.md
+  - docs/models/components/series6data.md
+  - docs/models/components/series6source.md
+  - docs/models/components/seriescaptionalignment.md
+  - docs/models/components/seriescaptiontexttransform.md
+  - docs/models/components/seriescustomwatermarkcaptionalignment.md
+  - docs/models/components/seriescustomwatermarkcaptiontexttransform.md
+  - docs/models/components/seriesimagestyle.md
+  - docs/models/components/seriesmediadata.md
+  - docs/models/components/seriesmediasource.md
+  - docs/models/components/seriesprivacylevel.md
+  - docs/models/components/seriesrecommendations.md
+  - docs/models/components/seriesvoice.md
+  - docs/models/components/seven.md
+  - docs/models/components/six.md
+  - docs/models/components/six1.md
+  - docs/models/components/six2.md
+  - docs/models/components/sixdata.md
+  - docs/models/components/sixmetadata.md
+  - docs/models/components/sixsource.md
+  - docs/models/components/sixstate.md
+  - docs/models/components/small.md
+  - docs/models/components/song.md
+  - docs/models/components/soundtrack.md
+  - docs/models/components/soundtrackbehavior.md
+  - docs/models/components/source.md
+  - docs/models/components/sourcemedia.md
+  - docs/models/components/src.md
+  - docs/models/components/state.md
+  - docs/models/components/styles.md
+  - docs/models/components/tags.md
+  - docs/models/components/theme.md
+  - docs/models/components/three.md
+  - docs/models/components/three1.md
+  - docs/models/components/three2.md
+  - docs/models/components/three3.md
+  - docs/models/components/three4.md
+  - docs/models/components/threedata.md
+  - docs/models/components/threeimage.md
+  - docs/models/components/threemaskimage.md
+  - docs/models/components/threemetadata.md
+  - docs/models/components/threeresults.md
+  - docs/models/components/threesource.md
+  - docs/models/components/threestate.md
+  - docs/models/components/thumbnail.md
+  - docs/models/components/tiktoksettings.md
+  - docs/models/components/times.md
+  - docs/models/components/timezone.md
+  - docs/models/components/timings.md
+  - docs/models/components/tiny.md
+  - docs/models/components/tracks.md
+  - docs/models/components/transcript.md
+  - docs/models/components/two.md
+  - docs/models/components/two1.md
+  - docs/models/components/two2.md
+  - docs/models/components/two3.md
+  - docs/models/components/twoaspectratio.md
+  - docs/models/components/twodata.md
+  - docs/models/components/twometadata.md
+  - docs/models/components/tworesults.md
+  - docs/models/components/twosource.md
+  - docs/models/components/twostate.md
+  - docs/models/components/twovideo.md
+  - docs/models/components/type.md
+  - docs/models/components/urls.md
+  - docs/models/components/user.md
+  - docs/models/components/video.md
+  - docs/models/components/videofiles.md
+  - docs/models/components/videopictures.md
+  - docs/models/components/videos.md
+  - docs/models/components/voice.md
+  - docs/models/components/voicelocale.md
+  - docs/models/components/words.md
+  - docs/models/components/xsettings.md
+  - docs/models/components/youtubesettings.md
+  - docs/models/errors/getaudioidresponsebody.md
+  - docs/models/errors/getaudioresponsebody.md
+  - docs/models/errors/getaudiovoicesidresponsebody.md
+  - docs/models/errors/getaudiovoicesresponsebody.md
+  - docs/models/errors/getconnectionsresponsebody.md
+  - docs/models/errors/getimagesidresponsebody.md
+  - docs/models/errors/getimagesresponsebody.md
+  - docs/models/errors/getimagesstylesresponsebody.md
+  - docs/models/errors/getmusicgenresidresponsebody.md
+  - docs/models/errors/getseriesidresponsebody.md
+  - docs/models/errors/getseriesresponsebody.md
+  - docs/models/errors/getvideosidresponsebody.md
+  - docs/models/errors/getvideosresponsebody.md
+  - docs/models/errors/postaudiospeechaudioresponsebody.md
+  - docs/models/errors/postaudiospeechresponsebody.md
+  - docs/models/errors/postimagesimagesresponsebody.md
+  - docs/models/errors/postimagesresponsebody.md
+  - docs/models/errors/postseriesresponsebody.md
+  - docs/models/errors/postseriesseriesresponsebody.md
+  - docs/models/errors/postvideosdraftsnewsresponsebody.md
+  - docs/models/errors/postvideosdraftsnewsvideosresponsebody.md
+  - docs/models/errors/postvideosdraftsquizresponsebody.md
+  - docs/models/errors/postvideosdraftsquizvideosresponsebody.md
+  - docs/models/errors/postvideosdraftsresponsebody.md
+  - docs/models/errors/postvideosdraftsscriptresponsebody.md
+  - docs/models/errors/postvideosdraftsscriptvideosresponsebody.md
+  - docs/models/errors/postvideosdraftsurlresponsebody.md
+  - docs/models/errors/postvideosdraftsurlvideosresponsebody.md
+  - docs/models/errors/postvideosdraftsvideosresponsebody.md
+  - docs/models/errors/postvideosresponsebody.md
+  - docs/models/errors/postvideostopicsresponsebody.md
+  - docs/models/errors/postvideostopicsvideosresponsebody.md
+  - docs/models/errors/postvideosvideosresponsebody.md
+  - docs/models/operations/artifacts.md
+  - docs/models/operations/aspectratio.md
+  - docs/models/operations/balance.md
+  - docs/models/operations/captionalignment.md
+  - docs/models/operations/captionanimation.md
+  - docs/models/operations/captiondisplay.md
+  - docs/models/operations/captiontexttransform.md
+  - docs/models/operations/categories.md
+  - docs/models/operations/category.md
+  - docs/models/operations/contenttype.md
+  - docs/models/operations/customwatermark.md
+  - docs/models/operations/data.md
+  - docs/models/operations/duration.md
+  - docs/models/operations/eight.md
+  - docs/models/operations/eleven.md
+  - docs/models/operations/five.md
+  - docs/models/operations/four.md
+  - docs/models/operations/getaudioidrequest.md
+  - docs/models/operations/getaudiorequest.md
+  - docs/models/operations/getaudioresponsebody.md
+  - docs/models/operations/getaudiovoicesidrequest.md
+  - docs/models/operations/getaudiovoicesrequest.md
+  - docs/models/operations/getcreditsresponsebody.md
   - docs/models/operations/gethealthresponsebody.md
+  - docs/models/operations/getimagesid1imagesresponsestate.md
+  - docs/models/operations/getimagesid1imagesstate.md
+  - docs/models/operations/getimagesid1state.md
+  - docs/models/operations/getimagesidrequest.md
+  - docs/models/operations/getimagesidresponsebody.md
+  - docs/models/operations/getimagesidresponsebodyimagesresponse200state.md
+  - docs/models/operations/getimagesidresponsebodyimagesresponsestate.md
+  - docs/models/operations/getimagesidresponsebodyimagesstate.md
+  - docs/models/operations/getimagesidresponsebodystate.md
+  - docs/models/operations/getimagesrequest.md
+  - docs/models/operations/getimagesresponsebody.md
+  - docs/models/operations/getmusicgenresidrequest.md
+  - docs/models/operations/getseriesid11.md
+  - docs/models/operations/getseriesid12.md
+  - docs/models/operations/getseriesid13.md
+  - docs/models/operations/getseriesid14.md
+  - docs/models/operations/getseriesid1data.md
+  - docs/models/operations/getseriesid1seriesdata.md
+  - docs/models/operations/getseriesid1seriesresponse200applicationjsondata.md
+  - docs/models/operations/getseriesid1seriesresponse200applicationjsonresponsebodydata.md
+  - docs/models/operations/getseriesid1seriesresponse200data.md
+  - docs/models/operations/getseriesid1seriesresponsedata.md
+  - docs/models/operations/getseriesid2data.md
+  - docs/models/operations/getseriesid2metadata.md
+  - docs/models/operations/getseriesid2seriesdata.md
+  - docs/models/operations/getseriesid2seriesmetadata.md
+  - docs/models/operations/getseriesid2seriessource.md
+  - docs/models/operations/getseriesid2seriesstate.md
+  - docs/models/operations/getseriesid2source.md
+  - docs/models/operations/getseriesid2state.md
+  - docs/models/operations/getseriesid3data.md
+  - docs/models/operations/getseriesid3metadata.md
+  - docs/models/operations/getseriesid3seriesdata.md
+  - docs/models/operations/getseriesid3seriesmetadata.md
+  - docs/models/operations/getseriesid3seriesresponsedata.md
+  - docs/models/operations/getseriesid3seriesresponsemetadata.md
+  - docs/models/operations/getseriesid3seriesresponsesource.md
+  - docs/models/operations/getseriesid3seriesresponsestate.md
+  - docs/models/operations/getseriesid3seriessource.md
+  - docs/models/operations/getseriesid3seriesstate.md
+  - docs/models/operations/getseriesid3source.md
+  - docs/models/operations/getseriesid3state.md
+  - docs/models/operations/getseriesid6data.md
+  - docs/models/operations/getseriesid6source.md
+  - docs/models/operations/getseriesidaspectratio.md
+  - docs/models/operations/getseriesidcaptionalignment.md
+  - docs/models/operations/getseriesidcaptiontexttransform.md
+  - docs/models/operations/getseriesidcontenttype.md
+  - docs/models/operations/getseriesidlocale.md
+  - docs/models/operations/getseriesidmediadata.md
+  - docs/models/operations/getseriesidprivacylevel.md
+  - docs/models/operations/getseriesidrecommendations.md
+  - docs/models/operations/getseriesidrequest.md
+  - docs/models/operations/getseriesidresponsebody.md
+  - docs/models/operations/getseriesidschedule.md
+  - docs/models/operations/getseriesidseriescaptionalignment.md
+  - docs/models/operations/getseriesidseriescaptiontexttransform.md
+  - docs/models/operations/getseriesidtimes.md
+  - docs/models/operations/getseriesidtimezone.md
+  - docs/models/operations/getseriesrequest.md
+  - docs/models/operations/getseriesresponsebody.md
+  - docs/models/operations/getvideosidrequest.md
+  - docs/models/operations/getvideosrequest.md
+  - docs/models/operations/getvideosresponsebody.md
+  - docs/models/operations/image.md
+  - docs/models/operations/imageinfo.md
+  - docs/models/operations/images.md
+  - docs/models/operations/imagestyle.md
+  - docs/models/operations/large.md
+  - docs/models/operations/links.md
+  - docs/models/operations/locale.md
+  - docs/models/operations/maskimage.md
+  - docs/models/operations/media.md
+  - docs/models/operations/media1.md
+  - docs/models/operations/media2.md
+  - docs/models/operations/media3.md
+  - docs/models/operations/media4.md
+  - docs/models/operations/media5.md
+  - docs/models/operations/media6.md
+  - docs/models/operations/mediadata.md
+  - docs/models/operations/mediaimage.md
+  - docs/models/operations/mediametadata.md
+  - docs/models/operations/mediaresults.md
+  - docs/models/operations/mediasource.md
+  - docs/models/operations/mediastate.md
+  - docs/models/operations/medium.md
+  - docs/models/operations/metadata.md
+  - docs/models/operations/nine.md
+  - docs/models/operations/one.md
+  - docs/models/operations/one1.md
+  - docs/models/operations/one2.md
+  - docs/models/operations/one3.md
+  - docs/models/operations/one4.md
+  - docs/models/operations/one5.md
+  - docs/models/operations/one6.md
+  - docs/models/operations/one7.md
+  - docs/models/operations/oneaspectratio.md
+  - docs/models/operations/onedata.md
+  - docs/models/operations/onelinks.md
+  - docs/models/operations/onestate.md
+  - docs/models/operations/oneuser.md
+  - docs/models/operations/options.md
+  - docs/models/operations/postaudiospeechlocale.md
+  - docs/models/operations/postaudiospeechrequestbody.md
+  - docs/models/operations/postimagesaspectratio.md
+  - docs/models/operations/postimagesrequestbody.md
+  - docs/models/operations/postseriesaspectratio.md
+  - docs/models/operations/postseriescontenttype.md
+  - docs/models/operations/postserieslocale.md
+  - docs/models/operations/postseriesrequestbody.md
+  - docs/models/operations/postvideosdraftsnewslocale.md
+  - docs/models/operations/postvideosdraftsnewsrequestbody.md
+  - docs/models/operations/postvideosdraftsquizlocale.md
+  - docs/models/operations/postvideosdraftsquizrequestbody.md
+  - docs/models/operations/postvideosdraftsrequestbody.md
+  - docs/models/operations/postvideosdraftsscriptrequestbody.md
+  - docs/models/operations/postvideosdraftsurllocale.md
+  - docs/models/operations/postvideosdraftsurlrequestbody.md
+  - docs/models/operations/postvideoslocale.md
+  - docs/models/operations/postvideosrequestbody.md
+  - docs/models/operations/postvideostopicscontenttype.md
+  - docs/models/operations/postvideostopicslocale.md
+  - docs/models/operations/postvideostopicsrequestbody.md
+  - docs/models/operations/privacylevel.md
+  - docs/models/operations/profileimage.md
+  - docs/models/operations/quality.md
+  - docs/models/operations/queryparamlocale.md
+  - docs/models/operations/questions.md
+  - docs/models/operations/quiz.md
+  - docs/models/operations/recommendations.md
+  - docs/models/operations/responsebodystate.md
+  - docs/models/operations/result.md
+  - docs/models/operations/results.md
+  - docs/models/operations/schedule.md
+  - docs/models/operations/seven.md
+  - docs/models/operations/six.md
+  - docs/models/operations/six1.md
+  - docs/models/operations/six2.md
+  - docs/models/operations/sixdata.md
+  - docs/models/operations/sixmetadata.md
+  - docs/models/operations/sixsource.md
+  - docs/models/operations/sixstate.md
+  - docs/models/operations/small.md
+  - docs/models/operations/soundtrack.md
+  - docs/models/operations/soundtrackbehavior.md
+  - docs/models/operations/source.md
+  - docs/models/operations/sourcemedia.md
+  - docs/models/operations/src.md
+  - docs/models/operations/state.md
   - docs/models/operations/status.md
+  - docs/models/operations/styles.md
+  - docs/models/operations/ten.md
+  - docs/models/operations/theme.md
+  - docs/models/operations/three.md
+  - docs/models/operations/three1.md
+  - docs/models/operations/three2.md
+  - docs/models/operations/three3.md
+  - docs/models/operations/three4.md
+  - docs/models/operations/threedata.md
+  - docs/models/operations/threeimage.md
+  - docs/models/operations/threemaskimage.md
+  - docs/models/operations/threemetadata.md
+  - docs/models/operations/threeresults.md
+  - docs/models/operations/threesource.md
+  - docs/models/operations/threestate.md
+  - docs/models/operations/thumbnail.md
+  - docs/models/operations/tiktoksettings.md
+  - docs/models/operations/times.md
+  - docs/models/operations/timezone.md
+  - docs/models/operations/timings.md
+  - docs/models/operations/tiny.md
+  - docs/models/operations/topics.md
+  - docs/models/operations/tracks.md
+  - docs/models/operations/two.md
+  - docs/models/operations/two1.md
+  - docs/models/operations/two2.md
+  - docs/models/operations/two3.md
+  - docs/models/operations/twoaspectratio.md
+  - docs/models/operations/twodata.md
+  - docs/models/operations/twometadata.md
+  - docs/models/operations/tworesults.md
+  - docs/models/operations/twosource.md
+  - docs/models/operations/twostate.md
+  - docs/models/operations/type.md
+  - docs/models/operations/urls.md
+  - docs/models/operations/user.md
+  - docs/models/operations/video.md
+  - docs/models/operations/videofiles.md
+  - docs/models/operations/videopictures.md
+  - docs/models/operations/videos.md
+  - docs/models/operations/voice.md
+  - docs/models/operations/xsettings.md
+  - docs/models/operations/youtubesettings.md
+  - docs/sdks/administration/README.md
+  - docs/sdks/audio/README.md
+  - docs/sdks/images/README.md
+  - docs/sdks/music/README.md
+  - docs/sdks/publishing/README.md
+  - docs/sdks/series/README.md
   - docs/sdks/shortgenius/README.md
   - docs/sdks/status/README.md
+  - docs/sdks/videos/README.md
   - eslint.config.mjs
   - jsr.json
   - package.json
   - src/core.ts
+  - src/funcs/administrationGetCredits.ts
+  - src/funcs/audioGetAudio.ts
+  - src/funcs/audioGetAudioId.ts
+  - src/funcs/audioGetAudioVoices.ts
+  - src/funcs/audioGetAudioVoicesId.ts
+  - src/funcs/audioPostAudioSpeech.ts
+  - src/funcs/imagesGetImages.ts
+  - src/funcs/imagesGetImagesId.ts
+  - src/funcs/imagesGetImagesStyles.ts
+  - src/funcs/imagesPostImages.ts
+  - src/funcs/musicGetMusicGenres.ts
+  - src/funcs/musicGetMusicGenresId.ts
+  - src/funcs/publishingGetConnections.ts
+  - src/funcs/seriesGetSeries.ts
+  - src/funcs/seriesGetSeriesId.ts
+  - src/funcs/seriesPostSeries.ts
   - src/funcs/statusCheck.ts
+  - src/funcs/videosGetVideos.ts
+  - src/funcs/videosGetVideosId.ts
+  - src/funcs/videosPostVideos.ts
+  - src/funcs/videosPostVideosDrafts.ts
+  - src/funcs/videosPostVideosDraftsNews.ts
+  - src/funcs/videosPostVideosDraftsQuiz.ts
+  - src/funcs/videosPostVideosDraftsScript.ts
+  - src/funcs/videosPostVideosDraftsUrl.ts
+  - src/funcs/videosPostVideosTopics.ts
   - src/hooks/hooks.ts
   - src/hooks/index.ts
   - src/hooks/types.ts
@@ -64,15 +515,119 @@ generatedFiles:
   - src/lib/sdks.ts
   - src/lib/security.ts
   - src/lib/url.ts
+  - src/mcp-server/build.mts
+  - src/mcp-server/cli.ts
+  - src/mcp-server/cli/start/command.ts
+  - src/mcp-server/cli/start/impl.ts
+  - src/mcp-server/console-logger.ts
+  - src/mcp-server/mcp-server.ts
+  - src/mcp-server/resources.ts
+  - src/mcp-server/scopes.ts
+  - src/mcp-server/server.ts
+  - src/mcp-server/shared.ts
+  - src/mcp-server/tools.ts
+  - src/mcp-server/tools/administrationGetCredits.ts
+  - src/mcp-server/tools/audioGetAudio.ts
+  - src/mcp-server/tools/audioGetAudioId.ts
+  - src/mcp-server/tools/audioGetAudioVoices.ts
+  - src/mcp-server/tools/audioGetAudioVoicesId.ts
+  - src/mcp-server/tools/audioPostAudioSpeech.ts
+  - src/mcp-server/tools/imagesGetImages.ts
+  - src/mcp-server/tools/imagesGetImagesId.ts
+  - src/mcp-server/tools/imagesGetImagesStyles.ts
+  - src/mcp-server/tools/imagesPostImages.ts
+  - src/mcp-server/tools/musicGetMusicGenres.ts
+  - src/mcp-server/tools/musicGetMusicGenresId.ts
+  - src/mcp-server/tools/publishingGetConnections.ts
+  - src/mcp-server/tools/seriesGetSeries.ts
+  - src/mcp-server/tools/seriesGetSeriesId.ts
+  - src/mcp-server/tools/seriesPostSeries.ts
+  - src/mcp-server/tools/statusCheck.ts
+  - src/mcp-server/tools/videosGetVideos.ts
+  - src/mcp-server/tools/videosGetVideosId.ts
+  - src/mcp-server/tools/videosPostVideos.ts
+  - src/mcp-server/tools/videosPostVideosDrafts.ts
+  - src/mcp-server/tools/videosPostVideosDraftsNews.ts
+  - src/mcp-server/tools/videosPostVideosDraftsQuiz.ts
+  - src/mcp-server/tools/videosPostVideosDraftsScript.ts
+  - src/mcp-server/tools/videosPostVideosDraftsUrl.ts
+  - src/mcp-server/tools/videosPostVideosTopics.ts
+  - src/models/components/audio.ts
+  - src/models/components/connection.ts
+  - src/models/components/draftquizvideo.ts
+  - src/models/components/draftscene.ts
+  - src/models/components/draftvideo.ts
+  - src/models/components/image.ts
+  - src/models/components/imagestyle.ts
+  - src/models/components/index.ts
+  - src/models/components/musicgenre.ts
+  - src/models/components/security.ts
+  - src/models/components/series.ts
+  - src/models/components/song.ts
+  - src/models/components/video.ts
+  - src/models/components/voice.ts
   - src/models/errors/apierror.ts
+  - src/models/errors/getaudio.ts
+  - src/models/errors/getaudioid.ts
+  - src/models/errors/getaudiovoices.ts
+  - src/models/errors/getaudiovoicesid.ts
+  - src/models/errors/getconnections.ts
+  - src/models/errors/getimages.ts
+  - src/models/errors/getimagesid.ts
+  - src/models/errors/getimagesstyles.ts
+  - src/models/errors/getmusicgenresid.ts
+  - src/models/errors/getseries.ts
+  - src/models/errors/getseriesid.ts
+  - src/models/errors/getvideos.ts
+  - src/models/errors/getvideosid.ts
   - src/models/errors/httpclienterrors.ts
   - src/models/errors/index.ts
+  - src/models/errors/postaudiospeech.ts
+  - src/models/errors/postimages.ts
+  - src/models/errors/postseries.ts
+  - src/models/errors/postvideos.ts
+  - src/models/errors/postvideosdrafts.ts
+  - src/models/errors/postvideosdraftsnews.ts
+  - src/models/errors/postvideosdraftsquiz.ts
+  - src/models/errors/postvideosdraftsscript.ts
+  - src/models/errors/postvideosdraftsurl.ts
+  - src/models/errors/postvideostopics.ts
   - src/models/errors/sdkvalidationerror.ts
+  - src/models/operations/getaudio.ts
+  - src/models/operations/getaudioid.ts
+  - src/models/operations/getaudiovoices.ts
+  - src/models/operations/getaudiovoicesid.ts
+  - src/models/operations/getcredits.ts
   - src/models/operations/gethealth.ts
+  - src/models/operations/getimages.ts
+  - src/models/operations/getimagesid.ts
+  - src/models/operations/getmusicgenresid.ts
+  - src/models/operations/getseries.ts
+  - src/models/operations/getseriesid.ts
+  - src/models/operations/getvideos.ts
+  - src/models/operations/getvideosid.ts
   - src/models/operations/index.ts
+  - src/models/operations/postaudiospeech.ts
+  - src/models/operations/postimages.ts
+  - src/models/operations/postseries.ts
+  - src/models/operations/postvideos.ts
+  - src/models/operations/postvideosdrafts.ts
+  - src/models/operations/postvideosdraftsnews.ts
+  - src/models/operations/postvideosdraftsquiz.ts
+  - src/models/operations/postvideosdraftsscript.ts
+  - src/models/operations/postvideosdraftsurl.ts
+  - src/models/operations/postvideostopics.ts
+  - src/sdk/administration.ts
+  - src/sdk/audio.ts
+  - src/sdk/images.ts
   - src/sdk/index.ts
+  - src/sdk/music.ts
+  - src/sdk/publishing.ts
   - src/sdk/sdk.ts
+  - src/sdk/series.ts
   - src/sdk/status.ts
+  - src/sdk/videos.ts
+  - src/types/async.ts
   - src/types/blobs.ts
   - src/types/constdatetime.ts
   - src/types/enums.ts
@@ -83,6 +638,240 @@ generatedFiles:
   - src/types/streams.ts
   - tsconfig.json
 examples:
-  get_/health: {}
+  get_/health:
+    speakeasy-default-get-/health:
+      responses:
+        "200":
+          application/json: {"status": "ok"}
+  get_/music/genres:
+    speakeasy-default-get-/music/genres:
+      responses:
+        "200":
+          application/json: [{"name": "Classical", "recommended_for_locales": []}]
+  get_/music/genres/{id}:
+    speakeasy-default-get-/music/genres/{id}:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: [{"id": "<id>", "name": "<value>", "preview_url": "https://measly-haircut.com"}, {"id": "<id>", "name": "<value>", "preview_url": "https://flawless-repeat.info/"}, {"id": "<id>", "name": "<value>", "preview_url": "https://rosy-scale.net"}]
+        "400":
+          application/json: {}
+  post_/videos/drafts:
+    speakeasy-default-post-/videos/drafts:
+      responses:
+        "200":
+          application/json: {"title": "<value>", "caption": "<value>", "scenes": [{"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}, {"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}, {"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}]}
+        "400":
+          application/json: {}
+        "401":
+          application/json: {}
+  post_/videos/drafts/url:
+    speakeasy-default-post-/videos/drafts/url:
+      responses:
+        "200":
+          application/json: {"title": "<value>", "caption": "<value>", "scenes": [{"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}, {"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}]}
+        "400":
+          application/json: {}
+        "401":
+          application/json: {}
+  post_/videos/drafts/script:
+    speakeasy-default-post-/videos/drafts/script:
+      responses:
+        "200":
+          application/json: {"title": "<value>", "caption": "<value>", "scenes": []}
+        "400":
+          application/json: {}
+        "401":
+          application/json: {}
+  post_/videos/drafts/quiz:
+    speakeasy-default-post-/videos/drafts/quiz:
+      responses:
+        "200":
+          application/json: {"title": "<value>", "caption": "<value>", "quiz": {"questions": [{"question": "<value>", "options": []}], "results": {"header": "<value>", "explanation": "<value>", "categories": [{"score_range": "<value>", "title": "<value>"}, {"score_range": "<value>", "title": "<value>"}, {"score_range": "<value>", "title": "<value>"}]}}}
+        "400":
+          application/json: {}
+        "401":
+          application/json: {}
+  post_/videos/drafts/news:
+    speakeasy-default-post-/videos/drafts/news:
+      responses:
+        "200":
+          application/json: {"title": "<value>", "caption": "<value>", "scenes": [{"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}, {"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}]}
+        "400":
+          application/json: {}
+        "401":
+          application/json: {}
+  get_/videos/{id}:
+    speakeasy-default-get-/videos/{id}:
+      parameters:
+        path:
+          id: "f54ef435-bb01-4d1e-a20b-60783a1498ad"
+      responses:
+        "200":
+          application/json: {"id": "4f9ca771-4b0a-4065-9458-10ec6fcc0e8f", "created_at": "1714780022248", "series_id": "0ab83073-0e33-4c00-ab7b-ad11709b3a73", "publishing_state": "error", "publish_at": "<value>"}
+        "400":
+          application/json: {}
+  get_/videos:
+    speakeasy-default-get-/videos:
+      parameters:
+        query:
+          page: 0
+          limit: 20
+      responses:
+        "200":
+          application/json: {"videos": [{"id": "07cb2416-2a00-478f-8c4a-2d895e3a745a", "created_at": "1734269441526", "series_id": "9041f0b0-f997-4a11-a3e8-4e73fb7bdf1d", "publishing_state": "processing", "publish_at": "<value>"}], "has_more": true}
+        "400":
+          application/json: {}
+  post_/videos:
+    speakeasy-default-post-/videos:
+      responses:
+        "200":
+          application/json: {"id": "97334f71-6d9c-45de-bea0-5dcce36f7890", "created_at": "1730443673495", "series_id": "91ee5010-6061-422f-962f-b693d3dbcdd4", "publishing_state": "pending", "publish_at": "<value>"}
+        "400":
+          application/json: {}
+        "401":
+          application/json: {}
+  post_/videos/topics:
+    speakeasy-default-post-/videos/topics:
+      responses:
+        "200":
+          application/json: ["<value>", "<value>"]
+        "400":
+          application/json: {}
+        "401":
+          application/json: {}
+  post_/series:
+    speakeasy-default-post-/series:
+      responses:
+        "200":
+          application/json: {"id": "871a5ad6-08b7-4804-8b48-e38dcd281a5b", "created_at": "1720094593542", "next_posting_at": "<value>", "type": "SingleVideo", "schedule": {"time_zone": "Asia/Tokyo", "times": [{"day_of_week": 4807.55, "time_of_day": 3234.6}]}, "aspect_ratio": "16:9", "soundtrack_behavior": "FullMusic", "locale": "af-ZA", "soundtrack": {"tracks": [], "recommendations": [], "playback_rate": 9870.57, "volume": 1354.44}, "styles": {}, "image_style": {}, "voice": {"voices": [{"id": "<id>", "name": "<value>", "description": "enthusiastically far tentacle fiercely mouser zowie but", "tags": {}, "preview_url": "https://blank-lotion.info", "locale": "ro-RO", "source": "CartesiaClonedVoice"}, {"id": "<id>", "name": "<value>", "description": "unlike spiffy inasmuch indeed embody aw even", "tags": {}, "preview_url": "https://yellowish-aircraft.com/", "locale": "ca-ES", "source": "ElevenLabs"}], "playback_rate": 169.78, "volume": 977.88}, "connections": [{"id": "5db8983d-f4d3-4c6d-be1f-59d6ca2ecfc8", "type": "YouTube"}, {"id": "f4827b32-a59b-4892-a363-700ac520010a", "type": "Email"}, {"id": "1f7670eb-7101-4dc4-bf8c-a4d88045f6f4", "type": "X"}]}
+        "400":
+          application/json: {}
+        "401":
+          application/json: {}
+  get_/series:
+    speakeasy-default-get-/series:
+      parameters:
+        query:
+          page: 0
+          limit: 50
+      responses:
+        "200":
+          application/json: {"series": [{"id": "4a689a39-9c36-43f9-9cb1-bae61bd990fe", "created_at": "1725194155016", "next_posting_at": "<value>", "type": "Series", "schedule": {"time_zone": "Asia/Baghdad", "times": [{"day_of_week": 6988.82, "time_of_day": 6513.37}]}, "aspect_ratio": "1:1", "soundtrack_behavior": "FullMusic", "locale": "hr-HR", "soundtrack": {"tracks": [], "recommendations": [{"url": "https://meaty-experience.org", "reason": "<value>"}], "playback_rate": 797.89, "volume": 5876.68}, "styles": {}, "image_style": {}, "voice": {"voices": [{"id": "<id>", "name": "<value>", "description": "whoa homely punctually but brr commonly duh defensive", "tags": {}, "preview_url": "https://lavish-resolve.org", "locale": "pt-PT", "source": "Cartesia"}, {"id": "<id>", "name": "<value>", "description": "dead why like seriously disk once minority statue ack until", "tags": {}, "preview_url": "https://orderly-archaeology.info", "locale": "zh-TW", "source": "CartesiaClonedVoice"}, {"id": "<id>", "name": "<value>", "description": "fortunately mathematics settle down amid what despite gorgeous accompany", "tags": {}, "preview_url": "https://brown-metabolite.com", "locale": "ko-KR", "source": "CartesiaClonedVoice"}], "playback_rate": 8580, "volume": 8667.49}, "connections": [{"id": "9fe847be-eefd-43ee-894d-d0f0fd0be381", "type": "TikTok"}, {"id": "76871773-660d-4e0e-a9ca-14921ce2bea5", "type": "X"}]}, {"id": "578760a7-95ba-443c-80a8-c452fe405cee", "created_at": "1720574391472", "next_posting_at": "<value>", "type": "Series", "schedule": {"time_zone": "Africa/Tripoli", "times": [{"day_of_week": 7145.46, "time_of_day": 7392.64}, {"day_of_week": 7746.14, "time_of_day": 6549.03}]}, "aspect_ratio": "16:9", "soundtrack_behavior": "FullMusic", "locale": "fr-CA", "soundtrack": {"tracks": [{"url": "https://cuddly-vanadyl.net/"}], "recommendations": [{"url": "https://dull-best-seller.biz", "reason": "<value>"}], "playback_rate": 2564.45, "volume": 2260.92}, "styles": {}, "image_style": {}, "voice": {"voices": [], "playback_rate": 7686.66, "volume": 9694.48}, "connections": []}], "has_more": false}
+        "400":
+          application/json: {}
+  get_/series/{id}:
+    speakeasy-default-get-/series/{id}:
+      parameters:
+        path:
+          id: "916490de-064e-41ca-be8f-9d551b0c85e1"
+      responses:
+        "200":
+          application/json: {"id": "2ba6f320-6f22-422a-bc95-4b4631309e3b", "created_at": "1710904651955", "next_posting_at": "<value>", "type": "Series", "schedule": {"time_zone": "America/Santiago", "times": []}, "aspect_ratio": "1:1", "soundtrack_behavior": "NoMusic", "locale": "sk-SK", "soundtrack": {"tracks": [{"url": "https://evil-tune-up.biz"}, {"url": "https://authorized-waist.org"}], "recommendations": [{"url": "https://untrue-archaeology.info", "reason": "<value>"}, {"url": "https://lustrous-petticoat.org/", "reason": "<value>"}], "playback_rate": 9402.19, "volume": 9695.97}, "styles": {}, "image_style": {}, "voice": {"voices": [{"id": "<id>", "name": "<value>", "description": "whose bracelet impish sans object pension mysterious categorise round", "tags": {}, "preview_url": "https://pointed-dime.net", "locale": "da-DK", "source": "Cartesia"}, {"id": "<id>", "name": "<value>", "description": "geez gah psst rough mortally", "tags": {}, "preview_url": "https://insecure-provider.com", "locale": "ca-ES", "source": "ElevenLabs"}], "playback_rate": 1477.3, "volume": 5596.71}, "connections": [{"id": "f86be4d6-f704-4470-8ffa-7993be068408", "type": "YouTube"}, {"id": "40d03d5d-a62d-415d-92df-5016aef477c3", "type": "X"}], "episodes": []}
+        "400":
+          application/json: {}
+  get_/connections:
+    speakeasy-default-get-/connections:
+      responses:
+        "200":
+          application/json: [{"id": "29829937-a4cd-42f2-acc8-13974dd8bd66", "type": "TikTok"}, {"id": "d0873e60-4c45-4813-9a55-621afd84e19a", "type": "Email"}]
+        "401":
+          application/json: {}
+  post_/images:
+    speakeasy-default-post-/images:
+      responses:
+        "200":
+          application/json: {"id": "aebbe153-b36b-4b2e-be98-8cbbf464b372", "url": "https://gracious-bend.com/", "state": "pending", "created_at": "1728643515354", "prompt": "<value>", "is_nsfw": true, "aspect_ratio": "9:16"}
+        "400":
+          application/json: {}
+        "401":
+          application/json: {}
+  get_/images:
+    speakeasy-default-get-/images:
+      parameters:
+        query:
+          page: 0
+          limit: 50
+      responses:
+        "200":
+          application/json: {"images": [], "has_more": false}
+        "400":
+          application/json: {}
+  get_/images/{id}:
+    speakeasy-default-get-/images/{id}:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "1de869a3-54fe-48fe-81af-be08425aa28b", "url": "https://smug-willow.name/", "state": "request_smart_motion", "created_at": "1714481976172"}
+        "400":
+          application/json: {}
+  get_/images/styles:
+    speakeasy-default-get-/images/styles:
+      responses:
+        "200":
+          application/json: [{"id": "32e2828b-197f-4f50-9ce5-98a3af4c913d", "name": "<value>", "prompt": "<value>", "examples": []}, {"id": "df29846a-af40-49b6-a7a1-724e4936d0a7", "name": "<value>", "prompt": "<value>", "examples": ["<value>", "<value>", "<value>"]}, {"id": "3c336c7c-6512-4ede-b326-67f63ecf71d3", "name": "<value>", "prompt": "<value>", "examples": ["<value>", "<value>"]}]
+        "400":
+          application/json: {}
+  post_/audio/speech:
+    speakeasy-default-post-/audio/speech:
+      responses:
+        "200":
+          application/json: {"id": "62deb53a-aac1-4fb9-9c86-685573d9c341", "created_at": "1720529184016", "url": "https://proud-hygienic.info/", "user_id": "c6da6141-33ce-4c67-a7d6-3afb978a9c7c", "state": "pending", "text": "<value>", "voice": {"id": "<id>", "name": "<value>", "description": "mill hippodrome readily oof immaculate", "tags": {}, "preview_url": "https://advanced-steeple.org/", "locale": "tr-TR", "source": "ElevenLabsShared"}}
+        "400":
+          application/json: {}
+        "401":
+          application/json: {}
+  get_/audio:
+    speakeasy-default-get-/audio:
+      parameters:
+        query:
+          page: 0
+          limit: 50
+      responses:
+        "200":
+          application/json: {"audio": [{"id": "16be6d8d-0404-4748-9fd9-3a43e928cf12", "created_at": "1734591901826", "url": "https://insistent-word.name", "user_id": "ba9c7459-2ca9-4c3b-a171-e2ccb2216354", "state": "completed", "text": "<value>", "voice": {"id": "<id>", "name": "<value>", "description": "shadowy vanish telescope an effector abaft democratize filthy gracefully", "tags": {}, "preview_url": "https://grounded-waterspout.biz", "locale": "uk-UA", "source": "ElevenLabsShared"}}], "has_more": true}
+        "400":
+          application/json: {}
+  get_/audio/{id}:
+    speakeasy-default-get-/audio/{id}:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "3a8fabc8-591e-480d-aa5b-bef4feac4970", "created_at": "1710850454876", "url": "https://creative-suitcase.org/", "user_id": "d2e7266b-6529-4e32-8e05-aa666cb74d0f", "state": "error", "text": "<value>", "voice": {"id": "<id>", "name": "<value>", "description": "oily for upon passport revitalise tail healthily yahoo crest shudder", "tags": {}, "preview_url": "https://defenseless-dandelion.net", "locale": "ja-JP", "source": "Cartesia"}}
+        "400":
+          application/json: {}
+  get_/audio/voices:
+    speakeasy-default-get-/audio/voices:
+      parameters:
+        query:
+          locale: "auto"
+          page: 0
+          limit: 20
+      responses:
+        "200":
+          application/json: [{"id": "<id>", "name": "<value>", "description": "ouch usually astonishing shoulder mysteriously obtrude where ferociously another", "tags": {}, "preview_url": "https://early-reach.biz", "locale": "no-NO", "source": "ElevenLabsShared"}, {"id": "<id>", "name": "<value>", "description": "what responsible giant joy through thoroughly", "tags": {}, "preview_url": "https://physical-mentor.info/", "locale": "ja-JP", "source": "OpenAI"}]
+        "400":
+          application/json: {}
+  get_/audio/voices/{id}:
+    speakeasy-default-get-/audio/voices/{id}:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "<id>", "name": "<value>", "description": "giggle delightfully pocket-watch stoop colossal", "tags": {}, "preview_url": "https://shadowy-fibre.net/", "locale": "tr-TR", "source": "Cartesia"}
+        "400":
+          application/json: {}
+  get_/credits:
+    speakeasy-default-get-/credits:
+      responses:
+        "200":
+          application/json: {"balance": {"credits": 4285.62}}
 examplesVersion: 1.0.0
 generatedTests: {}

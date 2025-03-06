@@ -9,14 +9,16 @@
 
 ## check
 
-Health check
+Check if the service is running.
 
 ### Example Usage
 
 ```typescript
 import { ShortGenius } from "shortgenius";
 
-const shortGenius = new ShortGenius();
+const shortGenius = new ShortGenius({
+  bearerAuth: process.env["SHORTGENIUS_BEARER_AUTH"] ?? "",
+});
 
 async function run() {
   const result = await shortGenius.status.check();
@@ -38,7 +40,9 @@ import { statusCheck } from "shortgenius/funcs/statusCheck.js";
 
 // Use `ShortGeniusCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const shortGenius = new ShortGeniusCore();
+const shortGenius = new ShortGeniusCore({
+  bearerAuth: process.env["SHORTGENIUS_BEARER_AUTH"] ?? "",
+});
 
 async function run() {
   const res = await statusCheck(shortGenius);

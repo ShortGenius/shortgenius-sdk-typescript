@@ -8,15 +8,24 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+/**
+ * Indicates if the server is healthy.
+ */
 export const Status = {
   Ok: "ok",
 } as const;
+/**
+ * Indicates if the server is healthy.
+ */
 export type Status = ClosedEnum<typeof Status>;
 
 /**
- * Service is healthy
+ * Health status response.
  */
 export type GetHealthResponseBody = {
+  /**
+   * Indicates if the server is healthy.
+   */
   status: Status;
 };
 

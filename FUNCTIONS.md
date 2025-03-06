@@ -20,15 +20,17 @@ specific category of applications.
 
 ```typescript
 import { ShortGeniusCore } from "shortgenius/core.js";
-import { statusCheck } from "shortgenius/funcs/statusCheck.js";
+import { musicGetMusicGenres } from "shortgenius/funcs/musicGetMusicGenres.js";
 import { SDKValidationError } from "shortgenius/models/errors/sdkvalidationerror.js";
 
 // Use `ShortGeniusCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const shortGenius = new ShortGeniusCore();
+const shortGenius = new ShortGeniusCore({
+  bearerAuth: process.env["SHORTGENIUS_BEARER_AUTH"] ?? "",
+});
 
 async function run() {
-  const res = await statusCheck(shortGenius);
+  const res = await musicGetMusicGenres(shortGenius);
 
   switch (true) {
     case res.ok:

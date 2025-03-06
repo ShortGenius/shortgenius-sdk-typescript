@@ -11,19 +11,21 @@ import { Params, pathToFunc } from "./url.js";
  * Contains the list of servers available to the SDK
  */
 export const ServerList = [
-  "https://shortgenius.com/api/v1",
+  "http://localhost:3000/api/v1",
 ] as const;
 
 export type SDKOptions = {
+  bearerAuth?: string | (() => Promise<string>) | undefined;
+
   httpClient?: HTTPClient;
   /**
    * Allows overriding the default server used by the SDK
    */
-  serverIdx?: number;
+  serverIdx?: number | undefined;
   /**
    * Allows overriding the default server URL used by the SDK
    */
-  serverURL?: string;
+  serverURL?: string | undefined;
   /**
    * Allows overriding the default retry config used by the SDK
    */
@@ -52,7 +54,7 @@ export function serverURLFromOptions(options: SDKOptions): URL | null {
 export const SDK_METADATA = {
   language: "typescript",
   openapiDocVersion: "1.0.0",
-  sdkVersion: "0.1.2",
-  genVersion: "2.512.4",
-  userAgent: "speakeasy-sdk/typescript 0.1.2 2.512.4 1.0.0 shortgenius",
+  sdkVersion: "0.2.0",
+  genVersion: "2.541.0",
+  userAgent: "speakeasy-sdk/typescript 0.2.0 2.541.0 1.0.0 shortgenius",
 } as const;

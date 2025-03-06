@@ -17,7 +17,7 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
 <!-- Start Summary [summary] -->
 ## Summary
 
-
+ShortGenius API: Generate AI-based videos, images, and audio, and manage your ShortGenius account.
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -27,6 +27,7 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
   * [SDK Installation](#sdk-installation)
   * [Requirements](#requirements)
   * [SDK Example Usage](#sdk-example-usage)
+  * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Standalone functions](#standalone-functions)
   * [Retries](#retries)
@@ -74,6 +75,57 @@ yarn add shortgenius zod
 
 > [!NOTE]
 > This package is published with CommonJS and ES Modules (ESM) support.
+
+
+### Model Context Protocol (MCP) Server
+
+This SDK is also an installable MCP server where the various SDK methods are
+exposed as tools that can be invoked by AI applications.
+
+> Node.js v20 or greater is required to run the MCP server.
+
+<details>
+<summary>Claude installation steps</summary>
+
+Add the following server definition to your `claude_desktop_config.json` file:
+
+```json
+{
+  "mcpServers": {
+    "ShortGenius": {
+      "command": "npx",
+      "args": [
+        "-y", "--package", "shortgenius",
+        "--",
+        "mcp", "start",
+        "--bearer-auth", "..."
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary>Cursor installation steps</summary>
+
+Go to `Cursor Settings > Features > MCP Servers > Add new MCP server` and use the following settings:
+
+- Name: ShortGenius
+- Type: `command`
+- Command:
+```sh
+npx -y --package shortgenius -- mcp start --bearer-auth ... 
+```
+
+</details>
+
+For a full list of server arguments, run:
+
+```sh
+npx -y --package shortgenius -- mcp start --help
+```
 <!-- End SDK Installation [installation] -->
 
 <!-- Start Requirements [requirements] -->
@@ -90,10 +142,12 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 ```typescript
 import { ShortGenius } from "shortgenius";
 
-const shortGenius = new ShortGenius();
+const shortGenius = new ShortGenius({
+  bearerAuth: process.env["SHORTGENIUS_BEARER_AUTH"] ?? "",
+});
 
 async function run() {
-  const result = await shortGenius.status.check();
+  const result = await shortGenius.music.getMusicGenres();
 
   // Handle the result
   console.log(result);
@@ -104,16 +158,93 @@ run();
 ```
 <!-- End SDK Example Usage [usage] -->
 
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name         | Type | Scheme      | Environment Variable      |
+| ------------ | ---- | ----------- | ------------------------- |
+| `bearerAuth` | http | HTTP Bearer | `SHORTGENIUS_BEARER_AUTH` |
+
+To authenticate with the API the `bearerAuth` parameter must be set when initializing the SDK client instance. For example:
+```typescript
+import { ShortGenius } from "shortgenius";
+
+const shortGenius = new ShortGenius({
+  bearerAuth: process.env["SHORTGENIUS_BEARER_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await shortGenius.music.getMusicGenres();
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+
+```
+<!-- End Authentication [security] -->
+
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
 <details open>
 <summary>Available methods</summary>
 
+### [administration](docs/sdks/administration/README.md)
+
+* [getCredits](docs/sdks/administration/README.md#getcredits) - Get usage
+
+### [audio](docs/sdks/audio/README.md)
+
+* [postAudioSpeech](docs/sdks/audio/README.md#postaudiospeech) - Create speech
+* [getAudio](docs/sdks/audio/README.md#getaudio) - List audio
+* [getAudioId](docs/sdks/audio/README.md#getaudioid) - Get audio
+* [getAudioVoices](docs/sdks/audio/README.md#getaudiovoices) - List voices
+* [getAudioVoicesId](docs/sdks/audio/README.md#getaudiovoicesid) - Get voice
+
+### [images](docs/sdks/images/README.md)
+
+* [postImages](docs/sdks/images/README.md#postimages) - Create image
+* [getImages](docs/sdks/images/README.md#getimages) - List images
+* [getImagesId](docs/sdks/images/README.md#getimagesid) - Get image
+* [getImagesStyles](docs/sdks/images/README.md#getimagesstyles) - List image styles
+
+### [music](docs/sdks/music/README.md)
+
+* [getMusicGenres](docs/sdks/music/README.md#getmusicgenres) - List music genres
+* [getMusicGenresId](docs/sdks/music/README.md#getmusicgenresid) - List music
+
+### [publishing](docs/sdks/publishing/README.md)
+
+* [getConnections](docs/sdks/publishing/README.md#getconnections) - Get connections
+
+### [series](docs/sdks/series/README.md)
+
+* [postSeries](docs/sdks/series/README.md#postseries) - Create series
+* [getSeries](docs/sdks/series/README.md#getseries) - List series
+* [getSeriesId](docs/sdks/series/README.md#getseriesid) - Get series
+
 
 ### [status](docs/sdks/status/README.md)
 
 * [check](docs/sdks/status/README.md#check) - Health check
+
+### [videos](docs/sdks/videos/README.md)
+
+* [postVideosDrafts](docs/sdks/videos/README.md#postvideosdrafts) - Draft video
+* [postVideosDraftsUrl](docs/sdks/videos/README.md#postvideosdraftsurl) - Draft video from URL
+* [postVideosDraftsScript](docs/sdks/videos/README.md#postvideosdraftsscript) - Draft video from script
+* [postVideosDraftsQuiz](docs/sdks/videos/README.md#postvideosdraftsquiz) - Draft quiz video
+* [postVideosDraftsNews](docs/sdks/videos/README.md#postvideosdraftsnews) - Draft news video
+* [getVideosId](docs/sdks/videos/README.md#getvideosid) - Get video
+* [getVideos](docs/sdks/videos/README.md#getvideos) - List videos
+* [postVideos](docs/sdks/videos/README.md#postvideos) - Create video
+* [postVideosTopics](docs/sdks/videos/README.md#postvideostopics) - Generate video topics for content type
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -133,7 +264,32 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
+- [`administrationGetCredits`](docs/sdks/administration/README.md#getcredits) - Get usage
+- [`audioGetAudio`](docs/sdks/audio/README.md#getaudio) - List audio
+- [`audioGetAudioId`](docs/sdks/audio/README.md#getaudioid) - Get audio
+- [`audioGetAudioVoices`](docs/sdks/audio/README.md#getaudiovoices) - List voices
+- [`audioGetAudioVoicesId`](docs/sdks/audio/README.md#getaudiovoicesid) - Get voice
+- [`audioPostAudioSpeech`](docs/sdks/audio/README.md#postaudiospeech) - Create speech
+- [`imagesGetImages`](docs/sdks/images/README.md#getimages) - List images
+- [`imagesGetImagesId`](docs/sdks/images/README.md#getimagesid) - Get image
+- [`imagesGetImagesStyles`](docs/sdks/images/README.md#getimagesstyles) - List image styles
+- [`imagesPostImages`](docs/sdks/images/README.md#postimages) - Create image
+- [`musicGetMusicGenres`](docs/sdks/music/README.md#getmusicgenres) - List music genres
+- [`musicGetMusicGenresId`](docs/sdks/music/README.md#getmusicgenresid) - List music
+- [`publishingGetConnections`](docs/sdks/publishing/README.md#getconnections) - Get connections
+- [`seriesGetSeries`](docs/sdks/series/README.md#getseries) - List series
+- [`seriesGetSeriesId`](docs/sdks/series/README.md#getseriesid) - Get series
+- [`seriesPostSeries`](docs/sdks/series/README.md#postseries) - Create series
 - [`statusCheck`](docs/sdks/status/README.md#check) - Health check
+- [`videosGetVideos`](docs/sdks/videos/README.md#getvideos) - List videos
+- [`videosGetVideosId`](docs/sdks/videos/README.md#getvideosid) - Get video
+- [`videosPostVideos`](docs/sdks/videos/README.md#postvideos) - Create video
+- [`videosPostVideosDrafts`](docs/sdks/videos/README.md#postvideosdrafts) - Draft video
+- [`videosPostVideosDraftsNews`](docs/sdks/videos/README.md#postvideosdraftsnews) - Draft news video
+- [`videosPostVideosDraftsQuiz`](docs/sdks/videos/README.md#postvideosdraftsquiz) - Draft quiz video
+- [`videosPostVideosDraftsScript`](docs/sdks/videos/README.md#postvideosdraftsscript) - Draft video from script
+- [`videosPostVideosDraftsUrl`](docs/sdks/videos/README.md#postvideosdraftsurl) - Draft video from URL
+- [`videosPostVideosTopics`](docs/sdks/videos/README.md#postvideostopics) - Generate video topics for content type
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -147,10 +303,12 @@ To change the default retry strategy for a single API call, simply provide a ret
 ```typescript
 import { ShortGenius } from "shortgenius";
 
-const shortGenius = new ShortGenius();
+const shortGenius = new ShortGenius({
+  bearerAuth: process.env["SHORTGENIUS_BEARER_AUTH"] ?? "",
+});
 
 async function run() {
-  const result = await shortGenius.status.check({
+  const result = await shortGenius.music.getMusicGenres({
     retries: {
       strategy: "backoff",
       backoff: {
@@ -186,10 +344,11 @@ const shortGenius = new ShortGenius({
     },
     retryConnectionErrors: false,
   },
+  bearerAuth: process.env["SHORTGENIUS_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
-  const result = await shortGenius.status.check();
+  const result = await shortGenius.music.getMusicGenres();
 
   // Handle the result
   console.log(result);
@@ -203,41 +362,48 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-If the request fails due to, for example 4XX or 5XX status codes, it will throw a `APIError`.
+Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `getMusicGenresId` method may throw the following errors:
 
-| Error Type      | Status Code | Content Type |
-| --------------- | ----------- | ------------ |
-| errors.APIError | 4XX, 5XX    | \*/\*        |
+| Error Type                          | Status Code | Content Type     |
+| ----------------------------------- | ----------- | ---------------- |
+| errors.GetMusicGenresIdResponseBody | 400         | application/json |
+| errors.APIError                     | 4XX, 5XX    | \*/\*            |
+
+If the method throws an error and it is not captured by the known errors, it will default to throwing a `APIError`.
 
 ```typescript
 import { ShortGenius } from "shortgenius";
-import { SDKValidationError } from "shortgenius/models/errors";
+import {
+  GetMusicGenresIdResponseBody,
+  SDKValidationError,
+} from "shortgenius/models/errors";
 
-const shortGenius = new ShortGenius();
+const shortGenius = new ShortGenius({
+  bearerAuth: process.env["SHORTGENIUS_BEARER_AUTH"] ?? "",
+});
 
 async function run() {
   let result;
   try {
-    result = await shortGenius.status.check();
+    result = await shortGenius.music.getMusicGenresId({
+      id: "<id>",
+    });
 
     // Handle the result
     console.log(result);
   } catch (err) {
     switch (true) {
       // The server response does not match the expected SDK schema
-      case (err instanceof SDKValidationError):
-        {
-          // Pretty-print will provide a human-readable multi-line error message
-          console.error(err.pretty());
-          // Raw value may also be inspected
-          console.error(err.rawValue);
-          return;
-        }
-        apierror.js;
-      // Server returned an error status code or an unknown content type
-      case (err instanceof APIError): {
-        console.error(err.statusCode);
-        console.error(err.rawResponse.body);
+      case (err instanceof SDKValidationError): {
+        // Pretty-print will provide a human-readable multi-line error message
+        console.error(err.pretty());
+        // Raw value may also be inspected
+        console.error(err.rawValue);
+        return;
+      }
+      case (err instanceof GetMusicGenresIdResponseBody): {
+        // Handle err.data$: GetMusicGenresIdResponseBodyData
+        console.error(err);
         return;
       }
       default: {
@@ -270,16 +436,17 @@ In some rare cases, the SDK can fail to get a response from the server or even m
 
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
+The default server can be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
 import { ShortGenius } from "shortgenius";
 
 const shortGenius = new ShortGenius({
-  serverURL: "https://shortgenius.com/api/v1",
+  serverURL: "http://localhost:3000/api/v1",
+  bearerAuth: process.env["SHORTGENIUS_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
-  const result = await shortGenius.status.check();
+  const result = await shortGenius.music.getMusicGenres();
 
   // Handle the result
   console.log(result);

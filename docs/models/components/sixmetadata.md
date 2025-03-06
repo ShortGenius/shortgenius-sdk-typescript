@@ -1,0 +1,19 @@
+# SixMetadata
+
+## Example Usage
+
+```typescript
+import { SixMetadata } from "shortgenius/models/components";
+
+let value: SixMetadata = {
+  sourceImageUrl: "https://pale-milestone.biz",
+  muxPlaybackId: "<id>",
+};
+```
+
+## Fields
+
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `sourceImageUrl`   | *string*           | :heavy_check_mark: | N/A                |
+| `muxPlaybackId`    | *string*           | :heavy_check_mark: | N/A                |

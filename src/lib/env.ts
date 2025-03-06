@@ -7,10 +7,14 @@ import { dlv } from "./dlv.js";
 import * as z from "zod";
 
 export interface Env {
+  SHORTGENIUS_BEARER_AUTH?: string | undefined;
+
   SHORTGENIUS_DEBUG?: boolean | undefined;
 }
 
 export const envSchema: z.ZodType<Env, z.ZodTypeDef, unknown> = z.object({
+  SHORTGENIUS_BEARER_AUTH: z.string().optional(),
+
   SHORTGENIUS_DEBUG: z.coerce.boolean().optional(),
 });
 
