@@ -2,20 +2,19 @@ speakeasyVersion: 1.510.0
 sources:
     ShortGenius API:
         sourceNamespace: short-genius-api
-        sourceRevisionDigest: sha256:708d0d209c095212f7b520a011cd42e69df59f862e91086acca158d78d27bf54
+        sourceRevisionDigest: sha256:bea033e22e8e993f6ebac1a9e0ac1e020c2b9148b5920321c1f80c2ed16b65cf
         sourceBlobDigest: sha256:535b855a1dd92888db090094491c94615ef1e2b7bacf77fc0779b3b8abaed0f3
         tags:
             - latest
-            - speakeasy-sdk-regen-1741230221
             - 1.0.0
 targets:
     shortgenius:
         source: ShortGenius API
         sourceNamespace: short-genius-api
-        sourceRevisionDigest: sha256:708d0d209c095212f7b520a011cd42e69df59f862e91086acca158d78d27bf54
+        sourceRevisionDigest: sha256:bea033e22e8e993f6ebac1a9e0ac1e020c2b9148b5920321c1f80c2ed16b65cf
         sourceBlobDigest: sha256:535b855a1dd92888db090094491c94615ef1e2b7bacf77fc0779b3b8abaed0f3
         codeSamplesNamespace: short-genius-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:5dc6ba17f81145baca5ef891b39b98d64f3ca67036c250a32d2c79bac7b5fab8
+        codeSamplesRevisionDigest: sha256:e72c9d4321db3f73f791533056b3ff56c2ecdb294197077445b08533f88132d3
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

@@ -366,9 +366,7 @@ const shortGenius = new ShortGenius({
 async function run() {
   let result;
   try {
-    result = await shortGenius.getMusic({
-      id: "<id>",
-    });
+    result = await shortGenius.getMusic("<id>");
 
     // Handle the result
     console.log(result);

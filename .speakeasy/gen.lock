@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.510.0
   generationVersion: 2.541.0
-  releaseVersion: 0.2.2
-  configChecksum: 5df07f3addcc1fb389036d2c091821fa
+  releaseVersion: 0.3.0
+  configChecksum: 6b01f761a95d11debe1733fa122a5cc2
   repoURL: https://github.com/ShortGenius/shortgenius-sdk-typescript.git
   installationURL: https://github.com/ShortGenius/shortgenius-sdk-typescript
   published: true
@@ -19,6 +19,7 @@ features:
     devContainers: 2.90.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
+    flattening: 2.82.1
     globalSecurity: 2.82.13
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
@@ -1023,7 +1024,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"id": "6162980f-e681-4947-9653-a482802ca657", "url": "https://limp-elevation.com", "state": "pending", "created_at": "1737381402816"}
+          application/json: {"id": "6162980f-e681-4947-9653-a482802ca657", "url": "https://limp-elevation.com", "state": "pending", "created_at": "1737386158289"}
         "400":
           application/json: {}
   getImageStyles:
