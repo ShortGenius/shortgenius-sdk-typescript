@@ -45,7 +45,7 @@ typescript:
       webhooks: models/webhooks
   inputModelSuffix: input
   jsonpath: legacy
-  maxMethodParams: 0
+  maxMethodParams: 1
   methodArguments: require-security-and-request
   moduleFormat: dual
   outputModelSuffix: output
