@@ -6,7 +6,7 @@
 import { MediaImage } from "shortgenius/models/operations";
 
 let value: MediaImage = {
-  url: "https://somber-formamide.com",
+  url: "https://staid-festival.net",
 };
 ```
 

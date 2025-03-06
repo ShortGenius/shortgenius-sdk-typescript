@@ -10,10 +10,10 @@ import { GetVideosResponseBody } from "shortgenius/models/operations";
 let value: GetVideosResponseBody = {
   videos: [
     {
-      id: "5e2c070c-f0ec-45e4-b61a-07ad2cb89196",
-      createdAt: "1719561066952",
-      seriesId: "96e41b69-0fe9-406f-9a27-f8094168088c",
-      publishingState: "completed",
+      id: "1a07ad2c-b891-496d-b596-e41b690fe906",
+      createdAt: "1731180676769",
+      seriesId: "27f80941-6808-48c6-b8be-69b0c6a7bb3a",
+      publishingState: "processing",
       publishAt: "<value>",
     },
   ],

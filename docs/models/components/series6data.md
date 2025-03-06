@@ -9,7 +9,7 @@ let value: Series6Data = {
   id: "<id>",
   ugcCreatorId: "<id>",
   ugcPresetId: "<id>",
-  createdAt: "1739733071823",
+  createdAt: "1739740134118",
 };
 ```
 

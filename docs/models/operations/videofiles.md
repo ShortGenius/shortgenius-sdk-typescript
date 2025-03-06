@@ -6,13 +6,13 @@
 import { VideoFiles } from "shortgenius/models/operations";
 
 let value: VideoFiles = {
-  id: 3763.41,
+  id: 9933.78,
   quality: "hd",
-  fileType: "audio",
-  width: 2417.5,
-  height: 1877.7,
+  fileType: "application",
+  width: 5018.36,
+  height: 5030.15,
   link: "<value>",
-  fps: 4046.8,
+  fps: 910.69,
 };
 ```
 

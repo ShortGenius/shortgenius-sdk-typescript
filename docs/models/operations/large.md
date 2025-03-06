@@ -6,10 +6,10 @@
 import { Large } from "shortgenius/models/operations";
 
 let value: Large = {
-  url: "https://well-groomed-deed.org",
-  width: 3424.58,
-  height: 9792.44,
-  size: 8498.18,
+  url: "https://anguished-granny.com",
+  width: 8163.46,
+  height: 1869.67,
+  size: 6745.48,
   thumbnail: "<value>",
 };
 ```

@@ -3,35 +3,15 @@
  */
 
 import * as z from "zod";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAudioRequest = {
   /**
-   * The page number to retrieve.
+   * The unique ID of the audio record to retrieve.
    */
-  page?: number | undefined;
-  /**
-   * The maximum number of items per page.
-   */
-  limit?: number | undefined;
-};
-
-/**
- * Successful response
- */
-export type GetAudioResponseBody = {
-  /**
-   * Array of audio records.
-   */
-  audio: Array<components.Audio>;
-  /**
-   * Indicates if more items are available.
-   */
-  hasMore: boolean;
+  id: string;
 };
 
 /** @internal */
@@ -40,14 +20,12 @@ export const GetAudioRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  page: z.number().default(0),
-  limit: z.number().default(50),
+  id: z.string(),
 });
 
 /** @internal */
 export type GetAudioRequest$Outbound = {
-  page: number;
-  limit: number;
+  id: string;
 };
 
 /** @internal */
@@ -56,8 +34,7 @@ export const GetAudioRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetAudioRequest
 > = z.object({
-  page: z.number().default(0),
-  limit: z.number().default(50),
+  id: z.string(),
 });
 
 /**
@@ -86,70 +63,5 @@ export function getAudioRequestFromJSON(
     jsonString,
     (x) => GetAudioRequest$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'GetAudioRequest' from JSON`,
-  );
-}
-
-/** @internal */
-export const GetAudioResponseBody$inboundSchema: z.ZodType<
-  GetAudioResponseBody,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  audio: z.array(components.Audio$inboundSchema),
-  has_more: z.boolean(),
-}).transform((v) => {
-  return remap$(v, {
-    "has_more": "hasMore",
-  });
-});
-
-/** @internal */
-export type GetAudioResponseBody$Outbound = {
-  audio: Array<components.Audio$Outbound>;
-  has_more: boolean;
-};
-
-/** @internal */
-export const GetAudioResponseBody$outboundSchema: z.ZodType<
-  GetAudioResponseBody$Outbound,
-  z.ZodTypeDef,
-  GetAudioResponseBody
-> = z.object({
-  audio: z.array(components.Audio$outboundSchema),
-  hasMore: z.boolean(),
-}).transform((v) => {
-  return remap$(v, {
-    hasMore: "has_more",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetAudioResponseBody$ {
-  /** @deprecated use `GetAudioResponseBody$inboundSchema` instead. */
-  export const inboundSchema = GetAudioResponseBody$inboundSchema;
-  /** @deprecated use `GetAudioResponseBody$outboundSchema` instead. */
-  export const outboundSchema = GetAudioResponseBody$outboundSchema;
-  /** @deprecated use `GetAudioResponseBody$Outbound` instead. */
-  export type Outbound = GetAudioResponseBody$Outbound;
-}
-
-export function getAudioResponseBodyToJSON(
-  getAudioResponseBody: GetAudioResponseBody,
-): string {
-  return JSON.stringify(
-    GetAudioResponseBody$outboundSchema.parse(getAudioResponseBody),
-  );
-}
-
-export function getAudioResponseBodyFromJSON(
-  jsonString: string,
-): SafeParseResult<GetAudioResponseBody, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetAudioResponseBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetAudioResponseBody' from JSON`,
   );
 }

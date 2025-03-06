@@ -5,7 +5,7 @@
 ```typescript
 import { OneAspectRatio } from "shortgenius/models/operations";
 
-let value: OneAspectRatio = "9:16";
+let value: OneAspectRatio = "16:9";
 ```
 
 ## Values

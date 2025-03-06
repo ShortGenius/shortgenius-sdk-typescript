@@ -6,10 +6,10 @@
 import { Two } from "shortgenius/models/operations";
 
 let value: Two = {
-  id: "9165a6ac-b9e3-48c3-93ac-e7b25a2f2c5b",
-  url: "https://unruly-necklace.com",
-  userId: "f836bee2-d967-4cda-80c0-67846c4d02e7",
-  createdAt: "1728938119852",
+  id: "2f2c5b6b-e92f-4836-9bee-2d967cda0c06",
+  url: "https://familiar-help.net",
+  userId: "4d02e709-7159-4ae7-a116-2e3685a9fd97",
+  createdAt: "1729343253132",
 };
 ```
 

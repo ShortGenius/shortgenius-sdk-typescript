@@ -7,9 +7,9 @@ import { MediaMetadata } from "shortgenius/models/operations";
 
 let value: MediaMetadata = {
   muxPlaybackId: "<id>",
-  startTime: 7034.31,
-  endTime: 3353.03,
-  durationTillEnd: 1049.9,
+  startTime: 2975.85,
+  endTime: 1528.07,
+  durationTillEnd: 9016.11,
 };
 ```
 

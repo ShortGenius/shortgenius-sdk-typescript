@@ -8,11 +8,11 @@ Publishing schedule for the video (optional).
 import { Schedule } from "shortgenius/models/operations";
 
 let value: Schedule = {
-  timeZone: "Europe/Volgograd",
+  timeZone: "Africa/Abidjan",
   times: [
     {
-      dayOfWeek: 544.98,
-      timeOfDay: 1912.02,
+      dayOfWeek: 6154.24,
+      timeOfDay: 8785.95,
     },
   ],
 };

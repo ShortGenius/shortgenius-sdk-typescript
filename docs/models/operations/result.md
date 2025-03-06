@@ -7,9 +7,9 @@ import { Result } from "shortgenius/models/operations";
 
 let value: Result = {
   video: {
-    url: "https://secondary-forgery.name",
+    url: "https://honored-majority.biz/",
   },
-  seed: 8121.86,
+  seed: 6492.69,
 };
 ```
 

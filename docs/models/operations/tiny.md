@@ -6,10 +6,10 @@
 import { Tiny } from "shortgenius/models/operations";
 
 let value: Tiny = {
-  url: "https://unripe-flame.name/",
-  width: 1219.33,
-  height: 6300.17,
-  size: 2720.4,
+  url: "https://tattered-flint.org/",
+  width: 8498.18,
+  height: 9049.2,
+  size: 5736.74,
   thumbnail: "<value>",
 };
 ```

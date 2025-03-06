@@ -147,7 +147,7 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.music.getMusicGenres();
+  const result = await shortGenius.getMusicGenres();
 
   // Handle the result
   console.log(result);
@@ -178,7 +178,7 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.music.getMusicGenres();
+  const result = await shortGenius.getMusicGenres();
 
   // Handle the result
   console.log(result);
@@ -195,56 +195,37 @@ run();
 <details open>
 <summary>Available methods</summary>
 
-### [administration](docs/sdks/administration/README.md)
+### [ShortGenius SDK](docs/sdks/shortgenius/README.md)
 
-* [getCredits](docs/sdks/administration/README.md#getcredits) - Get usage
-
-### [audio](docs/sdks/audio/README.md)
-
-* [postAudioSpeech](docs/sdks/audio/README.md#postaudiospeech) - Create speech
-* [getAudio](docs/sdks/audio/README.md#getaudio) - List audio
-* [getAudioId](docs/sdks/audio/README.md#getaudioid) - Get audio
-* [getAudioVoices](docs/sdks/audio/README.md#getaudiovoices) - List voices
-* [getAudioVoicesId](docs/sdks/audio/README.md#getaudiovoicesid) - Get voice
-
-### [images](docs/sdks/images/README.md)
-
-* [postImages](docs/sdks/images/README.md#postimages) - Create image
-* [getImages](docs/sdks/images/README.md#getimages) - List images
-* [getImagesId](docs/sdks/images/README.md#getimagesid) - Get image
-* [getImagesStyles](docs/sdks/images/README.md#getimagesstyles) - List image styles
-
-### [music](docs/sdks/music/README.md)
-
-* [getMusicGenres](docs/sdks/music/README.md#getmusicgenres) - List music genres
-* [getMusicGenresId](docs/sdks/music/README.md#getmusicgenresid) - List music
-
-### [publishing](docs/sdks/publishing/README.md)
-
-* [getConnections](docs/sdks/publishing/README.md#getconnections) - Get connections
-
-### [series](docs/sdks/series/README.md)
-
-* [postSeries](docs/sdks/series/README.md#postseries) - Create series
-* [getSeries](docs/sdks/series/README.md#getseries) - List series
-* [getSeriesId](docs/sdks/series/README.md#getseriesid) - Get series
-
+* [getMusicGenres](docs/sdks/shortgenius/README.md#getmusicgenres) - List music genres
+* [getMusic](docs/sdks/shortgenius/README.md#getmusic) - List music
+* [draftVideo](docs/sdks/shortgenius/README.md#draftvideo) - Draft video
+* [draftVideoFromURL](docs/sdks/shortgenius/README.md#draftvideofromurl) - Draft video from URL
+* [draftVideoFromScript](docs/sdks/shortgenius/README.md#draftvideofromscript) - Draft video from script
+* [draftQuizVideo](docs/sdks/shortgenius/README.md#draftquizvideo) - Draft quiz video
+* [draftNewsVideo](docs/sdks/shortgenius/README.md#draftnewsvideo) - Draft news video
+* [getVideo](docs/sdks/shortgenius/README.md#getvideo) - Get video
+* [getVideos](docs/sdks/shortgenius/README.md#getvideos) - List videos
+* [createVideo](docs/sdks/shortgenius/README.md#createvideo) - Create video
+* [generateVideoTopics](docs/sdks/shortgenius/README.md#generatevideotopics) - Generate video topics
+* [createSeries](docs/sdks/shortgenius/README.md#createseries) - Create series
+* [getAllSeries](docs/sdks/shortgenius/README.md#getallseries) - List series
+* [getSeries](docs/sdks/shortgenius/README.md#getseries) - Get series
+* [getConnections](docs/sdks/shortgenius/README.md#getconnections) - List connections
+* [createImage](docs/sdks/shortgenius/README.md#createimage) - Create image
+* [getImages](docs/sdks/shortgenius/README.md#getimages) - List images
+* [getImage](docs/sdks/shortgenius/README.md#getimage) - Get image
+* [getImageStyles](docs/sdks/shortgenius/README.md#getimagestyles) - List image styles
+* [createSpeech](docs/sdks/shortgenius/README.md#createspeech) - Create speech
+* [getAllAudio](docs/sdks/shortgenius/README.md#getallaudio) - List audio
+* [getAudio](docs/sdks/shortgenius/README.md#getaudio) - Get audio
+* [getVoices](docs/sdks/shortgenius/README.md#getvoices) - List voices
+* [getVoice](docs/sdks/shortgenius/README.md#getvoice) - Get voice
+* [getUsage](docs/sdks/shortgenius/README.md#getusage) - Get usage
 
 ### [status](docs/sdks/status/README.md)
 
 * [check](docs/sdks/status/README.md#check) - Health check
-
-### [videos](docs/sdks/videos/README.md)
-
-* [postVideosDrafts](docs/sdks/videos/README.md#postvideosdrafts) - Draft video
-* [postVideosDraftsUrl](docs/sdks/videos/README.md#postvideosdraftsurl) - Draft video from URL
-* [postVideosDraftsScript](docs/sdks/videos/README.md#postvideosdraftsscript) - Draft video from script
-* [postVideosDraftsQuiz](docs/sdks/videos/README.md#postvideosdraftsquiz) - Draft quiz video
-* [postVideosDraftsNews](docs/sdks/videos/README.md#postvideosdraftsnews) - Draft news video
-* [getVideosId](docs/sdks/videos/README.md#getvideosid) - Get video
-* [getVideos](docs/sdks/videos/README.md#getvideos) - List videos
-* [postVideos](docs/sdks/videos/README.md#postvideos) - Create video
-* [postVideosTopics](docs/sdks/videos/README.md#postvideostopics) - Generate video topics for content type
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -264,32 +245,32 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [`administrationGetCredits`](docs/sdks/administration/README.md#getcredits) - Get usage
-- [`audioGetAudio`](docs/sdks/audio/README.md#getaudio) - List audio
-- [`audioGetAudioId`](docs/sdks/audio/README.md#getaudioid) - Get audio
-- [`audioGetAudioVoices`](docs/sdks/audio/README.md#getaudiovoices) - List voices
-- [`audioGetAudioVoicesId`](docs/sdks/audio/README.md#getaudiovoicesid) - Get voice
-- [`audioPostAudioSpeech`](docs/sdks/audio/README.md#postaudiospeech) - Create speech
-- [`imagesGetImages`](docs/sdks/images/README.md#getimages) - List images
-- [`imagesGetImagesId`](docs/sdks/images/README.md#getimagesid) - Get image
-- [`imagesGetImagesStyles`](docs/sdks/images/README.md#getimagesstyles) - List image styles
-- [`imagesPostImages`](docs/sdks/images/README.md#postimages) - Create image
-- [`musicGetMusicGenres`](docs/sdks/music/README.md#getmusicgenres) - List music genres
-- [`musicGetMusicGenresId`](docs/sdks/music/README.md#getmusicgenresid) - List music
-- [`publishingGetConnections`](docs/sdks/publishing/README.md#getconnections) - Get connections
-- [`seriesGetSeries`](docs/sdks/series/README.md#getseries) - List series
-- [`seriesGetSeriesId`](docs/sdks/series/README.md#getseriesid) - Get series
-- [`seriesPostSeries`](docs/sdks/series/README.md#postseries) - Create series
+- [`createImage`](docs/sdks/shortgenius/README.md#createimage) - Create image
+- [`createSeries`](docs/sdks/shortgenius/README.md#createseries) - Create series
+- [`createSpeech`](docs/sdks/shortgenius/README.md#createspeech) - Create speech
+- [`createVideo`](docs/sdks/shortgenius/README.md#createvideo) - Create video
+- [`draftNewsVideo`](docs/sdks/shortgenius/README.md#draftnewsvideo) - Draft news video
+- [`draftQuizVideo`](docs/sdks/shortgenius/README.md#draftquizvideo) - Draft quiz video
+- [`draftVideo`](docs/sdks/shortgenius/README.md#draftvideo) - Draft video
+- [`draftVideoFromScript`](docs/sdks/shortgenius/README.md#draftvideofromscript) - Draft video from script
+- [`draftVideoFromURL`](docs/sdks/shortgenius/README.md#draftvideofromurl) - Draft video from URL
+- [`generateVideoTopics`](docs/sdks/shortgenius/README.md#generatevideotopics) - Generate video topics
+- [`getAllAudio`](docs/sdks/shortgenius/README.md#getallaudio) - List audio
+- [`getAllSeries`](docs/sdks/shortgenius/README.md#getallseries) - List series
+- [`getAudio`](docs/sdks/shortgenius/README.md#getaudio) - Get audio
+- [`getConnections`](docs/sdks/shortgenius/README.md#getconnections) - List connections
+- [`getImage`](docs/sdks/shortgenius/README.md#getimage) - Get image
+- [`getImages`](docs/sdks/shortgenius/README.md#getimages) - List images
+- [`getImageStyles`](docs/sdks/shortgenius/README.md#getimagestyles) - List image styles
+- [`getMusic`](docs/sdks/shortgenius/README.md#getmusic) - List music
+- [`getMusicGenres`](docs/sdks/shortgenius/README.md#getmusicgenres) - List music genres
+- [`getSeries`](docs/sdks/shortgenius/README.md#getseries) - Get series
+- [`getUsage`](docs/sdks/shortgenius/README.md#getusage) - Get usage
+- [`getVideo`](docs/sdks/shortgenius/README.md#getvideo) - Get video
+- [`getVideos`](docs/sdks/shortgenius/README.md#getvideos) - List videos
+- [`getVoice`](docs/sdks/shortgenius/README.md#getvoice) - Get voice
+- [`getVoices`](docs/sdks/shortgenius/README.md#getvoices) - List voices
 - [`statusCheck`](docs/sdks/status/README.md#check) - Health check
-- [`videosGetVideos`](docs/sdks/videos/README.md#getvideos) - List videos
-- [`videosGetVideosId`](docs/sdks/videos/README.md#getvideosid) - Get video
-- [`videosPostVideos`](docs/sdks/videos/README.md#postvideos) - Create video
-- [`videosPostVideosDrafts`](docs/sdks/videos/README.md#postvideosdrafts) - Draft video
-- [`videosPostVideosDraftsNews`](docs/sdks/videos/README.md#postvideosdraftsnews) - Draft news video
-- [`videosPostVideosDraftsQuiz`](docs/sdks/videos/README.md#postvideosdraftsquiz) - Draft quiz video
-- [`videosPostVideosDraftsScript`](docs/sdks/videos/README.md#postvideosdraftsscript) - Draft video from script
-- [`videosPostVideosDraftsUrl`](docs/sdks/videos/README.md#postvideosdraftsurl) - Draft video from URL
-- [`videosPostVideosTopics`](docs/sdks/videos/README.md#postvideostopics) - Generate video topics for content type
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -308,7 +289,7 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.music.getMusicGenres({
+  const result = await shortGenius.getMusicGenres({
     retries: {
       strategy: "backoff",
       backoff: {
@@ -348,7 +329,7 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.music.getMusicGenres();
+  const result = await shortGenius.getMusicGenres();
 
   // Handle the result
   console.log(result);
@@ -362,19 +343,19 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `getMusicGenresId` method may throw the following errors:
+Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `getMusic` method may throw the following errors:
 
-| Error Type                          | Status Code | Content Type     |
-| ----------------------------------- | ----------- | ---------------- |
-| errors.GetMusicGenresIdResponseBody | 400         | application/json |
-| errors.APIError                     | 4XX, 5XX    | \*/\*            |
+| Error Type                  | Status Code | Content Type     |
+| --------------------------- | ----------- | ---------------- |
+| errors.GetMusicResponseBody | 400         | application/json |
+| errors.APIError             | 4XX, 5XX    | \*/\*            |
 
 If the method throws an error and it is not captured by the known errors, it will default to throwing a `APIError`.
 
 ```typescript
 import { ShortGenius } from "shortgenius";
 import {
-  GetMusicGenresIdResponseBody,
+  GetMusicResponseBody,
   SDKValidationError,
 } from "shortgenius/models/errors";
 
@@ -385,7 +366,7 @@ const shortGenius = new ShortGenius({
 async function run() {
   let result;
   try {
-    result = await shortGenius.music.getMusicGenresId({
+    result = await shortGenius.getMusic({
       id: "<id>",
     });
 
@@ -401,8 +382,8 @@ async function run() {
         console.error(err.rawValue);
         return;
       }
-      case (err instanceof GetMusicGenresIdResponseBody): {
-        // Handle err.data$: GetMusicGenresIdResponseBodyData
+      case (err instanceof GetMusicResponseBody): {
+        // Handle err.data$: GetMusicResponseBodyData
         console.error(err);
         return;
       }
@@ -446,7 +427,7 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.music.getMusicGenres();
+  const result = await shortGenius.getMusicGenres();
 
   // Handle the result
   console.log(result);

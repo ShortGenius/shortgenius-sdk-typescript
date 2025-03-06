@@ -7,11 +7,11 @@
 
 ```typescript
 const value: operations.Three1 = {
-  id: "49326b9f-a221-439d-8e68-c49272766324",
-  url: "https://second-hand-monocle.com",
+  id: "dd999493-26b9-4fa2-9213-9de68c492727",
+  url: "https://excited-challenge.biz/",
   metadata: {},
-  source: "ImagePicker",
-  state: "uploading",
+  source: "Upload",
+  state: "completed",
   data: {
     uploadId: "<id>",
     key: "<key>",
@@ -25,11 +25,11 @@ const value: operations.Three1 = {
 
 ```typescript
 const value: operations.Three2 = {
-  id: "0539ebcf-a99d-46ca-8403-b946a266885c",
-  url: "https://innocent-technician.biz/",
+  id: "b9191053-9ebc-4fa9-99d6-ca403b946a26",
+  url: "https://misguided-fund.net",
   metadata: {},
   source: "Upload",
-  state: "request_smart_motion",
+  state: "uploading",
   data: {
     uploadId: "<id>",
     key: "<key>",
@@ -43,17 +43,17 @@ const value: operations.Three2 = {
 
 ```typescript
 const value: operations.Three3 = {
-  id: "25b436ce-02f9-48d0-90fd-b27ee0c0f6f5",
-  url: "https://shallow-councilman.org/",
+  id: "6e42e25b-436c-4e02-8f98-d00fdb27ee0c",
+  url: "https://infatuated-volleyball.info",
   metadata: {},
-  source: "ImagePicker",
+  source: "Upload",
   data: {
     sourceMedia: {
-      id: "ff2f00ff-277d-4ac7-9abb-015066e9be70",
-      url: "https://unselfish-footrest.biz",
+      id: "5b3d9ff2-f00f-4f27-a7da-c7abb015066e",
+      url: "https://unhappy-hutch.com",
     },
   },
-  state: "completed",
+  state: "generating",
 };
 ```
 
@@ -61,8 +61,8 @@ const value: operations.Three3 = {
 
 ```typescript
 const value: operations.Three4 = {
-  id: "5a418e93-ac58-4a2f-a7f3-720366ea6f95",
-  url: "https://unconscious-technician.info/",
+  id: "de54e5a4-18e9-43ac-a58a-2f7f3720366e",
+  url: "https://wretched-obesity.biz/",
   metadata: {},
   source: "ImagePicker",
   state: "error",

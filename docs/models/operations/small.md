@@ -6,10 +6,10 @@
 import { Small } from "shortgenius/models/operations";
 
 let value: Small = {
-  url: "https://musty-humidity.biz/",
-  width: 5529.62,
-  height: 2759.13,
-  size: 5350.55,
+  url: "https://immense-term.info",
+  width: 3246,
+  height: 9957.33,
+  size: 9524.11,
   thumbnail: "<value>",
 };
 ```

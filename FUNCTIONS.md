@@ -20,7 +20,7 @@ specific category of applications.
 
 ```typescript
 import { ShortGeniusCore } from "shortgenius/core.js";
-import { musicGetMusicGenres } from "shortgenius/funcs/musicGetMusicGenres.js";
+import { getMusicGenres } from "shortgenius/funcs/getMusicGenres.js";
 import { SDKValidationError } from "shortgenius/models/errors/sdkvalidationerror.js";
 
 // Use `ShortGeniusCore` for best tree-shaking performance.
@@ -30,7 +30,7 @@ const shortGenius = new ShortGeniusCore({
 });
 
 async function run() {
-  const res = await musicGetMusicGenres(shortGenius);
+  const res = await getMusicGenres(shortGenius);
 
   switch (true) {
     case res.ok:

@@ -8,8 +8,9 @@ A predefined image style
 import { ImageStyle } from "shortgenius/models/components";
 
 let value: ImageStyle = {
-  id: "a1045cf6-afba-415e-a3db-588b82c6f445",
+  id: "1045cf6a-fba1-45e3-bdb5-88b82c6f4459",
   name: "<value>",
+  privacy: "Private",
   prompt: "<value>",
   examples: [
     "<value>",
@@ -19,9 +20,10 @@ let value: ImageStyle = {
 
 ## Fields
 
-| Field                         | Type                          | Required                      | Description                   |
-| ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- |
-| `id`                          | *string*                      | :heavy_check_mark:            | Unique ID of the image style. |
-| `name`                        | *string*                      | :heavy_check_mark:            | Name of the image style.      |
-| `prompt`                      | *string*                      | :heavy_check_mark:            | Prompt for the image style.   |
-| `examples`                    | *string*[]                    | :heavy_check_mark:            | Examples of the image style.  |
+| Field                                                    | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `id`                                                     | *string*                                                 | :heavy_check_mark:                                       | Unique ID of the image style.                            |
+| `name`                                                   | *string*                                                 | :heavy_check_mark:                                       | Name of the image style.                                 |
+| `privacy`                                                | [components.Privacy](../../models/components/privacy.md) | :heavy_check_mark:                                       | Privacy of the image style.                              |
+| `prompt`                                                 | *string*                                                 | :heavy_check_mark:                                       | Prompt for the image style.                              |
+| `examples`                                               | *string*[]                                               | :heavy_check_mark:                                       | Examples of the image style.                             |

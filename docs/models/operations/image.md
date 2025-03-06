@@ -7,12 +7,12 @@ import { Image } from "shortgenius/models/operations";
 
 let value: Image = {
   contextLink: "<value>",
-  height: 8439.69,
-  width: 5394.26,
-  byteSize: 4884.05,
+  height: 5605.12,
+  width: 5824.12,
+  byteSize: 2012.29,
   thumbnailLink: "<value>",
-  thumbnailHeight: 5562.57,
-  thumbnailWidth: 7170.18,
+  thumbnailHeight: 4482.03,
+  thumbnailWidth: 4720.77,
 };
 ```
 

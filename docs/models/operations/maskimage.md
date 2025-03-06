@@ -6,7 +6,7 @@
 import { MaskImage } from "shortgenius/models/operations";
 
 let value: MaskImage = {
-  url: "https://discrete-casement.org",
+  url: "https://whopping-rust.info/",
 };
 ```
 

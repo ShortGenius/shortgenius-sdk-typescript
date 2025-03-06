@@ -7,7 +7,7 @@ import { MediaResults } from "shortgenius/models/operations";
 
 let value: MediaResults = {
   image: {
-    url: "https://fine-ethyl.com",
+    url: "https://questionable-couch.com/",
   },
 };
 ```

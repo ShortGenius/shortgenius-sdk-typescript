@@ -16,7 +16,7 @@ export class Status extends ClientSDK {
    */
   async check(
     options?: RequestOptions,
-  ): Promise<operations.GetHealthResponseBody> {
+  ): Promise<operations.CheckHealthResponseBody> {
     return unwrapAsync(statusCheck(
       this,
       options,

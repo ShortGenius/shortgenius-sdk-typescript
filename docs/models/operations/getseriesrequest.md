@@ -5,12 +5,13 @@
 ```typescript
 import { GetSeriesRequest } from "shortgenius/models/operations";
 
-let value: GetSeriesRequest = {};
+let value: GetSeriesRequest = {
+  id: "8f212399-3777-4c7c-828d-2792c1f7516a",
+};
 ```
 
 ## Fields
 
-| Field                                 | Type                                  | Required                              | Description                           |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| `page`                                | *number*                              | :heavy_minus_sign:                    | The page number to retrieve.          |
-| `limit`                               | *number*                              | :heavy_minus_sign:                    | The maximum number of items per page. |
+| Field                                          | Type                                           | Required                                       | Description                                    |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| `id`                                           | *string*                                       | :heavy_check_mark:                             | The unique ID of the video series to retrieve. |

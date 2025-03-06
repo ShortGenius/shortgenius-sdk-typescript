@@ -8,19 +8,19 @@ Details about the created or retrieved audio media.
 import { Audio } from "shortgenius/models/components";
 
 let value: Audio = {
-  id: "de7ac84a-9e0e-4805-bb7f-65d8aca619e6",
-  createdAt: "1725566433630",
-  url: "https://talkative-median.com",
-  userId: "f3b873b1-fd86-448e-b483-53f9b15e12a9",
-  state: "error",
+  id: "7ac84a9e-0e80-45b7-af65-d8aca619e6e8",
+  createdAt: "1735963366883",
+  url: "https://broken-wear.biz",
+  userId: "b873b1fd-8648-4e48-8353-f9b15e12a9de",
+  state: "generating",
   text: "<value>",
   voice: {
     id: "<id>",
     name: "<value>",
-    description: "dislocate however entire ah",
+    description: "inasmuch drive frankly unblinking furthermore sightseeing",
     tags: {},
-    previewUrl: "https://wealthy-range.name/",
-    locale: "he-IL",
+    previewUrl: "https://sizzling-eggplant.info",
+    locale: "en-US",
     source: "Cartesia",
   },
 };

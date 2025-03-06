@@ -5,12 +5,13 @@
 ```typescript
 import { GetAudioRequest } from "shortgenius/models/operations";
 
-let value: GetAudioRequest = {};
+let value: GetAudioRequest = {
+  id: "<id>",
+};
 ```
 
 ## Fields
 
-| Field                                 | Type                                  | Required                              | Description                           |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| `page`                                | *number*                              | :heavy_minus_sign:                    | The page number to retrieve.          |
-| `limit`                               | *number*                              | :heavy_minus_sign:                    | The maximum number of items per page. |
+| Field                                          | Type                                           | Required                                       | Description                                    |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| `id`                                           | *string*                                       | :heavy_check_mark:                             | The unique ID of the audio record to retrieve. |

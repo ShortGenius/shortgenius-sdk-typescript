@@ -70,7 +70,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.GetHealthResponseBody](../../models/operations/gethealthresponsebody.md)\>**
+**Promise\<[operations.CheckHealthResponseBody](../../models/operations/checkhealthresponsebody.md)\>**
 
 ### Errors
 

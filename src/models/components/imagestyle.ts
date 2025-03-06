@@ -4,8 +4,22 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+
+/**
+ * Privacy of the image style.
+ */
+export const Privacy = {
+  Private: "Private",
+  Public: "Public",
+  System: "System",
+} as const;
+/**
+ * Privacy of the image style.
+ */
+export type Privacy = ClosedEnum<typeof Privacy>;
 
 /**
  * A predefined image style
@@ -20,6 +34,10 @@ export type ImageStyle = {
    */
   name: string;
   /**
+   * Privacy of the image style.
+   */
+  privacy: Privacy;
+  /**
    * Prompt for the image style.
    */
   prompt: string;
@@ -30,6 +48,25 @@ export type ImageStyle = {
 };
 
 /** @internal */
+export const Privacy$inboundSchema: z.ZodNativeEnum<typeof Privacy> = z
+  .nativeEnum(Privacy);
+
+/** @internal */
+export const Privacy$outboundSchema: z.ZodNativeEnum<typeof Privacy> =
+  Privacy$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Privacy$ {
+  /** @deprecated use `Privacy$inboundSchema` instead. */
+  export const inboundSchema = Privacy$inboundSchema;
+  /** @deprecated use `Privacy$outboundSchema` instead. */
+  export const outboundSchema = Privacy$outboundSchema;
+}
+
+/** @internal */
 export const ImageStyle$inboundSchema: z.ZodType<
   ImageStyle,
   z.ZodTypeDef,
@@ -37,6 +74,7 @@ export const ImageStyle$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   name: z.string(),
+  privacy: Privacy$inboundSchema,
   prompt: z.string(),
   examples: z.array(z.string()),
 });
@@ -45,6 +83,7 @@ export const ImageStyle$inboundSchema: z.ZodType<
 export type ImageStyle$Outbound = {
   id: string;
   name: string;
+  privacy: string;
   prompt: string;
   examples: Array<string>;
 };
@@ -57,6 +96,7 @@ export const ImageStyle$outboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   name: z.string(),
+  privacy: Privacy$outboundSchema,
   prompt: z.string(),
   examples: z.array(z.string()),
 });

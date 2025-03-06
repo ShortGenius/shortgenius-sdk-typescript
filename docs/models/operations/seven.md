@@ -6,10 +6,10 @@
 import { Seven } from "shortgenius/models/operations";
 
 let value: Seven = {
-  id: "8d674c12-fa8c-4f3c-b5bb-f10b9bc75c69",
-  url: "https://actual-discourse.net/",
-  state: "completed",
-  createdAt: "1739525310067",
+  id: "c75c69e2-04c9-4f84-8cad-a7404063b31d",
+  url: "https://vengeful-bungalow.name",
+  state: "generating",
+  createdAt: "1734882363924",
 };
 ```
 

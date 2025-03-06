@@ -32,7 +32,7 @@ export function statusCheck(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.GetHealthResponseBody,
+    operations.CheckHealthResponseBody,
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -54,7 +54,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      operations.GetHealthResponseBody,
+      operations.CheckHealthResponseBody,
       | APIError
       | SDKValidationError
       | UnexpectedClientError
@@ -78,7 +78,7 @@ async function $do(
 
   const context = {
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "get_/health",
+    operationID: "checkHealth",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -115,7 +115,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    operations.GetHealthResponseBody,
+    operations.CheckHealthResponseBody,
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -124,7 +124,7 @@ async function $do(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.GetHealthResponseBody$inboundSchema),
+    M.json(200, operations.CheckHealthResponseBody$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response);

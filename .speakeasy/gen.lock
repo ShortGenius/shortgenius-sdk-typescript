@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: f54f0795-3b37-43ef-8a0f-1a7b35a560fb
 management:
-  docChecksum: 5ff244d198850de2befde2dfc2889b04
+  docChecksum: a04e4dc7501986c9fa5f1266dc8e59b8
   docVersion: 1.0.0
   speakeasyVersion: 1.510.0
   generationVersion: 2.541.0
-  releaseVersion: 0.2.1
-  configChecksum: c0c1c2e4c24aa98cbf0d6264de238f88
+  releaseVersion: 0.2.2
+  configChecksum: 5df07f3addcc1fb389036d2c091821fa
   repoURL: https://github.com/ShortGenius/shortgenius-sdk-typescript.git
   installationURL: https://github.com/ShortGenius/shortgenius-sdk-typescript
   published: true
@@ -93,6 +93,7 @@ generatedFiles:
   - docs/models/components/onelinks.md
   - docs/models/components/oneuser.md
   - docs/models/components/options.md
+  - docs/models/components/privacy.md
   - docs/models/components/privacylevel.md
   - docs/models/components/profileimage.md
   - docs/models/components/publishingstate.md
@@ -206,39 +207,39 @@ generatedFiles:
   - docs/models/components/words.md
   - docs/models/components/xsettings.md
   - docs/models/components/youtubesettings.md
-  - docs/models/errors/getaudioidresponsebody.md
+  - docs/models/errors/createimageresponsebody.md
+  - docs/models/errors/createimageresponseresponsebody.md
+  - docs/models/errors/createseriesresponsebody.md
+  - docs/models/errors/createseriesresponseresponsebody.md
+  - docs/models/errors/createspeechresponsebody.md
+  - docs/models/errors/createspeechresponseresponsebody.md
+  - docs/models/errors/createvideoresponsebody.md
+  - docs/models/errors/createvideoresponseresponsebody.md
+  - docs/models/errors/draftnewsvideoresponsebody.md
+  - docs/models/errors/draftnewsvideoresponseresponsebody.md
+  - docs/models/errors/draftquizvideoresponsebody.md
+  - docs/models/errors/draftquizvideoresponseresponsebody.md
+  - docs/models/errors/draftvideofromscriptresponsebody.md
+  - docs/models/errors/draftvideofromscriptresponseresponsebody.md
+  - docs/models/errors/draftvideofromurlresponsebody.md
+  - docs/models/errors/draftvideofromurlresponseresponsebody.md
+  - docs/models/errors/draftvideoresponsebody.md
+  - docs/models/errors/draftvideoresponseresponsebody.md
+  - docs/models/errors/generatevideotopicsresponsebody.md
+  - docs/models/errors/generatevideotopicsresponseresponsebody.md
+  - docs/models/errors/getallaudioresponsebody.md
+  - docs/models/errors/getallseriesresponsebody.md
   - docs/models/errors/getaudioresponsebody.md
-  - docs/models/errors/getaudiovoicesidresponsebody.md
-  - docs/models/errors/getaudiovoicesresponsebody.md
   - docs/models/errors/getconnectionsresponsebody.md
-  - docs/models/errors/getimagesidresponsebody.md
+  - docs/models/errors/getimageresponsebody.md
   - docs/models/errors/getimagesresponsebody.md
-  - docs/models/errors/getimagesstylesresponsebody.md
-  - docs/models/errors/getmusicgenresidresponsebody.md
-  - docs/models/errors/getseriesidresponsebody.md
+  - docs/models/errors/getimagestylesresponsebody.md
+  - docs/models/errors/getmusicresponsebody.md
   - docs/models/errors/getseriesresponsebody.md
-  - docs/models/errors/getvideosidresponsebody.md
+  - docs/models/errors/getvideoresponsebody.md
   - docs/models/errors/getvideosresponsebody.md
-  - docs/models/errors/postaudiospeechaudioresponsebody.md
-  - docs/models/errors/postaudiospeechresponsebody.md
-  - docs/models/errors/postimagesimagesresponsebody.md
-  - docs/models/errors/postimagesresponsebody.md
-  - docs/models/errors/postseriesresponsebody.md
-  - docs/models/errors/postseriesseriesresponsebody.md
-  - docs/models/errors/postvideosdraftsnewsresponsebody.md
-  - docs/models/errors/postvideosdraftsnewsvideosresponsebody.md
-  - docs/models/errors/postvideosdraftsquizresponsebody.md
-  - docs/models/errors/postvideosdraftsquizvideosresponsebody.md
-  - docs/models/errors/postvideosdraftsresponsebody.md
-  - docs/models/errors/postvideosdraftsscriptresponsebody.md
-  - docs/models/errors/postvideosdraftsscriptvideosresponsebody.md
-  - docs/models/errors/postvideosdraftsurlresponsebody.md
-  - docs/models/errors/postvideosdraftsurlvideosresponsebody.md
-  - docs/models/errors/postvideosdraftsvideosresponsebody.md
-  - docs/models/errors/postvideosresponsebody.md
-  - docs/models/errors/postvideostopicsresponsebody.md
-  - docs/models/errors/postvideostopicsvideosresponsebody.md
-  - docs/models/errors/postvideosvideosresponsebody.md
+  - docs/models/errors/getvoiceresponsebody.md
+  - docs/models/errors/getvoicesresponsebody.md
   - docs/models/operations/artifacts.md
   - docs/models/operations/aspectratio.md
   - docs/models/operations/balance.md
@@ -248,85 +249,106 @@ generatedFiles:
   - docs/models/operations/captiontexttransform.md
   - docs/models/operations/categories.md
   - docs/models/operations/category.md
+  - docs/models/operations/checkhealthresponsebody.md
   - docs/models/operations/contenttype.md
+  - docs/models/operations/createimageaspectratio.md
+  - docs/models/operations/createimagerequestbody.md
+  - docs/models/operations/createseriesaspectratio.md
+  - docs/models/operations/createseriescontenttype.md
+  - docs/models/operations/createserieslocale.md
+  - docs/models/operations/createseriesrequestbody.md
+  - docs/models/operations/createspeechlocale.md
+  - docs/models/operations/createspeechrequestbody.md
+  - docs/models/operations/createvideolocale.md
+  - docs/models/operations/createvideorequestbody.md
   - docs/models/operations/customwatermark.md
   - docs/models/operations/data.md
+  - docs/models/operations/draftnewsvideolocale.md
+  - docs/models/operations/draftnewsvideorequestbody.md
+  - docs/models/operations/draftquizvideolocale.md
+  - docs/models/operations/draftquizvideorequestbody.md
+  - docs/models/operations/draftvideofromscriptrequestbody.md
+  - docs/models/operations/draftvideofromurllocale.md
+  - docs/models/operations/draftvideofromurlrequestbody.md
+  - docs/models/operations/draftvideorequestbody.md
   - docs/models/operations/duration.md
   - docs/models/operations/eight.md
   - docs/models/operations/eleven.md
   - docs/models/operations/five.md
   - docs/models/operations/four.md
-  - docs/models/operations/getaudioidrequest.md
+  - docs/models/operations/generatevideotopicscontenttype.md
+  - docs/models/operations/generatevideotopicslocale.md
+  - docs/models/operations/generatevideotopicsrequestbody.md
+  - docs/models/operations/getallaudiorequest.md
+  - docs/models/operations/getallaudioresponsebody.md
+  - docs/models/operations/getallseriesrequest.md
+  - docs/models/operations/getallseriesresponsebody.md
   - docs/models/operations/getaudiorequest.md
-  - docs/models/operations/getaudioresponsebody.md
-  - docs/models/operations/getaudiovoicesidrequest.md
-  - docs/models/operations/getaudiovoicesrequest.md
-  - docs/models/operations/getcreditsresponsebody.md
-  - docs/models/operations/gethealthresponsebody.md
-  - docs/models/operations/getimagesid1imagesresponsestate.md
-  - docs/models/operations/getimagesid1imagesstate.md
-  - docs/models/operations/getimagesid1state.md
-  - docs/models/operations/getimagesidrequest.md
-  - docs/models/operations/getimagesidresponsebody.md
-  - docs/models/operations/getimagesidresponsebodyimagesresponse200state.md
-  - docs/models/operations/getimagesidresponsebodyimagesresponsestate.md
-  - docs/models/operations/getimagesidresponsebodyimagesstate.md
-  - docs/models/operations/getimagesidresponsebodystate.md
+  - docs/models/operations/getimage1response200state.md
+  - docs/models/operations/getimage1responsestate.md
+  - docs/models/operations/getimage1state.md
+  - docs/models/operations/getimagerequest.md
+  - docs/models/operations/getimageresponsebody.md
+  - docs/models/operations/getimageresponsebodyresponse200applicationjsonstate.md
+  - docs/models/operations/getimageresponsebodyresponse200state.md
+  - docs/models/operations/getimageresponsebodyresponsestate.md
+  - docs/models/operations/getimageresponsebodystate.md
   - docs/models/operations/getimagesrequest.md
   - docs/models/operations/getimagesresponsebody.md
-  - docs/models/operations/getmusicgenresidrequest.md
-  - docs/models/operations/getseriesid11.md
-  - docs/models/operations/getseriesid12.md
-  - docs/models/operations/getseriesid13.md
-  - docs/models/operations/getseriesid14.md
-  - docs/models/operations/getseriesid1data.md
-  - docs/models/operations/getseriesid1seriesdata.md
-  - docs/models/operations/getseriesid1seriesresponse200applicationjsondata.md
-  - docs/models/operations/getseriesid1seriesresponse200applicationjsonresponsebodydata.md
-  - docs/models/operations/getseriesid1seriesresponse200data.md
-  - docs/models/operations/getseriesid1seriesresponsedata.md
-  - docs/models/operations/getseriesid2data.md
-  - docs/models/operations/getseriesid2metadata.md
-  - docs/models/operations/getseriesid2seriesdata.md
-  - docs/models/operations/getseriesid2seriesmetadata.md
-  - docs/models/operations/getseriesid2seriessource.md
-  - docs/models/operations/getseriesid2seriesstate.md
-  - docs/models/operations/getseriesid2source.md
-  - docs/models/operations/getseriesid2state.md
-  - docs/models/operations/getseriesid3data.md
-  - docs/models/operations/getseriesid3metadata.md
-  - docs/models/operations/getseriesid3seriesdata.md
-  - docs/models/operations/getseriesid3seriesmetadata.md
-  - docs/models/operations/getseriesid3seriesresponsedata.md
-  - docs/models/operations/getseriesid3seriesresponsemetadata.md
-  - docs/models/operations/getseriesid3seriesresponsesource.md
-  - docs/models/operations/getseriesid3seriesresponsestate.md
-  - docs/models/operations/getseriesid3seriessource.md
-  - docs/models/operations/getseriesid3seriesstate.md
-  - docs/models/operations/getseriesid3source.md
-  - docs/models/operations/getseriesid3state.md
-  - docs/models/operations/getseriesid6data.md
-  - docs/models/operations/getseriesid6source.md
-  - docs/models/operations/getseriesidaspectratio.md
-  - docs/models/operations/getseriesidcaptionalignment.md
-  - docs/models/operations/getseriesidcaptiontexttransform.md
-  - docs/models/operations/getseriesidcontenttype.md
-  - docs/models/operations/getseriesidlocale.md
-  - docs/models/operations/getseriesidmediadata.md
-  - docs/models/operations/getseriesidprivacylevel.md
-  - docs/models/operations/getseriesidrecommendations.md
-  - docs/models/operations/getseriesidrequest.md
-  - docs/models/operations/getseriesidresponsebody.md
-  - docs/models/operations/getseriesidschedule.md
-  - docs/models/operations/getseriesidseriescaptionalignment.md
-  - docs/models/operations/getseriesidseriescaptiontexttransform.md
-  - docs/models/operations/getseriesidtimes.md
-  - docs/models/operations/getseriesidtimezone.md
+  - docs/models/operations/getmusicrequest.md
+  - docs/models/operations/getseries11.md
+  - docs/models/operations/getseries12.md
+  - docs/models/operations/getseries13.md
+  - docs/models/operations/getseries14.md
+  - docs/models/operations/getseries1data.md
+  - docs/models/operations/getseries1response200applicationjsondata.md
+  - docs/models/operations/getseries1response200applicationjsonresponsebodydata.md
+  - docs/models/operations/getseries1response200applicationjsonresponsebodythumbnaildata.md
+  - docs/models/operations/getseries1response200data.md
+  - docs/models/operations/getseries1responsedata.md
+  - docs/models/operations/getseries2data.md
+  - docs/models/operations/getseries2metadata.md
+  - docs/models/operations/getseries2responsedata.md
+  - docs/models/operations/getseries2responsemetadata.md
+  - docs/models/operations/getseries2responsesource.md
+  - docs/models/operations/getseries2responsestate.md
+  - docs/models/operations/getseries2source.md
+  - docs/models/operations/getseries2state.md
+  - docs/models/operations/getseries3data.md
+  - docs/models/operations/getseries3metadata.md
+  - docs/models/operations/getseries3response200data.md
+  - docs/models/operations/getseries3response200metadata.md
+  - docs/models/operations/getseries3response200source.md
+  - docs/models/operations/getseries3response200state.md
+  - docs/models/operations/getseries3responsedata.md
+  - docs/models/operations/getseries3responsemetadata.md
+  - docs/models/operations/getseries3responsesource.md
+  - docs/models/operations/getseries3responsestate.md
+  - docs/models/operations/getseries3source.md
+  - docs/models/operations/getseries3state.md
+  - docs/models/operations/getseries6data.md
+  - docs/models/operations/getseries6source.md
+  - docs/models/operations/getseriesaspectratio.md
+  - docs/models/operations/getseriescaptionalignment.md
+  - docs/models/operations/getseriescaptiontexttransform.md
+  - docs/models/operations/getseriescontenttype.md
+  - docs/models/operations/getserieslocale.md
+  - docs/models/operations/getseriesmediadata.md
+  - docs/models/operations/getseriesprivacylevel.md
+  - docs/models/operations/getseriesrecommendations.md
   - docs/models/operations/getseriesrequest.md
   - docs/models/operations/getseriesresponsebody.md
-  - docs/models/operations/getvideosidrequest.md
+  - docs/models/operations/getseriesresponsecaptionalignment.md
+  - docs/models/operations/getseriesresponsecaptiontexttransform.md
+  - docs/models/operations/getseriesschedule.md
+  - docs/models/operations/getseriestimes.md
+  - docs/models/operations/getseriestimezone.md
+  - docs/models/operations/getusageresponsebody.md
+  - docs/models/operations/getvideorequest.md
   - docs/models/operations/getvideosrequest.md
   - docs/models/operations/getvideosresponsebody.md
+  - docs/models/operations/getvoicerequest.md
+  - docs/models/operations/getvoicesrequest.md
   - docs/models/operations/image.md
   - docs/models/operations/imageinfo.md
   - docs/models/operations/images.md
@@ -365,27 +387,6 @@ generatedFiles:
   - docs/models/operations/onestate.md
   - docs/models/operations/oneuser.md
   - docs/models/operations/options.md
-  - docs/models/operations/postaudiospeechlocale.md
-  - docs/models/operations/postaudiospeechrequestbody.md
-  - docs/models/operations/postimagesaspectratio.md
-  - docs/models/operations/postimagesrequestbody.md
-  - docs/models/operations/postseriesaspectratio.md
-  - docs/models/operations/postseriescontenttype.md
-  - docs/models/operations/postserieslocale.md
-  - docs/models/operations/postseriesrequestbody.md
-  - docs/models/operations/postvideosdraftsnewslocale.md
-  - docs/models/operations/postvideosdraftsnewsrequestbody.md
-  - docs/models/operations/postvideosdraftsquizlocale.md
-  - docs/models/operations/postvideosdraftsquizrequestbody.md
-  - docs/models/operations/postvideosdraftsrequestbody.md
-  - docs/models/operations/postvideosdraftsscriptrequestbody.md
-  - docs/models/operations/postvideosdraftsurllocale.md
-  - docs/models/operations/postvideosdraftsurlrequestbody.md
-  - docs/models/operations/postvideoslocale.md
-  - docs/models/operations/postvideosrequestbody.md
-  - docs/models/operations/postvideostopicscontenttype.md
-  - docs/models/operations/postvideostopicslocale.md
-  - docs/models/operations/postvideostopicsrequestbody.md
   - docs/models/operations/privacylevel.md
   - docs/models/operations/profileimage.md
   - docs/models/operations/quality.md
@@ -456,45 +457,38 @@ generatedFiles:
   - docs/models/operations/voice.md
   - docs/models/operations/xsettings.md
   - docs/models/operations/youtubesettings.md
-  - docs/sdks/administration/README.md
-  - docs/sdks/audio/README.md
-  - docs/sdks/images/README.md
-  - docs/sdks/music/README.md
-  - docs/sdks/publishing/README.md
-  - docs/sdks/series/README.md
   - docs/sdks/shortgenius/README.md
   - docs/sdks/status/README.md
-  - docs/sdks/videos/README.md
   - eslint.config.mjs
   - jsr.json
   - package.json
   - src/core.ts
-  - src/funcs/administrationGetCredits.ts
-  - src/funcs/audioGetAudio.ts
-  - src/funcs/audioGetAudioId.ts
-  - src/funcs/audioGetAudioVoices.ts
-  - src/funcs/audioGetAudioVoicesId.ts
-  - src/funcs/audioPostAudioSpeech.ts
-  - src/funcs/imagesGetImages.ts
-  - src/funcs/imagesGetImagesId.ts
-  - src/funcs/imagesGetImagesStyles.ts
-  - src/funcs/imagesPostImages.ts
-  - src/funcs/musicGetMusicGenres.ts
-  - src/funcs/musicGetMusicGenresId.ts
-  - src/funcs/publishingGetConnections.ts
-  - src/funcs/seriesGetSeries.ts
-  - src/funcs/seriesGetSeriesId.ts
-  - src/funcs/seriesPostSeries.ts
+  - src/funcs/createImage.ts
+  - src/funcs/createSeries.ts
+  - src/funcs/createSpeech.ts
+  - src/funcs/createVideo.ts
+  - src/funcs/draftNewsVideo.ts
+  - src/funcs/draftQuizVideo.ts
+  - src/funcs/draftVideo.ts
+  - src/funcs/draftVideoFromScript.ts
+  - src/funcs/draftVideoFromURL.ts
+  - src/funcs/generateVideoTopics.ts
+  - src/funcs/getAllAudio.ts
+  - src/funcs/getAllSeries.ts
+  - src/funcs/getAudio.ts
+  - src/funcs/getConnections.ts
+  - src/funcs/getImage.ts
+  - src/funcs/getImageStyles.ts
+  - src/funcs/getImages.ts
+  - src/funcs/getMusic.ts
+  - src/funcs/getMusicGenres.ts
+  - src/funcs/getSeries.ts
+  - src/funcs/getUsage.ts
+  - src/funcs/getVideo.ts
+  - src/funcs/getVideos.ts
+  - src/funcs/getVoice.ts
+  - src/funcs/getVoices.ts
   - src/funcs/statusCheck.ts
-  - src/funcs/videosGetVideos.ts
-  - src/funcs/videosGetVideosId.ts
-  - src/funcs/videosPostVideos.ts
-  - src/funcs/videosPostVideosDrafts.ts
-  - src/funcs/videosPostVideosDraftsNews.ts
-  - src/funcs/videosPostVideosDraftsQuiz.ts
-  - src/funcs/videosPostVideosDraftsScript.ts
-  - src/funcs/videosPostVideosDraftsUrl.ts
-  - src/funcs/videosPostVideosTopics.ts
   - src/hooks/hooks.ts
   - src/hooks/index.ts
   - src/hooks/types.ts
@@ -526,32 +520,32 @@ generatedFiles:
   - src/mcp-server/server.ts
   - src/mcp-server/shared.ts
   - src/mcp-server/tools.ts
-  - src/mcp-server/tools/administrationGetCredits.ts
-  - src/mcp-server/tools/audioGetAudio.ts
-  - src/mcp-server/tools/audioGetAudioId.ts
-  - src/mcp-server/tools/audioGetAudioVoices.ts
-  - src/mcp-server/tools/audioGetAudioVoicesId.ts
-  - src/mcp-server/tools/audioPostAudioSpeech.ts
-  - src/mcp-server/tools/imagesGetImages.ts
-  - src/mcp-server/tools/imagesGetImagesId.ts
-  - src/mcp-server/tools/imagesGetImagesStyles.ts
-  - src/mcp-server/tools/imagesPostImages.ts
-  - src/mcp-server/tools/musicGetMusicGenres.ts
-  - src/mcp-server/tools/musicGetMusicGenresId.ts
-  - src/mcp-server/tools/publishingGetConnections.ts
-  - src/mcp-server/tools/seriesGetSeries.ts
-  - src/mcp-server/tools/seriesGetSeriesId.ts
-  - src/mcp-server/tools/seriesPostSeries.ts
+  - src/mcp-server/tools/createImage.ts
+  - src/mcp-server/tools/createSeries.ts
+  - src/mcp-server/tools/createSpeech.ts
+  - src/mcp-server/tools/createVideo.ts
+  - src/mcp-server/tools/draftNewsVideo.ts
+  - src/mcp-server/tools/draftQuizVideo.ts
+  - src/mcp-server/tools/draftVideo.ts
+  - src/mcp-server/tools/draftVideoFromScript.ts
+  - src/mcp-server/tools/draftVideoFromURL.ts
+  - src/mcp-server/tools/generateVideoTopics.ts
+  - src/mcp-server/tools/getAllAudio.ts
+  - src/mcp-server/tools/getAllSeries.ts
+  - src/mcp-server/tools/getAudio.ts
+  - src/mcp-server/tools/getConnections.ts
+  - src/mcp-server/tools/getImage.ts
+  - src/mcp-server/tools/getImageStyles.ts
+  - src/mcp-server/tools/getImages.ts
+  - src/mcp-server/tools/getMusic.ts
+  - src/mcp-server/tools/getMusicGenres.ts
+  - src/mcp-server/tools/getSeries.ts
+  - src/mcp-server/tools/getUsage.ts
+  - src/mcp-server/tools/getVideo.ts
+  - src/mcp-server/tools/getVideos.ts
+  - src/mcp-server/tools/getVoice.ts
+  - src/mcp-server/tools/getVoices.ts
   - src/mcp-server/tools/statusCheck.ts
-  - src/mcp-server/tools/videosGetVideos.ts
-  - src/mcp-server/tools/videosGetVideosId.ts
-  - src/mcp-server/tools/videosPostVideos.ts
-  - src/mcp-server/tools/videosPostVideosDrafts.ts
-  - src/mcp-server/tools/videosPostVideosDraftsNews.ts
-  - src/mcp-server/tools/videosPostVideosDraftsQuiz.ts
-  - src/mcp-server/tools/videosPostVideosDraftsScript.ts
-  - src/mcp-server/tools/videosPostVideosDraftsUrl.ts
-  - src/mcp-server/tools/videosPostVideosTopics.ts
   - src/models/components/audio.ts
   - src/models/components/connection.ts
   - src/models/components/draftquizvideo.ts
@@ -567,66 +561,59 @@ generatedFiles:
   - src/models/components/video.ts
   - src/models/components/voice.ts
   - src/models/errors/apierror.ts
+  - src/models/errors/createimage.ts
+  - src/models/errors/createseries.ts
+  - src/models/errors/createspeech.ts
+  - src/models/errors/createvideo.ts
+  - src/models/errors/draftnewsvideo.ts
+  - src/models/errors/draftquizvideo.ts
+  - src/models/errors/draftvideo.ts
+  - src/models/errors/draftvideofromscript.ts
+  - src/models/errors/draftvideofromurl.ts
+  - src/models/errors/generatevideotopics.ts
+  - src/models/errors/getallaudio.ts
+  - src/models/errors/getallseries.ts
   - src/models/errors/getaudio.ts
-  - src/models/errors/getaudioid.ts
-  - src/models/errors/getaudiovoices.ts
-  - src/models/errors/getaudiovoicesid.ts
   - src/models/errors/getconnections.ts
+  - src/models/errors/getimage.ts
   - src/models/errors/getimages.ts
-  - src/models/errors/getimagesid.ts
-  - src/models/errors/getimagesstyles.ts
-  - src/models/errors/getmusicgenresid.ts
+  - src/models/errors/getimagestyles.ts
+  - src/models/errors/getmusic.ts
   - src/models/errors/getseries.ts
-  - src/models/errors/getseriesid.ts
+  - src/models/errors/getvideo.ts
   - src/models/errors/getvideos.ts
-  - src/models/errors/getvideosid.ts
+  - src/models/errors/getvoice.ts
+  - src/models/errors/getvoices.ts
   - src/models/errors/httpclienterrors.ts
   - src/models/errors/index.ts
-  - src/models/errors/postaudiospeech.ts
-  - src/models/errors/postimages.ts
-  - src/models/errors/postseries.ts
-  - src/models/errors/postvideos.ts
-  - src/models/errors/postvideosdrafts.ts
-  - src/models/errors/postvideosdraftsnews.ts
-  - src/models/errors/postvideosdraftsquiz.ts
-  - src/models/errors/postvideosdraftsscript.ts
-  - src/models/errors/postvideosdraftsurl.ts
-  - src/models/errors/postvideostopics.ts
   - src/models/errors/sdkvalidationerror.ts
+  - src/models/operations/checkhealth.ts
+  - src/models/operations/createimage.ts
+  - src/models/operations/createseries.ts
+  - src/models/operations/createspeech.ts
+  - src/models/operations/createvideo.ts
+  - src/models/operations/draftnewsvideo.ts
+  - src/models/operations/draftquizvideo.ts
+  - src/models/operations/draftvideo.ts
+  - src/models/operations/draftvideofromscript.ts
+  - src/models/operations/draftvideofromurl.ts
+  - src/models/operations/generatevideotopics.ts
+  - src/models/operations/getallaudio.ts
+  - src/models/operations/getallseries.ts
   - src/models/operations/getaudio.ts
-  - src/models/operations/getaudioid.ts
-  - src/models/operations/getaudiovoices.ts
-  - src/models/operations/getaudiovoicesid.ts
-  - src/models/operations/getcredits.ts
-  - src/models/operations/gethealth.ts
+  - src/models/operations/getimage.ts
   - src/models/operations/getimages.ts
-  - src/models/operations/getimagesid.ts
-  - src/models/operations/getmusicgenresid.ts
+  - src/models/operations/getmusic.ts
   - src/models/operations/getseries.ts
-  - src/models/operations/getseriesid.ts
+  - src/models/operations/getusage.ts
+  - src/models/operations/getvideo.ts
   - src/models/operations/getvideos.ts
-  - src/models/operations/getvideosid.ts
+  - src/models/operations/getvoice.ts
+  - src/models/operations/getvoices.ts
   - src/models/operations/index.ts
-  - src/models/operations/postaudiospeech.ts
-  - src/models/operations/postimages.ts
-  - src/models/operations/postseries.ts
-  - src/models/operations/postvideos.ts
-  - src/models/operations/postvideosdrafts.ts
-  - src/models/operations/postvideosdraftsnews.ts
-  - src/models/operations/postvideosdraftsquiz.ts
-  - src/models/operations/postvideosdraftsscript.ts
-  - src/models/operations/postvideosdraftsurl.ts
-  - src/models/operations/postvideostopics.ts
-  - src/sdk/administration.ts
-  - src/sdk/audio.ts
-  - src/sdk/images.ts
   - src/sdk/index.ts
-  - src/sdk/music.ts
-  - src/sdk/publishing.ts
   - src/sdk/sdk.ts
-  - src/sdk/series.ts
   - src/sdk/status.ts
-  - src/sdk/videos.ts
   - src/types/async.ts
   - src/types/blobs.ts
   - src/types/constdatetime.ts
@@ -873,5 +860,240 @@ examples:
       responses:
         "200":
           application/json: {"balance": {"credits": 4285.62}}
+  getMusicGenres:
+    speakeasy-default-get-music-genres:
+      responses:
+        "200":
+          application/json: [{"name": "Classical", "recommended_for_locales": []}, {"name": "Classical", "recommended_for_locales": ["no-NO"]}, {"name": "Classical", "recommended_for_locales": ["zh-TW", "pl-PL", "zh-CN"]}]
+  getMusic:
+    speakeasy-default-get-music:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: [{"id": "<id>", "name": "<value>", "preview_url": "https://fond-bid.biz/"}]
+        "400":
+          application/json: {}
+  draftVideo:
+    speakeasy-default-draft-video:
+      responses:
+        "200":
+          application/json: {"title": "<value>", "caption": "<value>", "scenes": [{"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}, {"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}, {"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}]}
+        "400":
+          application/json: {}
+        "401":
+          application/json: {}
+  draftVideoFromURL:
+    speakeasy-default-draft-video-from-URL:
+      responses:
+        "200":
+          application/json: {"title": "<value>", "caption": "<value>", "scenes": [{"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}]}
+        "400":
+          application/json: {}
+        "401":
+          application/json: {}
+  draftVideoFromScript:
+    speakeasy-default-draft-video-from-script:
+      responses:
+        "200":
+          application/json: {"title": "<value>", "caption": "<value>", "scenes": [{"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}, {"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}]}
+        "400":
+          application/json: {}
+        "401":
+          application/json: {}
+  draftQuizVideo:
+    speakeasy-default-draft-quiz-video:
+      responses:
+        "200":
+          application/json: {"title": "<value>", "caption": "<value>", "quiz": {"questions": [], "results": {"header": "<value>", "explanation": "<value>", "categories": [{"score_range": "<value>", "title": "<value>"}, {"score_range": "<value>", "title": "<value>"}]}}}
+        "400":
+          application/json: {}
+        "401":
+          application/json: {}
+  draftNewsVideo:
+    speakeasy-default-draft-news-video:
+      responses:
+        "200":
+          application/json: {"title": "<value>", "caption": "<value>", "scenes": [{"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}, {"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}]}
+        "400":
+          application/json: {}
+        "401":
+          application/json: {}
+  getVideo:
+    speakeasy-default-get-video:
+      parameters:
+        path:
+          id: "1da911f6-eb73-4f3c-8df2-bee5ea49dfef"
+      responses:
+        "200":
+          application/json: {"id": "ca378bbd-5b92-4692-a652-1bb9e4c290d5", "created_at": "1717129611999", "series_id": "a9fcca04-f616-4d8b-a95e-0388b7bb3ac1", "publishing_state": "error", "publish_at": "<value>"}
+        "400":
+          application/json: {}
+  getVideos:
+    speakeasy-default-get-videos:
+      parameters:
+        query:
+          page: 0
+          limit: 20
+      responses:
+        "200":
+          application/json: {"videos": [{"id": "e0ee61c9-a9ec-49cd-82bd-002226444936", "created_at": "1731856031932", "series_id": "67596411-be3e-44b6-88e3-7b03d0cce482", "publishing_state": "processing", "publish_at": "<value>"}, {"id": "cd7aa89f-af82-4404-9039-35b5f41b7f0c", "created_at": "1719551842000", "series_id": "6a1871ad-5b70-474d-9246-cd15d0d9d90e", "publishing_state": "pending", "publish_at": "<value>"}, {"id": "f29c0102-3017-425b-bafa-c73de7c18b72", "created_at": "1735414907365", "series_id": "d707a3d5-423c-4dd0-9481-bcccecda2c12", "publishing_state": "processing", "publish_at": "<value>"}], "has_more": false}
+        "400":
+          application/json: {}
+  createVideo:
+    speakeasy-default-create-video:
+      responses:
+        "200":
+          application/json: {"id": "9a776cbb-2114-499c-8a8c-7409f336cd78", "created_at": "1713621240968", "series_id": "a279ac0a-70f9-44c7-8da5-99e8dd1ff7d3", "publishing_state": "error", "publish_at": "<value>"}
+        "400":
+          application/json: {}
+        "401":
+          application/json: {}
+  generateVideoTopics:
+    speakeasy-default-generate-video-topics:
+      responses:
+        "200":
+          application/json: ["<value>", "<value>", "<value>"]
+        "400":
+          application/json: {}
+        "401":
+          application/json: {}
+  createSeries:
+    speakeasy-default-create-series:
+      responses:
+        "200":
+          application/json: {"id": "d313efb0-422f-4799-86f4-54baf19f5d61", "created_at": "1739264438888", "next_posting_at": "<value>", "type": "SingleVideo", "schedule": {"time_zone": "Asia/Bangkok", "times": [{"day_of_week": 4844.96, "time_of_day": 4520.41}, {"day_of_week": 6598.52, "time_of_day": 5304.76}]}, "aspect_ratio": "9:16", "soundtrack_behavior": "FullMusic", "locale": "ru-RU", "soundtrack": {"tracks": [{"url": "https://untidy-forage.net"}], "recommendations": [{"url": "https://antique-reboot.info", "reason": "<value>"}, {"url": "https://colorful-duster.biz/", "reason": "<value>"}, {"url": "https://vague-willow.name", "reason": "<value>"}], "playback_rate": 3076.33, "volume": 62.44}, "styles": {}, "image_style": {}, "voice": {"voices": [], "playback_rate": 144.37, "volume": 4740.31}, "connections": []}
+        "400":
+          application/json: {}
+        "401":
+          application/json: {}
+  getAllSeries:
+    speakeasy-default-get-all-series:
+      parameters:
+        query:
+          page: 0
+          limit: 50
+      responses:
+        "200":
+          application/json: {"series": [{"id": "d0622a0b-e89a-4d56-9e31-99cd79c038ad", "created_at": "1730980967854", "next_posting_at": "<value>", "type": "Series", "schedule": {"time_zone": "Asia/Karachi", "times": []}, "aspect_ratio": "16:9", "soundtrack_behavior": "FullMusic", "locale": "zh-TW", "soundtrack": {"tracks": [{"url": "https://grounded-executor.net"}], "recommendations": [{"url": "https://whispered-permafrost.info", "reason": "<value>"}], "playback_rate": 3477.2, "volume": 4751.63}, "styles": {}, "image_style": {}, "voice": {"voices": [{"id": "<id>", "name": "<value>", "description": "daddy extremely until likewise", "tags": {}, "preview_url": "https://excitable-tuber.net", "locale": "fi-FI", "source": "CartesiaClonedVoice"}], "playback_rate": 4596.78, "volume": 4243.75}, "connections": [{"id": "d576ddfb-2833-4cf5-9594-876f05e7bf70", "type": "X"}, {"id": "73660480-61c5-43e0-99da-7519d51c37e9", "type": "Email"}]}], "has_more": false}
+        "400":
+          application/json: {}
+  getSeries:
+    speakeasy-default-get-series:
+      parameters:
+        path:
+          id: "2c052674-65b4-43c1-b916-2f4dfdcbb4a8"
+      responses:
+        "200":
+          application/json: {"id": "b28b9f7c-861e-4b81-8bec-036c67b39b68", "created_at": "1737747100301", "next_posting_at": "<value>", "type": "Series", "schedule": {"time_zone": "America/Bogota", "times": [{"day_of_week": 58, "time_of_day": 7722.62}, {"day_of_week": 38.34, "time_of_day": 6199.62}, {"day_of_week": 3345.7, "time_of_day": 5738.15}]}, "aspect_ratio": "9:16", "soundtrack_behavior": "NoMusic", "locale": "hi-IN", "soundtrack": {"tracks": [{"url": "https://hidden-fen.com"}, {"url": "https://lost-reasoning.biz"}, {"url": "https://scratchy-stir-fry.org/"}], "recommendations": [], "playback_rate": 7192.77, "volume": 626.13}, "styles": {}, "image_style": {}, "voice": {"voices": [{"id": "<id>", "name": "<value>", "description": "whether whenever yum majestically", "tags": {}, "preview_url": "https://tired-release.net", "locale": "da-DK", "source": "ElevenLabs"}], "playback_rate": 9389.1, "volume": 1924.27}, "connections": [{"id": "db24e1c8-2147-4df1-a2a2-762ef261e1e3", "type": "X"}, {"id": "1544a659-73ec-4265-9b04-9dc9fbf8aa5b", "type": "Email"}], "episodes": [{"id": "f96eb7ff-331d-485c-9fd5-59133d46e178", "created_at": "1725523561516", "series_id": "dce35253-7893-4993-9ade-aa8832c874de", "publishing_state": "completed", "publish_at": "<value>"}, {"id": "6c96faf4-7c62-4a79-b623-32c973fef8ca", "created_at": "1732894531372", "series_id": "0a5bc71d-7b00-48d2-857d-2925249f15d3", "publishing_state": "error", "publish_at": "<value>"}]}
+        "400":
+          application/json: {}
+  getConnections:
+    speakeasy-default-get-connections:
+      responses:
+        "200":
+          application/json: [{"id": "7ce916b3-d87b-49e5-bb6f-fd0ea189e26b", "type": "Email"}, {"id": "89fbe90f-661e-45a4-8640-7295946f7909", "type": "X"}, {"id": "19cfa608-0312-4ee0-8b3e-8d69e6da719f", "type": "TikTok"}]
+        "401":
+          application/json: {}
+  createImage:
+    speakeasy-default-create-image:
+      responses:
+        "200":
+          application/json: {"id": "3cb14ab1-c658-4ad4-842b-e0299be0fae3", "url": "https://basic-moment.biz/", "state": "request_smart_motion", "created_at": "1714745848169", "prompt": "<value>", "is_nsfw": true, "aspect_ratio": "9:16"}
+        "400":
+          application/json: {}
+        "401":
+          application/json: {}
+  getImages:
+    speakeasy-default-get-images:
+      parameters:
+        query:
+          page: 0
+          limit: 50
+      responses:
+        "200":
+          application/json: {"images": [], "has_more": false}
+        "400":
+          application/json: {}
+  getImage:
+    speakeasy-default-get-image:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "6162980f-e681-4947-9653-a482802ca657", "url": "https://limp-elevation.com", "state": "pending", "created_at": "1737381402816"}
+        "400":
+          application/json: {}
+  getImageStyles:
+    speakeasy-default-get-image-styles:
+      responses:
+        "200":
+          application/json: [{"id": "7eb11f85-eac0-45cb-a4b4-f7b325ddf1b4", "name": "<value>", "privacy": "Private", "prompt": "<value>", "examples": ["<value>", "<value>", "<value>"]}, {"id": "7ce26ca6-38b3-4d40-9172-3e966ac4cdb7", "name": "<value>", "privacy": "System", "prompt": "<value>", "examples": ["<value>", "<value>", "<value>"]}]
+        "400":
+          application/json: {}
+  createSpeech:
+    speakeasy-default-create-speech:
+      responses:
+        "200":
+          application/json: {"id": "f589b73f-081b-4ec2-b928-140d8f014e6a", "created_at": "1710107280596", "url": "https://peppery-punctuation.net", "user_id": "e4ec23dd-12d1-4a28-bc84-08abcb1b854d", "state": "completed", "text": "<value>", "voice": {"id": "<id>", "name": "<value>", "description": "youthfully although restfully amongst trusting underneath", "tags": {}, "preview_url": "https://reflecting-scorpion.com", "locale": "fr-CA", "source": "Cartesia"}}
+        "400":
+          application/json: {}
+        "401":
+          application/json: {}
+  getAllAudio:
+    speakeasy-default-get-all-audio:
+      parameters:
+        query:
+          page: 0
+          limit: 50
+      responses:
+        "200":
+          application/json: {"audio": [], "has_more": true}
+        "400":
+          application/json: {}
+  getAudio:
+    speakeasy-default-get-audio:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "fe5ee766-cb77-4bd6-811c-b3c26ad03113", "created_at": "1736732674203", "url": "https://webbed-beret.com", "user_id": "27389b9c-278e-4978-87a0-3b1553667691", "state": "pending", "text": "<value>", "voice": {"id": "<id>", "name": "<value>", "description": "yuppify elliptical underplay effector times", "tags": {}, "preview_url": "https://remorseful-permafrost.name", "locale": "he-IL", "source": "Cartesia"}}
+        "400":
+          application/json: {}
+  getVoices:
+    speakeasy-default-get-voices:
+      parameters:
+        query:
+          locale: "auto"
+          page: 0
+          limit: 20
+      responses:
+        "200":
+          application/json: [{"id": "<id>", "name": "<value>", "description": "pillory wherever tenant until if flawed reprimand elderly packaging shyly", "tags": {}, "preview_url": "https://outgoing-singing.name", "locale": "fi-FI", "source": "Cartesia"}]
+        "400":
+          application/json: {}
+  getVoice:
+    speakeasy-default-get-voice:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "<id>", "name": "<value>", "description": "prime camouflage sympathetically grass mill density", "tags": {}, "preview_url": "https://golden-inspection.name", "locale": "ro-RO", "source": "Cartesia"}
+        "400":
+          application/json: {}
+  getUsage:
+    speakeasy-default-get-usage:
+      responses:
+        "200":
+          application/json: {"balance": {"credits": 2240.89}}
+  checkHealth:
+    speakeasy-default-check-health:
+      responses:
+        "200":
+          application/json: {"status": "ok"}
 examplesVersion: 1.0.0
 generatedTests: {}

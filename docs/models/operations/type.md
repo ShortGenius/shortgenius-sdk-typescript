@@ -7,7 +7,7 @@ Type of the series (e.g., automatically generated).
 ```typescript
 import { Type } from "shortgenius/models/operations";
 
-let value: Type = "Series";
+let value: Type = "SingleVideo";
 ```
 
 ## Values

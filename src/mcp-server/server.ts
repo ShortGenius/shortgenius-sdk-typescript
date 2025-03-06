@@ -8,32 +8,32 @@ import { SDKOptions } from "../lib/config.js";
 import type { ConsoleLogger } from "./console-logger.js";
 import { MCPScope, mcpScopes } from "./scopes.js";
 import { createRegisterTool } from "./tools.js";
-import { tool$administrationGetCredits } from "./tools/administrationGetCredits.js";
-import { tool$audioGetAudio } from "./tools/audioGetAudio.js";
-import { tool$audioGetAudioId } from "./tools/audioGetAudioId.js";
-import { tool$audioGetAudioVoices } from "./tools/audioGetAudioVoices.js";
-import { tool$audioGetAudioVoicesId } from "./tools/audioGetAudioVoicesId.js";
-import { tool$audioPostAudioSpeech } from "./tools/audioPostAudioSpeech.js";
-import { tool$imagesGetImages } from "./tools/imagesGetImages.js";
-import { tool$imagesGetImagesId } from "./tools/imagesGetImagesId.js";
-import { tool$imagesGetImagesStyles } from "./tools/imagesGetImagesStyles.js";
-import { tool$imagesPostImages } from "./tools/imagesPostImages.js";
-import { tool$musicGetMusicGenres } from "./tools/musicGetMusicGenres.js";
-import { tool$musicGetMusicGenresId } from "./tools/musicGetMusicGenresId.js";
-import { tool$publishingGetConnections } from "./tools/publishingGetConnections.js";
-import { tool$seriesGetSeries } from "./tools/seriesGetSeries.js";
-import { tool$seriesGetSeriesId } from "./tools/seriesGetSeriesId.js";
-import { tool$seriesPostSeries } from "./tools/seriesPostSeries.js";
+import { tool$createImage } from "./tools/createImage.js";
+import { tool$createSeries } from "./tools/createSeries.js";
+import { tool$createSpeech } from "./tools/createSpeech.js";
+import { tool$createVideo } from "./tools/createVideo.js";
+import { tool$draftNewsVideo } from "./tools/draftNewsVideo.js";
+import { tool$draftQuizVideo } from "./tools/draftQuizVideo.js";
+import { tool$draftVideo } from "./tools/draftVideo.js";
+import { tool$draftVideoFromScript } from "./tools/draftVideoFromScript.js";
+import { tool$draftVideoFromURL } from "./tools/draftVideoFromURL.js";
+import { tool$generateVideoTopics } from "./tools/generateVideoTopics.js";
+import { tool$getAllAudio } from "./tools/getAllAudio.js";
+import { tool$getAllSeries } from "./tools/getAllSeries.js";
+import { tool$getAudio } from "./tools/getAudio.js";
+import { tool$getConnections } from "./tools/getConnections.js";
+import { tool$getImage } from "./tools/getImage.js";
+import { tool$getImages } from "./tools/getImages.js";
+import { tool$getImageStyles } from "./tools/getImageStyles.js";
+import { tool$getMusic } from "./tools/getMusic.js";
+import { tool$getMusicGenres } from "./tools/getMusicGenres.js";
+import { tool$getSeries } from "./tools/getSeries.js";
+import { tool$getUsage } from "./tools/getUsage.js";
+import { tool$getVideo } from "./tools/getVideo.js";
+import { tool$getVideos } from "./tools/getVideos.js";
+import { tool$getVoice } from "./tools/getVoice.js";
+import { tool$getVoices } from "./tools/getVoices.js";
 import { tool$statusCheck } from "./tools/statusCheck.js";
-import { tool$videosGetVideos } from "./tools/videosGetVideos.js";
-import { tool$videosGetVideosId } from "./tools/videosGetVideosId.js";
-import { tool$videosPostVideos } from "./tools/videosPostVideos.js";
-import { tool$videosPostVideosDrafts } from "./tools/videosPostVideosDrafts.js";
-import { tool$videosPostVideosDraftsNews } from "./tools/videosPostVideosDraftsNews.js";
-import { tool$videosPostVideosDraftsQuiz } from "./tools/videosPostVideosDraftsQuiz.js";
-import { tool$videosPostVideosDraftsScript } from "./tools/videosPostVideosDraftsScript.js";
-import { tool$videosPostVideosDraftsUrl } from "./tools/videosPostVideosDraftsUrl.js";
-import { tool$videosPostVideosTopics } from "./tools/videosPostVideosTopics.js";
 
 export function createMCPServer(deps: {
   logger: ConsoleLogger;
@@ -45,7 +45,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "ShortGenius",
-    version: "0.2.1",
+    version: "0.2.2",
   });
 
   const client = new ShortGeniusCore({
@@ -63,32 +63,32 @@ export function createMCPServer(deps: {
     allowedTools,
   );
 
-  tool(tool$musicGetMusicGenres);
-  tool(tool$musicGetMusicGenresId);
-  tool(tool$videosPostVideosDrafts);
-  tool(tool$videosPostVideosDraftsUrl);
-  tool(tool$videosPostVideosDraftsScript);
-  tool(tool$videosPostVideosDraftsQuiz);
-  tool(tool$videosPostVideosDraftsNews);
-  tool(tool$videosGetVideosId);
-  tool(tool$videosGetVideos);
-  tool(tool$videosPostVideos);
-  tool(tool$videosPostVideosTopics);
-  tool(tool$seriesPostSeries);
-  tool(tool$seriesGetSeries);
-  tool(tool$seriesGetSeriesId);
-  tool(tool$publishingGetConnections);
+  tool(tool$getMusicGenres);
+  tool(tool$getMusic);
+  tool(tool$draftVideo);
+  tool(tool$draftVideoFromURL);
+  tool(tool$draftVideoFromScript);
+  tool(tool$draftQuizVideo);
+  tool(tool$draftNewsVideo);
+  tool(tool$getVideo);
+  tool(tool$getVideos);
+  tool(tool$createVideo);
+  tool(tool$generateVideoTopics);
+  tool(tool$createSeries);
+  tool(tool$getAllSeries);
+  tool(tool$getSeries);
+  tool(tool$getConnections);
+  tool(tool$createImage);
+  tool(tool$getImages);
+  tool(tool$getImage);
+  tool(tool$getImageStyles);
+  tool(tool$createSpeech);
+  tool(tool$getAllAudio);
+  tool(tool$getAudio);
+  tool(tool$getVoices);
+  tool(tool$getVoice);
+  tool(tool$getUsage);
   tool(tool$statusCheck);
-  tool(tool$imagesPostImages);
-  tool(tool$imagesGetImages);
-  tool(tool$imagesGetImagesId);
-  tool(tool$imagesGetImagesStyles);
-  tool(tool$audioPostAudioSpeech);
-  tool(tool$audioGetAudio);
-  tool(tool$audioGetAudioId);
-  tool(tool$audioGetAudioVoices);
-  tool(tool$audioGetAudioVoicesId);
-  tool(tool$administrationGetCredits);
 
   return server;
 }

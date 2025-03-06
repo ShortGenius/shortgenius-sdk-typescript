@@ -6,10 +6,10 @@
 import { One2 } from "shortgenius/models/operations";
 
 let value: One2 = {
-  id: "3ccb0e50-aba6-4d58-8eb1-ced7d14d06d7",
-  url: "https://shameless-eyeliner.org/",
+  id: "4d06d717-b5ef-4214-b723-eb9b02bbd986",
+  url: "https://known-ghost.com",
   state: "error",
-  createdAt: "1714977837256",
+  createdAt: "1730919770873",
 };
 ```
 

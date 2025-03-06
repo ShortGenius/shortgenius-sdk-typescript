@@ -6,13 +6,13 @@
 import { Media4 } from "shortgenius/models/operations";
 
 let value: Media4 = {
-  id: "dbd3be4b-64f5-4167-bcfd-e7b415b4dc35",
-  url: "https://grandiose-flood.net/",
+  id: "f4427dbd-3be4-4b64-9f51-67cfde7b415b",
+  url: "https://squeaky-corral.biz",
   metadata: {},
-  source: "GeneratedImage",
+  source: "UserImage",
   category: "AIGenerated",
   data: {},
-  state: "completed",
+  state: "generating",
 };
 ```
 

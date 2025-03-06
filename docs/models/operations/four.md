@@ -6,9 +6,9 @@
 import { Four } from "shortgenius/models/operations";
 
 let value: Four = {
-  id: "9812f07c-3774-4eeb-a0a3-42973e3c02d8",
-  url: "https://jam-packed-castanet.biz/",
-  createdAt: "1738668672934",
+  id: "3c02d8a6-622e-477a-b08e-667d9bb0fb90",
+  url: "https://unwelcome-hello.name/",
+  createdAt: "1737878532092",
 };
 ```
 

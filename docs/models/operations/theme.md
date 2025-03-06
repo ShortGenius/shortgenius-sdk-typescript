@@ -5,7 +5,7 @@
 ```typescript
 import { Theme } from "shortgenius/models/operations";
 
-let value: Theme = "TikTokTint";
+let value: Theme = "Photo";
 ```
 
 ## Values

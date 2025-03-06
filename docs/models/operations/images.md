@@ -6,9 +6,9 @@
 import { Images } from "shortgenius/models/operations";
 
 let value: Images = {
-  url: "https://short-term-stool.biz",
-  width: 1256.64,
-  height: 5440.71,
+  url: "https://unused-going.biz/",
+  width: 5711.53,
+  height: 9146.95,
   contentType: "<value>",
 };
 ```

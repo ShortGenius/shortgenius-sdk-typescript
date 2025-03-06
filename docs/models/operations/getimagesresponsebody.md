@@ -10,10 +10,10 @@ import { GetImagesResponseBody } from "shortgenius/models/operations";
 let value: GetImagesResponseBody = {
   images: [
     {
-      id: "6e9fc5bb-5e25-4a7a-bf1c-d4476837dea4",
-      url: "https://enraged-chainstay.org/",
-      state: "pending",
-      createdAt: "1726393707421",
+      id: "37dea4d6-32f1-483d-93b2-fa6f862b9333",
+      url: "https://forsaken-recommendation.name/",
+      state: "request_smart_motion",
+      createdAt: "1733183043306",
       prompt: "<value>",
       isNsfw: false,
     },

@@ -3,11 +3,11 @@
 
 ## Supported Types
 
-### `operations.GetSeriesId11`
+### `operations.GetSeries11`
 
 ```typescript
-const value: operations.GetSeriesId11 = {
-  url: "https://defensive-scout.org",
+const value: operations.GetSeries11 = {
+  url: "https://careless-cutover.name/",
   data: {
     kind: "<value>",
     title: "<value>",
@@ -20,32 +20,32 @@ const value: operations.GetSeriesId11 = {
     fileFormat: "<value>",
     image: {
       contextLink: "<value>",
-      height: 3186.72,
-      width: 6529.67,
-      byteSize: 8764.18,
+      height: 7891.85,
+      width: 97.43,
+      byteSize: 6124.27,
       thumbnailLink: "<value>",
-      thumbnailHeight: 153.74,
-      thumbnailWidth: 8557.36,
+      thumbnailHeight: 1158.81,
+      thumbnailWidth: 6040.5,
     },
   },
 };
 ```
 
-### `operations.GetSeriesId12`
+### `operations.GetSeries12`
 
 ```typescript
-const value: operations.GetSeriesId12 = {
-  url: "https://inexperienced-license.net",
+const value: operations.GetSeries12 = {
+  url: "https://enchanting-kielbasa.net",
   data: {
-    id: 7221.3,
-    width: 5012.65,
-    height: 4876.52,
-    url: "https://entire-bowling.net",
+    id: 1755.77,
+    width: 1525.61,
+    height: 9050.46,
+    url: "https://shoddy-stall.name",
     alt: "<value>",
     avgColor: "<value>",
     photographer: "<value>",
-    photographerUrl: "https://oddball-diversity.biz",
-    photographerId: 6170.43,
+    photographerUrl: "https://nippy-publication.info/",
+    photographerId: 951.68,
     liked: false,
     src: {
       original: "<value>",
@@ -61,67 +61,67 @@ const value: operations.GetSeriesId12 = {
 };
 ```
 
-### `operations.GetSeriesId13`
+### `operations.GetSeries13`
 
 ```typescript
-const value: operations.GetSeriesId13 = {
-  url: "https://marvelous-finer.name/",
+const value: operations.GetSeries13 = {
+  url: "https://winged-atrium.net/",
   data: {
-    id: 2293.64,
-    width: 1980.6,
-    height: 7339.99,
-    url: "https://entire-strait.info/",
-    image: "https://loremflickr.com/464/2832?lock=5091249531146082",
+    id: 9436.82,
+    width: 1292.59,
+    height: 7222.65,
+    url: "https://ethical-sticker.org/",
+    image: "https://loremflickr.com/1388/2530?lock=7113520607203209",
     fullRes: "<value>",
     tags: [
       "<value>",
     ],
-    duration: 6236.93,
+    duration: 8812.4,
     user: {
-      id: 9625.75,
+      id: 3186.72,
       name: "<value>",
-      url: "https://fond-tribe.net/",
+      url: "https://ugly-advertisement.org",
     },
     videoFiles: [
       {
-        id: 4493.31,
-        quality: "uhd",
+        id: 5721.14,
+        quality: "sd",
         fileType: "image",
-        width: 4100.51,
-        height: 1564.16,
+        width: 8240.62,
+        height: 7221.3,
         link: "<value>",
-        fps: 5220.48,
+        fps: 5012.65,
       },
     ],
     videoPictures: [
       {
-        id: 2626.64,
-        picture: "https://picsum.photos/seed/9AIv7vqkA/2534/1595",
-        nr: 3248.72,
+        id: 4876.52,
+        picture: "https://loremflickr.com/3597/930?lock=6112628756952323",
+        nr: 7022.12,
       },
     ],
   },
 };
 ```
 
-### `operations.GetSeriesId14`
+### `operations.GetSeries14`
 
 ```typescript
-const value: operations.GetSeriesId14 = {
-  url: "https://shocked-custom.net/",
+const value: operations.GetSeries14 = {
+  url: "https://fatal-encouragement.name",
   data: {
-    id: 9791.61,
-    pageURL: "https://sturdy-colonialism.net/",
-    previewURL: "https://minor-disconnection.com",
-    webformatURL: "https://glum-king.info",
-    largeImageURL: "https://sniveling-trolley.name/",
-    views: 9571.39,
-    downloads: 1904.44,
-    likes: 5639.37,
-    comments: 6855.07,
-    userId: 7149.77,
-    user: "Nicolette.Tillman",
-    userImageURL: "https://french-thigh.info",
+    id: 2729.58,
+    pageURL: "https://granular-larva.biz/",
+    previewURL: "https://shimmering-goodwill.biz/",
+    webformatURL: "https://important-captain.net",
+    largeImageURL: "https://oblong-opera.org/",
+    views: 1911.01,
+    downloads: 2841.72,
+    likes: 9322.2,
+    comments: 7182.93,
+    userId: 4493.31,
+    user: "Murphy.Jast52",
+    userImageURL: "https://impeccable-stir-fry.net",
   },
 };
 ```
@@ -130,47 +130,47 @@ const value: operations.GetSeriesId14 = {
 
 ```typescript
 const value: operations.One5 = {
-  url: "https://sudden-vibraphone.info/",
+  url: "https://palatable-pronoun.name/",
   data: {
-    id: 5546.44,
-    pageURL: "https://stiff-cinema.org",
+    id: 1139.47,
+    pageURL: "https://ironclad-fencing.name",
     videos: {
       large: {
-        url: "https://annual-mentor.com",
-        width: 4964.4,
-        height: 5994.13,
-        size: 6348.8,
+        url: "https://esteemed-receptor.biz/",
+        width: 8052.89,
+        height: 9791.61,
+        size: 4412.39,
         thumbnail: "<value>",
       },
       medium: {
-        url: "https://friendly-starboard.info",
-        width: 6669.4,
-        height: 8079.44,
-        size: 7240.41,
+        url: "https://deadly-secret.org",
+        width: 5170.23,
+        height: 2557.2,
+        size: 1608.26,
         thumbnail: "<value>",
       },
       small: {
-        url: "https://prime-self-confidence.org",
-        width: 9044.19,
-        height: 3278.88,
-        size: 9719.73,
+        url: "https://glum-king.info",
+        width: 4352.15,
+        height: 7652.59,
+        size: 9351.59,
         thumbnail: "<value>",
       },
       tiny: {
-        url: "https://pointed-kielbasa.biz/",
-        width: 5351.48,
-        height: 659.54,
-        size: 5537.14,
+        url: "https://well-worn-cope.name",
+        width: 6855.07,
+        height: 7149.77,
+        size: 7558.48,
         thumbnail: "<value>",
       },
     },
-    views: 8544.66,
-    downloads: 1409.72,
-    likes: 3253.52,
-    comments: 6311.23,
-    userId: 3593.01,
-    user: "Hassan.Kub14",
-    userImageURL: "https://likable-statue.com/",
+    views: 3331.5,
+    downloads: 8821.95,
+    likes: 1317.05,
+    comments: 2785.35,
+    userId: 4687.14,
+    user: "Larissa10",
+    userImageURL: "https://gruesome-markup.name",
   },
 };
 ```
@@ -179,11 +179,11 @@ const value: operations.One5 = {
 
 ```typescript
 const value: operations.One6 = {
-  url: "https://innocent-sundae.info",
+  url: "https://critical-sprinkles.net",
   data: {
     id: "<id>",
-    createdAt: "1731587147754",
-    updatedAt: "1741171264638",
+    createdAt: "1710795484196",
+    updatedAt: "1741192824991",
     urls: {
       full: "<value>",
       raw: "<value>",
@@ -193,10 +193,10 @@ const value: operations.One6 = {
     },
     altDescription: "<value>",
     blurHash: "<value>",
-    color: "orange",
-    description: "whale wherever even instead ew roger wash whereas drag",
-    height: 1844.01,
-    likes: 5856.45,
+    color: "azure",
+    description: "out unsung aw indeed blah freezing",
+    height: 6944.44,
+    likes: 3991.12,
     links: {
       self: "<value>",
       html: "<value>",
@@ -204,13 +204,13 @@ const value: operations.One6 = {
       downloadLocation: "<value>",
     },
     promotedAt: "<value>",
-    width: 4102.39,
+    width: 5419.48,
     user: {
       id: "<id>",
       bio: "<value>",
-      firstName: "Nasir",
+      firstName: "Opal",
       instagramUsername: "<value>",
-      lastName: "Grimes",
+      lastName: "Collier-Lehner",
       links: {
         followers: "<value>",
         following: "<value>",
@@ -222,18 +222,18 @@ const value: operations.One6 = {
       },
       location: "<value>",
       name: "<value>",
-      portfolioUrl: "https://insidious-appliance.name",
+      portfolioUrl: "https://amused-representation.org/",
       profileImage: {
         small: "<value>",
         medium: "<value>",
         large: "<value>",
       },
-      totalCollections: 3637.02,
-      totalLikes: 137.26,
-      totalPhotos: 4722.8,
+      totalCollections: 5954.03,
+      totalLikes: 724.32,
+      totalPhotos: 617.28,
       twitterUsername: "<value>",
-      updatedAt: "1741144701851",
-      username: "Llewellyn88",
+      updatedAt: "1741171020670",
+      username: "George99",
     },
   },
 };
@@ -243,18 +243,18 @@ const value: operations.One6 = {
 
 ```typescript
 const value: operations.One7 = {
-  url: "https://faint-acquaintance.com",
+  url: "https://powerless-exterior.biz",
   data: {
-    pageid: 3202.94,
-    ns: 1967.28,
+    pageid: 1302.05,
+    ns: 5454,
     title: "<value>",
-    index: 5700.04,
+    index: 816.71,
     imagerepository: "<value>",
     imageinfo: [
       {
-        url: "https://illiterate-self-confidence.net",
-        descriptionurl: "https://meager-approach.info",
-        descriptionshorturl: "https://kaleidoscopic-accelerator.name/",
+        url: "https://gloomy-scrap.info/",
+        descriptionurl: "https://devoted-tray.name",
+        descriptionshorturl: "https://meager-doubter.net/",
       },
     ],
   },

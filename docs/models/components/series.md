@@ -9,7 +9,7 @@ import { Series } from "shortgenius/models/components";
 
 let value: Series = {
   id: "a6cb7a8c-7849-4492-a266-420047b7e025",
-  createdAt: "1736579067368",
+  createdAt: "1736586129638",
   nextPostingAt: "<value>",
   type: "SingleVideo",
   schedule: {

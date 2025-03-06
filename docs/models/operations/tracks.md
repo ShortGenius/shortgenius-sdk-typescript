@@ -6,7 +6,7 @@
 import { Tracks } from "shortgenius/models/operations";
 
 let value: Tracks = {
-  url: "https://criminal-muscat.name/",
+  url: "https://concerned-bookend.com",
 };
 ```
 

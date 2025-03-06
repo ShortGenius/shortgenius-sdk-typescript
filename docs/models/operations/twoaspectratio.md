@@ -5,7 +5,7 @@
 ```typescript
 import { TwoAspectRatio } from "shortgenius/models/operations";
 
-let value: TwoAspectRatio = "Landscape 16:9";
+let value: TwoAspectRatio = "Portrait 9:16";
 ```
 
 ## Values

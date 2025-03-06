@@ -6,12 +6,12 @@
 import { Media5 } from "shortgenius/models/operations";
 
 let value: Media5 = {
-  url: "https://new-casket.net/",
+  url: "https://good-natured-pressure.info",
   metadata: {
     muxPlaybackId: "<id>",
-    startTime: 4973.63,
-    endTime: 2343.83,
-    durationTillEnd: 5927.6,
+    startTime: 1049.9,
+    endTime: 3926.92,
+    durationTillEnd: 5515.7,
   },
   source: "Gameplay",
   data: {

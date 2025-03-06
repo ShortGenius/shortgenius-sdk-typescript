@@ -6,8 +6,8 @@
 import { SourceMedia } from "shortgenius/models/operations";
 
 let value: SourceMedia = {
-  id: "cfee0949-5277-4f04-adad-ac73c92cf541",
-  url: "https://concrete-jet.com",
+  id: "20d92cfe-e094-4952-b77f-04dadac73c92",
+  url: "https://gruesome-embossing.com",
 };
 ```
 

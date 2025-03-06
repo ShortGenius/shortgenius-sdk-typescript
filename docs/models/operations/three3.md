@@ -6,17 +6,17 @@
 import { Three3 } from "shortgenius/models/operations";
 
 let value: Three3 = {
-  id: "cdd2d039-1946-4518-8f94-f6bafe21ce7b",
-  url: "https://creative-netsuke.biz/",
+  id: "5db6acdd-2d03-4919-8465-18f94f6bafe2",
+  url: "https://unsung-jury.net",
   metadata: {},
   source: "Upload",
   data: {
     sourceMedia: {
-      id: "4a95d448-7728-446b-aec6-9b652bd5c9c6",
-      url: "https://brilliant-march.info/",
+      id: "329304a9-5d44-4877-9284-6bec69b652bd",
+      url: "https://pitiful-schedule.info",
     },
   },
-  state: "generating",
+  state: "error",
 };
 ```
 
@@ -27,10 +27,10 @@ let value: Three3 = {
 | `id`                                                                                           | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
 | `url`                                                                                          | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
 | `deletedAt`                                                                                    | *string*                                                                                       | :heavy_minus_sign:                                                                             | N/A                                                                                            |
-| `metadata`                                                                                     | [operations.GetSeriesId3SeriesMetadata](../../models/operations/getseriesid3seriesmetadata.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `metadata`                                                                                     | [operations.GetSeries3ResponseMetadata](../../models/operations/getseries3responsemetadata.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
 | `lastError`                                                                                    | *string*                                                                                       | :heavy_minus_sign:                                                                             | N/A                                                                                            |
-| `source`                                                                                       | [operations.GetSeriesId3SeriesSource](../../models/operations/getseriesid3seriessource.md)     | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `source`                                                                                       | [operations.GetSeries3ResponseSource](../../models/operations/getseries3responsesource.md)     | :heavy_check_mark:                                                                             | N/A                                                                                            |
 | `category`                                                                                     | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
 | `type`                                                                                         | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `data`                                                                                         | [operations.GetSeriesId3SeriesData](../../models/operations/getseriesid3seriesdata.md)         | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `state`                                                                                        | [operations.GetSeriesId3SeriesState](../../models/operations/getseriesid3seriesstate.md)       | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `data`                                                                                         | [operations.GetSeries3ResponseData](../../models/operations/getseries3responsedata.md)         | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `state`                                                                                        | [operations.GetSeries3ResponseState](../../models/operations/getseries3responsestate.md)       | :heavy_check_mark:                                                                             | N/A                                                                                            |

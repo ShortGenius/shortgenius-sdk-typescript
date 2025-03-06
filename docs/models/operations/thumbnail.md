@@ -9,12 +9,49 @@ import { Thumbnail } from "shortgenius/models/operations";
 
 let value: Thumbnail = {
   text: "<value>",
-  theme: "Photo",
+  theme: "TikTokTint",
   media: {
-    url: "https://chilly-elevation.net",
-    source: "Ugc",
+    url: "https://shimmering-captain.name",
     data: {
-      id: "<id>",
+      id: 6107.03,
+      pageURL: "https://stale-exasperation.info",
+      videos: {
+        large: {
+          url: "https://late-handful.com/",
+          width: 2426.06,
+          height: 1199.27,
+          size: 5545.08,
+          thumbnail: "<value>",
+        },
+        medium: {
+          url: "https://golden-skeleton.name/",
+          width: 5195.83,
+          height: 9443.63,
+          size: 4373.51,
+          thumbnail: "<value>",
+        },
+        small: {
+          url: "https://orderly-haircut.info",
+          width: 9033.78,
+          height: 5652.45,
+          size: 2517.13,
+          thumbnail: "<value>",
+        },
+        tiny: {
+          url: "https://extra-large-designation.com",
+          width: 6893.09,
+          height: 7810.44,
+          size: 3236.12,
+          thumbnail: "<value>",
+        },
+      },
+      views: 4092.97,
+      downloads: 7930.68,
+      likes: 163.03,
+      comments: 3328.31,
+      userId: 3075.94,
+      user: "Karina_Bauch",
+      userImageURL: "https://comfortable-dulcimer.biz",
     },
   },
 };

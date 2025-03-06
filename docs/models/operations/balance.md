@@ -8,7 +8,7 @@ Response object containing usage information for various credit types.
 import { Balance } from "shortgenius/models/operations";
 
 let value: Balance = {
-  credits: 7755.37,
+  credits: 9297.24,
 };
 ```
 

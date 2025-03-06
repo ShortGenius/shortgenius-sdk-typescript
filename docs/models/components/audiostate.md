@@ -7,7 +7,7 @@ State of the audio generation.
 ```typescript
 import { AudioState } from "shortgenius/models/components";
 
-let value: AudioState = "generating";
+let value: AudioState = "error";
 ```
 
 ## Values

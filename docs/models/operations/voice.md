@@ -13,15 +13,15 @@ let value: Voice = {
       id: "<id>",
       name: "<value>",
       description:
-        "sediment litter oxidise yowza how yowza even chiffonier mould",
+        "slowly into along ew malfunction supplier finally reschedule whenever indeed",
       tags: {},
-      previewUrl: "https://lighthearted-bidet.com",
-      locale: "fr-FR",
-      source: "ElevenLabsShared",
+      previewUrl: "https://content-lieu.name",
+      locale: "ko-KR",
+      source: "ElevenLabs",
     },
   ],
-  playbackRate: 2551.08,
-  volume: 6094.29,
+  playbackRate: 783.5,
+  volume: 1459.37,
 };
 ```
 

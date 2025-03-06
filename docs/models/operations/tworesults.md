@@ -8,14 +8,14 @@ import { TwoResults } from "shortgenius/models/operations";
 let value: TwoResults = {
   images: [
     {
-      url: "https://well-made-galoshes.info",
-      width: 5158.54,
-      height: 6849.38,
+      url: "https://timely-consistency.com",
+      width: 5440.71,
+      height: 6973.71,
       contentType: "<value>",
     },
   ],
   timings: {},
-  seed: 5660.24,
+  seed: 9549.89,
   hasNsfwConcepts: [
     false,
   ],
