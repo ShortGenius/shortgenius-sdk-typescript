@@ -9,8 +9,8 @@ let value: One6 = {
   url: "https://courteous-programme.info/",
   data: {
     id: "<id>",
-    createdAt: "1735007419012",
-    updatedAt: "1741183012054",
+    createdAt: "1735011066318",
+    updatedAt: "1741186659359",
     urls: {
       full: "<value>",
       raw: "<value>",
@@ -59,7 +59,7 @@ let value: One6 = {
       totalLikes: 5950.25,
       totalPhotos: 8906.31,
       twitterUsername: "<value>",
-      updatedAt: "1741159624085",
+      updatedAt: "1741163271390",
       username: "Richie_Huels33",
     },
   },

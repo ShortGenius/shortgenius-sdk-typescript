@@ -32,7 +32,7 @@ let value: OneUser = {
   totalLikes: 5767.51,
   totalPhotos: 2131.56,
   twitterUsername: "<value>",
-  updatedAt: "1741171947569",
+  updatedAt: "1741175594874",
   username: "Sandrine.Pfannerstill",
 };
 ```

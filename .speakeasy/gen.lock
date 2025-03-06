@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: f54f0795-3b37-43ef-8a0f-1a7b35a560fb
 management:
-  docChecksum: 035b78cebd351aecf5189d930e02599a
+  docChecksum: 5ff244d198850de2befde2dfc2889b04
   docVersion: 1.0.0
   speakeasyVersion: 1.510.0
   generationVersion: 2.541.0
-  releaseVersion: 0.2.0
-  configChecksum: e28a1b056022d5b9a139e5777d1c3bdb
+  releaseVersion: 0.2.1
+  configChecksum: c0c1c2e4c24aa98cbf0d6264de238f88
   repoURL: https://github.com/ShortGenius/shortgenius-sdk-typescript.git
   installationURL: https://github.com/ShortGenius/shortgenius-sdk-typescript
   published: true
@@ -806,7 +806,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"id": "1de869a3-54fe-48fe-81af-be08425aa28b", "url": "https://smug-willow.name/", "state": "request_smart_motion", "created_at": "1714481976172"}
+          application/json: {"id": "1de869a3-54fe-48fe-81af-be08425aa28b", "url": "https://smug-willow.name/", "state": "request_smart_motion", "created_at": "1714485623486"}
         "400":
           application/json: {}
   get_/images/styles:

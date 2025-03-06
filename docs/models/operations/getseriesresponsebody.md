@@ -11,7 +11,7 @@ let value: GetSeriesResponseBody = {
   series: [
     {
       id: "35811646-7ff2-4e18-825b-6cbf8c556618",
-      createdAt: "1737743071525",
+      createdAt: "1737746718889",
       nextPostingAt: "<value>",
       type: "SingleVideo",
       schedule: {

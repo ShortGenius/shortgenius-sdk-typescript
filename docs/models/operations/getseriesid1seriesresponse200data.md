@@ -7,8 +7,8 @@ import { GetSeriesId1SeriesResponse200Data } from "shortgenius/models/operations
 
 let value: GetSeriesId1SeriesResponse200Data = {
   id: "<id>",
-  createdAt: "1736214141512",
-  updatedAt: "1741217204404",
+  createdAt: "1736217788818",
+  updatedAt: "1741220851710",
   urls: {
     full: "<value>",
     raw: "<value>",
@@ -57,7 +57,7 @@ let value: GetSeriesId1SeriesResponse200Data = {
     totalLikes: 2161.22,
     totalPhotos: 6265.35,
     twitterUsername: "<value>",
-    updatedAt: "1741213433403",
+    updatedAt: "1741217080709",
     username: "Reta_Borer",
   },
 };

@@ -9,7 +9,7 @@ import { GetSeriesIdResponseBody } from "shortgenius/models/operations";
 
 let value: GetSeriesIdResponseBody = {
   id: "91b74da1-a3e2-493f-b592-79c8bd4508fb",
-  createdAt: "1724011981204",
+  createdAt: "1724015628501",
   nextPostingAt: "<value>",
   type: "Series",
   schedule: {
@@ -65,7 +65,7 @@ let value: GetSeriesIdResponseBody = {
   episodes: [
     {
       id: "475610e1-4ad5-4a70-a60f-c53655e6b287",
-      createdAt: "1731124465790",
+      createdAt: "1731128113097",
       seriesId: "d3609e6f-938a-4aa3-b33b-7ac97682cecd",
       publishingState: "pending",
       publishAt: "<value>",

@@ -29,7 +29,7 @@ const value: components.Six2 = {
     id: "<id>",
     ugcCreatorId: "<id>",
     ugcPresetId: "<id>",
-    createdAt: "1730282873025",
+    createdAt: "1730286520392",
   },
   state: "completed",
 };

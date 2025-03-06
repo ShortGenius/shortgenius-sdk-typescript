@@ -8,7 +8,7 @@ import { Six } from "shortgenius/models/operations";
 let value: Six = {
   id: "84cada74-0406-43b3-81d0-ce187c9407ee",
   url: "https://annual-boulevard.org",
-  createdAt: "1721886938420",
+  createdAt: "1721890585791",
 };
 ```
 

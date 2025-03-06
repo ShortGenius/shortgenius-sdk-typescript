@@ -11,7 +11,7 @@ let value: GetVideosResponseBody = {
   videos: [
     {
       id: "5e2c070c-f0ec-45e4-b61a-07ad2cb89196",
-      createdAt: "1719557419638",
+      createdAt: "1719561066952",
       seriesId: "96e41b69-0fe9-406f-9a27-f8094168088c",
       publishingState: "completed",
       publishAt: "<value>",

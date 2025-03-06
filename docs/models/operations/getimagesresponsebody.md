@@ -13,7 +13,7 @@ let value: GetImagesResponseBody = {
       id: "6e9fc5bb-5e25-4a7a-bf1c-d4476837dea4",
       url: "https://enraged-chainstay.org/",
       state: "pending",
-      createdAt: "1726390060103",
+      createdAt: "1726393707421",
       prompt: "<value>",
       isNsfw: false,
     },

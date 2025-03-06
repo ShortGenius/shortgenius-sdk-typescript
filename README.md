@@ -441,7 +441,7 @@ The default server can be overridden globally by passing a URL to the `serverURL
 import { ShortGenius } from "shortgenius";
 
 const shortGenius = new ShortGenius({
-  serverURL: "http://localhost:3000/api/v1",
+  serverURL: "https://shortgenius.com/api/v1",
   bearerAuth: process.env["SHORTGENIUS_BEARER_AUTH"] ?? "",
 });
 

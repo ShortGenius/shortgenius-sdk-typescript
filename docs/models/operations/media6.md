@@ -29,7 +29,7 @@ const value: operations.Six2 = {
     id: "<id>",
     ugcCreatorId: "<id>",
     ugcPresetId: "<id>",
-    createdAt: "1740809328065",
+    createdAt: "1740812975380",
   },
   state: "generating",
 };
