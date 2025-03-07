@@ -7,7 +7,7 @@ import * as operations from "../../models/operations/index.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 const args = {
-  request: operations.CreateSeriesRequestBody$inboundSchema.optional(),
+  request: operations.CreateSeriesRequestBody$inboundSchema,
 };
 
 export const tool$createSeries: ToolDefinition<typeof args> = {

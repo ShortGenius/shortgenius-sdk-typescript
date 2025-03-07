@@ -7,8 +7,8 @@ import { GetSeries1Response200ApplicationJSONData } from "shortgenius/models/ope
 
 let value: GetSeries1Response200ApplicationJSONData = {
   id: "<id>",
-  createdAt: "1719241678060",
-  updatedAt: "1741207864760",
+  createdAt: "1719316305526",
+  updatedAt: "1741282492226",
   urls: {
     full: "<value>",
     raw: "<value>",
@@ -57,7 +57,7 @@ let value: GetSeries1Response200ApplicationJSONData = {
     totalLikes: 18.19,
     totalPhotos: 8299.18,
     twitterUsername: "<value>",
-    updatedAt: "1741204465485",
+    updatedAt: "1741279092954",
     username: "Okey.Waelchi",
   },
 };

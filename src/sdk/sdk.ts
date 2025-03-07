@@ -78,7 +78,7 @@ export class ShortGenius extends ClientSDK {
    * Write a video on the provided topic. After calling this endpoint, call [Create Video](#tag/videos/POST/videos) with the results to create the video.
    */
   async draftVideo(
-    request?: operations.DraftVideoRequestBody | undefined,
+    request: operations.DraftVideoRequestBody,
     options?: RequestOptions,
   ): Promise<components.DraftVideo> {
     return unwrapAsync(draftVideo(
@@ -95,7 +95,7 @@ export class ShortGenius extends ClientSDK {
    * Retrieve the content of a webpage and write a video based on it. ___Only text is currently supported___ -- the AI cannot watch videos. After calling this endpoint, call [Create Video](#tag/videos/POST/videos) with the results to create the video.
    */
   async draftVideoFromURL(
-    request?: operations.DraftVideoFromURLRequestBody | undefined,
+    request: operations.DraftVideoFromURLRequestBody,
     options?: RequestOptions,
   ): Promise<components.DraftVideo> {
     return unwrapAsync(draftVideoFromURL(
@@ -112,7 +112,7 @@ export class ShortGenius extends ClientSDK {
    * Write a video using the provided script. After calling this endpoint, call [Create Video](#tag/videos/POST/videos) with the results to create the video.
    */
   async draftVideoFromScript(
-    request?: operations.DraftVideoFromScriptRequestBody | undefined,
+    request: operations.DraftVideoFromScriptRequestBody,
     options?: RequestOptions,
   ): Promise<components.DraftVideo> {
     return unwrapAsync(draftVideoFromScript(
@@ -129,7 +129,7 @@ export class ShortGenius extends ClientSDK {
    * Make a quiz on the provided topic. After calling this endpoint, call [Create Video](#tag/videos/POST/videos) with the results to create the video.
    */
   async draftQuizVideo(
-    request?: operations.DraftQuizVideoRequestBody | undefined,
+    request: operations.DraftQuizVideoRequestBody,
     options?: RequestOptions,
   ): Promise<components.DraftQuizVideo> {
     return unwrapAsync(draftQuizVideo(
@@ -146,7 +146,7 @@ export class ShortGenius extends ClientSDK {
    * Retrieve the latest news on the provided topic, then generate video scenes. After calling this endpoint, call [Create Video](#tag/videos/POST/videos) with the results to create the video.
    */
   async draftNewsVideo(
-    request?: operations.DraftNewsVideoRequestBody | undefined,
+    request: operations.DraftNewsVideoRequestBody,
     options?: RequestOptions,
   ): Promise<components.DraftVideo> {
     return unwrapAsync(draftNewsVideo(
@@ -198,7 +198,7 @@ export class ShortGenius extends ClientSDK {
    * Once you (or your LLM) are happy, you can pass the content to this endpoint to create and render the video.
    */
   async createVideo(
-    request?: operations.CreateVideoRequestBody | undefined,
+    request: operations.CreateVideoRequestBody,
     options?: RequestOptions,
   ): Promise<components.Video> {
     return unwrapAsync(createVideo(
@@ -215,7 +215,7 @@ export class ShortGenius extends ClientSDK {
    * Generate ideas for around 50 videos within a given topic. You can then pass these to the [Create video](#tag/videos/POST/videos) endpoint.
    */
   async generateVideoTopics(
-    request?: operations.GenerateVideoTopicsRequestBody | undefined,
+    request: operations.GenerateVideoTopicsRequestBody,
     options?: RequestOptions,
   ): Promise<Array<string>> {
     return unwrapAsync(generateVideoTopics(
@@ -229,7 +229,7 @@ export class ShortGenius extends ClientSDK {
    * Create series
    */
   async createSeries(
-    request?: operations.CreateSeriesRequestBody | undefined,
+    request: operations.CreateSeriesRequestBody,
     options?: RequestOptions,
   ): Promise<components.Series> {
     return unwrapAsync(createSeries(
@@ -289,7 +289,7 @@ export class ShortGenius extends ClientSDK {
    * Create an image from a prompt.
    */
   async createImage(
-    request?: operations.CreateImageRequestBody | undefined,
+    request: operations.CreateImageRequestBody,
     options?: RequestOptions,
   ): Promise<components.Image> {
     return unwrapAsync(createImage(
@@ -352,7 +352,7 @@ export class ShortGenius extends ClientSDK {
    * Generate speech from provided text.
    */
   async createSpeech(
-    request?: operations.CreateSpeechRequestBody | undefined,
+    request: operations.CreateSpeechRequestBody,
     options?: RequestOptions,
   ): Promise<components.Audio> {
     return unwrapAsync(createSpeech(

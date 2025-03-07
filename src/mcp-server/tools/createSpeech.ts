@@ -7,7 +7,7 @@ import * as operations from "../../models/operations/index.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 const args = {
-  request: operations.CreateSpeechRequestBody$inboundSchema.optional(),
+  request: operations.CreateSpeechRequestBody$inboundSchema,
 };
 
 export const tool$createSpeech: ToolDefinition<typeof args> = {

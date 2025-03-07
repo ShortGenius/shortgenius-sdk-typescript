@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  */
 export function createSeries(
   client: ShortGeniusCore,
-  request?: operations.CreateSeriesRequestBody | undefined,
+  request: operations.CreateSeriesRequestBody,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -55,7 +55,7 @@ export function createSeries(
 
 async function $do(
   client: ShortGeniusCore,
-  request?: operations.CreateSeriesRequestBody | undefined,
+  request: operations.CreateSeriesRequestBody,
   options?: RequestOptions,
 ): Promise<
   [
@@ -76,17 +76,14 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      operations.CreateSeriesRequestBody$outboundSchema.optional().parse(value),
+    (value) => operations.CreateSeriesRequestBody$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = payload === undefined
-    ? null
-    : encodeJSON("body", payload, { explode: true });
+  const body = encodeJSON("body", payload, { explode: true });
 
   const path = pathToFunc("/series")();
 

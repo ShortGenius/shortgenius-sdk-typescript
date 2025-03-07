@@ -190,7 +190,10 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.draftVideo();
+  const result = await shortGenius.draftVideo({
+    topic: "<value>",
+    duration: "840",
+  });
 
   // Handle the result
   console.log(result);
@@ -214,7 +217,10 @@ const shortGenius = new ShortGeniusCore({
 });
 
 async function run() {
-  const res = await draftVideo(shortGenius);
+  const res = await draftVideo(shortGenius, {
+    topic: "<value>",
+    duration: "840",
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -264,7 +270,9 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.draftVideoFromURL();
+  const result = await shortGenius.draftVideoFromURL({
+    url: "https://idealistic-someplace.info/",
+  });
 
   // Handle the result
   console.log(result);
@@ -288,7 +296,9 @@ const shortGenius = new ShortGeniusCore({
 });
 
 async function run() {
-  const res = await draftVideoFromURL(shortGenius);
+  const res = await draftVideoFromURL(shortGenius, {
+    url: "https://idealistic-someplace.info/",
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -338,7 +348,9 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.draftVideoFromScript();
+  const result = await shortGenius.draftVideoFromScript({
+    script: "<value>",
+  });
 
   // Handle the result
   console.log(result);
@@ -362,7 +374,9 @@ const shortGenius = new ShortGeniusCore({
 });
 
 async function run() {
-  const res = await draftVideoFromScript(shortGenius);
+  const res = await draftVideoFromScript(shortGenius, {
+    script: "<value>",
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -412,7 +426,9 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.draftQuizVideo();
+  const result = await shortGenius.draftQuizVideo({
+    topic: "<value>",
+  });
 
   // Handle the result
   console.log(result);
@@ -436,7 +452,9 @@ const shortGenius = new ShortGeniusCore({
 });
 
 async function run() {
-  const res = await draftQuizVideo(shortGenius);
+  const res = await draftQuizVideo(shortGenius, {
+    topic: "<value>",
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -486,7 +504,9 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.draftNewsVideo();
+  const result = await shortGenius.draftNewsVideo({
+    topic: "<value>",
+  });
 
   // Handle the result
   console.log(result);
@@ -510,7 +530,9 @@ const shortGenius = new ShortGeniusCore({
 });
 
 async function run() {
-  const res = await draftNewsVideo(shortGenius);
+  const res = await draftNewsVideo(shortGenius, {
+    topic: "<value>",
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -713,7 +735,14 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.createVideo();
+  const result = await shortGenius.createVideo({
+    connectionIds: [
+      "a776cbb2-1149-49ca-88c7-409f336cd780",
+      "a279ac0a-70f9-44c7-8da5-99e8dd1ff7d3",
+    ],
+    title: "<value>",
+    caption: "<value>",
+  });
 
   // Handle the result
   console.log(result);
@@ -737,7 +766,14 @@ const shortGenius = new ShortGeniusCore({
 });
 
 async function run() {
-  const res = await createVideo(shortGenius);
+  const res = await createVideo(shortGenius, {
+    connectionIds: [
+      "a776cbb2-1149-49ca-88c7-409f336cd780",
+      "a279ac0a-70f9-44c7-8da5-99e8dd1ff7d3",
+    ],
+    title: "<value>",
+    caption: "<value>",
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -787,7 +823,7 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.generateVideoTopics();
+  const result = await shortGenius.generateVideoTopics({});
 
   // Handle the result
   console.log(result);
@@ -811,7 +847,7 @@ const shortGenius = new ShortGeniusCore({
 });
 
 async function run() {
-  const res = await generateVideoTopics(shortGenius);
+  const res = await generateVideoTopics(shortGenius, {});
 
   if (!res.ok) {
     throw res.error;
@@ -861,7 +897,13 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.createSeries();
+  const result = await shortGenius.createSeries({
+    connectionIds: [
+      "313efb04-22f7-4996-bf45-4baf19f5d611",
+      "7b877a82-7b6f-4e5a-8c80-b75243bef940",
+      "071c5f58-0ddf-48e7-a7c2-18820d264957",
+    ],
+  });
 
   // Handle the result
   console.log(result);
@@ -885,7 +927,13 @@ const shortGenius = new ShortGeniusCore({
 });
 
 async function run() {
-  const res = await createSeries(shortGenius);
+  const res = await createSeries(shortGenius, {
+    connectionIds: [
+      "313efb04-22f7-4996-bf45-4baf19f5d611",
+      "7b877a82-7b6f-4e5a-8c80-b75243bef940",
+      "071c5f58-0ddf-48e7-a7c2-18820d264957",
+    ],
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -1153,7 +1201,10 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.createImage();
+  const result = await shortGenius.createImage({
+    prompt: "<value>",
+    aspectRatio: "9:16",
+  });
 
   // Handle the result
   console.log(result);
@@ -1177,7 +1228,10 @@ const shortGenius = new ShortGeniusCore({
 });
 
 async function run() {
-  const res = await createImage(shortGenius);
+  const res = await createImage(shortGenius, {
+    prompt: "<value>",
+    aspectRatio: "9:16",
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -1445,7 +1499,10 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.createSpeech();
+  const result = await shortGenius.createSpeech({
+    text: "<value>",
+    voiceId: "<id>",
+  });
 
   // Handle the result
   console.log(result);
@@ -1469,7 +1526,10 @@ const shortGenius = new ShortGeniusCore({
 });
 
 async function run() {
-  const res = await createSpeech(shortGenius);
+  const res = await createSpeech(shortGenius, {
+    text: "<value>",
+    voiceId: "<id>",
+  });
 
   if (!res.ok) {
     throw res.error;

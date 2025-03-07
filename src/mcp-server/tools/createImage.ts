@@ -7,7 +7,7 @@ import * as operations from "../../models/operations/index.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 const args = {
-  request: operations.CreateImageRequestBody$inboundSchema.optional(),
+  request: operations.CreateImageRequestBody$inboundSchema,
 };
 
 export const tool$createImage: ToolDefinition<typeof args> = {

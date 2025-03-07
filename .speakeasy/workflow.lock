@@ -1,20 +1,21 @@
-speakeasyVersion: 1.510.0
+speakeasyVersion: 1.513.2
 sources:
     ShortGenius API:
         sourceNamespace: short-genius-api
-        sourceRevisionDigest: sha256:bea033e22e8e993f6ebac1a9e0ac1e020c2b9148b5920321c1f80c2ed16b65cf
-        sourceBlobDigest: sha256:535b855a1dd92888db090094491c94615ef1e2b7bacf77fc0779b3b8abaed0f3
+        sourceRevisionDigest: sha256:075be2821bf27cac79c86939eb06c7830ccb5e37687289eac99834bac21cbb8c
+        sourceBlobDigest: sha256:16962e5595261d73847a98236ebec9fea51559472ef986d2c433f590d3482f19
         tags:
             - latest
+            - speakeasy-sdk-regen-1741309602
             - 1.0.0
 targets:
     shortgenius:
         source: ShortGenius API
         sourceNamespace: short-genius-api
-        sourceRevisionDigest: sha256:bea033e22e8e993f6ebac1a9e0ac1e020c2b9148b5920321c1f80c2ed16b65cf
-        sourceBlobDigest: sha256:535b855a1dd92888db090094491c94615ef1e2b7bacf77fc0779b3b8abaed0f3
+        sourceRevisionDigest: sha256:075be2821bf27cac79c86939eb06c7830ccb5e37687289eac99834bac21cbb8c
+        sourceBlobDigest: sha256:16962e5595261d73847a98236ebec9fea51559472ef986d2c433f590d3482f19
         codeSamplesNamespace: short-genius-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:e72c9d4321db3f73f791533056b3ff56c2ecdb294197077445b08533f88132d3
+        codeSamplesRevisionDigest: sha256:c4737dcd9f9b3f7f2f0622d87d6711d90bb431e5d9e481b368856d5222d567ec
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

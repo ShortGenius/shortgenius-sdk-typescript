@@ -130,7 +130,7 @@ const value: operations.Media6 = {
     id: "<id>",
     ugcCreatorId: "<id>",
     ugcPresetId: "<id>",
-    createdAt: "1714791482013",
+    createdAt: "1714866109662",
   },
   state: "error",
 };

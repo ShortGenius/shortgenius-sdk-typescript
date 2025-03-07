@@ -33,7 +33,7 @@ import { Result } from "../types/fp.js";
  */
 export function createSpeech(
   client: ShortGeniusCore,
-  request?: operations.CreateSpeechRequestBody | undefined,
+  request: operations.CreateSpeechRequestBody,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -58,7 +58,7 @@ export function createSpeech(
 
 async function $do(
   client: ShortGeniusCore,
-  request?: operations.CreateSpeechRequestBody | undefined,
+  request: operations.CreateSpeechRequestBody,
   options?: RequestOptions,
 ): Promise<
   [
@@ -79,17 +79,14 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      operations.CreateSpeechRequestBody$outboundSchema.optional().parse(value),
+    (value) => operations.CreateSpeechRequestBody$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = payload === undefined
-    ? null
-    : encodeJSON("body", payload, { explode: true });
+  const body = encodeJSON("body", payload, { explode: true });
 
   const path = pathToFunc("/audio/speech")();
 

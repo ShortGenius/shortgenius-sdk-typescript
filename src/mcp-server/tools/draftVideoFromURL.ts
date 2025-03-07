@@ -7,7 +7,7 @@ import * as operations from "../../models/operations/index.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 const args = {
-  request: operations.DraftVideoFromURLRequestBody$inboundSchema.optional(),
+  request: operations.DraftVideoFromURLRequestBody$inboundSchema,
 };
 
 export const tool$draftVideoFromURL: ToolDefinition<typeof args> = {

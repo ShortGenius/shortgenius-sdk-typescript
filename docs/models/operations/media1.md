@@ -182,8 +182,8 @@ const value: operations.One6 = {
   url: "https://critical-sprinkles.net",
   data: {
     id: "<id>",
-    createdAt: "1710800237639",
-    updatedAt: "1741197578433",
+    createdAt: "1710874865269",
+    updatedAt: "1741272206063",
     urls: {
       full: "<value>",
       raw: "<value>",
@@ -232,7 +232,7 @@ const value: operations.One6 = {
       totalLikes: 724.32,
       totalPhotos: 617.28,
       twitterUsername: "<value>",
-      updatedAt: "1741175774109",
+      updatedAt: "1741250401743",
       username: "George99",
     },
   },

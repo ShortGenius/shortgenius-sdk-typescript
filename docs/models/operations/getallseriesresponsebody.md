@@ -11,7 +11,7 @@ let value: GetAllSeriesResponseBody = {
   series: [
     {
       id: "5b6cbf8c-5566-4181-ae07-42cb2acc1abd",
-      createdAt: "1724240057182",
+      createdAt: "1724314684390",
       nextPostingAt: "<value>",
       type: "Series",
       schedule: {

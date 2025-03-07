@@ -33,7 +33,7 @@ import { Result } from "../types/fp.js";
  */
 export function draftVideo(
   client: ShortGeniusCore,
-  request?: operations.DraftVideoRequestBody | undefined,
+  request: operations.DraftVideoRequestBody,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -58,7 +58,7 @@ export function draftVideo(
 
 async function $do(
   client: ShortGeniusCore,
-  request?: operations.DraftVideoRequestBody | undefined,
+  request: operations.DraftVideoRequestBody,
   options?: RequestOptions,
 ): Promise<
   [
@@ -79,17 +79,14 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      operations.DraftVideoRequestBody$outboundSchema.optional().parse(value),
+    (value) => operations.DraftVideoRequestBody$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = payload === undefined
-    ? null
-    : encodeJSON("body", payload, { explode: true });
+  const body = encodeJSON("body", payload, { explode: true });
 
   const path = pathToFunc("/videos/drafts")();
 

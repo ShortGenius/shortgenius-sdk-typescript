@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: f54f0795-3b37-43ef-8a0f-1a7b35a560fb
 management:
-  docChecksum: a04e4dc7501986c9fa5f1266dc8e59b8
+  docChecksum: 9633dadf727d3b81f282bcb8e9e7471b
   docVersion: 1.0.0
-  speakeasyVersion: 1.510.0
-  generationVersion: 2.541.0
-  releaseVersion: 0.3.0
-  configChecksum: 6b01f761a95d11debe1733fa122a5cc2
+  speakeasyVersion: 1.513.2
+  generationVersion: 2.545.2
+  releaseVersion: 0.4.0
+  configChecksum: 46b8d70eb41933f3bcf6bb9830845b8e
   repoURL: https://github.com/ShortGenius/shortgenius-sdk-typescript.git
   installationURL: https://github.com/ShortGenius/shortgenius-sdk-typescript
   published: true
@@ -25,7 +25,7 @@ features:
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.4
     groups: 2.81.2
-    mcpServer: 0.4.1
+    mcpServer: 0.6.0
     nameOverrides: 2.81.2
     nullables: 0.1.1
     responseFormat: 0.2.3
@@ -515,6 +515,7 @@ generatedFiles:
   - src/mcp-server/cli/start/command.ts
   - src/mcp-server/cli/start/impl.ts
   - src/mcp-server/console-logger.ts
+  - src/mcp-server/extensions.ts
   - src/mcp-server/mcp-server.ts
   - src/mcp-server/resources.ts
   - src/mcp-server/scopes.ts
@@ -878,6 +879,8 @@ examples:
           application/json: {}
   draftVideo:
     speakeasy-default-draft-video:
+      requestBody:
+        application/json: {"topic": "<value>", "duration": "840", "locale": "auto"}
       responses:
         "200":
           application/json: {"title": "<value>", "caption": "<value>", "scenes": [{"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}, {"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}, {"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}]}
@@ -887,6 +890,8 @@ examples:
           application/json: {}
   draftVideoFromURL:
     speakeasy-default-draft-video-from-URL:
+      requestBody:
+        application/json: {"url": "https://idealistic-someplace.info/", "locale": "auto"}
       responses:
         "200":
           application/json: {"title": "<value>", "caption": "<value>", "scenes": [{"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}]}
@@ -896,6 +901,8 @@ examples:
           application/json: {}
   draftVideoFromScript:
     speakeasy-default-draft-video-from-script:
+      requestBody:
+        application/json: {"script": "<value>"}
       responses:
         "200":
           application/json: {"title": "<value>", "caption": "<value>", "scenes": [{"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}, {"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}]}
@@ -905,6 +912,8 @@ examples:
           application/json: {}
   draftQuizVideo:
     speakeasy-default-draft-quiz-video:
+      requestBody:
+        application/json: {"topic": "<value>", "locale": "auto"}
       responses:
         "200":
           application/json: {"title": "<value>", "caption": "<value>", "quiz": {"questions": [], "results": {"header": "<value>", "explanation": "<value>", "categories": [{"score_range": "<value>", "title": "<value>"}, {"score_range": "<value>", "title": "<value>"}]}}}
@@ -914,6 +923,8 @@ examples:
           application/json: {}
   draftNewsVideo:
     speakeasy-default-draft-news-video:
+      requestBody:
+        application/json: {"topic": "<value>", "locale": "auto"}
       responses:
         "200":
           application/json: {"title": "<value>", "caption": "<value>", "scenes": [{"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}, {"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}]}
@@ -944,6 +955,8 @@ examples:
           application/json: {}
   createVideo:
     speakeasy-default-create-video:
+      requestBody:
+        application/json: {"content_type": "Custom", "locale": "auto", "connection_ids": ["a776cbb2-1149-49ca-88c7-409f336cd780", "a279ac0a-70f9-44c7-8da5-99e8dd1ff7d3"], "aspect_ratio": "9:16", "voice_playback_rate": 100, "voice_volume": 100, "soundtrack_playback_rate": 100, "soundtrack_volume": 100, "title": "<value>", "caption": "<value>"}
       responses:
         "200":
           application/json: {"id": "9a776cbb-2114-499c-8a8c-7409f336cd78", "created_at": "1713621240968", "series_id": "a279ac0a-70f9-44c7-8da5-99e8dd1ff7d3", "publishing_state": "error", "publish_at": "<value>"}
@@ -953,6 +966,8 @@ examples:
           application/json: {}
   generateVideoTopics:
     speakeasy-default-generate-video-topics:
+      requestBody:
+        application/json: {"locale": "auto", "number_of_topics": 50, "content_type": "Custom"}
       responses:
         "200":
           application/json: ["<value>", "<value>", "<value>"]
@@ -962,6 +977,8 @@ examples:
           application/json: {}
   createSeries:
     speakeasy-default-create-series:
+      requestBody:
+        application/json: {"content_type": "Custom", "locale": "auto", "connection_ids": ["313efb04-22f7-4996-bf45-4baf19f5d611", "7b877a82-7b6f-4e5a-8c80-b75243bef940", "071c5f58-0ddf-48e7-a7c2-18820d264957"], "aspect_ratio": "9:16", "voice_playback_rate": 100, "voice_volume": 100, "soundtrack_playback_rate": 100, "soundtrack_volume": 100}
       responses:
         "200":
           application/json: {"id": "d313efb0-422f-4799-86f4-54baf19f5d61", "created_at": "1739264438888", "next_posting_at": "<value>", "type": "SingleVideo", "schedule": {"time_zone": "Asia/Bangkok", "times": [{"day_of_week": 4844.96, "time_of_day": 4520.41}, {"day_of_week": 6598.52, "time_of_day": 5304.76}]}, "aspect_ratio": "9:16", "soundtrack_behavior": "FullMusic", "locale": "ru-RU", "soundtrack": {"tracks": [{"url": "https://untidy-forage.net"}], "recommendations": [{"url": "https://antique-reboot.info", "reason": "<value>"}, {"url": "https://colorful-duster.biz/", "reason": "<value>"}, {"url": "https://vague-willow.name", "reason": "<value>"}], "playback_rate": 3076.33, "volume": 62.44}, "styles": {}, "image_style": {}, "voice": {"voices": [], "playback_rate": 144.37, "volume": 4740.31}, "connections": []}
@@ -999,6 +1016,8 @@ examples:
           application/json: {}
   createImage:
     speakeasy-default-create-image:
+      requestBody:
+        application/json: {"prompt": "<value>", "aspect_ratio": "9:16", "wait_for_generation": false}
       responses:
         "200":
           application/json: {"id": "3cb14ab1-c658-4ad4-842b-e0299be0fae3", "url": "https://basic-moment.biz/", "state": "request_smart_motion", "created_at": "1714745848169", "prompt": "<value>", "is_nsfw": true, "aspect_ratio": "9:16"}
@@ -1024,7 +1043,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"id": "6162980f-e681-4947-9653-a482802ca657", "url": "https://limp-elevation.com", "state": "pending", "created_at": "1737386158289"}
+          application/json: {"id": "6162980f-e681-4947-9653-a482802ca657", "url": "https://limp-elevation.com", "state": "pending", "created_at": "1737460783867"}
         "400":
           application/json: {}
   getImageStyles:
@@ -1036,6 +1055,8 @@ examples:
           application/json: {}
   createSpeech:
     speakeasy-default-create-speech:
+      requestBody:
+        application/json: {"text": "<value>", "locale": "auto", "voice_id": "<id>", "wait_for_generation": false}
       responses:
         "200":
           application/json: {"id": "f589b73f-081b-4ec2-b928-140d8f014e6a", "created_at": "1710107280596", "url": "https://peppery-punctuation.net", "user_id": "e4ec23dd-12d1-4a28-bc84-08abcb1b854d", "state": "completed", "text": "<value>", "voice": {"id": "<id>", "name": "<value>", "description": "youthfully although restfully amongst trusting underneath", "tags": {}, "preview_url": "https://reflecting-scorpion.com", "locale": "fr-CA", "source": "Cartesia"}}

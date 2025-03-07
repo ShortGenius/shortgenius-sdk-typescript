@@ -33,7 +33,7 @@ import { Result } from "../types/fp.js";
  */
 export function createImage(
   client: ShortGeniusCore,
-  request?: operations.CreateImageRequestBody | undefined,
+  request: operations.CreateImageRequestBody,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -58,7 +58,7 @@ export function createImage(
 
 async function $do(
   client: ShortGeniusCore,
-  request?: operations.CreateImageRequestBody | undefined,
+  request: operations.CreateImageRequestBody,
   options?: RequestOptions,
 ): Promise<
   [
@@ -79,17 +79,14 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      operations.CreateImageRequestBody$outboundSchema.optional().parse(value),
+    (value) => operations.CreateImageRequestBody$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = payload === undefined
-    ? null
-    : encodeJSON("body", payload, { explode: true });
+  const body = encodeJSON("body", payload, { explode: true });
 
   const path = pathToFunc("/images")();
 

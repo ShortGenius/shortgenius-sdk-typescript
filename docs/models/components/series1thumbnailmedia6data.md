@@ -7,8 +7,8 @@ import { Series1ThumbnailMedia6Data } from "shortgenius/models/components";
 
 let value: Series1ThumbnailMedia6Data = {
   id: "<id>",
-  createdAt: "1711880741147",
-  updatedAt: "1741224556587",
+  createdAt: "1711955367922",
+  updatedAt: "1741299183362",
   urls: {
     full: "<value>",
     raw: "<value>",
@@ -57,7 +57,7 @@ let value: Series1ThumbnailMedia6Data = {
     totalLikes: 1074.72,
     totalPhotos: 2875.44,
     twitterUsername: "<value>",
-    updatedAt: "1741188055628",
+    updatedAt: "1741262682407",
     username: "Al58",
   },
 };
