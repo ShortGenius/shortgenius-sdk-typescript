@@ -6,10 +6,10 @@
 import { Large } from "shortgenius/models/operations";
 
 let value: Large = {
-  url: "https://anguished-granny.com",
-  width: 8163.46,
-  height: 1869.67,
-  size: 6745.48,
+  url: "https://next-bend.name/",
+  width: 7213.93,
+  height: 579.71,
+  size: 3390.79,
   thumbnail: "<value>",
 };
 ```

@@ -17,12 +17,12 @@ let value: Series1ThumbnailMedia1Data = {
   fileFormat: "<value>",
   image: {
     contextLink: "<value>",
-    height: 9078.99,
-    width: 7090.51,
-    byteSize: 6152.77,
+    height: 4122.2,
+    width: 454,
+    byteSize: 156.1,
     thumbnailLink: "<value>",
-    thumbnailHeight: 7924.99,
-    thumbnailWidth: 8356.46,
+    thumbnailHeight: 8670.24,
+    thumbnailWidth: 5920.22,
   },
 };
 ```

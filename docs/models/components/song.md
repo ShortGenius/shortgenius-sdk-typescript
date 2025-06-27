@@ -10,7 +10,7 @@ import { Song } from "shortgenius/models/components";
 let value: Song = {
   id: "<id>",
   name: "<value>",
-  previewUrl: "https://necessary-hierarchy.name",
+  previewUrl: "https://palatable-intellect.name/",
 };
 ```
 

@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod";
+import { ShortGeniusError } from "./shortgeniuserror.js";
 
 /**
  * An error response object.
@@ -17,15 +18,18 @@ export type GetAudioResponseBodyData = {
 /**
  * An error response object.
  */
-export class GetAudioResponseBody extends Error {
+export class GetAudioResponseBody extends ShortGeniusError {
   /** The original data that was passed to this error instance. */
   data$: GetAudioResponseBodyData;
 
-  constructor(err: GetAudioResponseBodyData) {
+  constructor(
+    err: GetAudioResponseBodyData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
 
     this.name = "GetAudioResponseBody";
@@ -39,9 +43,16 @@ export const GetAudioResponseBody$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   message: z.nullable(z.string()).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new GetAudioResponseBody(v);
+    return new GetAudioResponseBody(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

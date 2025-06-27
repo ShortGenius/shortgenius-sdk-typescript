@@ -5,7 +5,7 @@
 ```typescript
 import { PrivacyLevel } from "shortgenius/models/components";
 
-let value: PrivacyLevel = "FOLLOWER_OF_CREATOR";
+let value: PrivacyLevel = "MUTUAL_FOLLOW_FRIENDS";
 ```
 
 ## Values

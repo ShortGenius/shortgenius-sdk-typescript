@@ -7,7 +7,7 @@ The locale for which to retrieve voices.
 ```typescript
 import { QueryParamLocale } from "shortgenius/models/operations";
 
-let value: QueryParamLocale = "ar-SA";
+let value: QueryParamLocale = "it-IT";
 ```
 
 ## Values

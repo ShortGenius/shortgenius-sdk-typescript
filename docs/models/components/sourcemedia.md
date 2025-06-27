@@ -6,8 +6,8 @@
 import { SourceMedia } from "shortgenius/models/components";
 
 let value: SourceMedia = {
-  id: "b692275f-cbe1-489f-8431-0eac4917fe5f",
-  url: "https://waterlogged-sediment.name",
+  id: "cf8d8bb0-f239-4df8-9273-6ab6482fe2fe",
+  url: "https://rich-guidance.org/",
 };
 ```
 

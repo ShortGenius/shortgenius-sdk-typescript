@@ -5,7 +5,7 @@
 ```typescript
 import { SixState } from "shortgenius/models/components";
 
-let value: SixState = "generating";
+let value: SixState = "pending";
 ```
 
 ## Values

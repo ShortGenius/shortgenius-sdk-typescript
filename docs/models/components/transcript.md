@@ -11,8 +11,8 @@ let value: Transcript = {
   words: [
     {
       text: "<value>",
-      start: 4543.34,
-      end: 4473.23,
+      start: 5866.19,
+      end: 2385.9,
     },
   ],
 };

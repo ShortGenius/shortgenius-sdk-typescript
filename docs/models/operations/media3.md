@@ -7,11 +7,11 @@
 
 ```typescript
 const value: operations.Three1 = {
-  id: "dd999493-26b9-4fa2-9213-9de68c492727",
-  url: "https://excited-challenge.biz/",
+  id: "2686d41e-272e-4acb-8feb-ee42a4a25c94",
+  url: "https://weary-conversation.name/",
   metadata: {},
-  source: "Upload",
-  state: "completed",
+  source: "ImagePicker",
+  state: "request_smart_motion",
   data: {
     uploadId: "<id>",
     key: "<key>",
@@ -25,10 +25,10 @@ const value: operations.Three1 = {
 
 ```typescript
 const value: operations.Three2 = {
-  id: "b9191053-9ebc-4fa9-99d6-ca403b946a26",
-  url: "https://misguided-fund.net",
+  id: "32b897dc-0fc2-4cd8-9721-ce27c0dffae5",
+  url: "https://vague-corporation.name/",
   metadata: {},
-  source: "Upload",
+  source: "ImagePicker",
   state: "uploading",
   data: {
     uploadId: "<id>",
@@ -43,14 +43,14 @@ const value: operations.Three2 = {
 
 ```typescript
 const value: operations.Three3 = {
-  id: "6e42e25b-436c-4e02-8f98-d00fdb27ee0c",
-  url: "https://infatuated-volleyball.info",
+  id: "a0284122-ce9f-4a38-b930-10fc3b814e50",
+  url: "https://inconsequential-kick.com/",
   metadata: {},
   source: "Upload",
   data: {
     sourceMedia: {
-      id: "5b3d9ff2-f00f-4f27-a7da-c7abb015066e",
-      url: "https://unhappy-hutch.com",
+      id: "c9c17aff-75ae-4e5a-aa69-930e2517fcba",
+      url: "https://unsung-archaeology.com/",
     },
   },
   state: "generating",
@@ -61,11 +61,11 @@ const value: operations.Three3 = {
 
 ```typescript
 const value: operations.Three4 = {
-  id: "de54e5a4-18e9-43ac-a58a-2f7f3720366e",
-  url: "https://wretched-obesity.biz/",
+  id: "a7dd2ac0-a512-4286-8998-5b7cab235c2a",
+  url: "https://orderly-populist.com",
   metadata: {},
-  source: "ImagePicker",
-  state: "error",
+  source: "Upload",
+  state: "uploading",
   data: {},
 };
 ```

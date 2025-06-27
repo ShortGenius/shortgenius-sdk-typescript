@@ -6,37 +6,35 @@
 import { Series1Data } from "shortgenius/models/components";
 
 let value: Series1Data = {
-  id: 445.71,
-  width: 9132.84,
-  height: 3050.47,
-  url: "https://worst-guidance.name",
-  image: "https://picsum.photos/seed/gfxHWH/1604/3073",
-  fullRes: "<value>",
-  tags: [
-    "<value>",
-  ],
-  duration: 7811.93,
+  id: 7402.32,
+  width: 621.87,
+  height: 5735.17,
+  url: "https://scaly-viability.info/",
+  image: "https://picsum.photos/seed/z70iYSY/510/234",
+  fullRes: null,
+  tags: [],
+  duration: 7702.78,
   user: {
-    id: 1689.26,
+    id: 2250.11,
     name: "<value>",
-    url: "https://indolent-pocket-watch.biz/",
+    url: "https://astonishing-accompanist.com",
   },
   videoFiles: [
     {
-      id: 3032.92,
-      quality: "sd",
-      fileType: "application",
-      width: 5775.9,
-      height: 752.77,
+      id: 1729.78,
+      quality: "uhd",
+      fileType: "image",
+      width: 4169.98,
+      height: 5620.53,
       link: "<value>",
-      fps: 782.46,
+      fps: 8819.03,
     },
   ],
   videoPictures: [
     {
-      id: 3712.87,
-      picture: "https://picsum.photos/seed/hxxJXhNEz/3066/2755",
-      nr: 7748.8,
+      id: 5949.62,
+      picture: "https://loremflickr.com/1459/3106?lock=178391727751220",
+      nr: 4778.6,
     },
   ],
 };

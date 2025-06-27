@@ -7,7 +7,7 @@ Upload status of the video.
 ```typescript
 import { PublishingState } from "shortgenius/models/components";
 
-let value: PublishingState = "completed";
+let value: PublishingState = "processing";
 ```
 
 ## Values

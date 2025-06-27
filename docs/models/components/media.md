@@ -7,47 +7,26 @@
 
 ```typescript
 const value: components.One = {
-  url: "https://oblong-hepatitis.net/",
+  url: "https://new-offset.net/",
   data: {
-    id: 9006.76,
-    pageURL: "https://thin-allocation.biz",
-    videos: {
-      large: {
-        url: "https://infamous-density.biz",
-        width: 9454.31,
-        height: 2941.81,
-        size: 3539.04,
-        thumbnail: "<value>",
-      },
-      medium: {
-        url: "https://terrible-clamp.biz/",
-        width: 2552.64,
-        height: 8846.22,
-        size: 2064.51,
-        thumbnail: "<value>",
-      },
-      small: {
-        url: "https://striking-transparency.com",
-        width: 2172.79,
-        height: 7428.99,
-        size: 1960,
-        thumbnail: "<value>",
-      },
-      tiny: {
-        url: "https://dazzling-community.info/",
-        width: 1096.83,
-        height: 3216.97,
-        size: 4265.94,
-        thumbnail: "<value>",
-      },
+    kind: "<value>",
+    title: "<value>",
+    htmlTitle: "<value>",
+    link: "<value>",
+    displayLink: "<value>",
+    snippet: "<value>",
+    htmlSnippet: "<value>",
+    mime: "<value>",
+    fileFormat: "<value>",
+    image: {
+      contextLink: "<value>",
+      height: 4122.2,
+      width: 454,
+      byteSize: 156.1,
+      thumbnailLink: "<value>",
+      thumbnailHeight: 8670.24,
+      thumbnailWidth: 5920.22,
     },
-    views: 245.48,
-    downloads: 3883.33,
-    likes: 941.22,
-    comments: 4935.79,
-    userId: 8257.39,
-    user: "Rebeka23",
-    userImageURL: "https://strict-bungalow.com",
   },
 };
 ```
@@ -56,13 +35,13 @@ const value: components.One = {
 
 ```typescript
 const value: components.Two = {
-  id: "496b525e-f3c4-4e2a-b1fb-d97987c22651",
-  url: "https://neat-waterspout.com",
+  id: "d83adfed-e16a-4ffc-a51a-4f36d62f3eb1",
+  url: "https://cheerful-pine.com",
   metadata: {
     prompt: "<value>",
   },
-  source: "fal-ai/flux-pro/v1.1-ultra",
-  state: "generating",
+  source: "dall-e-3",
+  state: "completed",
   data: {},
 };
 ```
@@ -71,11 +50,11 @@ const value: components.Two = {
 
 ```typescript
 const value: components.Three = {
-  id: "3c2da0ca-eb8d-4484-8f30-5808db9ffd97",
-  url: "https://wrong-skyline.info",
+  id: "07b255b1-11db-40a5-8bfb-c16dde94c587",
+  url: "https://intrepid-armchair.biz/",
   metadata: {},
-  source: "Upload",
-  state: "request_smart_motion",
+  source: "ImagePicker",
+  state: "error",
   data: {
     uploadId: "<id>",
     key: "<key>",
@@ -89,13 +68,13 @@ const value: components.Three = {
 
 ```typescript
 const value: components.Four = {
-  id: "bfd81758-4dd5-496e-b2bf-23bc79371547",
-  url: "https://important-object.org/",
+  id: "35bf96ca-76a4-4aa9-8a79-b956b86aa7b2",
+  url: "https://raw-antelope.biz/",
   metadata: {},
-  source: "GeneratedImage",
+  source: "UserImage",
   category: "Stock",
   data: {},
-  state: "pending",
+  state: "completed",
 };
 ```
 
@@ -103,12 +82,12 @@ const value: components.Four = {
 
 ```typescript
 const value: components.Five = {
-  url: "https://lanky-cruelty.info/",
+  url: "https://pink-redesign.net",
   metadata: {
     muxPlaybackId: "<id>",
-    startTime: 4541.65,
-    endTime: 8652.12,
-    durationTillEnd: 9550.65,
+    startTime: 506.86,
+    endTime: 2554.98,
+    durationTillEnd: 3483.63,
   },
   source: "Gameplay",
   data: {
@@ -122,9 +101,9 @@ const value: components.Five = {
 
 ```typescript
 const value: components.Six = {
-  url: "https://physical-following.biz",
+  url: "https://scary-noon.org",
   metadata: {
-    sourceImageUrl: "https://mixed-apricot.com/",
+    sourceImageUrl: "https://artistic-oil.net",
     muxPlaybackId: "<id>",
   },
   source: "Ugc",
@@ -132,9 +111,57 @@ const value: components.Six = {
     id: "<id>",
     ugcCreatorId: "<id>",
     ugcPresetId: "<id>",
-    createdAt: "1728701039363",
+    createdAt: "1718937490684",
+  },
+  state: "error",
+};
+```
+
+### `components.Seven`
+
+```typescript
+const value: components.Seven = {
+  id: "901dd250-9134-4eec-b377-4b9e83bda71d",
+  url: "https://rowdy-fork.info",
+  metadata: {
+    assetId: "<id>",
+    assetVersionId: "<id>",
+    assetRenderId: "<id>",
   },
   state: "pending",
+  data: {},
+};
+```
+
+### `components.Eight`
+
+```typescript
+const value: components.Eight = {
+  id: "b438cd3a-e50a-4b23-8cf3-c631231d1a7f",
+  url: "https://feline-disclosure.com/",
+  metadata: {
+    brandDomain: "<value>",
+    assetType: "<value>",
+  },
+  state: "completed",
+  data: {
+    assetKey: "<value>",
+    uploadedAt: "<value>",
+  },
+};
+```
+
+### `components.Nine`
+
+```typescript
+const value: components.Nine = {
+  id: "7464a22d-984a-4c2c-b7fb-ee76465e41f7",
+  url: "https://illustrious-nun.name",
+  metadata: {
+    adId: "<id>",
+    creativeId: "<id>",
+  },
+  state: "completed",
 };
 ```
 

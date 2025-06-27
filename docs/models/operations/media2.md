@@ -7,13 +7,13 @@
 
 ```typescript
 const value: operations.Two1 = {
-  id: "8d7773e4-33dc-460f-92dc-fc5363bda209",
-  url: "https://hoarse-maintainer.name/",
+  id: "72056cc6-6651-4bc9-ac7f-f0eecc7db68e",
+  url: "https://acclaimed-fax.name/",
   metadata: {
     prompt: "<value>",
   },
-  source: "fal-ai/flux-pro",
-  state: "placeholder",
+  source: "fal-ai/flux-pro/v1.1-ultra",
+  state: "generating",
   data: {},
 };
 ```
@@ -22,11 +22,11 @@ const value: operations.Two1 = {
 
 ```typescript
 const value: operations.Two2 = {
-  id: "0ae33c7f-9e02-4a6d-b6b9-1bb185761213",
-  url: "https://intrepid-self-confidence.com/",
+  id: "f4a2e692-220a-493e-bc53-0e8e3feb760c",
+  url: "https://warlike-lender.name/",
   metadata: {},
-  source: "fal-ai/stable-video",
-  state: "pending",
+  source: "fal-ai/veo3",
+  state: "error",
   data: {},
 };
 ```
@@ -35,14 +35,14 @@ const value: operations.Two2 = {
 
 ```typescript
 const value: operations.Two3 = {
-  id: "ba92c22c-5545-45b3-b5ce-918a5dc92be4",
-  url: "https://frivolous-obligation.biz",
+  id: "9095752c-f190-4a4a-9bd7-9e3f227b6930",
+  url: "https://black-and-white-giant.info/",
   metadata: {
     prompt: "<value>",
   },
   source: "luma-ai",
   state: "pending",
-  data: {},
+  data: null,
 };
 ```
 

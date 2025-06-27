@@ -9,7 +9,7 @@ let value: GetSeries6Data = {
   id: "<id>",
   ugcCreatorId: "<id>",
   ugcPresetId: "<id>",
-  createdAt: "1726831293841",
+  createdAt: "1735553497298",
 };
 ```
 
@@ -21,3 +21,4 @@ let value: GetSeries6Data = {
 | `ugcCreatorId`     | *string*           | :heavy_check_mark: | N/A                |
 | `ugcPresetId`      | *string*           | :heavy_check_mark: | N/A                |
 | `createdAt`        | *string*           | :heavy_check_mark: | N/A                |
+| `hook`             | *string*           | :heavy_minus_sign: | N/A                |

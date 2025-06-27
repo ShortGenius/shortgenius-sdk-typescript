@@ -5,7 +5,7 @@
 ```typescript
 import { GetSeries3Response200Source } from "shortgenius/models/operations";
 
-let value: GetSeries3Response200Source = "Upload";
+let value: GetSeries3Response200Source = "ImagePicker";
 ```
 
 ## Values

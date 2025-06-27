@@ -6,7 +6,7 @@
 import { DraftVideoFromURLRequestBody } from "shortgenius/models/operations";
 
 let value: DraftVideoFromURLRequestBody = {
-  url: "https://angelic-metabolite.name",
+  url: "https://proud-word.info",
 };
 ```
 

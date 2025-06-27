@@ -6,7 +6,7 @@
 import { SixMetadata } from "shortgenius/models/components";
 
 let value: SixMetadata = {
-  sourceImageUrl: "https://pale-milestone.biz",
+  sourceImageUrl: "https://afraid-sauerkraut.info",
   muxPlaybackId: "<id>",
 };
 ```

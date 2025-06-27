@@ -6,8 +6,8 @@
 import { Times } from "shortgenius/models/operations";
 
 let value: Times = {
-  dayOfWeek: 1780.66,
-  timeOfDay: 9729.34,
+  dayOfWeek: 2286.35,
+  timeOfDay: 2290.35,
 };
 ```
 

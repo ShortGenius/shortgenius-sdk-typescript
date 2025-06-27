@@ -6,38 +6,36 @@
 import { GetSeries1ResponseData } from "shortgenius/models/operations";
 
 let value: GetSeries1ResponseData = {
-  id: 1880.08,
-  pageURL: "https://dapper-squid.biz/",
-  previewURL: "https://coordinated-casket.info",
-  webformatURL: "https://gorgeous-nerve.biz/",
-  largeImageURL: "https://broken-fen.net",
-  views: 6029.32,
-  downloads: 1195.15,
-  likes: 4394.73,
-  comments: 3092.21,
-  userId: 6318.71,
-  user: "Breana.Kohler74",
-  userImageURL: "https://aggravating-straw.info/",
+  id: 6097.64,
+  width: 7945.2,
+  height: 638.89,
+  url: "https://artistic-mainstream.info/",
+  image: "https://loremflickr.com/1878/3802?lock=2599423132364827",
+  fullRes: "<value>",
+  tags: [],
+  duration: 3804.14,
+  user: {
+    id: 2063.59,
+    name: "<value>",
+    url: "https://nimble-permafrost.name",
+  },
+  videoFiles: [],
+  videoPictures: [],
 };
 ```
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `id`               | *number*           | :heavy_check_mark: | N/A                |
-| `tags`             | *string*           | :heavy_minus_sign: | N/A                |
-| `pageURL`          | *string*           | :heavy_check_mark: | N/A                |
-| `previewURL`       | *string*           | :heavy_check_mark: | N/A                |
-| `webformatURL`     | *string*           | :heavy_check_mark: | N/A                |
-| `largeImageURL`    | *string*           | :heavy_check_mark: | N/A                |
-| `views`            | *number*           | :heavy_check_mark: | N/A                |
-| `downloads`        | *number*           | :heavy_check_mark: | N/A                |
-| `likes`            | *number*           | :heavy_check_mark: | N/A                |
-| `comments`         | *number*           | :heavy_check_mark: | N/A                |
-| `userId`           | *number*           | :heavy_check_mark: | N/A                |
-| `user`             | *string*           | :heavy_check_mark: | N/A                |
-| `userImageURL`     | *string*           | :heavy_check_mark: | N/A                |
-| `fullHDURL`        | *string*           | :heavy_minus_sign: | N/A                |
-| `imageURL`         | *string*           | :heavy_minus_sign: | N/A                |
-| `vectorURL`        | *string*           | :heavy_minus_sign: | N/A                |
+| Field                                                                  | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `id`                                                                   | *number*                                                               | :heavy_check_mark:                                                     | N/A                                                                    |
+| `width`                                                                | *number*                                                               | :heavy_check_mark:                                                     | N/A                                                                    |
+| `height`                                                               | *number*                                                               | :heavy_check_mark:                                                     | N/A                                                                    |
+| `url`                                                                  | *string*                                                               | :heavy_check_mark:                                                     | N/A                                                                    |
+| `image`                                                                | *string*                                                               | :heavy_check_mark:                                                     | N/A                                                                    |
+| `fullRes`                                                              | *string*                                                               | :heavy_check_mark:                                                     | N/A                                                                    |
+| `tags`                                                                 | *string*[]                                                             | :heavy_check_mark:                                                     | N/A                                                                    |
+| `duration`                                                             | *number*                                                               | :heavy_check_mark:                                                     | N/A                                                                    |
+| `user`                                                                 | [operations.User](../../models/operations/user.md)                     | :heavy_check_mark:                                                     | N/A                                                                    |
+| `videoFiles`                                                           | [operations.VideoFiles](../../models/operations/videofiles.md)[]       | :heavy_check_mark:                                                     | N/A                                                                    |
+| `videoPictures`                                                        | [operations.VideoPictures](../../models/operations/videopictures.md)[] | :heavy_check_mark:                                                     | N/A                                                                    |

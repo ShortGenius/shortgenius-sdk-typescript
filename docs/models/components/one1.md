@@ -6,7 +6,7 @@
 import { One1 } from "shortgenius/models/components";
 
 let value: One1 = {
-  url: "https://unconscious-tomb.biz/",
+  url: null,
   data: {
     kind: "<value>",
     title: "<value>",
@@ -19,12 +19,12 @@ let value: One1 = {
     fileFormat: "<value>",
     image: {
       contextLink: "<value>",
-      height: 6075.45,
-      width: 5265.84,
-      byteSize: 5379.46,
+      height: 4122.2,
+      width: 454,
+      byteSize: 156.1,
       thumbnailLink: "<value>",
-      thumbnailHeight: 9376.64,
-      thumbnailWidth: 3051.89,
+      thumbnailHeight: 8670.24,
+      thumbnailWidth: 5920.22,
     },
   },
 };

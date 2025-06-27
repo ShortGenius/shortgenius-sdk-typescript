@@ -6,12 +6,12 @@
 import { Five } from "shortgenius/models/components";
 
 let value: Five = {
-  url: "https://unique-shipper.net/",
+  url: "https://pink-redesign.net",
   metadata: {
     muxPlaybackId: "<id>",
-    startTime: 1002.26,
-    endTime: 9194.83,
-    durationTillEnd: 7142.42,
+    startTime: 506.86,
+    endTime: 2554.98,
+    durationTillEnd: 3483.63,
   },
   source: "Gameplay",
   data: {

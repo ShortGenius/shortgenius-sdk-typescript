@@ -5,7 +5,7 @@
 ```typescript
 import { Series3ThumbnailMediaState } from "shortgenius/models/components";
 
-let value: Series3ThumbnailMediaState = "uploading";
+let value: Series3ThumbnailMediaState = "completed";
 ```
 
 ## Values

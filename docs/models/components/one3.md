@@ -6,41 +6,27 @@
 import { One3 } from "shortgenius/models/components";
 
 let value: One3 = {
-  url: "https://antique-chiffonier.net",
+  url: "https://advanced-wafer.net",
   data: {
-    id: 837.91,
-    width: 5161.24,
-    height: 2198.6,
-    url: "https://rusty-alliance.org/",
-    image: "https://picsum.photos/seed/l6jayjXX/1778/2010",
+    id: 7535.51,
+    width: 5242.22,
+    height: 3808.64,
+    url: "https://caring-executor.name",
+    image: "https://loremflickr.com/704/1301?lock=34267892335824",
     fullRes: "<value>",
     tags: [
-      "<value>",
+      "<value 1>",
+      "<value 2>",
+      "<value 3>",
     ],
-    duration: 6201.26,
+    duration: 1342.13,
     user: {
-      id: 6174.97,
+      id: 2250.11,
       name: "<value>",
-      url: "https://unhappy-roundabout.biz",
+      url: "https://astonishing-accompanist.com",
     },
-    videoFiles: [
-      {
-        id: 3655.39,
-        quality: "hd",
-        fileType: "image",
-        width: 9903.69,
-        height: 9121.51,
-        link: "<value>",
-        fps: 1183.49,
-      },
-    ],
-    videoPictures: [
-      {
-        id: 251.9,
-        picture: "https://loremflickr.com/3594/2149?lock=6067729227756560",
-        nr: 6442.23,
-      },
-    ],
+    videoFiles: [],
+    videoPictures: [],
   },
 };
 ```

@@ -6,17 +6,17 @@
 import { One2 } from "shortgenius/models/components";
 
 let value: One2 = {
-  url: "https://sizzling-zebra.name/",
+  url: "https://oddball-substitution.com/",
   data: {
-    id: 9442.03,
-    width: 3966.1,
-    height: 1066.82,
-    url: "https://frequent-kettledrum.name/",
+    id: 7985.47,
+    width: 7953.37,
+    height: 5473.8,
+    url: "https://paltry-interchange.name",
     alt: "<value>",
     avgColor: "<value>",
     photographer: "<value>",
-    photographerUrl: "https://voluminous-switchboard.net/",
-    photographerId: 4896.85,
+    photographerUrl: "https://jealous-comestible.com",
+    photographerId: 881.48,
     liked: false,
     src: {
       original: "<value>",

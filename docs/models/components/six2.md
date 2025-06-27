@@ -6,9 +6,9 @@
 import { Six2 } from "shortgenius/models/components";
 
 let value: Six2 = {
-  url: "https://runny-epic.net",
+  url: "https://awesome-tomb.org/",
   metadata: {
-    sourceImageUrl: "https://unconscious-mom.org/",
+    sourceImageUrl: "https://artistic-oil.net",
     muxPlaybackId: "<id>",
   },
   source: "Ugc",
@@ -16,9 +16,9 @@ let value: Six2 = {
     id: "<id>",
     ugcCreatorId: "<id>",
     ugcPresetId: "<id>",
-    createdAt: "1731613298842",
+    createdAt: "1718937490684",
   },
-  state: "completed",
+  state: "error",
 };
 ```
 

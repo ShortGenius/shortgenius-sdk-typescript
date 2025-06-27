@@ -5,7 +5,7 @@
 ```typescript
 import { GetImageResponseBodyResponseState } from "shortgenius/models/operations";
 
-let value: GetImageResponseBodyResponseState = "completed";
+let value: GetImageResponseBodyResponseState = "error";
 ```
 
 ## Values

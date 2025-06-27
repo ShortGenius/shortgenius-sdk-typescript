@@ -5,7 +5,7 @@
 ```typescript
 import { SeriesCaptionTextTransform } from "shortgenius/models/components";
 
-let value: SeriesCaptionTextTransform = "lowercase";
+let value: SeriesCaptionTextTransform = "none";
 ```
 
 ## Values

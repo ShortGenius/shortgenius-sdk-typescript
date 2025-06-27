@@ -5,11 +5,11 @@
 ```typescript
 import { GetImageResponseBodyResponse200ApplicationJSONState } from "shortgenius/models/operations";
 
-let value: GetImageResponseBodyResponse200ApplicationJSONState = "pending";
+let value: GetImageResponseBodyResponse200ApplicationJSONState = "uploading";
 ```
 
 ## Values
 
 ```typescript
-"pending" | "generating" | "error" | "completed"
+"uploading" | "error" | "completed" | "request_smart_motion"
 ```

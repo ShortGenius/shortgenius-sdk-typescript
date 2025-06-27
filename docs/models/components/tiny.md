@@ -6,10 +6,10 @@
 import { Tiny } from "shortgenius/models/components";
 
 let value: Tiny = {
-  url: "https://plump-marketplace.biz",
-  width: 9292.92,
-  height: 2659.05,
-  size: 8281.47,
+  url: "https://quiet-incandescence.net",
+  width: 1120.97,
+  height: 832.6,
+  size: 1241.91,
   thumbnail: "<value>",
 };
 ```

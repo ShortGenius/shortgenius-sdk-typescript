@@ -7,7 +7,7 @@ import { DraftVideoRequestBody } from "shortgenius/models/operations";
 
 let value: DraftVideoRequestBody = {
   topic: "<value>",
-  duration: "480",
+  duration: "120",
 };
 ```
 

@@ -5,7 +5,7 @@
 ```typescript
 import { ResponseBodyState } from "shortgenius/models/operations";
 
-let value: ResponseBodyState = "completed";
+let value: ResponseBodyState = "error";
 ```
 
 ## Values

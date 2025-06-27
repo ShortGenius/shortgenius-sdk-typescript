@@ -8,11 +8,11 @@ The publishing schedule for the video series.
 import { GetSeriesSchedule } from "shortgenius/models/operations";
 
 let value: GetSeriesSchedule = {
-  timeZone: "America/Havana",
+  timeZone: "Asia/Kabul",
   times: [
     {
-      dayOfWeek: 9044.85,
-      timeOfDay: 2870.2,
+      dayOfWeek: 5173.24,
+      timeOfDay: 6104.91,
     },
   ],
 };

@@ -7,7 +7,7 @@ Locale of the video series.
 ```typescript
 import { GetSeriesLocale } from "shortgenius/models/operations";
 
-let value: GetSeriesLocale = "pl-PL";
+let value: GetSeriesLocale = "ms-MY";
 ```
 
 ## Values

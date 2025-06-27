@@ -6,10 +6,10 @@
 import { Medium } from "shortgenius/models/operations";
 
 let value: Medium = {
-  url: "https://concrete-tray.name/",
-  width: 8906.31,
-  height: 3065.99,
-  size: 8298.36,
+  url: "https://experienced-statue.biz",
+  width: 6070.75,
+  height: 784.01,
+  size: 2703.22,
   thumbnail: "<value>",
 };
 ```

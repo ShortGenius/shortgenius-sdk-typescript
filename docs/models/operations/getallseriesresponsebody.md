@@ -10,58 +10,34 @@ import { GetAllSeriesResponseBody } from "shortgenius/models/operations";
 let value: GetAllSeriesResponseBody = {
   series: [
     {
-      id: "5b6cbf8c-5566-4181-ae07-42cb2acc1abd",
-      createdAt: "1724314684390",
+      id: "3e6e147b-a59b-424e-8fed-dd153d0780b7",
+      createdAt: "1720463440939",
       nextPostingAt: "<value>",
-      type: "Series",
+      type: "SingleVideo",
       schedule: {
-        timeZone: "Asia/Chita",
-        times: [
-          {
-            dayOfWeek: 5587.31,
-            timeOfDay: 3306.17,
-          },
-        ],
+        timeZone: "Asia/Seoul",
+        times: [],
       },
-      aspectRatio: "1:1",
-      soundtrackBehavior: "FullMusic",
-      locale: "ca-ES",
+      aspectRatio: "16:9",
+      soundtrackBehavior: "NoMusic",
+      locale: "it-IT",
       soundtrack: {
-        tracks: [
-          {
-            url: "https://trusting-hygienic.com/",
-          },
-        ],
-        recommendations: [
-          {
-            url: "https://youthful-skeleton.name",
-            reason: "<value>",
-          },
-        ],
-        playbackRate: 9143.99,
-        volume: 8135.82,
+        tracks: [],
+        recommendations: [],
+        playbackRate: 5149.2,
+        volume: 226.36,
       },
       styles: {},
       imageStyle: {},
       voice: {
-        voices: [
-          {
-            id: "<id>",
-            name: "<value>",
-            description: "regularly whose recovery furthermore glaring huddle",
-            tags: {},
-            previewUrl: "https://splendid-hyena.org",
-            locale: "he-IL",
-            source: "OpenAI",
-          },
-        ],
-        playbackRate: 9539.21,
-        volume: 3888.51,
+        voices: [],
+        playbackRate: 2102.24,
+        volume: 2319.15,
       },
       connections: [
         {
-          id: "9baf44ec-39b5-4697-ac06-59c12ab9f72a",
-          type: "YouTube",
+          id: "4f4251b6-8e9a-4f12-bee9-2ad8c73fa73d",
+          type: "Email",
         },
       ],
     },

@@ -6,11 +6,11 @@
 import { One6 } from "shortgenius/models/operations";
 
 let value: One6 = {
-  url: "https://bright-mentor.biz/",
+  url: null,
   data: {
     id: "<id>",
-    createdAt: "1729532038684",
-    updatedAt: "1741303524127",
+    createdAt: "1709560596565",
+    updatedAt: "1735625241346",
     urls: {
       full: "<value>",
       raw: "<value>",
@@ -20,10 +20,10 @@ let value: One6 = {
     },
     altDescription: "<value>",
     blurHash: "<value>",
-    color: "tan",
-    description: "until duh small helpfully",
-    height: 3905.83,
-    likes: 933.84,
+    color: "teal",
+    description: null,
+    height: 5368.97,
+    likes: 1536.42,
     links: {
       self: "<value>",
       html: "<value>",
@@ -31,13 +31,13 @@ let value: One6 = {
       downloadLocation: "<value>",
     },
     promotedAt: "<value>",
-    width: 2204.55,
+    width: 6264.69,
     user: {
       id: "<id>",
       bio: "<value>",
-      firstName: "Delphia",
+      firstName: "Amy",
       instagramUsername: "<value>",
-      lastName: "Heller",
+      lastName: "Herman",
       links: {
         followers: "<value>",
         following: "<value>",
@@ -49,18 +49,18 @@ let value: One6 = {
       },
       location: "<value>",
       name: "<value>",
-      portfolioUrl: "https://shameful-flint.com/",
+      portfolioUrl: null,
       profileImage: {
         small: "<value>",
         medium: "<value>",
         large: "<value>",
       },
-      totalCollections: 5936,
-      totalLikes: 1796.48,
-      totalPhotos: 580.56,
+      totalCollections: 5944.35,
+      totalLikes: 2353.32,
+      totalPhotos: 6221.94,
       twitterUsername: "<value>",
-      updatedAt: "1741237333193",
-      username: "Heidi.Nitzsche",
+      updatedAt: "1735605691087",
+      username: "Estelle.Harvey",
     },
   },
 };
@@ -68,14 +68,14 @@ let value: One6 = {
 
 ## Fields
 
-| Field                                                                                                                      | Type                                                                                                                       | Required                                                                                                                   | Description                                                                                                                |
-| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `url`                                                                                                                      | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
-| `deletedAt`                                                                                                                | *string*                                                                                                                   | :heavy_minus_sign:                                                                                                         | N/A                                                                                                                        |
-| `metadata`                                                                                                                 | *any*                                                                                                                      | :heavy_minus_sign:                                                                                                         | N/A                                                                                                                        |
-| `lastError`                                                                                                                | *string*                                                                                                                   | :heavy_minus_sign:                                                                                                         | N/A                                                                                                                        |
-| `type`                                                                                                                     | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
-| `category`                                                                                                                 | *string*                                                                                                                   | :heavy_minus_sign:                                                                                                         | N/A                                                                                                                        |
-| `state`                                                                                                                    | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
-| `source`                                                                                                                   | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
-| `data`                                                                                                                     | [operations.GetSeries1Response200ApplicationJSONData](../../models/operations/getseries1response200applicationjsondata.md) | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| Field                                                                                                                                              | Type                                                                                                                                               | Required                                                                                                                                           | Description                                                                                                                                        |
+| -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `url`                                                                                                                                              | *string*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
+| `deletedAt`                                                                                                                                        | *string*                                                                                                                                           | :heavy_minus_sign:                                                                                                                                 | N/A                                                                                                                                                |
+| `metadata`                                                                                                                                         | *any*                                                                                                                                              | :heavy_minus_sign:                                                                                                                                 | N/A                                                                                                                                                |
+| `lastError`                                                                                                                                        | *string*                                                                                                                                           | :heavy_minus_sign:                                                                                                                                 | N/A                                                                                                                                                |
+| `type`                                                                                                                                             | *string*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
+| `category`                                                                                                                                         | *string*                                                                                                                                           | :heavy_minus_sign:                                                                                                                                 | N/A                                                                                                                                                |
+| `state`                                                                                                                                            | *string*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
+| `source`                                                                                                                                           | *string*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
+| `data`                                                                                                                                             | [operations.GetSeries1Response200ApplicationJSONResponseBodyData](../../models/operations/getseries1response200applicationjsonresponsebodydata.md) | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |

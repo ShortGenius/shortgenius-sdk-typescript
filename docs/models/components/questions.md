@@ -7,12 +7,7 @@ import { Questions } from "shortgenius/models/components";
 
 let value: Questions = {
   question: "<value>",
-  options: [
-    {
-      text: "<value>",
-      correct: false,
-    },
-  ],
+  options: [],
 };
 ```
 

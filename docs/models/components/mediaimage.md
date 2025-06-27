@@ -6,7 +6,7 @@
 import { MediaImage } from "shortgenius/models/components";
 
 let value: MediaImage = {
-  url: "https://cluttered-steak.net",
+  url: "https://yearly-kick.biz",
 };
 ```
 

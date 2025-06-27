@@ -6,7 +6,7 @@
 import { GetSeriesRequest } from "shortgenius/models/operations";
 
 let value: GetSeriesRequest = {
-  id: "8f212399-3777-4c7c-828d-2792c1f7516a",
+  id: "3c60ca0d-8662-4280-af94-bbc3191510f0",
 };
 ```
 

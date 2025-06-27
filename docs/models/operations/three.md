@@ -6,10 +6,10 @@
 import { Three } from "shortgenius/models/operations";
 
 let value: Three = {
-  id: "7266bd07-42ad-483c-a8cf-654bf479f3f8",
-  url: "https://dark-wafer.org",
-  userId: "dd5de42c-9165-4a6a-9cb9-e38c33ace7b2",
-  createdAt: "1729708186825",
+  id: "d43ed8c4-6536-4465-b5e8-ca5a21e293cb",
+  url: "https://noxious-carboxyl.info",
+  userId: "031298d6-6916-4dd9-ae4f-b0e386c72d8d",
+  createdAt: "1733614177562",
 };
 ```
 

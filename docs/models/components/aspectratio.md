@@ -7,7 +7,7 @@ Aspect ratio of the series videos.
 ```typescript
 import { AspectRatio } from "shortgenius/models/components";
 
-let value: AspectRatio = "9:16";
+let value: AspectRatio = "16:9";
 ```
 
 ## Values

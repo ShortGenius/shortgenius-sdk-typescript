@@ -7,7 +7,7 @@ The aspect ratio of the image.
 ```typescript
 import { CreateImageAspectRatio } from "shortgenius/models/operations";
 
-let value: CreateImageAspectRatio = "16:9";
+let value: CreateImageAspectRatio = "1:1";
 ```
 
 ## Values

@@ -6,10 +6,10 @@
 import { Large } from "shortgenius/models/components";
 
 let value: Large = {
-  url: "https://witty-paintwork.name/",
-  width: 3979.19,
-  height: 7745.01,
-  size: 1409.57,
+  url: "https://next-bend.name/",
+  width: 7213.93,
+  height: 579.71,
+  size: 3390.79,
   thumbnail: "<value>",
 };
 ```

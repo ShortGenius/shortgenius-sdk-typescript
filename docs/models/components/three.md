@@ -7,11 +7,11 @@
 
 ```typescript
 const value: components.Three1 = {
-  id: "ff714262-96ef-4849-8e68-47638458c5ed",
-  url: "https://juvenile-brush.info/",
+  id: "2686d41e-272e-4acb-8feb-ee42a4a25c94",
+  url: "https://weary-conversation.name/",
   metadata: {},
   source: "ImagePicker",
-  state: "completed",
+  state: "request_smart_motion",
   data: {
     uploadId: "<id>",
     key: "<key>",
@@ -25,11 +25,11 @@ const value: components.Three1 = {
 
 ```typescript
 const value: components.Three2 = {
-  id: "9b35ae84-0b05-48e1-b605-94319baf0a99",
-  url: "https://rubbery-silk.name/",
+  id: "32b897dc-0fc2-4cd8-9721-ce27c0dffae5",
+  url: "https://vague-corporation.name/",
   metadata: {},
-  source: "Upload",
-  state: "request_smart_motion",
+  source: "ImagePicker",
+  state: "uploading",
   data: {
     uploadId: "<id>",
     key: "<key>",
@@ -43,17 +43,17 @@ const value: components.Three2 = {
 
 ```typescript
 const value: components.Three3 = {
-  id: "178b1369-e92f-4d8e-a8ed-fe026f42e7e2",
-  url: "https://blushing-possession.biz/",
+  id: "a0284122-ce9f-4a38-b930-10fc3b814e50",
+  url: "https://inconsequential-kick.com/",
   metadata: {},
   source: "Upload",
   data: {
     sourceMedia: {
-      id: "00ebea84-f576-4f25-aa19-7438575f2159",
-      url: "https://zesty-footrest.net/",
+      id: "d9b09632-43ea-4865-8742-33fd554d9abc",
+      url: "https://trivial-rationale.org",
     },
   },
-  state: "error",
+  state: "generating",
 };
 ```
 
@@ -61,11 +61,11 @@ const value: components.Three3 = {
 
 ```typescript
 const value: components.Three4 = {
-  id: "dfecb521-368c-4f11-89bd-ef662aad1793",
-  url: "https://baggy-instruction.com",
+  id: "a7dd2ac0-a512-4286-8998-5b7cab235c2a",
+  url: "https://orderly-populist.com",
   metadata: {},
   source: "Upload",
-  state: "request_smart_motion",
+  state: "uploading",
   data: {},
 };
 ```

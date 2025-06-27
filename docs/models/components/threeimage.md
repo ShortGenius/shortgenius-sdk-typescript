@@ -6,7 +6,7 @@
 import { ThreeImage } from "shortgenius/models/components";
 
 let value: ThreeImage = {
-  url: "https://frank-steak.name",
+  url: "https://winged-sonar.org/",
 };
 ```
 

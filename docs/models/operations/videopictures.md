@@ -6,9 +6,9 @@
 import { VideoPictures } from "shortgenius/models/operations";
 
 let value: VideoPictures = {
-  id: 9507.06,
-  picture: "https://loremflickr.com/2931/2075?lock=1582353865770339",
-  nr: 4321.67,
+  id: 5949.62,
+  picture: "https://loremflickr.com/1459/3106?lock=178391727751220",
+  nr: 4778.6,
 };
 ```
 

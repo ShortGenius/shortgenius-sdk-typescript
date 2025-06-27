@@ -13,15 +13,15 @@ let value: Voice = {
       id: "<id>",
       name: "<value>",
       description:
-        "slowly into along ew malfunction supplier finally reschedule whenever indeed",
+        "scamper woot dead merrily joyfully wriggler shadowbox politely frightfully not",
       tags: {},
-      previewUrl: "https://content-lieu.name",
-      locale: "ko-KR",
-      source: "ElevenLabs",
+      previewUrl: "https://extra-large-decision.net/",
+      locale: null,
+      source: "ElevenLabsShared",
     },
   ],
-  playbackRate: 783.5,
-  volume: 1459.37,
+  playbackRate: 2023.4,
+  volume: 5207.52,
 };
 ```
 

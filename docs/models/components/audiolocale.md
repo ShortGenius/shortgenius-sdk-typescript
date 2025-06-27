@@ -7,7 +7,7 @@ Locale of the audio to guide the AI. Auto-detected if not provided.
 ```typescript
 import { AudioLocale } from "shortgenius/models/components";
 
-let value: AudioLocale = "ko-KR";
+let value: AudioLocale = "he-IL";
 ```
 
 ## Values

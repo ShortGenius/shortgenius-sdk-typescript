@@ -7,8 +7,8 @@ import { GetSeries3ResponseData } from "shortgenius/models/operations";
 
 let value: GetSeries3ResponseData = {
   sourceMedia: {
-    id: "e89020e2-d5c5-4414-97d7-f806b3b80c81",
-    url: "https://uncomfortable-edge.org/",
+    id: "c9c17aff-75ae-4e5a-aa69-930e2517fcba",
+    url: "https://unsung-archaeology.com/",
   },
 };
 ```

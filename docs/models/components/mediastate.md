@@ -5,11 +5,11 @@
 ```typescript
 import { MediaState } from "shortgenius/models/components";
 
-let value: MediaState = "error";
+let value: MediaState = "completed";
 ```
 
 ## Values
 
 ```typescript
-"pending" | "generating" | "completed" | "error"
+"completed" | "error"
 ```

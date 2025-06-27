@@ -5,7 +5,7 @@
 ```typescript
 import { GetSeries3Response200State } from "shortgenius/models/operations";
 
-let value: GetSeries3Response200State = "request_smart_motion";
+let value: GetSeries3Response200State = "error";
 ```
 
 ## Values

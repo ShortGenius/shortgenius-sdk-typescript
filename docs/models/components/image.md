@@ -6,10 +6,10 @@
 import { Image } from "shortgenius/models/components";
 
 let value: Image = {
-  id: "968af991-f8c0-4644-9c97-0ff308fe945e",
-  url: "https://expert-dulcimer.com/",
-  state: "completed",
-  createdAt: "1738662204702",
+  id: "463efc08-7469-4152-b792-fd61113f0ab5",
+  url: "https://devoted-transom.net/",
+  state: "generating",
+  createdAt: "1731738928853",
   prompt: "<value>",
   isNsfw: false,
 };

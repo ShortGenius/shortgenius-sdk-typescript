@@ -6,15 +6,15 @@
 import { OneData } from "shortgenius/models/components";
 
 let value: OneData = {
-  id: 1220.85,
-  width: 2596,
-  height: 600.78,
-  url: "https://complete-corporation.net/",
+  id: 4420.94,
+  width: 5080.7,
+  height: 250.44,
+  url: "https://uncomfortable-councilman.name/",
   alt: "<value>",
   avgColor: "<value>",
   photographer: "<value>",
-  photographerUrl: "https://candid-chainstay.biz/",
-  photographerId: 2987.5,
+  photographerUrl: "https://jaunty-charm.org",
+  photographerId: 7208.31,
   liked: false,
   src: {
     original: "<value>",

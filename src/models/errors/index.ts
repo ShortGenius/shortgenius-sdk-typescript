@@ -27,4 +27,5 @@ export * from "./getvideos.js";
 export * from "./getvoice.js";
 export * from "./getvoices.js";
 export * from "./httpclienterrors.js";
+export * from "./responsevalidationerror.js";
 export * from "./sdkvalidationerror.js";

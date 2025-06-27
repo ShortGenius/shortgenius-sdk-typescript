@@ -7,12 +7,12 @@ import { OneImage } from "shortgenius/models/components";
 
 let value: OneImage = {
   contextLink: "<value>",
-  height: 1316.87,
-  width: 3970.14,
-  byteSize: 7044.02,
+  height: 1114.34,
+  width: 9794.44,
+  byteSize: 9693.4,
   thumbnailLink: "<value>",
-  thumbnailHeight: 2848.85,
-  thumbnailWidth: 1039.88,
+  thumbnailHeight: 4670.43,
+  thumbnailWidth: 7958.48,
 };
 ```
 

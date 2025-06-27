@@ -6,9 +6,9 @@
 import { Six } from "shortgenius/models/operations";
 
 let value: Six = {
-  id: "9407ee2d-01f6-4170-9083-952f304445c0",
-  url: "https://worst-charm.info/",
-  createdAt: "1724912274651",
+  id: "f7e5f0f8-0b24-4c12-ba21-b533fd5e345e",
+  url: "https://rubbery-diagram.net/",
+  createdAt: "1714740890414",
 };
 ```
 

@@ -6,14 +6,14 @@
 import { Two3 } from "shortgenius/models/components";
 
 let value: Two3 = {
-  id: "d1466a5b-a669-41da-8b81-6650b19baf1d",
-  url: "https://impressionable-lieu.info",
+  id: "9095752c-f190-4a4a-9bd7-9e3f227b6930",
+  url: "https://black-and-white-giant.info/",
   metadata: {
     prompt: "<value>",
   },
   source: "luma-ai",
   state: "pending",
-  data: {},
+  data: null,
 };
 ```
 

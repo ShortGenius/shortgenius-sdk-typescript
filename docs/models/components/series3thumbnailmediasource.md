@@ -5,7 +5,7 @@
 ```typescript
 import { Series3ThumbnailMediaSource } from "shortgenius/models/components";
 
-let value: Series3ThumbnailMediaSource = "Upload";
+let value: Series3ThumbnailMediaSource = "ImagePicker";
 ```
 
 ## Values

@@ -6,7 +6,7 @@
 import { ThreeMaskImage } from "shortgenius/models/components";
 
 let value: ThreeMaskImage = {
-  url: "https://grumpy-chops.org/",
+  url: "https://left-analogy.com/",
 };
 ```
 

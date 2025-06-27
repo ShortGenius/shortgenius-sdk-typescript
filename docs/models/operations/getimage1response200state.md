@@ -5,11 +5,11 @@
 ```typescript
 import { GetImage1Response200State } from "shortgenius/models/operations";
 
-let value: GetImage1Response200State = "completed";
+let value: GetImage1Response200State = "error";
 ```
 
 ## Values
 
 ```typescript
-"pending" | "generating" | "completed" | "error" | "request_smart_motion" | "placeholder"
+"pending" | "generating" | "completed" | "error"
 ```

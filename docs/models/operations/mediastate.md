@@ -5,7 +5,7 @@
 ```typescript
 import { MediaState } from "shortgenius/models/operations";
 
-let value: MediaState = "error";
+let value: MediaState = "pending";
 ```
 
 ## Values

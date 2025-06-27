@@ -5,7 +5,7 @@
 ```typescript
 import { SeriesPrivacyLevel } from "shortgenius/models/components";
 
-let value: SeriesPrivacyLevel = "public";
+let value: SeriesPrivacyLevel = "private";
 ```
 
 ## Values

@@ -6,7 +6,7 @@
 import { SeriesRecommendations } from "shortgenius/models/components";
 
 let value: SeriesRecommendations = {
-  id: "0e81df70-16e2-4d07-aa09-f2b92008fab7",
+  id: "1baab656-f36b-4ea6-ae8a-f2310e2ad2fe",
   reason: "<value>",
 };
 ```

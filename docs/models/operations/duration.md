@@ -7,7 +7,7 @@ Desired duration in seconds of the final script. This is a best-effort basis (al
 ```typescript
 import { Duration } from "shortgenius/models/operations";
 
-let value: Duration = "360";
+let value: Duration = "720";
 ```
 
 ## Values

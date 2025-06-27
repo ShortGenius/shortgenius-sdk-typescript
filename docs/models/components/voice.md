@@ -10,11 +10,11 @@ import { Voice } from "shortgenius/models/components";
 let value: Voice = {
   id: "<id>",
   name: "<value>",
-  description: "knottily adult agreeable muddy measly",
+  description: "whether handful fruitful whoa",
   tags: {},
-  previewUrl: "https://unimportant-alert.com/",
-  locale: "cs-CZ",
-  source: "ElevenLabsShared",
+  previewUrl: "https://moral-bourgeoisie.org",
+  locale: "es-ES",
+  source: "Cartesia",
 };
 ```
 

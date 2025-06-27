@@ -7,8 +7,8 @@ import { Series3ThumbnailData } from "shortgenius/models/components";
 
 let value: Series3ThumbnailData = {
   sourceMedia: {
-    id: "2d3831df-fec5-4163-820b-0c211a368db4",
-    url: "https://frizzy-diversity.info/",
+    id: "d9b09632-43ea-4865-8742-33fd554d9abc",
+    url: "https://trivial-rationale.org",
   },
 };
 ```

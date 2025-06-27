@@ -6,11 +6,11 @@
 import { Three4 } from "shortgenius/models/components";
 
 let value: Three4 = {
-  id: "a78ef3a4-0c56-49da-9d4c-2fa3fb438036",
-  url: "https://flawless-morbidity.org/",
+  id: "a7dd2ac0-a512-4286-8998-5b7cab235c2a",
+  url: "https://orderly-populist.com",
   metadata: {},
   source: "Upload",
-  state: "completed",
+  state: "uploading",
   data: {},
 };
 ```

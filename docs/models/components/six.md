@@ -7,7 +7,7 @@
 
 ```typescript
 const value: components.Six1 = {
-  url: "https://agreeable-ethyl.name",
+  url: "https://sugary-cappelletti.name/",
   source: "Ugc",
   data: {
     id: "<id>",
@@ -19,9 +19,9 @@ const value: components.Six1 = {
 
 ```typescript
 const value: components.Six2 = {
-  url: "https://polished-horde.com/",
+  url: "https://awesome-tomb.org/",
   metadata: {
-    sourceImageUrl: "https://official-mouser.name/",
+    sourceImageUrl: "https://artistic-oil.net",
     muxPlaybackId: "<id>",
   },
   source: "Ugc",
@@ -29,9 +29,9 @@ const value: components.Six2 = {
     id: "<id>",
     ugcCreatorId: "<id>",
     ugcPresetId: "<id>",
-    createdAt: "1730372963730",
+    createdAt: "1718937490684",
   },
-  state: "completed",
+  state: "error",
 };
 ```
 

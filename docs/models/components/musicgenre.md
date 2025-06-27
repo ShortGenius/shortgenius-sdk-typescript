@@ -9,9 +9,7 @@ import { MusicGenre } from "shortgenius/models/components";
 
 let value: MusicGenre = {
   name: "Classical",
-  recommendedForLocales: [
-    "sr-SP",
-  ],
+  recommendedForLocales: [],
 };
 ```
 

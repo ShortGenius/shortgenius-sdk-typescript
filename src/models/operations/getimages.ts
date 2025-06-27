@@ -18,6 +18,10 @@ export type GetImagesRequest = {
    * The maximum number of items per page.
    */
   limit?: number | undefined;
+  /**
+   * If 1, only public images are returned.
+   */
+  forPublic?: number | undefined;
 };
 
 /**
@@ -42,12 +46,18 @@ export const GetImagesRequest$inboundSchema: z.ZodType<
 > = z.object({
   page: z.number().default(0),
   limit: z.number().default(50),
+  for_public: z.number().default(0),
+}).transform((v) => {
+  return remap$(v, {
+    "for_public": "forPublic",
+  });
 });
 
 /** @internal */
 export type GetImagesRequest$Outbound = {
   page: number;
   limit: number;
+  for_public: number;
 };
 
 /** @internal */
@@ -58,6 +68,11 @@ export const GetImagesRequest$outboundSchema: z.ZodType<
 > = z.object({
   page: z.number().default(0),
   limit: z.number().default(50),
+  forPublic: z.number().default(0),
+}).transform((v) => {
+  return remap$(v, {
+    forPublic: "for_public",
+  });
 });
 
 /**

@@ -5,7 +5,7 @@
 ```typescript
 import { ThreeSource } from "shortgenius/models/components";
 
-let value: ThreeSource = "ImagePicker";
+let value: ThreeSource = "Upload";
 ```
 
 ## Values

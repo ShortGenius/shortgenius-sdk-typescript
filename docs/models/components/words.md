@@ -7,8 +7,8 @@ import { Words } from "shortgenius/models/components";
 
 let value: Words = {
   text: "<value>",
-  start: 2796.79,
-  end: 5816.8,
+  start: 5866.19,
+  end: 2385.9,
 };
 ```
 

@@ -7,7 +7,7 @@ Source of the voice.
 ```typescript
 import { Source } from "shortgenius/models/components";
 
-let value: Source = "CartesiaClonedVoice";
+let value: Source = "Cartesia";
 ```
 
 ## Values

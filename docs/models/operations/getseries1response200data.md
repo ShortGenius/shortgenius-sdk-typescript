@@ -6,61 +6,38 @@
 import { GetSeries1Response200Data } from "shortgenius/models/operations";
 
 let value: GetSeries1Response200Data = {
-  id: 7525.73,
-  pageURL: "https://tangible-innovation.com/",
-  videos: {
-    large: {
-      url: "https://young-fireplace.com/",
-      width: 8058.31,
-      height: 450.69,
-      size: 664.08,
-      thumbnail: "<value>",
-    },
-    medium: {
-      url: "https://austere-yeast.net/",
-      width: 5195.86,
-      height: 8051.67,
-      size: 6624.87,
-      thumbnail: "<value>",
-    },
-    small: {
-      url: "https://elderly-suitcase.info/",
-      width: 4476.4,
-      height: 3911.36,
-      size: 520.29,
-      thumbnail: "<value>",
-    },
-    tiny: {
-      url: "https://naughty-plain.biz",
-      width: 4069.14,
-      height: 1926.49,
-      size: 4196.83,
-      thumbnail: "<value>",
-    },
-  },
-  views: 6534.92,
-  downloads: 9446.89,
-  likes: 6634.57,
-  comments: 5251.6,
-  userId: 4163.67,
-  user: "Benedict73",
-  userImageURL: "https://impartial-consistency.org/",
+  id: 1133.2,
+  pageURL: "https://key-cow.name",
+  previewURL: "https://common-swath.net",
+  webformatURL: "https://winged-pear.com",
+  largeImageURL: "https://radiant-mom.com/",
+  views: 7838.53,
+  downloads: 2744.14,
+  likes: 6164.17,
+  comments: 3344.19,
+  userId: 9784.62,
+  user: "Jayme_Cartwright",
+  userImageURL: "https://distant-grouper.biz",
 };
 ```
 
 ## Fields
 
-| Field                                                  | Type                                                   | Required                                               | Description                                            |
-| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
-| `id`                                                   | *number*                                               | :heavy_check_mark:                                     | N/A                                                    |
-| `pageURL`                                              | *string*                                               | :heavy_check_mark:                                     | N/A                                                    |
-| `videos`                                               | [operations.Videos](../../models/operations/videos.md) | :heavy_check_mark:                                     | N/A                                                    |
-| `tags`                                                 | *string*                                               | :heavy_minus_sign:                                     | N/A                                                    |
-| `duration`                                             | *number*                                               | :heavy_minus_sign:                                     | N/A                                                    |
-| `views`                                                | *number*                                               | :heavy_check_mark:                                     | N/A                                                    |
-| `downloads`                                            | *number*                                               | :heavy_check_mark:                                     | N/A                                                    |
-| `likes`                                                | *number*                                               | :heavy_check_mark:                                     | N/A                                                    |
-| `comments`                                             | *number*                                               | :heavy_check_mark:                                     | N/A                                                    |
-| `userId`                                               | *number*                                               | :heavy_check_mark:                                     | N/A                                                    |
-| `user`                                                 | *string*                                               | :heavy_check_mark:                                     | N/A                                                    |
-| `userImageURL`                                         | *string*                                               | :heavy_check_mark:                                     | N/A                                                    |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `id`               | *number*           | :heavy_check_mark: | N/A                |
+| `tags`             | *string*           | :heavy_minus_sign: | N/A                |
+| `pageURL`          | *string*           | :heavy_check_mark: | N/A                |
+| `previewURL`       | *string*           | :heavy_check_mark: | N/A                |
+| `webformatURL`     | *string*           | :heavy_check_mark: | N/A                |
+| `largeImageURL`    | *string*           | :heavy_check_mark: | N/A                |
+| `views`            | *number*           | :heavy_check_mark: | N/A                |
+| `downloads`        | *number*           | :heavy_check_mark: | N/A                |
+| `likes`            | *number*           | :heavy_check_mark: | N/A                |
+| `comments`         | *number*           | :heavy_check_mark: | N/A                |
+| `userId`           | *number*           | :heavy_check_mark: | N/A                |
+| `user`             | *string*           | :heavy_check_mark: | N/A                |
+| `userImageURL`     | *string*           | :heavy_check_mark: | N/A                |
+| `fullHDURL`        | *string*           | :heavy_minus_sign: | N/A                |
+| `imageURL`         | *string*           | :heavy_minus_sign: | N/A                |
+| `vectorURL`        | *string*           | :heavy_minus_sign: | N/A                |

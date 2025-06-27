@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod";
+import { ShortGeniusError } from "./shortgeniuserror.js";
 
 /**
  * An error response object.
@@ -17,15 +18,18 @@ export type CreateSeriesResponseResponseBodyData = {
 /**
  * An error response object.
  */
-export class CreateSeriesResponseResponseBody extends Error {
+export class CreateSeriesResponseResponseBody extends ShortGeniusError {
   /** The original data that was passed to this error instance. */
   data$: CreateSeriesResponseResponseBodyData;
 
-  constructor(err: CreateSeriesResponseResponseBodyData) {
+  constructor(
+    err: CreateSeriesResponseResponseBodyData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
 
     this.name = "CreateSeriesResponseResponseBody";
@@ -45,15 +49,18 @@ export type CreateSeriesResponseBodyData = {
 /**
  * An error response object.
  */
-export class CreateSeriesResponseBody extends Error {
+export class CreateSeriesResponseBody extends ShortGeniusError {
   /** The original data that was passed to this error instance. */
   data$: CreateSeriesResponseBodyData;
 
-  constructor(err: CreateSeriesResponseBodyData) {
+  constructor(
+    err: CreateSeriesResponseBodyData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
 
     this.name = "CreateSeriesResponseBody";
@@ -67,9 +74,16 @@ export const CreateSeriesResponseResponseBody$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   message: z.nullable(z.string()).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new CreateSeriesResponseResponseBody(v);
+    return new CreateSeriesResponseResponseBody(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */
@@ -108,9 +122,16 @@ export const CreateSeriesResponseBody$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   message: z.nullable(z.string()).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new CreateSeriesResponseBody(v);
+    return new CreateSeriesResponseBody(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

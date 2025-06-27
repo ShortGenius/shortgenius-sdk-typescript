@@ -6,26 +6,11 @@
 import { Quiz } from "shortgenius/models/components";
 
 let value: Quiz = {
-  questions: [
-    {
-      question: "<value>",
-      options: [
-        {
-          text: "<value>",
-          correct: false,
-        },
-      ],
-    },
-  ],
+  questions: [],
   results: {
     header: "<value>",
     explanation: "<value>",
-    categories: [
-      {
-        scoreRange: "<value>",
-        title: "<value>",
-      },
-    ],
+    categories: [],
   },
 };
 ```

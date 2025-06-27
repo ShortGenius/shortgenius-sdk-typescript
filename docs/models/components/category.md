@@ -5,7 +5,7 @@
 ```typescript
 import { Category } from "shortgenius/models/components";
 
-let value: Category = "AIGenerated";
+let value: Category = "Stock";
 ```
 
 ## Values

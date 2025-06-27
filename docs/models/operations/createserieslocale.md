@@ -7,7 +7,7 @@ Locale for the generated video.
 ```typescript
 import { CreateSeriesLocale } from "shortgenius/models/operations";
 
-let value: CreateSeriesLocale = "cs-CZ";
+let value: CreateSeriesLocale = "es-419";
 ```
 
 ## Values

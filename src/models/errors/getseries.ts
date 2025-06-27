@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod";
+import { ShortGeniusError } from "./shortgeniuserror.js";
 
 /**
  * An error response object.
@@ -17,15 +18,18 @@ export type GetSeriesResponseBodyData = {
 /**
  * An error response object.
  */
-export class GetSeriesResponseBody extends Error {
+export class GetSeriesResponseBody extends ShortGeniusError {
   /** The original data that was passed to this error instance. */
   data$: GetSeriesResponseBodyData;
 
-  constructor(err: GetSeriesResponseBodyData) {
+  constructor(
+    err: GetSeriesResponseBodyData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
 
     this.name = "GetSeriesResponseBody";
@@ -39,9 +43,16 @@ export const GetSeriesResponseBody$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   message: z.nullable(z.string()).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new GetSeriesResponseBody(v);
+    return new GetSeriesResponseBody(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

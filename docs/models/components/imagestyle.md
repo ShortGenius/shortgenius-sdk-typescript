@@ -8,12 +8,14 @@ A predefined image style
 import { ImageStyle } from "shortgenius/models/components";
 
 let value: ImageStyle = {
-  id: "1045cf6a-fba1-45e3-bdb5-88b82c6f4459",
+  id: "db8e3193-1e0c-494e-a204-d9c16f35ca73",
   name: "<value>",
   privacy: "Private",
   prompt: "<value>",
   examples: [
-    "<value>",
+    "<value 1>",
+    "<value 2>",
+    "<value 3>",
   ],
 };
 ```

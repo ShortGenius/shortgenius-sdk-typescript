@@ -7,7 +7,7 @@ Locale of the video series.
 ```typescript
 import { Locale } from "shortgenius/models/components";
 
-let value: Locale = "ru-RU";
+let value: Locale = "es-419";
 ```
 
 ## Values

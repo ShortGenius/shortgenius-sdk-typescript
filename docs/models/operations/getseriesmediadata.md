@@ -6,8 +6,8 @@
 import { GetSeriesMediaData } from "shortgenius/models/operations";
 
 let value: GetSeriesMediaData = {
-  width: 4973.63,
-  height: 2343.83,
+  id: "<id>",
+  collectionId: "<id>",
 };
 ```
 
@@ -15,5 +15,5 @@ let value: GetSeriesMediaData = {
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `width`            | *number*           | :heavy_check_mark: | N/A                |
-| `height`           | *number*           | :heavy_check_mark: | N/A                |
+| `id`               | *string*           | :heavy_check_mark: | N/A                |
+| `collectionId`     | *string*           | :heavy_check_mark: | N/A                |

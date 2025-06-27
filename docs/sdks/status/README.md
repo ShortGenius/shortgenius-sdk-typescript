@@ -23,7 +23,6 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.status.check();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -46,15 +45,12 @@ const shortGenius = new ShortGeniusCore({
 
 async function run() {
   const res = await statusCheck(shortGenius);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("statusCheck failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

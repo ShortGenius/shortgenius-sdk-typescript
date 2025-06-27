@@ -6,11 +6,11 @@
 import { Two2 } from "shortgenius/models/components";
 
 let value: Two2 = {
-  id: "11d28c72-3685-4cce-a0e6-ebfc586547a4",
-  url: "https://curly-archaeology.org/",
+  id: "f4a2e692-220a-493e-bc53-0e8e3feb760c",
+  url: "https://warlike-lender.name/",
   metadata: {},
-  source: "fal-ai/stable-video",
-  state: "pending",
+  source: "fal-ai/veo3",
+  state: "error",
   data: {},
 };
 ```

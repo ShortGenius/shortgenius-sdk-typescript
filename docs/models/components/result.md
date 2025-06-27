@@ -7,9 +7,8 @@ import { Result } from "shortgenius/models/components";
 
 let value: Result = {
   video: {
-    url: "https://brave-dead.com/",
+    url: "https://monumental-scrap.org",
   },
-  seed: 2650.39,
 };
 ```
 
@@ -18,4 +17,3 @@ let value: Result = {
 | Field                                                      | Type                                                       | Required                                                   | Description                                                |
 | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
 | `video`                                                    | [components.TwoVideo](../../models/components/twovideo.md) | :heavy_check_mark:                                         | N/A                                                        |
-| `seed`                                                     | *number*                                                   | :heavy_check_mark:                                         | N/A                                                        |

@@ -7,7 +7,7 @@ The locale of the text.
 ```typescript
 import { CreateSpeechLocale } from "shortgenius/models/operations";
 
-let value: CreateSpeechLocale = "ja-JP";
+let value: CreateSpeechLocale = "vi-VN";
 ```
 
 ## Values

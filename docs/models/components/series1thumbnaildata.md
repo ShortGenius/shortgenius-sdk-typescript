@@ -6,18 +6,18 @@
 import { Series1ThumbnailData } from "shortgenius/models/components";
 
 let value: Series1ThumbnailData = {
-  id: 1165.58,
-  pageURL: "https://accomplished-hippodrome.name/",
-  previewURL: "https://brave-barge.biz/",
-  webformatURL: "https://wicked-cinema.net/",
-  largeImageURL: "https://official-laughter.org",
-  views: 3638.45,
-  downloads: 7879.16,
-  likes: 5552.94,
-  comments: 3956.34,
-  userId: 9554.66,
-  user: "Lavina69",
-  userImageURL: "https://smart-in-joke.name/",
+  id: 4847.91,
+  pageURL: "https://negligible-thyme.com",
+  previewURL: "https://deep-vision.org/",
+  webformatURL: "https://personal-stock.net",
+  largeImageURL: "https://measly-scout.name/",
+  views: 8490.28,
+  downloads: 850.26,
+  likes: 5934.34,
+  comments: 6622.24,
+  userId: 8082.83,
+  user: "Allene_Jerde",
+  userImageURL: "https://worthless-tentacle.name/",
 };
 ```
 

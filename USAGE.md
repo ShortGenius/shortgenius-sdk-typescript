@@ -9,7 +9,6 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.getMusicGenres();
 
-  // Handle the result
   console.log(result);
 }
 

@@ -7,7 +7,7 @@ Aspect ratio of the video. Not required for News videos.
 ```typescript
 import { AspectRatio } from "shortgenius/models/operations";
 
-let value: AspectRatio = "1:1";
+let value: AspectRatio = "16:9";
 ```
 
 ## Values

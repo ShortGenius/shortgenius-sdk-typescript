@@ -7,7 +7,7 @@ Locale of the voice.
 ```typescript
 import { VoiceLocale } from "shortgenius/models/components";
 
-let value: VoiceLocale = "es-419";
+let value: VoiceLocale = "ko-KR";
 ```
 
 ## Values

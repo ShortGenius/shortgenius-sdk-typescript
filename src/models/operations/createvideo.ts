@@ -22,6 +22,7 @@ export const ContentType = {
   LifeTips: "LifeTips",
   Eli5: "ELI5",
   Philosophy: "Philosophy",
+  Ad: "Ad",
 } as const;
 export type ContentType = ClosedEnum<typeof ContentType>;
 
@@ -77,12 +78,68 @@ export const CreateVideoLocale = {
 export type CreateVideoLocale = ClosedEnum<typeof CreateVideoLocale>;
 
 /**
+ * Image model for the generated video.
+ */
+export const ImageModel = {
+  OpenAI: "OpenAI",
+  FluxUltraMax: "Flux Ultra/Max",
+  FluxPro: "Flux Pro",
+} as const;
+/**
+ * Image model for the generated video.
+ */
+export type ImageModel = ClosedEnum<typeof ImageModel>;
+
+/**
+ * Image quality for the generated video.
+ */
+export const ImageQuality = {
+  Low: "low",
+  Medium: "medium",
+  High: "high",
+} as const;
+/**
+ * Image quality for the generated video.
+ */
+export type ImageQuality = ClosedEnum<typeof ImageQuality>;
+
+/**
+ * Default animation model for scene images when not specified individually.
+ */
+export const AnimationModel = {
+  None: "None",
+  Seedance: "Seedance",
+  Kling: "Kling",
+  Hailuo02Standard: "Hailuo02Standard",
+  Hailuo02Pro: "Hailuo02Pro",
+  Veo3: "Veo3",
+  SeedanceTTV: "SeedanceTTV",
+} as const;
+/**
+ * Default animation model for scene images when not specified individually.
+ */
+export type AnimationModel = ClosedEnum<typeof AnimationModel>;
+
+/**
+ * Default animation preset for scene images when not specified individually.
+ */
+export const AnimationModelPreset = {
+  FullyAnimated: "fully_animated",
+  FirstSceneOnly: "first_scene_only",
+  FirstImageEachScene: "first_image_each_scene",
+} as const;
+/**
+ * Default animation preset for scene images when not specified individually.
+ */
+export type AnimationModelPreset = ClosedEnum<typeof AnimationModelPreset>;
+
+/**
  * Aspect ratio of the video. Not required for News videos.
  */
 export const AspectRatio = {
-  Nine16: "9:16",
-  Sixteen9: "16:9",
-  One1: "1:1",
+  NineHundredAndSixteen: "9:16",
+  OneHundredAndSixtyNine: "16:9",
+  Eleven: "1:1",
 } as const;
 /**
  * Aspect ratio of the video. Not required for News videos.
@@ -133,6 +190,106 @@ export type Quiz = {
   results: Results;
 };
 
+/**
+ * The ad type.
+ */
+export const Type = {
+  JustTheHook: "JustTheHook",
+  HookAndVideo: "HookAndVideo",
+  HookAndRealVideos: "HookAndRealVideos",
+} as const;
+/**
+ * The ad type.
+ */
+export type Type = ClosedEnum<typeof Type>;
+
+export type Metadata = {
+  sourceImageUrl: string;
+  muxPlaybackId: string | null;
+};
+
+export const UgcMediaSource = {
+  Ugc: "Ugc",
+} as const;
+export type UgcMediaSource = ClosedEnum<typeof UgcMediaSource>;
+
+export type UgcMediaData = {
+  id: string;
+  ugcCreatorId: string;
+  ugcPresetId: string;
+  createdAt: string;
+  hook?: string | null | undefined;
+};
+
+export const State = {
+  Pending: "pending",
+  Generating: "generating",
+  Completed: "completed",
+  Error: "error",
+} as const;
+export type State = ClosedEnum<typeof State>;
+
+export type Two = {
+  url: string | null;
+  deletedAt?: string | null | undefined;
+  metadata: Metadata;
+  lastError?: string | null | undefined;
+  type?: "UgcVideo" | undefined;
+  source: UgcMediaSource | null;
+  category?: "Ugc" | undefined;
+  data: UgcMediaData;
+  state: State;
+};
+
+export const Source = {
+  Ugc: "Ugc",
+} as const;
+export type Source = ClosedEnum<typeof Source>;
+
+export type Data = {
+  id: string;
+  hook?: string | null | undefined;
+};
+
+export type One = {
+  url: string | null;
+  deletedAt?: string | null | undefined;
+  metadata?: any | undefined;
+  lastError?: string | null | undefined;
+  type?: "UgcCreator" | undefined;
+  source: Source | null;
+  category?: "Ugc" | undefined;
+  data: Data;
+  state?: "completed" | undefined;
+};
+
+/**
+ * The ad UGC media.
+ */
+export type UgcMedia = Two | One;
+
+/**
+ * Ad content to be converted into a single video. Required for Ad videos.
+ */
+export type Ad = {
+  /**
+   * The ad product ID.
+   */
+  productId: string;
+  /**
+   * The ad type.
+   */
+  type: Type;
+  /**
+   * The ad UGC media.
+   */
+  ugcMedia: Two | One;
+  /**
+   * The ad media ID. Required for HookAndVideo type.
+   */
+  mediaId?: string | undefined;
+};
+
 export type CreateVideoRequestBody = {
   contentType?: ContentType | undefined;
   /**
@@ -143,6 +300,30 @@ export type CreateVideoRequestBody = {
    * The ID of the image style to use. Use the [List image styles](#tag/images/GET/presets/{type}) endpoint to get a list of available image styles. If left empty, the AI chooses.
    */
   imageStyleId?: string | undefined;
+  /**
+   * Image model for the generated video.
+   */
+  imageModel?: ImageModel | undefined;
+  /**
+   * Image quality for the generated video.
+   */
+  imageQuality?: ImageQuality | undefined;
+  /**
+   * Whether to use the raw image style mode. If true, the image style will be ignored.
+   */
+  imageStyleRawMode?: boolean | undefined;
+  /**
+   * Custom prompt for the image style. If you provide a custom prompt, the image style will be ignored.
+   */
+  imageStyleCustomPrompt?: string | undefined;
+  /**
+   * Default animation model for scene images when not specified individually.
+   */
+  animationModel?: AnimationModel | undefined;
+  /**
+   * Default animation preset for scene images when not specified individually.
+   */
+  animationModelPreset?: AnimationModelPreset | undefined;
   /**
    * List of publishing connection ids. Use the [List connections](#tag/connections/GET) endpoint to get a list of available connections
    */
@@ -183,6 +364,10 @@ export type CreateVideoRequestBody = {
    * Quiz content to be converted into a single video. Required for Quiz videos.
    */
   quiz?: Quiz | undefined;
+  /**
+   * Ad content to be converted into a single video. Required for Ad videos.
+   */
+  ad?: Ad | undefined;
   /**
    * The voice to use for speech generation. See the [List voices](#tag/voices/GET/voices) endpoint. If left empty, the AI chooses.
    */
@@ -235,6 +420,86 @@ export namespace CreateVideoLocale$ {
   export const inboundSchema = CreateVideoLocale$inboundSchema;
   /** @deprecated use `CreateVideoLocale$outboundSchema` instead. */
   export const outboundSchema = CreateVideoLocale$outboundSchema;
+}
+
+/** @internal */
+export const ImageModel$inboundSchema: z.ZodNativeEnum<typeof ImageModel> = z
+  .nativeEnum(ImageModel);
+
+/** @internal */
+export const ImageModel$outboundSchema: z.ZodNativeEnum<typeof ImageModel> =
+  ImageModel$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace ImageModel$ {
+  /** @deprecated use `ImageModel$inboundSchema` instead. */
+  export const inboundSchema = ImageModel$inboundSchema;
+  /** @deprecated use `ImageModel$outboundSchema` instead. */
+  export const outboundSchema = ImageModel$outboundSchema;
+}
+
+/** @internal */
+export const ImageQuality$inboundSchema: z.ZodNativeEnum<typeof ImageQuality> =
+  z.nativeEnum(ImageQuality);
+
+/** @internal */
+export const ImageQuality$outboundSchema: z.ZodNativeEnum<typeof ImageQuality> =
+  ImageQuality$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace ImageQuality$ {
+  /** @deprecated use `ImageQuality$inboundSchema` instead. */
+  export const inboundSchema = ImageQuality$inboundSchema;
+  /** @deprecated use `ImageQuality$outboundSchema` instead. */
+  export const outboundSchema = ImageQuality$outboundSchema;
+}
+
+/** @internal */
+export const AnimationModel$inboundSchema: z.ZodNativeEnum<
+  typeof AnimationModel
+> = z.nativeEnum(AnimationModel);
+
+/** @internal */
+export const AnimationModel$outboundSchema: z.ZodNativeEnum<
+  typeof AnimationModel
+> = AnimationModel$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace AnimationModel$ {
+  /** @deprecated use `AnimationModel$inboundSchema` instead. */
+  export const inboundSchema = AnimationModel$inboundSchema;
+  /** @deprecated use `AnimationModel$outboundSchema` instead. */
+  export const outboundSchema = AnimationModel$outboundSchema;
+}
+
+/** @internal */
+export const AnimationModelPreset$inboundSchema: z.ZodNativeEnum<
+  typeof AnimationModelPreset
+> = z.nativeEnum(AnimationModelPreset);
+
+/** @internal */
+export const AnimationModelPreset$outboundSchema: z.ZodNativeEnum<
+  typeof AnimationModelPreset
+> = AnimationModelPreset$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace AnimationModelPreset$ {
+  /** @deprecated use `AnimationModelPreset$inboundSchema` instead. */
+  export const inboundSchema = AnimationModelPreset$inboundSchema;
+  /** @deprecated use `AnimationModelPreset$outboundSchema` instead. */
+  export const outboundSchema = AnimationModelPreset$outboundSchema;
 }
 
 /** @internal */
@@ -521,6 +786,501 @@ export function quizFromJSON(
 }
 
 /** @internal */
+export const Type$inboundSchema: z.ZodNativeEnum<typeof Type> = z.nativeEnum(
+  Type,
+);
+
+/** @internal */
+export const Type$outboundSchema: z.ZodNativeEnum<typeof Type> =
+  Type$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Type$ {
+  /** @deprecated use `Type$inboundSchema` instead. */
+  export const inboundSchema = Type$inboundSchema;
+  /** @deprecated use `Type$outboundSchema` instead. */
+  export const outboundSchema = Type$outboundSchema;
+}
+
+/** @internal */
+export const Metadata$inboundSchema: z.ZodType<
+  Metadata,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  sourceImageUrl: z.string(),
+  muxPlaybackId: z.nullable(z.string()),
+});
+
+/** @internal */
+export type Metadata$Outbound = {
+  sourceImageUrl: string;
+  muxPlaybackId: string | null;
+};
+
+/** @internal */
+export const Metadata$outboundSchema: z.ZodType<
+  Metadata$Outbound,
+  z.ZodTypeDef,
+  Metadata
+> = z.object({
+  sourceImageUrl: z.string(),
+  muxPlaybackId: z.nullable(z.string()),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Metadata$ {
+  /** @deprecated use `Metadata$inboundSchema` instead. */
+  export const inboundSchema = Metadata$inboundSchema;
+  /** @deprecated use `Metadata$outboundSchema` instead. */
+  export const outboundSchema = Metadata$outboundSchema;
+  /** @deprecated use `Metadata$Outbound` instead. */
+  export type Outbound = Metadata$Outbound;
+}
+
+export function metadataToJSON(metadata: Metadata): string {
+  return JSON.stringify(Metadata$outboundSchema.parse(metadata));
+}
+
+export function metadataFromJSON(
+  jsonString: string,
+): SafeParseResult<Metadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Metadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Metadata' from JSON`,
+  );
+}
+
+/** @internal */
+export const UgcMediaSource$inboundSchema: z.ZodNativeEnum<
+  typeof UgcMediaSource
+> = z.nativeEnum(UgcMediaSource);
+
+/** @internal */
+export const UgcMediaSource$outboundSchema: z.ZodNativeEnum<
+  typeof UgcMediaSource
+> = UgcMediaSource$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace UgcMediaSource$ {
+  /** @deprecated use `UgcMediaSource$inboundSchema` instead. */
+  export const inboundSchema = UgcMediaSource$inboundSchema;
+  /** @deprecated use `UgcMediaSource$outboundSchema` instead. */
+  export const outboundSchema = UgcMediaSource$outboundSchema;
+}
+
+/** @internal */
+export const UgcMediaData$inboundSchema: z.ZodType<
+  UgcMediaData,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string(),
+  ugcCreatorId: z.string(),
+  ugcPresetId: z.string(),
+  createdAt: z.string(),
+  hook: z.nullable(z.string()).optional(),
+});
+
+/** @internal */
+export type UgcMediaData$Outbound = {
+  id: string;
+  ugcCreatorId: string;
+  ugcPresetId: string;
+  createdAt: string;
+  hook?: string | null | undefined;
+};
+
+/** @internal */
+export const UgcMediaData$outboundSchema: z.ZodType<
+  UgcMediaData$Outbound,
+  z.ZodTypeDef,
+  UgcMediaData
+> = z.object({
+  id: z.string(),
+  ugcCreatorId: z.string(),
+  ugcPresetId: z.string(),
+  createdAt: z.string(),
+  hook: z.nullable(z.string()).optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace UgcMediaData$ {
+  /** @deprecated use `UgcMediaData$inboundSchema` instead. */
+  export const inboundSchema = UgcMediaData$inboundSchema;
+  /** @deprecated use `UgcMediaData$outboundSchema` instead. */
+  export const outboundSchema = UgcMediaData$outboundSchema;
+  /** @deprecated use `UgcMediaData$Outbound` instead. */
+  export type Outbound = UgcMediaData$Outbound;
+}
+
+export function ugcMediaDataToJSON(ugcMediaData: UgcMediaData): string {
+  return JSON.stringify(UgcMediaData$outboundSchema.parse(ugcMediaData));
+}
+
+export function ugcMediaDataFromJSON(
+  jsonString: string,
+): SafeParseResult<UgcMediaData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UgcMediaData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UgcMediaData' from JSON`,
+  );
+}
+
+/** @internal */
+export const State$inboundSchema: z.ZodNativeEnum<typeof State> = z.nativeEnum(
+  State,
+);
+
+/** @internal */
+export const State$outboundSchema: z.ZodNativeEnum<typeof State> =
+  State$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace State$ {
+  /** @deprecated use `State$inboundSchema` instead. */
+  export const inboundSchema = State$inboundSchema;
+  /** @deprecated use `State$outboundSchema` instead. */
+  export const outboundSchema = State$outboundSchema;
+}
+
+/** @internal */
+export const Two$inboundSchema: z.ZodType<Two, z.ZodTypeDef, unknown> = z
+  .object({
+    url: z.nullable(z.string()),
+    deletedAt: z.nullable(z.string()).optional(),
+    metadata: z.lazy(() => Metadata$inboundSchema),
+    lastError: z.nullable(z.string()).optional(),
+    type: z.literal("UgcVideo").default("UgcVideo").optional(),
+    source: z.nullable(UgcMediaSource$inboundSchema),
+    category: z.literal("Ugc").default("Ugc").optional(),
+    data: z.lazy(() => UgcMediaData$inboundSchema),
+    state: State$inboundSchema,
+  });
+
+/** @internal */
+export type Two$Outbound = {
+  url: string | null;
+  deletedAt?: string | null | undefined;
+  metadata: Metadata$Outbound;
+  lastError?: string | null | undefined;
+  type: "UgcVideo";
+  source: string | null;
+  category: "Ugc";
+  data: UgcMediaData$Outbound;
+  state: string;
+};
+
+/** @internal */
+export const Two$outboundSchema: z.ZodType<Two$Outbound, z.ZodTypeDef, Two> = z
+  .object({
+    url: z.nullable(z.string()),
+    deletedAt: z.nullable(z.string()).optional(),
+    metadata: z.lazy(() => Metadata$outboundSchema),
+    lastError: z.nullable(z.string()).optional(),
+    type: z.literal("UgcVideo").default("UgcVideo" as const),
+    source: z.nullable(UgcMediaSource$outboundSchema),
+    category: z.literal("Ugc").default("Ugc" as const),
+    data: z.lazy(() => UgcMediaData$outboundSchema),
+    state: State$outboundSchema,
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Two$ {
+  /** @deprecated use `Two$inboundSchema` instead. */
+  export const inboundSchema = Two$inboundSchema;
+  /** @deprecated use `Two$outboundSchema` instead. */
+  export const outboundSchema = Two$outboundSchema;
+  /** @deprecated use `Two$Outbound` instead. */
+  export type Outbound = Two$Outbound;
+}
+
+export function twoToJSON(two: Two): string {
+  return JSON.stringify(Two$outboundSchema.parse(two));
+}
+
+export function twoFromJSON(
+  jsonString: string,
+): SafeParseResult<Two, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Two$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Two' from JSON`,
+  );
+}
+
+/** @internal */
+export const Source$inboundSchema: z.ZodNativeEnum<typeof Source> = z
+  .nativeEnum(Source);
+
+/** @internal */
+export const Source$outboundSchema: z.ZodNativeEnum<typeof Source> =
+  Source$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Source$ {
+  /** @deprecated use `Source$inboundSchema` instead. */
+  export const inboundSchema = Source$inboundSchema;
+  /** @deprecated use `Source$outboundSchema` instead. */
+  export const outboundSchema = Source$outboundSchema;
+}
+
+/** @internal */
+export const Data$inboundSchema: z.ZodType<Data, z.ZodTypeDef, unknown> = z
+  .object({
+    id: z.string(),
+    hook: z.nullable(z.string()).optional(),
+  });
+
+/** @internal */
+export type Data$Outbound = {
+  id: string;
+  hook?: string | null | undefined;
+};
+
+/** @internal */
+export const Data$outboundSchema: z.ZodType<Data$Outbound, z.ZodTypeDef, Data> =
+  z.object({
+    id: z.string(),
+    hook: z.nullable(z.string()).optional(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Data$ {
+  /** @deprecated use `Data$inboundSchema` instead. */
+  export const inboundSchema = Data$inboundSchema;
+  /** @deprecated use `Data$outboundSchema` instead. */
+  export const outboundSchema = Data$outboundSchema;
+  /** @deprecated use `Data$Outbound` instead. */
+  export type Outbound = Data$Outbound;
+}
+
+export function dataToJSON(data: Data): string {
+  return JSON.stringify(Data$outboundSchema.parse(data));
+}
+
+export function dataFromJSON(
+  jsonString: string,
+): SafeParseResult<Data, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Data$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Data' from JSON`,
+  );
+}
+
+/** @internal */
+export const One$inboundSchema: z.ZodType<One, z.ZodTypeDef, unknown> = z
+  .object({
+    url: z.nullable(z.string()),
+    deletedAt: z.nullable(z.string()).optional(),
+    metadata: z.any().optional(),
+    lastError: z.nullable(z.string()).optional(),
+    type: z.literal("UgcCreator").default("UgcCreator").optional(),
+    source: z.nullable(Source$inboundSchema),
+    category: z.literal("Ugc").default("Ugc").optional(),
+    data: z.lazy(() => Data$inboundSchema),
+    state: z.literal("completed").default("completed").optional(),
+  });
+
+/** @internal */
+export type One$Outbound = {
+  url: string | null;
+  deletedAt?: string | null | undefined;
+  metadata?: any | undefined;
+  lastError?: string | null | undefined;
+  type: "UgcCreator";
+  source: string | null;
+  category: "Ugc";
+  data: Data$Outbound;
+  state: "completed";
+};
+
+/** @internal */
+export const One$outboundSchema: z.ZodType<One$Outbound, z.ZodTypeDef, One> = z
+  .object({
+    url: z.nullable(z.string()),
+    deletedAt: z.nullable(z.string()).optional(),
+    metadata: z.any().optional(),
+    lastError: z.nullable(z.string()).optional(),
+    type: z.literal("UgcCreator").default("UgcCreator" as const),
+    source: z.nullable(Source$outboundSchema),
+    category: z.literal("Ugc").default("Ugc" as const),
+    data: z.lazy(() => Data$outboundSchema),
+    state: z.literal("completed").default("completed" as const),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace One$ {
+  /** @deprecated use `One$inboundSchema` instead. */
+  export const inboundSchema = One$inboundSchema;
+  /** @deprecated use `One$outboundSchema` instead. */
+  export const outboundSchema = One$outboundSchema;
+  /** @deprecated use `One$Outbound` instead. */
+  export type Outbound = One$Outbound;
+}
+
+export function oneToJSON(one: One): string {
+  return JSON.stringify(One$outboundSchema.parse(one));
+}
+
+export function oneFromJSON(
+  jsonString: string,
+): SafeParseResult<One, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => One$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'One' from JSON`,
+  );
+}
+
+/** @internal */
+export const UgcMedia$inboundSchema: z.ZodType<
+  UgcMedia,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.lazy(() => Two$inboundSchema), z.lazy(() => One$inboundSchema)]);
+
+/** @internal */
+export type UgcMedia$Outbound = Two$Outbound | One$Outbound;
+
+/** @internal */
+export const UgcMedia$outboundSchema: z.ZodType<
+  UgcMedia$Outbound,
+  z.ZodTypeDef,
+  UgcMedia
+> = z.union([
+  z.lazy(() => Two$outboundSchema),
+  z.lazy(() => One$outboundSchema),
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace UgcMedia$ {
+  /** @deprecated use `UgcMedia$inboundSchema` instead. */
+  export const inboundSchema = UgcMedia$inboundSchema;
+  /** @deprecated use `UgcMedia$outboundSchema` instead. */
+  export const outboundSchema = UgcMedia$outboundSchema;
+  /** @deprecated use `UgcMedia$Outbound` instead. */
+  export type Outbound = UgcMedia$Outbound;
+}
+
+export function ugcMediaToJSON(ugcMedia: UgcMedia): string {
+  return JSON.stringify(UgcMedia$outboundSchema.parse(ugcMedia));
+}
+
+export function ugcMediaFromJSON(
+  jsonString: string,
+): SafeParseResult<UgcMedia, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UgcMedia$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UgcMedia' from JSON`,
+  );
+}
+
+/** @internal */
+export const Ad$inboundSchema: z.ZodType<Ad, z.ZodTypeDef, unknown> = z.object({
+  product_id: z.string(),
+  type: Type$inboundSchema,
+  ugc_media: z.union([
+    z.lazy(() => Two$inboundSchema),
+    z.lazy(() => One$inboundSchema),
+  ]),
+  media_id: z.string().optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "product_id": "productId",
+    "ugc_media": "ugcMedia",
+    "media_id": "mediaId",
+  });
+});
+
+/** @internal */
+export type Ad$Outbound = {
+  product_id: string;
+  type: string;
+  ugc_media: Two$Outbound | One$Outbound;
+  media_id?: string | undefined;
+};
+
+/** @internal */
+export const Ad$outboundSchema: z.ZodType<Ad$Outbound, z.ZodTypeDef, Ad> = z
+  .object({
+    productId: z.string(),
+    type: Type$outboundSchema,
+    ugcMedia: z.union([
+      z.lazy(() => Two$outboundSchema),
+      z.lazy(() => One$outboundSchema),
+    ]),
+    mediaId: z.string().optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      productId: "product_id",
+      ugcMedia: "ugc_media",
+      mediaId: "media_id",
+    });
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Ad$ {
+  /** @deprecated use `Ad$inboundSchema` instead. */
+  export const inboundSchema = Ad$inboundSchema;
+  /** @deprecated use `Ad$outboundSchema` instead. */
+  export const outboundSchema = Ad$outboundSchema;
+  /** @deprecated use `Ad$Outbound` instead. */
+  export type Outbound = Ad$Outbound;
+}
+
+export function adToJSON(ad: Ad): string {
+  return JSON.stringify(Ad$outboundSchema.parse(ad));
+}
+
+export function adFromJSON(
+  jsonString: string,
+): SafeParseResult<Ad, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Ad$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Ad' from JSON`,
+  );
+}
+
+/** @internal */
 export const CreateVideoRequestBody$inboundSchema: z.ZodType<
   CreateVideoRequestBody,
   z.ZodTypeDef,
@@ -529,6 +1289,12 @@ export const CreateVideoRequestBody$inboundSchema: z.ZodType<
   content_type: ContentType$inboundSchema.default("Custom"),
   locale: CreateVideoLocale$inboundSchema.default("auto"),
   image_style_id: z.string().optional(),
+  image_model: ImageModel$inboundSchema.optional(),
+  image_quality: ImageQuality$inboundSchema.optional(),
+  image_style_raw_mode: z.boolean().optional(),
+  image_style_custom_prompt: z.string().optional(),
+  animation_model: AnimationModel$inboundSchema.optional(),
+  animation_model_preset: AnimationModelPreset$inboundSchema.optional(),
   connection_ids: z.array(z.string()),
   aspect_ratio: AspectRatio$inboundSchema.default("9:16"),
   voice_playback_rate: z.number().default(100),
@@ -539,6 +1305,7 @@ export const CreateVideoRequestBody$inboundSchema: z.ZodType<
   caption: z.string(),
   scenes: z.array(components.DraftScene$inboundSchema).optional(),
   quiz: z.lazy(() => Quiz$inboundSchema).optional(),
+  ad: z.lazy(() => Ad$inboundSchema).optional(),
   voice_id: z.string().optional(),
   soundtrack_id: z.string().optional(),
   publish_at: z.string().optional(),
@@ -546,6 +1313,12 @@ export const CreateVideoRequestBody$inboundSchema: z.ZodType<
   return remap$(v, {
     "content_type": "contentType",
     "image_style_id": "imageStyleId",
+    "image_model": "imageModel",
+    "image_quality": "imageQuality",
+    "image_style_raw_mode": "imageStyleRawMode",
+    "image_style_custom_prompt": "imageStyleCustomPrompt",
+    "animation_model": "animationModel",
+    "animation_model_preset": "animationModelPreset",
     "connection_ids": "connectionIds",
     "aspect_ratio": "aspectRatio",
     "voice_playback_rate": "voicePlaybackRate",
@@ -563,6 +1336,12 @@ export type CreateVideoRequestBody$Outbound = {
   content_type: string;
   locale: string;
   image_style_id?: string | undefined;
+  image_model?: string | undefined;
+  image_quality?: string | undefined;
+  image_style_raw_mode?: boolean | undefined;
+  image_style_custom_prompt?: string | undefined;
+  animation_model?: string | undefined;
+  animation_model_preset?: string | undefined;
   connection_ids: Array<string>;
   aspect_ratio: string;
   voice_playback_rate: number;
@@ -573,6 +1352,7 @@ export type CreateVideoRequestBody$Outbound = {
   caption: string;
   scenes?: Array<components.DraftScene$Outbound> | undefined;
   quiz?: Quiz$Outbound | undefined;
+  ad?: Ad$Outbound | undefined;
   voice_id?: string | undefined;
   soundtrack_id?: string | undefined;
   publish_at?: string | undefined;
@@ -587,6 +1367,12 @@ export const CreateVideoRequestBody$outboundSchema: z.ZodType<
   contentType: ContentType$outboundSchema.default("Custom"),
   locale: CreateVideoLocale$outboundSchema.default("auto"),
   imageStyleId: z.string().optional(),
+  imageModel: ImageModel$outboundSchema.optional(),
+  imageQuality: ImageQuality$outboundSchema.optional(),
+  imageStyleRawMode: z.boolean().optional(),
+  imageStyleCustomPrompt: z.string().optional(),
+  animationModel: AnimationModel$outboundSchema.optional(),
+  animationModelPreset: AnimationModelPreset$outboundSchema.optional(),
   connectionIds: z.array(z.string()),
   aspectRatio: AspectRatio$outboundSchema.default("9:16"),
   voicePlaybackRate: z.number().default(100),
@@ -597,6 +1383,7 @@ export const CreateVideoRequestBody$outboundSchema: z.ZodType<
   caption: z.string(),
   scenes: z.array(components.DraftScene$outboundSchema).optional(),
   quiz: z.lazy(() => Quiz$outboundSchema).optional(),
+  ad: z.lazy(() => Ad$outboundSchema).optional(),
   voiceId: z.string().optional(),
   soundtrackId: z.string().optional(),
   publishAt: z.string().optional(),
@@ -604,6 +1391,12 @@ export const CreateVideoRequestBody$outboundSchema: z.ZodType<
   return remap$(v, {
     contentType: "content_type",
     imageStyleId: "image_style_id",
+    imageModel: "image_model",
+    imageQuality: "image_quality",
+    imageStyleRawMode: "image_style_raw_mode",
+    imageStyleCustomPrompt: "image_style_custom_prompt",
+    animationModel: "animation_model",
+    animationModelPreset: "animation_model_preset",
     connectionIds: "connection_ids",
     aspectRatio: "aspect_ratio",
     voicePlaybackRate: "voice_playback_rate",

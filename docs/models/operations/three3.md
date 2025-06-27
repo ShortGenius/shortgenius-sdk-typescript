@@ -6,17 +6,17 @@
 import { Three3 } from "shortgenius/models/operations";
 
 let value: Three3 = {
-  id: "5db6acdd-2d03-4919-8465-18f94f6bafe2",
-  url: "https://unsung-jury.net",
+  id: "a0284122-ce9f-4a38-b930-10fc3b814e50",
+  url: "https://inconsequential-kick.com/",
   metadata: {},
   source: "Upload",
   data: {
     sourceMedia: {
-      id: "329304a9-5d44-4877-9284-6bec69b652bd",
-      url: "https://pitiful-schedule.info",
+      id: "c9c17aff-75ae-4e5a-aa69-930e2517fcba",
+      url: "https://unsung-archaeology.com/",
     },
   },
-  state: "error",
+  state: "generating",
 };
 ```
 

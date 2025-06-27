@@ -7,7 +7,7 @@ Privacy of the image style.
 ```typescript
 import { Privacy } from "shortgenius/models/components";
 
-let value: Privacy = "System";
+let value: Privacy = "Public";
 ```
 
 ## Values

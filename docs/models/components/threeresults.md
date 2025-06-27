@@ -7,7 +7,7 @@ import { ThreeResults } from "shortgenius/models/components";
 
 let value: ThreeResults = {
   image: {
-    url: "https://mammoth-paintwork.info/",
+    url: "https://ashamed-atrium.com",
   },
 };
 ```

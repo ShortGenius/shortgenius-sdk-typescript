@@ -1,17 +1,17 @@
 # Type
 
-Type of the series (e.g., automatically generated).
+The ad type.
 
 ## Example Usage
 
 ```typescript
 import { Type } from "shortgenius/models/operations";
 
-let value: Type = "SingleVideo";
+let value: Type = "JustTheHook";
 ```
 
 ## Values
 
 ```typescript
-"SingleVideo" | "Series"
+"JustTheHook" | "HookAndVideo" | "HookAndRealVideos"
 ```

@@ -6,7 +6,7 @@
 import { Tracks } from "shortgenius/models/components";
 
 let value: Tracks = {
-  url: "https://favorite-lid.com",
+  url: "https://regular-overcoat.net",
 };
 ```
 

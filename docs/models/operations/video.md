@@ -6,7 +6,7 @@
 import { Video } from "shortgenius/models/operations";
 
 let value: Video = {
-  url: "https://scaly-beret.org/",
+  url: "https://hopeful-premise.com",
 };
 ```
 

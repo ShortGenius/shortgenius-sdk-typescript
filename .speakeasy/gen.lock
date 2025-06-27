@@ -1,20 +1,20 @@
 lockVersion: 2.0.0
 id: f54f0795-3b37-43ef-8a0f-1a7b35a560fb
 management:
-  docChecksum: 9633dadf727d3b81f282bcb8e9e7471b
+  docChecksum: e6962541210309aac0a4d72470a97aaa
   docVersion: 1.0.0
-  speakeasyVersion: 1.513.2
-  generationVersion: 2.545.2
-  releaseVersion: 0.4.0
-  configChecksum: 46b8d70eb41933f3bcf6bb9830845b8e
+  speakeasyVersion: 1.570.2
+  generationVersion: 2.638.5
+  releaseVersion: 0.5.0
+  configChecksum: bce53b53bd7c4229a76b11d729a3a461
   repoURL: https://github.com/ShortGenius/shortgenius-sdk-typescript.git
   installationURL: https://github.com/ShortGenius/shortgenius-sdk-typescript
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    constsAndDefaults: 0.1.11
-    core: 3.21.3
+    constsAndDefaults: 0.1.12
+    core: 3.21.11
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     enumUnions: 0.1.0
@@ -23,15 +23,15 @@ features:
     globalSecurity: 2.82.13
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
-    globalServerURLs: 2.82.4
+    globalServerURLs: 2.82.5
     groups: 2.81.2
-    mcpServer: 0.6.0
+    mcpServer: 0.9.2
     nameOverrides: 2.81.2
     nullables: 0.1.1
     responseFormat: 0.2.3
     retries: 2.83.0
-    sdkHooks: 0.2.0
-    unions: 2.85.8
+    sdkHooks: 0.3.0
+    unions: 2.85.11
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -42,6 +42,7 @@ generatedFiles:
   - RUNTIMES.md
   - USAGE.md
   - docs/lib/utils/retryconfig.md
+  - docs/models/components/animationmodel.md
   - docs/models/components/artifacts.md
   - docs/models/components/aspectratio.md
   - docs/models/components/audio.md
@@ -61,13 +62,16 @@ generatedFiles:
   - docs/models/components/draftquizvideo.md
   - docs/models/components/draftscene.md
   - docs/models/components/draftvideo.md
+  - docs/models/components/eight.md
+  - docs/models/components/firstimageanimationmodel.md
   - docs/models/components/five.md
   - docs/models/components/four.md
   - docs/models/components/image.md
   - docs/models/components/imageaspectratio.md
+  - docs/models/components/imageformat.md
   - docs/models/components/imageinfo.md
-  - docs/models/components/images.md
   - docs/models/components/imagestyle.md
+  - docs/models/components/imagestylerecommendations.md
   - docs/models/components/large.md
   - docs/models/components/links.md
   - docs/models/components/locale.md
@@ -82,6 +86,7 @@ generatedFiles:
   - docs/models/components/medium.md
   - docs/models/components/metadata.md
   - docs/models/components/musicgenre.md
+  - docs/models/components/nine.md
   - docs/models/components/one.md
   - docs/models/components/one1.md
   - docs/models/components/one2.md
@@ -89,9 +94,11 @@ generatedFiles:
   - docs/models/components/one4.md
   - docs/models/components/one5.md
   - docs/models/components/one6.md
+  - docs/models/components/one7.md
   - docs/models/components/onedata.md
   - docs/models/components/oneimage.md
   - docs/models/components/onelinks.md
+  - docs/models/components/onequality.md
   - docs/models/components/oneuser.md
   - docs/models/components/options.md
   - docs/models/components/privacy.md
@@ -106,6 +113,7 @@ generatedFiles:
   - docs/models/components/result.md
   - docs/models/components/results.md
   - docs/models/components/schedule.md
+  - docs/models/components/secondimageanimationmodel.md
   - docs/models/components/security.md
   - docs/models/components/series.md
   - docs/models/components/series1data.md
@@ -136,17 +144,31 @@ generatedFiles:
   - docs/models/components/series3thumbnailstate.md
   - docs/models/components/series6data.md
   - docs/models/components/series6source.md
+  - docs/models/components/series7data.md
+  - docs/models/components/series7metadata.md
+  - docs/models/components/series7state.md
   - docs/models/components/seriescaptionalignment.md
   - docs/models/components/seriescaptiontexttransform.md
   - docs/models/components/seriescustomwatermarkcaptionalignment.md
   - docs/models/components/seriescustomwatermarkcaptiontexttransform.md
   - docs/models/components/seriesimagestyle.md
   - docs/models/components/seriesmediadata.md
+  - docs/models/components/seriesmediametadata.md
   - docs/models/components/seriesmediasource.md
+  - docs/models/components/seriesmediastate.md
+  - docs/models/components/seriesmediathumbnaildata.md
+  - docs/models/components/seriesmediathumbnailmetadata.md
+  - docs/models/components/seriesmediathumbnailstate.md
   - docs/models/components/seriesprivacylevel.md
   - docs/models/components/seriesrecommendations.md
   - docs/models/components/seriesvoice.md
   - docs/models/components/seven.md
+  - docs/models/components/seven1.md
+  - docs/models/components/seven2.md
+  - docs/models/components/sevenaspectratio.md
+  - docs/models/components/sevendata.md
+  - docs/models/components/sevenmetadata.md
+  - docs/models/components/sevenstate.md
   - docs/models/components/six.md
   - docs/models/components/six1.md
   - docs/models/components/six2.md
@@ -181,7 +203,6 @@ generatedFiles:
   - docs/models/components/tiktoksettings.md
   - docs/models/components/times.md
   - docs/models/components/timezone.md
-  - docs/models/components/timings.md
   - docs/models/components/tiny.md
   - docs/models/components/tracks.md
   - docs/models/components/transcript.md
@@ -189,10 +210,10 @@ generatedFiles:
   - docs/models/components/two1.md
   - docs/models/components/two2.md
   - docs/models/components/two3.md
+  - docs/models/components/twoanimationmodel.md
   - docs/models/components/twoaspectratio.md
   - docs/models/components/twodata.md
   - docs/models/components/twometadata.md
-  - docs/models/components/tworesults.md
   - docs/models/components/twosource.md
   - docs/models/components/twostate.md
   - docs/models/components/twovideo.md
@@ -241,6 +262,9 @@ generatedFiles:
   - docs/models/errors/getvideosresponsebody.md
   - docs/models/errors/getvoiceresponsebody.md
   - docs/models/errors/getvoicesresponsebody.md
+  - docs/models/operations/ad.md
+  - docs/models/operations/animationmodel.md
+  - docs/models/operations/animationmodelpreset.md
   - docs/models/operations/artifacts.md
   - docs/models/operations/aspectratio.md
   - docs/models/operations/balance.md
@@ -254,10 +278,21 @@ generatedFiles:
   - docs/models/operations/contenttype.md
   - docs/models/operations/createimageaspectratio.md
   - docs/models/operations/createimagerequestbody.md
+  - docs/models/operations/createseriesad.md
+  - docs/models/operations/createseriesanimationmodel.md
+  - docs/models/operations/createseriesanimationmodelpreset.md
   - docs/models/operations/createseriesaspectratio.md
   - docs/models/operations/createseriescontenttype.md
+  - docs/models/operations/createseriesimagemodel.md
+  - docs/models/operations/createseriesimagequality.md
   - docs/models/operations/createserieslocale.md
   - docs/models/operations/createseriesrequestbody.md
+  - docs/models/operations/createseriestype.md
+  - docs/models/operations/createseriesugcmedia.md
+  - docs/models/operations/createseriesugcmediadata.md
+  - docs/models/operations/createseriesugcmediarequestdata.md
+  - docs/models/operations/createseriesugcmediarequestsource.md
+  - docs/models/operations/createseriesugcmediasource.md
   - docs/models/operations/createspeechlocale.md
   - docs/models/operations/createspeechrequestbody.md
   - docs/models/operations/createvideolocale.md
@@ -290,6 +325,7 @@ generatedFiles:
   - docs/models/operations/getimage1state.md
   - docs/models/operations/getimagerequest.md
   - docs/models/operations/getimageresponsebody.md
+  - docs/models/operations/getimageresponsebodyresponse200applicationjson11state.md
   - docs/models/operations/getimageresponsebodyresponse200applicationjsonstate.md
   - docs/models/operations/getimageresponsebodyresponse200state.md
   - docs/models/operations/getimageresponsebodyresponsestate.md
@@ -307,6 +343,7 @@ generatedFiles:
   - docs/models/operations/getseries1response200applicationjsonresponsebodythumbnaildata.md
   - docs/models/operations/getseries1response200data.md
   - docs/models/operations/getseries1responsedata.md
+  - docs/models/operations/getseries2animationmodel.md
   - docs/models/operations/getseries2data.md
   - docs/models/operations/getseries2metadata.md
   - docs/models/operations/getseries2responsedata.md
@@ -329,12 +366,23 @@ generatedFiles:
   - docs/models/operations/getseries3state.md
   - docs/models/operations/getseries6data.md
   - docs/models/operations/getseries6source.md
+  - docs/models/operations/getseries7data.md
+  - docs/models/operations/getseries7metadata.md
+  - docs/models/operations/getseries7state.md
   - docs/models/operations/getseriesaspectratio.md
   - docs/models/operations/getseriescaptionalignment.md
   - docs/models/operations/getseriescaptiontexttransform.md
   - docs/models/operations/getseriescontenttype.md
   - docs/models/operations/getserieslocale.md
   - docs/models/operations/getseriesmediadata.md
+  - docs/models/operations/getseriesmediametadata.md
+  - docs/models/operations/getseriesmediaresponse200data.md
+  - docs/models/operations/getseriesmediaresponse200metadata.md
+  - docs/models/operations/getseriesmediaresponsedata.md
+  - docs/models/operations/getseriesmediaresponsemetadata.md
+  - docs/models/operations/getseriesmediaresponsestate.md
+  - docs/models/operations/getseriesmediasource.md
+  - docs/models/operations/getseriesmediastate.md
   - docs/models/operations/getseriesprivacylevel.md
   - docs/models/operations/getseriesrecommendations.md
   - docs/models/operations/getseriesrequest.md
@@ -344,6 +392,7 @@ generatedFiles:
   - docs/models/operations/getseriesschedule.md
   - docs/models/operations/getseriestimes.md
   - docs/models/operations/getseriestimezone.md
+  - docs/models/operations/getseriestype.md
   - docs/models/operations/getusageresponsebody.md
   - docs/models/operations/getvideorequest.md
   - docs/models/operations/getvideosrequest.md
@@ -351,8 +400,10 @@ generatedFiles:
   - docs/models/operations/getvoicerequest.md
   - docs/models/operations/getvoicesrequest.md
   - docs/models/operations/image.md
+  - docs/models/operations/imageformat.md
   - docs/models/operations/imageinfo.md
-  - docs/models/operations/images.md
+  - docs/models/operations/imagemodel.md
+  - docs/models/operations/imagequality.md
   - docs/models/operations/imagestyle.md
   - docs/models/operations/large.md
   - docs/models/operations/links.md
@@ -365,6 +416,9 @@ generatedFiles:
   - docs/models/operations/media4.md
   - docs/models/operations/media5.md
   - docs/models/operations/media6.md
+  - docs/models/operations/media7.md
+  - docs/models/operations/media8.md
+  - docs/models/operations/media9.md
   - docs/models/operations/mediadata.md
   - docs/models/operations/mediaimage.md
   - docs/models/operations/mediametadata.md
@@ -373,6 +427,7 @@ generatedFiles:
   - docs/models/operations/mediastate.md
   - docs/models/operations/medium.md
   - docs/models/operations/metadata.md
+  - docs/models/operations/model.md
   - docs/models/operations/nine.md
   - docs/models/operations/one.md
   - docs/models/operations/one1.md
@@ -385,6 +440,7 @@ generatedFiles:
   - docs/models/operations/oneaspectratio.md
   - docs/models/operations/onedata.md
   - docs/models/operations/onelinks.md
+  - docs/models/operations/onequality.md
   - docs/models/operations/onestate.md
   - docs/models/operations/oneuser.md
   - docs/models/operations/options.md
@@ -395,11 +451,19 @@ generatedFiles:
   - docs/models/operations/questions.md
   - docs/models/operations/quiz.md
   - docs/models/operations/recommendations.md
+  - docs/models/operations/responsebody1.md
+  - docs/models/operations/responsebody2.md
   - docs/models/operations/responsebodystate.md
   - docs/models/operations/result.md
   - docs/models/operations/results.md
   - docs/models/operations/schedule.md
   - docs/models/operations/seven.md
+  - docs/models/operations/seven1.md
+  - docs/models/operations/seven2.md
+  - docs/models/operations/sevenaspectratio.md
+  - docs/models/operations/sevendata.md
+  - docs/models/operations/sevenmetadata.md
+  - docs/models/operations/sevenstate.md
   - docs/models/operations/six.md
   - docs/models/operations/six1.md
   - docs/models/operations/six2.md
@@ -434,7 +498,6 @@ generatedFiles:
   - docs/models/operations/tiktoksettings.md
   - docs/models/operations/times.md
   - docs/models/operations/timezone.md
-  - docs/models/operations/timings.md
   - docs/models/operations/tiny.md
   - docs/models/operations/topics.md
   - docs/models/operations/tracks.md
@@ -442,13 +505,21 @@ generatedFiles:
   - docs/models/operations/two1.md
   - docs/models/operations/two2.md
   - docs/models/operations/two3.md
+  - docs/models/operations/twoanimationmodel.md
   - docs/models/operations/twoaspectratio.md
   - docs/models/operations/twodata.md
   - docs/models/operations/twometadata.md
-  - docs/models/operations/tworesults.md
+  - docs/models/operations/twoquality.md
   - docs/models/operations/twosource.md
   - docs/models/operations/twostate.md
   - docs/models/operations/type.md
+  - docs/models/operations/ugcmedia.md
+  - docs/models/operations/ugcmedia1.md
+  - docs/models/operations/ugcmedia2.md
+  - docs/models/operations/ugcmediadata.md
+  - docs/models/operations/ugcmediametadata.md
+  - docs/models/operations/ugcmediasource.md
+  - docs/models/operations/ugcmediastate.md
   - docs/models/operations/urls.md
   - docs/models/operations/user.md
   - docs/models/operations/video.md
@@ -517,6 +588,7 @@ generatedFiles:
   - src/mcp-server/console-logger.ts
   - src/mcp-server/extensions.ts
   - src/mcp-server/mcp-server.ts
+  - src/mcp-server/prompts.ts
   - src/mcp-server/resources.ts
   - src/mcp-server/scopes.ts
   - src/mcp-server/server.ts
@@ -588,7 +660,9 @@ generatedFiles:
   - src/models/errors/getvoices.ts
   - src/models/errors/httpclienterrors.ts
   - src/models/errors/index.ts
+  - src/models/errors/responsevalidationerror.ts
   - src/models/errors/sdkvalidationerror.ts
+  - src/models/errors/shortgeniuserror.ts
   - src/models/operations/checkhealth.ts
   - src/models/operations/createimage.ts
   - src/models/operations/createseries.ts
@@ -627,246 +701,11 @@ generatedFiles:
   - src/types/streams.ts
   - tsconfig.json
 examples:
-  get_/health:
-    speakeasy-default-get-/health:
-      responses:
-        "200":
-          application/json: {"status": "ok"}
-  get_/music/genres:
-    speakeasy-default-get-/music/genres:
-      responses:
-        "200":
-          application/json: [{"name": "Classical", "recommended_for_locales": []}]
-  get_/music/genres/{id}:
-    speakeasy-default-get-/music/genres/{id}:
-      parameters:
-        path:
-          id: "<id>"
-      responses:
-        "200":
-          application/json: [{"id": "<id>", "name": "<value>", "preview_url": "https://measly-haircut.com"}, {"id": "<id>", "name": "<value>", "preview_url": "https://flawless-repeat.info/"}, {"id": "<id>", "name": "<value>", "preview_url": "https://rosy-scale.net"}]
-        "400":
-          application/json: {}
-  post_/videos/drafts:
-    speakeasy-default-post-/videos/drafts:
-      responses:
-        "200":
-          application/json: {"title": "<value>", "caption": "<value>", "scenes": [{"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}, {"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}, {"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}]}
-        "400":
-          application/json: {}
-        "401":
-          application/json: {}
-  post_/videos/drafts/url:
-    speakeasy-default-post-/videos/drafts/url:
-      responses:
-        "200":
-          application/json: {"title": "<value>", "caption": "<value>", "scenes": [{"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}, {"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}]}
-        "400":
-          application/json: {}
-        "401":
-          application/json: {}
-  post_/videos/drafts/script:
-    speakeasy-default-post-/videos/drafts/script:
-      responses:
-        "200":
-          application/json: {"title": "<value>", "caption": "<value>", "scenes": []}
-        "400":
-          application/json: {}
-        "401":
-          application/json: {}
-  post_/videos/drafts/quiz:
-    speakeasy-default-post-/videos/drafts/quiz:
-      responses:
-        "200":
-          application/json: {"title": "<value>", "caption": "<value>", "quiz": {"questions": [{"question": "<value>", "options": []}], "results": {"header": "<value>", "explanation": "<value>", "categories": [{"score_range": "<value>", "title": "<value>"}, {"score_range": "<value>", "title": "<value>"}, {"score_range": "<value>", "title": "<value>"}]}}}
-        "400":
-          application/json: {}
-        "401":
-          application/json: {}
-  post_/videos/drafts/news:
-    speakeasy-default-post-/videos/drafts/news:
-      responses:
-        "200":
-          application/json: {"title": "<value>", "caption": "<value>", "scenes": [{"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}, {"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}]}
-        "400":
-          application/json: {}
-        "401":
-          application/json: {}
-  get_/videos/{id}:
-    speakeasy-default-get-/videos/{id}:
-      parameters:
-        path:
-          id: "f54ef435-bb01-4d1e-a20b-60783a1498ad"
-      responses:
-        "200":
-          application/json: {"id": "4f9ca771-4b0a-4065-9458-10ec6fcc0e8f", "created_at": "1714780022248", "series_id": "0ab83073-0e33-4c00-ab7b-ad11709b3a73", "publishing_state": "error", "publish_at": "<value>"}
-        "400":
-          application/json: {}
-  get_/videos:
-    speakeasy-default-get-/videos:
-      parameters:
-        query:
-          page: 0
-          limit: 20
-      responses:
-        "200":
-          application/json: {"videos": [{"id": "07cb2416-2a00-478f-8c4a-2d895e3a745a", "created_at": "1734269441526", "series_id": "9041f0b0-f997-4a11-a3e8-4e73fb7bdf1d", "publishing_state": "processing", "publish_at": "<value>"}], "has_more": true}
-        "400":
-          application/json: {}
-  post_/videos:
-    speakeasy-default-post-/videos:
-      responses:
-        "200":
-          application/json: {"id": "97334f71-6d9c-45de-bea0-5dcce36f7890", "created_at": "1730443673495", "series_id": "91ee5010-6061-422f-962f-b693d3dbcdd4", "publishing_state": "pending", "publish_at": "<value>"}
-        "400":
-          application/json: {}
-        "401":
-          application/json: {}
-  post_/videos/topics:
-    speakeasy-default-post-/videos/topics:
-      responses:
-        "200":
-          application/json: ["<value>", "<value>"]
-        "400":
-          application/json: {}
-        "401":
-          application/json: {}
-  post_/series:
-    speakeasy-default-post-/series:
-      responses:
-        "200":
-          application/json: {"id": "871a5ad6-08b7-4804-8b48-e38dcd281a5b", "created_at": "1720094593542", "next_posting_at": "<value>", "type": "SingleVideo", "schedule": {"time_zone": "Asia/Tokyo", "times": [{"day_of_week": 4807.55, "time_of_day": 3234.6}]}, "aspect_ratio": "16:9", "soundtrack_behavior": "FullMusic", "locale": "af-ZA", "soundtrack": {"tracks": [], "recommendations": [], "playback_rate": 9870.57, "volume": 1354.44}, "styles": {}, "image_style": {}, "voice": {"voices": [{"id": "<id>", "name": "<value>", "description": "enthusiastically far tentacle fiercely mouser zowie but", "tags": {}, "preview_url": "https://blank-lotion.info", "locale": "ro-RO", "source": "CartesiaClonedVoice"}, {"id": "<id>", "name": "<value>", "description": "unlike spiffy inasmuch indeed embody aw even", "tags": {}, "preview_url": "https://yellowish-aircraft.com/", "locale": "ca-ES", "source": "ElevenLabs"}], "playback_rate": 169.78, "volume": 977.88}, "connections": [{"id": "5db8983d-f4d3-4c6d-be1f-59d6ca2ecfc8", "type": "YouTube"}, {"id": "f4827b32-a59b-4892-a363-700ac520010a", "type": "Email"}, {"id": "1f7670eb-7101-4dc4-bf8c-a4d88045f6f4", "type": "X"}]}
-        "400":
-          application/json: {}
-        "401":
-          application/json: {}
-  get_/series:
-    speakeasy-default-get-/series:
-      parameters:
-        query:
-          page: 0
-          limit: 50
-      responses:
-        "200":
-          application/json: {"series": [{"id": "4a689a39-9c36-43f9-9cb1-bae61bd990fe", "created_at": "1725194155016", "next_posting_at": "<value>", "type": "Series", "schedule": {"time_zone": "Asia/Baghdad", "times": [{"day_of_week": 6988.82, "time_of_day": 6513.37}]}, "aspect_ratio": "1:1", "soundtrack_behavior": "FullMusic", "locale": "hr-HR", "soundtrack": {"tracks": [], "recommendations": [{"url": "https://meaty-experience.org", "reason": "<value>"}], "playback_rate": 797.89, "volume": 5876.68}, "styles": {}, "image_style": {}, "voice": {"voices": [{"id": "<id>", "name": "<value>", "description": "whoa homely punctually but brr commonly duh defensive", "tags": {}, "preview_url": "https://lavish-resolve.org", "locale": "pt-PT", "source": "Cartesia"}, {"id": "<id>", "name": "<value>", "description": "dead why like seriously disk once minority statue ack until", "tags": {}, "preview_url": "https://orderly-archaeology.info", "locale": "zh-TW", "source": "CartesiaClonedVoice"}, {"id": "<id>", "name": "<value>", "description": "fortunately mathematics settle down amid what despite gorgeous accompany", "tags": {}, "preview_url": "https://brown-metabolite.com", "locale": "ko-KR", "source": "CartesiaClonedVoice"}], "playback_rate": 8580, "volume": 8667.49}, "connections": [{"id": "9fe847be-eefd-43ee-894d-d0f0fd0be381", "type": "TikTok"}, {"id": "76871773-660d-4e0e-a9ca-14921ce2bea5", "type": "X"}]}, {"id": "578760a7-95ba-443c-80a8-c452fe405cee", "created_at": "1720574391472", "next_posting_at": "<value>", "type": "Series", "schedule": {"time_zone": "Africa/Tripoli", "times": [{"day_of_week": 7145.46, "time_of_day": 7392.64}, {"day_of_week": 7746.14, "time_of_day": 6549.03}]}, "aspect_ratio": "16:9", "soundtrack_behavior": "FullMusic", "locale": "fr-CA", "soundtrack": {"tracks": [{"url": "https://cuddly-vanadyl.net/"}], "recommendations": [{"url": "https://dull-best-seller.biz", "reason": "<value>"}], "playback_rate": 2564.45, "volume": 2260.92}, "styles": {}, "image_style": {}, "voice": {"voices": [], "playback_rate": 7686.66, "volume": 9694.48}, "connections": []}], "has_more": false}
-        "400":
-          application/json: {}
-  get_/series/{id}:
-    speakeasy-default-get-/series/{id}:
-      parameters:
-        path:
-          id: "916490de-064e-41ca-be8f-9d551b0c85e1"
-      responses:
-        "200":
-          application/json: {"id": "2ba6f320-6f22-422a-bc95-4b4631309e3b", "created_at": "1710904651955", "next_posting_at": "<value>", "type": "Series", "schedule": {"time_zone": "America/Santiago", "times": []}, "aspect_ratio": "1:1", "soundtrack_behavior": "NoMusic", "locale": "sk-SK", "soundtrack": {"tracks": [{"url": "https://evil-tune-up.biz"}, {"url": "https://authorized-waist.org"}], "recommendations": [{"url": "https://untrue-archaeology.info", "reason": "<value>"}, {"url": "https://lustrous-petticoat.org/", "reason": "<value>"}], "playback_rate": 9402.19, "volume": 9695.97}, "styles": {}, "image_style": {}, "voice": {"voices": [{"id": "<id>", "name": "<value>", "description": "whose bracelet impish sans object pension mysterious categorise round", "tags": {}, "preview_url": "https://pointed-dime.net", "locale": "da-DK", "source": "Cartesia"}, {"id": "<id>", "name": "<value>", "description": "geez gah psst rough mortally", "tags": {}, "preview_url": "https://insecure-provider.com", "locale": "ca-ES", "source": "ElevenLabs"}], "playback_rate": 1477.3, "volume": 5596.71}, "connections": [{"id": "f86be4d6-f704-4470-8ffa-7993be068408", "type": "YouTube"}, {"id": "40d03d5d-a62d-415d-92df-5016aef477c3", "type": "X"}], "episodes": []}
-        "400":
-          application/json: {}
-  get_/connections:
-    speakeasy-default-get-/connections:
-      responses:
-        "200":
-          application/json: [{"id": "29829937-a4cd-42f2-acc8-13974dd8bd66", "type": "TikTok"}, {"id": "d0873e60-4c45-4813-9a55-621afd84e19a", "type": "Email"}]
-        "401":
-          application/json: {}
-  post_/images:
-    speakeasy-default-post-/images:
-      responses:
-        "200":
-          application/json: {"id": "aebbe153-b36b-4b2e-be98-8cbbf464b372", "url": "https://gracious-bend.com/", "state": "pending", "created_at": "1728643515354", "prompt": "<value>", "is_nsfw": true, "aspect_ratio": "9:16"}
-        "400":
-          application/json: {}
-        "401":
-          application/json: {}
-  get_/images:
-    speakeasy-default-get-/images:
-      parameters:
-        query:
-          page: 0
-          limit: 50
-      responses:
-        "200":
-          application/json: {"images": [], "has_more": false}
-        "400":
-          application/json: {}
-  get_/images/{id}:
-    speakeasy-default-get-/images/{id}:
-      parameters:
-        path:
-          id: "<id>"
-      responses:
-        "200":
-          application/json: {"id": "1de869a3-54fe-48fe-81af-be08425aa28b", "url": "https://smug-willow.name/", "state": "request_smart_motion", "created_at": "1714485623486"}
-        "400":
-          application/json: {}
-  get_/images/styles:
-    speakeasy-default-get-/images/styles:
-      responses:
-        "200":
-          application/json: [{"id": "32e2828b-197f-4f50-9ce5-98a3af4c913d", "name": "<value>", "prompt": "<value>", "examples": []}, {"id": "df29846a-af40-49b6-a7a1-724e4936d0a7", "name": "<value>", "prompt": "<value>", "examples": ["<value>", "<value>", "<value>"]}, {"id": "3c336c7c-6512-4ede-b326-67f63ecf71d3", "name": "<value>", "prompt": "<value>", "examples": ["<value>", "<value>"]}]
-        "400":
-          application/json: {}
-  post_/audio/speech:
-    speakeasy-default-post-/audio/speech:
-      responses:
-        "200":
-          application/json: {"id": "62deb53a-aac1-4fb9-9c86-685573d9c341", "created_at": "1720529184016", "url": "https://proud-hygienic.info/", "user_id": "c6da6141-33ce-4c67-a7d6-3afb978a9c7c", "state": "pending", "text": "<value>", "voice": {"id": "<id>", "name": "<value>", "description": "mill hippodrome readily oof immaculate", "tags": {}, "preview_url": "https://advanced-steeple.org/", "locale": "tr-TR", "source": "ElevenLabsShared"}}
-        "400":
-          application/json: {}
-        "401":
-          application/json: {}
-  get_/audio:
-    speakeasy-default-get-/audio:
-      parameters:
-        query:
-          page: 0
-          limit: 50
-      responses:
-        "200":
-          application/json: {"audio": [{"id": "16be6d8d-0404-4748-9fd9-3a43e928cf12", "created_at": "1734591901826", "url": "https://insistent-word.name", "user_id": "ba9c7459-2ca9-4c3b-a171-e2ccb2216354", "state": "completed", "text": "<value>", "voice": {"id": "<id>", "name": "<value>", "description": "shadowy vanish telescope an effector abaft democratize filthy gracefully", "tags": {}, "preview_url": "https://grounded-waterspout.biz", "locale": "uk-UA", "source": "ElevenLabsShared"}}], "has_more": true}
-        "400":
-          application/json: {}
-  get_/audio/{id}:
-    speakeasy-default-get-/audio/{id}:
-      parameters:
-        path:
-          id: "<id>"
-      responses:
-        "200":
-          application/json: {"id": "3a8fabc8-591e-480d-aa5b-bef4feac4970", "created_at": "1710850454876", "url": "https://creative-suitcase.org/", "user_id": "d2e7266b-6529-4e32-8e05-aa666cb74d0f", "state": "error", "text": "<value>", "voice": {"id": "<id>", "name": "<value>", "description": "oily for upon passport revitalise tail healthily yahoo crest shudder", "tags": {}, "preview_url": "https://defenseless-dandelion.net", "locale": "ja-JP", "source": "Cartesia"}}
-        "400":
-          application/json: {}
-  get_/audio/voices:
-    speakeasy-default-get-/audio/voices:
-      parameters:
-        query:
-          locale: "auto"
-          page: 0
-          limit: 20
-      responses:
-        "200":
-          application/json: [{"id": "<id>", "name": "<value>", "description": "ouch usually astonishing shoulder mysteriously obtrude where ferociously another", "tags": {}, "preview_url": "https://early-reach.biz", "locale": "no-NO", "source": "ElevenLabsShared"}, {"id": "<id>", "name": "<value>", "description": "what responsible giant joy through thoroughly", "tags": {}, "preview_url": "https://physical-mentor.info/", "locale": "ja-JP", "source": "OpenAI"}]
-        "400":
-          application/json: {}
-  get_/audio/voices/{id}:
-    speakeasy-default-get-/audio/voices/{id}:
-      parameters:
-        path:
-          id: "<id>"
-      responses:
-        "200":
-          application/json: {"id": "<id>", "name": "<value>", "description": "giggle delightfully pocket-watch stoop colossal", "tags": {}, "preview_url": "https://shadowy-fibre.net/", "locale": "tr-TR", "source": "Cartesia"}
-        "400":
-          application/json: {}
-  get_/credits:
-    speakeasy-default-get-/credits:
-      responses:
-        "200":
-          application/json: {"balance": {"credits": 4285.62}}
   getMusicGenres:
     speakeasy-default-get-music-genres:
       responses:
         "200":
-          application/json: [{"name": "Classical", "recommended_for_locales": []}, {"name": "Classical", "recommended_for_locales": ["no-NO"]}, {"name": "Classical", "recommended_for_locales": ["zh-TW", "pl-PL", "zh-CN"]}]
+          application/json: [{"name": "Classical", "recommended_for_locales": ["ur-PK"]}]
   getMusic:
     speakeasy-default-get-music:
       parameters:
@@ -874,16 +713,16 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: [{"id": "<id>", "name": "<value>", "preview_url": "https://fond-bid.biz/"}]
+          application/json: [{"id": "<id>", "name": "<value>", "preview_url": "https://thorough-thread.com"}]
         "400":
           application/json: {}
   draftVideo:
     speakeasy-default-draft-video:
       requestBody:
-        application/json: {"topic": "<value>", "duration": "840", "locale": "auto"}
+        application/json: {"topic": "<value>", "duration": "420", "locale": "auto"}
       responses:
         "200":
-          application/json: {"title": "<value>", "caption": "<value>", "scenes": [{"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}, {"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}, {"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}]}
+          application/json: {"title": "<value>", "caption": "<value>", "scenes": []}
         "400":
           application/json: {}
         "401":
@@ -891,10 +730,10 @@ examples:
   draftVideoFromURL:
     speakeasy-default-draft-video-from-URL:
       requestBody:
-        application/json: {"url": "https://idealistic-someplace.info/", "locale": "auto"}
+        application/json: {"url": "https://heavenly-teriyaki.net/", "locale": "auto"}
       responses:
         "200":
-          application/json: {"title": "<value>", "caption": "<value>", "scenes": [{"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}]}
+          application/json: {"title": "<value>", "caption": "<value>", "scenes": []}
         "400":
           application/json: {}
         "401":
@@ -905,7 +744,7 @@ examples:
         application/json: {"script": "<value>"}
       responses:
         "200":
-          application/json: {"title": "<value>", "caption": "<value>", "scenes": [{"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}, {"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}]}
+          application/json: {"title": "<value>", "caption": "<value>", "scenes": []}
         "400":
           application/json: {}
         "401":
@@ -916,7 +755,7 @@ examples:
         application/json: {"topic": "<value>", "locale": "auto"}
       responses:
         "200":
-          application/json: {"title": "<value>", "caption": "<value>", "quiz": {"questions": [], "results": {"header": "<value>", "explanation": "<value>", "categories": [{"score_range": "<value>", "title": "<value>"}, {"score_range": "<value>", "title": "<value>"}]}}}
+          application/json: {"title": "<value>", "caption": "<value>", "quiz": {"questions": [{"question": "<value>", "options": []}], "results": {"header": "<value>", "explanation": "<value>", "categories": [{"score_range": "<value>", "title": "<value>"}]}}}
         "400":
           application/json: {}
         "401":
@@ -927,7 +766,7 @@ examples:
         application/json: {"topic": "<value>", "locale": "auto"}
       responses:
         "200":
-          application/json: {"title": "<value>", "caption": "<value>", "scenes": [{"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}, {"title": "<value>", "caption": "<value>", "first_image_description": "<value>", "second_image_description": "<value>"}]}
+          application/json: {"title": "<value>", "caption": "<value>", "scenes": []}
         "400":
           application/json: {}
         "401":
@@ -936,10 +775,10 @@ examples:
     speakeasy-default-get-video:
       parameters:
         path:
-          id: "1da911f6-eb73-4f3c-8df2-bee5ea49dfef"
+          id: "f734fa53-702b-4fdb-a03d-8537d6f38473"
       responses:
         "200":
-          application/json: {"id": "ca378bbd-5b92-4692-a652-1bb9e4c290d5", "created_at": "1717129611999", "series_id": "a9fcca04-f616-4d8b-a95e-0388b7bb3ac1", "publishing_state": "error", "publish_at": "<value>"}
+          application/json: {"id": "8cb25902-81b6-4ceb-9058-a34d9b6d9745", "created_at": "1726317880547", "series_id": "6aaec329-ce83-4486-a622-b921b13c0be9", "publishing_state": "skipped", "publish_at": "<value>"}
         "400":
           application/json: {}
   getVideos:
@@ -950,16 +789,16 @@ examples:
           limit: 20
       responses:
         "200":
-          application/json: {"videos": [{"id": "e0ee61c9-a9ec-49cd-82bd-002226444936", "created_at": "1731856031932", "series_id": "67596411-be3e-44b6-88e3-7b03d0cce482", "publishing_state": "processing", "publish_at": "<value>"}, {"id": "cd7aa89f-af82-4404-9039-35b5f41b7f0c", "created_at": "1719551842000", "series_id": "6a1871ad-5b70-474d-9246-cd15d0d9d90e", "publishing_state": "pending", "publish_at": "<value>"}, {"id": "f29c0102-3017-425b-bafa-c73de7c18b72", "created_at": "1735414907365", "series_id": "d707a3d5-423c-4dd0-9481-bcccecda2c12", "publishing_state": "processing", "publish_at": "<value>"}], "has_more": false}
+          application/json: {"videos": [{"id": "10b8e448-2ada-4015-aa5c-831f8e9d0195", "created_at": "1720763195608", "series_id": "0fadf06b-e0fa-4204-b21a-04cffc34da9c", "publishing_state": "pending", "publish_at": "<value>"}], "has_more": false}
         "400":
           application/json: {}
   createVideo:
     speakeasy-default-create-video:
       requestBody:
-        application/json: {"content_type": "Custom", "locale": "auto", "connection_ids": ["a776cbb2-1149-49ca-88c7-409f336cd780", "a279ac0a-70f9-44c7-8da5-99e8dd1ff7d3"], "aspect_ratio": "9:16", "voice_playback_rate": 100, "voice_volume": 100, "soundtrack_playback_rate": 100, "soundtrack_volume": 100, "title": "<value>", "caption": "<value>"}
+        application/json: {"content_type": "Custom", "locale": "auto", "connection_ids": ["04477ca1-5eaf-4beb-a18c-deab4082a26f"], "aspect_ratio": "9:16", "voice_playback_rate": 100, "voice_volume": 100, "soundtrack_playback_rate": 100, "soundtrack_volume": 100, "title": "<value>", "caption": "<value>"}
       responses:
         "200":
-          application/json: {"id": "9a776cbb-2114-499c-8a8c-7409f336cd78", "created_at": "1713621240968", "series_id": "a279ac0a-70f9-44c7-8da5-99e8dd1ff7d3", "publishing_state": "error", "publish_at": "<value>"}
+          application/json: {"id": "212dfc0a-6c60-4c17-a26f-7312720d3fc1", "created_at": "1714021158420", "series_id": "c82514a7-11ad-44f3-aea3-42fa66e59512", "publishing_state": "pending", "publish_at": "<value>"}
         "400":
           application/json: {}
         "401":
@@ -970,7 +809,7 @@ examples:
         application/json: {"locale": "auto", "number_of_topics": 50, "content_type": "Custom"}
       responses:
         "200":
-          application/json: ["<value>", "<value>", "<value>"]
+          application/json: ["<value 1>", "<value 2>", "<value 3>"]
         "400":
           application/json: {}
         "401":
@@ -978,10 +817,10 @@ examples:
   createSeries:
     speakeasy-default-create-series:
       requestBody:
-        application/json: {"content_type": "Custom", "locale": "auto", "connection_ids": ["313efb04-22f7-4996-bf45-4baf19f5d611", "7b877a82-7b6f-4e5a-8c80-b75243bef940", "071c5f58-0ddf-48e7-a7c2-18820d264957"], "aspect_ratio": "9:16", "voice_playback_rate": 100, "voice_volume": 100, "soundtrack_playback_rate": 100, "soundtrack_volume": 100}
+        application/json: {"content_type": "Custom", "locale": "auto", "connection_ids": ["766953de-9e78-4ce4-924f-9dd1cace4472", "b0f9c30e-78ea-456a-aa87-ea8e6384f404"], "aspect_ratio": "9:16", "voice_playback_rate": 100, "voice_volume": 100, "soundtrack_playback_rate": 100, "soundtrack_volume": 100}
       responses:
         "200":
-          application/json: {"id": "d313efb0-422f-4799-86f4-54baf19f5d61", "created_at": "1739264438888", "next_posting_at": "<value>", "type": "SingleVideo", "schedule": {"time_zone": "Asia/Bangkok", "times": [{"day_of_week": 4844.96, "time_of_day": 4520.41}, {"day_of_week": 6598.52, "time_of_day": 5304.76}]}, "aspect_ratio": "9:16", "soundtrack_behavior": "FullMusic", "locale": "ru-RU", "soundtrack": {"tracks": [{"url": "https://untidy-forage.net"}], "recommendations": [{"url": "https://antique-reboot.info", "reason": "<value>"}, {"url": "https://colorful-duster.biz/", "reason": "<value>"}, {"url": "https://vague-willow.name", "reason": "<value>"}], "playback_rate": 3076.33, "volume": 62.44}, "styles": {}, "image_style": {}, "voice": {"voices": [], "playback_rate": 144.37, "volume": 4740.31}, "connections": []}
+          application/json: {"id": "3e096d60-cfaf-4e38-b065-7ed5ff2973e9", "created_at": "1716671063038", "next_posting_at": "<value>", "type": "SingleVideo", "schedule": {"time_zone": "Pacific/Kiritimati", "times": []}, "aspect_ratio": "16:9", "soundtrack_behavior": "FullMusic", "locale": "sk-SK", "soundtrack": {"tracks": [{"url": "https://silky-tooth.biz"}], "recommendations": [{"url": "https://trusting-impostor.name", "reason": "<value>"}], "playback_rate": 8297.47, "volume": 3082.94}, "styles": {}, "image_style": {}, "voice": {"voices": [], "playback_rate": 2841.74, "volume": 2144.77}, "connections": []}
         "400":
           application/json: {}
         "401":
@@ -994,33 +833,33 @@ examples:
           limit: 50
       responses:
         "200":
-          application/json: {"series": [{"id": "d0622a0b-e89a-4d56-9e31-99cd79c038ad", "created_at": "1730980967854", "next_posting_at": "<value>", "type": "Series", "schedule": {"time_zone": "Asia/Karachi", "times": []}, "aspect_ratio": "16:9", "soundtrack_behavior": "FullMusic", "locale": "zh-TW", "soundtrack": {"tracks": [{"url": "https://grounded-executor.net"}], "recommendations": [{"url": "https://whispered-permafrost.info", "reason": "<value>"}], "playback_rate": 3477.2, "volume": 4751.63}, "styles": {}, "image_style": {}, "voice": {"voices": [{"id": "<id>", "name": "<value>", "description": "daddy extremely until likewise", "tags": {}, "preview_url": "https://excitable-tuber.net", "locale": "fi-FI", "source": "CartesiaClonedVoice"}], "playback_rate": 4596.78, "volume": 4243.75}, "connections": [{"id": "d576ddfb-2833-4cf5-9594-876f05e7bf70", "type": "X"}, {"id": "73660480-61c5-43e0-99da-7519d51c37e9", "type": "Email"}]}], "has_more": false}
+          application/json: {"series": [{"id": "cf1d7638-cac7-4b57-a839-d5dac758f3b1", "created_at": "1712506782052", "next_posting_at": "<value>", "type": "Series", "schedule": {"time_zone": "America/Port-au-Prince", "times": []}, "aspect_ratio": "1:1", "soundtrack_behavior": "FullMusic", "locale": "cs-CZ", "soundtrack": {"tracks": [{"url": "https://timely-popularity.info"}], "recommendations": [], "playback_rate": 5708.03, "volume": 4567.5}, "styles": {}, "image_style": {}, "voice": {"voices": [], "playback_rate": 6947.47, "volume": 36.97}, "connections": [{"id": "f6cdac89-ae2c-4c1b-8d87-2f57597beed7", "type": "X"}]}], "has_more": false}
         "400":
           application/json: {}
   getSeries:
     speakeasy-default-get-series:
       parameters:
         path:
-          id: "2c052674-65b4-43c1-b916-2f4dfdcbb4a8"
+          id: "0231886f-3b96-4b19-a947-9c24ac08ce54"
       responses:
         "200":
-          application/json: {"id": "b28b9f7c-861e-4b81-8bec-036c67b39b68", "created_at": "1737747100301", "next_posting_at": "<value>", "type": "Series", "schedule": {"time_zone": "America/Bogota", "times": [{"day_of_week": 58, "time_of_day": 7722.62}, {"day_of_week": 38.34, "time_of_day": 6199.62}, {"day_of_week": 3345.7, "time_of_day": 5738.15}]}, "aspect_ratio": "9:16", "soundtrack_behavior": "NoMusic", "locale": "hi-IN", "soundtrack": {"tracks": [{"url": "https://hidden-fen.com"}, {"url": "https://lost-reasoning.biz"}, {"url": "https://scratchy-stir-fry.org/"}], "recommendations": [], "playback_rate": 7192.77, "volume": 626.13}, "styles": {}, "image_style": {}, "voice": {"voices": [{"id": "<id>", "name": "<value>", "description": "whether whenever yum majestically", "tags": {}, "preview_url": "https://tired-release.net", "locale": "da-DK", "source": "ElevenLabs"}], "playback_rate": 9389.1, "volume": 1924.27}, "connections": [{"id": "db24e1c8-2147-4df1-a2a2-762ef261e1e3", "type": "X"}, {"id": "1544a659-73ec-4265-9b04-9dc9fbf8aa5b", "type": "Email"}], "episodes": [{"id": "f96eb7ff-331d-485c-9fd5-59133d46e178", "created_at": "1725523561516", "series_id": "dce35253-7893-4993-9ade-aa8832c874de", "publishing_state": "completed", "publish_at": "<value>"}, {"id": "6c96faf4-7c62-4a79-b623-32c973fef8ca", "created_at": "1732894531372", "series_id": "0a5bc71d-7b00-48d2-857d-2925249f15d3", "publishing_state": "error", "publish_at": "<value>"}]}
+          application/json: {"id": "0d62c508-b005-458d-ac2d-5fb0f0271e31", "created_at": "1718656364741", "next_posting_at": "<value>", "type": "SingleVideo", "schedule": {"time_zone": "Asia/Anadyr", "times": [{"day_of_week": 3569.58, "time_of_day": 9598.61}]}, "aspect_ratio": "9:16", "soundtrack_behavior": "MutedAfter60s", "locale": "vi-VN", "soundtrack": {"tracks": [{"url": "https://flimsy-produce.info/"}], "recommendations": [], "playback_rate": 3951.51, "volume": 4964.96}, "styles": {}, "image_style": {}, "voice": {"voices": [{"id": "<id>", "name": "<value>", "description": "kaleidoscopic unbearably across", "tags": {}, "preview_url": "https://rusty-plugin.info/", "locale": "ca-ES", "source": "ElevenLabsShared"}], "playback_rate": 5053.68, "volume": 2971.36}, "connections": [], "episodes": []}
         "400":
           application/json: {}
   getConnections:
     speakeasy-default-get-connections:
       responses:
         "200":
-          application/json: [{"id": "7ce916b3-d87b-49e5-bb6f-fd0ea189e26b", "type": "Email"}, {"id": "89fbe90f-661e-45a4-8640-7295946f7909", "type": "X"}, {"id": "19cfa608-0312-4ee0-8b3e-8d69e6da719f", "type": "TikTok"}]
+          application/json: [{"id": "67ba90b5-06a6-4c9f-bf80-fd9c06ad5db4", "type": "TikTok"}]
         "401":
           application/json: {}
   createImage:
     speakeasy-default-create-image:
       requestBody:
-        application/json: {"prompt": "<value>", "aspect_ratio": "9:16", "wait_for_generation": false}
+        application/json: {"prompt": "<value>", "aspect_ratio": "9:16", "wait_for_generation": false, "model": "OpenAI", "quality": "high"}
       responses:
         "200":
-          application/json: {"id": "3cb14ab1-c658-4ad4-842b-e0299be0fae3", "url": "https://basic-moment.biz/", "state": "request_smart_motion", "created_at": "1714745848169", "prompt": "<value>", "is_nsfw": true, "aspect_ratio": "9:16"}
+          application/json: {"id": "d16a5b33-6b30-4faf-b407-faaad489dc0c", "url": "https://arid-meatloaf.name/", "type": "GeneratedImage", "state": "completed", "created_at": "1721675566780", "prompt": "<value>", "is_nsfw": false, "aspect_ratio": "9:16"}
         "400":
           application/json: {}
         "401":
@@ -1031,6 +870,7 @@ examples:
         query:
           page: 0
           limit: 50
+          for_public: 0
       responses:
         "200":
           application/json: {"images": [], "has_more": false}
@@ -1043,14 +883,14 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"id": "6162980f-e681-4947-9653-a482802ca657", "url": "https://limp-elevation.com", "state": "pending", "created_at": "1737460783867"}
+          application/json: {"id": "551c8316-ae6d-4fe8-a28c-f6bf8aa0968d", "url": "https://robust-descent.name", "type": "UgcCreator", "state": "completed", "created_at": "1730029737769"}
         "400":
           application/json: {}
   getImageStyles:
     speakeasy-default-get-image-styles:
       responses:
         "200":
-          application/json: [{"id": "7eb11f85-eac0-45cb-a4b4-f7b325ddf1b4", "name": "<value>", "privacy": "Private", "prompt": "<value>", "examples": ["<value>", "<value>", "<value>"]}, {"id": "7ce26ca6-38b3-4d40-9172-3e966ac4cdb7", "name": "<value>", "privacy": "System", "prompt": "<value>", "examples": ["<value>", "<value>", "<value>"]}]
+          application/json: [{"id": "f7411904-7eeb-439d-a262-03f0b728823b", "name": "<value>", "privacy": "Public", "prompt": "<value>", "examples": []}]
         "400":
           application/json: {}
   createSpeech:
@@ -1059,7 +899,7 @@ examples:
         application/json: {"text": "<value>", "locale": "auto", "voice_id": "<id>", "wait_for_generation": false}
       responses:
         "200":
-          application/json: {"id": "f589b73f-081b-4ec2-b928-140d8f014e6a", "created_at": "1710107280596", "url": "https://peppery-punctuation.net", "user_id": "e4ec23dd-12d1-4a28-bc84-08abcb1b854d", "state": "completed", "text": "<value>", "voice": {"id": "<id>", "name": "<value>", "description": "youthfully although restfully amongst trusting underneath", "tags": {}, "preview_url": "https://reflecting-scorpion.com", "locale": "fr-CA", "source": "Cartesia"}}
+          application/json: {"id": "855130ed-d0f5-4b83-91b1-7a5e6c896e56", "created_at": "1713189620388", "url": "https://unlucky-tomb.org/", "user_id": "c1b86460-8d45-45e4-80d4-207ebaee7912", "state": "completed", "text": "<value>", "voice": {"id": "<id>", "name": "<value>", "description": "adventurously excepting astride fond if when vainly swiftly enhance millet", "tags": {}, "preview_url": "https://astonishing-remark.net/", "locale": null, "source": "ElevenLabsShared"}}
         "400":
           application/json: {}
         "401":
@@ -1070,9 +910,10 @@ examples:
         query:
           page: 0
           limit: 50
+          for_public: 0
       responses:
         "200":
-          application/json: {"audio": [], "has_more": true}
+          application/json: {"audio": [{"id": "f93de7fe-4a33-4dc8-8761-d8c7bf68f372", "created_at": "1724543682014", "url": "https://favorite-tomb.com", "user_id": "ea4d0838-4fd5-4237-ac6d-893b00c29d67", "state": "generating", "text": "<value>", "voice": {"id": "<id>", "name": "<value>", "description": null, "tags": {}, "preview_url": "https://tedious-challenge.info", "locale": "ca-ES", "source": "CartesiaClonedVoice"}}], "has_more": true}
         "400":
           application/json: {}
   getAudio:
@@ -1082,7 +923,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"id": "fe5ee766-cb77-4bd6-811c-b3c26ad03113", "created_at": "1736732674203", "url": "https://webbed-beret.com", "user_id": "27389b9c-278e-4978-87a0-3b1553667691", "state": "pending", "text": "<value>", "voice": {"id": "<id>", "name": "<value>", "description": "yuppify elliptical underplay effector times", "tags": {}, "preview_url": "https://remorseful-permafrost.name", "locale": "he-IL", "source": "Cartesia"}}
+          application/json: {"id": "e5097f26-7c28-4b4f-be9e-6418f8971471", "created_at": "1715490334475", "url": "https://deadly-heroine.info/", "user_id": "58f49a47-247c-457b-8e86-6995666eabd2", "state": "pending", "text": "<value>", "voice": {"id": "<id>", "name": "<value>", "description": "than and jiggle condense", "tags": {}, "preview_url": "https://flawed-fit.biz", "locale": "it-IT", "source": "OpenAI"}}
         "400":
           application/json: {}
   getVoices:
@@ -1094,7 +935,7 @@ examples:
           limit: 20
       responses:
         "200":
-          application/json: [{"id": "<id>", "name": "<value>", "description": "pillory wherever tenant until if flawed reprimand elderly packaging shyly", "tags": {}, "preview_url": "https://outgoing-singing.name", "locale": "fi-FI", "source": "Cartesia"}]
+          application/json: [{"id": "<id>", "name": "<value>", "description": "mid gee but nor blushing yum", "tags": {}, "preview_url": "https://excellent-compromise.name/", "locale": "af-ZA", "source": "CartesiaClonedVoice"}]
         "400":
           application/json: {}
   getVoice:
@@ -1104,18 +945,18 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"id": "<id>", "name": "<value>", "description": "prime camouflage sympathetically grass mill density", "tags": {}, "preview_url": "https://golden-inspection.name", "locale": "ro-RO", "source": "Cartesia"}
+          application/json: {"id": "<id>", "name": "<value>", "description": "designation joyously excited sympathetically keenly miserably about sentimental", "tags": {}, "preview_url": null, "locale": "it-IT", "source": "ElevenLabs"}
         "400":
           application/json: {}
   getUsage:
     speakeasy-default-get-usage:
       responses:
         "200":
-          application/json: {"balance": {"credits": 2240.89}}
+          application/json: {"balance": {"credits": 9378.9}}
   checkHealth:
     speakeasy-default-check-health:
       responses:
         "200":
           application/json: {"status": "ok"}
-examplesVersion: 1.0.0
+examplesVersion: 1.0.2
 generatedTests: {}

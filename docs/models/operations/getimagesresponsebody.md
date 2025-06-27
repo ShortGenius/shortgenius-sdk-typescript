@@ -8,17 +8,8 @@ Successful response
 import { GetImagesResponseBody } from "shortgenius/models/operations";
 
 let value: GetImagesResponseBody = {
-  images: [
-    {
-      id: "37dea4d6-32f1-483d-93b2-fa6f862b9333",
-      url: "https://forsaken-recommendation.name/",
-      state: "request_smart_motion",
-      createdAt: "1733262424426",
-      prompt: "<value>",
-      isNsfw: false,
-    },
-  ],
-  hasMore: false,
+  images: [],
+  hasMore: true,
 };
 ```
 

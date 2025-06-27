@@ -6,78 +6,61 @@
 import { GetSeries1Response200ApplicationJSONData } from "shortgenius/models/operations";
 
 let value: GetSeries1Response200ApplicationJSONData = {
-  id: "<id>",
-  createdAt: "1719316305526",
-  updatedAt: "1741282492226",
-  urls: {
-    full: "<value>",
-    raw: "<value>",
-    regular: "<value>",
-    small: "<value>",
-    thumb: "<value>",
-  },
-  altDescription: "<value>",
-  blurHash: "<value>",
-  color: "maroon",
-  description: "triumphantly whose emergent",
-  height: 3088.64,
-  likes: 6271.83,
-  links: {
-    self: "<value>",
-    html: "<value>",
-    download: "<value>",
-    downloadLocation: "<value>",
-  },
-  promotedAt: "<value>",
-  width: 5051.92,
-  user: {
-    id: "<id>",
-    bio: "<value>",
-    firstName: "Cletus",
-    instagramUsername: "<value>",
-    lastName: "Kuhn",
-    links: {
-      followers: "<value>",
-      following: "<value>",
-      html: "<value>",
-      likes: "<value>",
-      photos: "<value>",
-      portfolio: "<value>",
-      self: "<value>",
+  id: 9853.33,
+  pageURL: "https://gummy-configuration.com",
+  videos: {
+    large: {
+      url: "https://black-and-white-status.name/",
+      width: 6164.12,
+      height: 8309.57,
+      size: 6666.41,
+      thumbnail: "<value>",
     },
-    location: "<value>",
-    name: "<value>",
-    portfolioUrl: "https://spanish-waist.info",
-    profileImage: {
-      small: "<value>",
-      medium: "<value>",
-      large: "<value>",
+    medium: {
+      url: "https://sociable-lace.info/",
+      width: 4754.94,
+      height: 5949.98,
+      size: 5174.04,
+      thumbnail: "<value>",
     },
-    totalCollections: 3919.89,
-    totalLikes: 18.19,
-    totalPhotos: 8299.18,
-    twitterUsername: "<value>",
-    updatedAt: "1741279092954",
-    username: "Okey.Waelchi",
+    small: {
+      url: "https://warped-hoof.net/",
+      width: 6214.39,
+      height: 515.06,
+      size: 6122.84,
+      thumbnail: "<value>",
+    },
+    tiny: {
+      url: "https://bulky-address.info/",
+      width: 3815.57,
+      height: 4004.21,
+      size: 8340.48,
+      thumbnail: "<value>",
+    },
   },
+  views: 2307.07,
+  downloads: 1363.98,
+  likes: 9959.02,
+  comments: 6548.11,
+  userId: 1200.58,
+  user: "Tyrique.Carter2",
+  userImageURL: "https://lawful-republican.org",
 };
 ```
 
 ## Fields
 
-| Field                                                    | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `id`                                                     | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      |
-| `createdAt`                                              | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      |
-| `updatedAt`                                              | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      |
-| `urls`                                                   | [operations.Urls](../../models/operations/urls.md)       | :heavy_check_mark:                                       | N/A                                                      |
-| `altDescription`                                         | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      |
-| `blurHash`                                               | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      |
-| `color`                                                  | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      |
-| `description`                                            | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      |
-| `height`                                                 | *number*                                                 | :heavy_check_mark:                                       | N/A                                                      |
-| `likes`                                                  | *number*                                                 | :heavy_check_mark:                                       | N/A                                                      |
-| `links`                                                  | [operations.Links](../../models/operations/links.md)     | :heavy_check_mark:                                       | N/A                                                      |
-| `promotedAt`                                             | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      |
-| `width`                                                  | *number*                                                 | :heavy_check_mark:                                       | N/A                                                      |
-| `user`                                                   | [operations.OneUser](../../models/operations/oneuser.md) | :heavy_check_mark:                                       | N/A                                                      |
+| Field                                                  | Type                                                   | Required                                               | Description                                            |
+| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| `id`                                                   | *number*                                               | :heavy_check_mark:                                     | N/A                                                    |
+| `pageURL`                                              | *string*                                               | :heavy_check_mark:                                     | N/A                                                    |
+| `videos`                                               | [operations.Videos](../../models/operations/videos.md) | :heavy_check_mark:                                     | N/A                                                    |
+| `tags`                                                 | *string*                                               | :heavy_minus_sign:                                     | N/A                                                    |
+| `duration`                                             | *number*                                               | :heavy_minus_sign:                                     | N/A                                                    |
+| `views`                                                | *number*                                               | :heavy_check_mark:                                     | N/A                                                    |
+| `downloads`                                            | *number*                                               | :heavy_check_mark:                                     | N/A                                                    |
+| `likes`                                                | *number*                                               | :heavy_check_mark:                                     | N/A                                                    |
+| `comments`                                             | *number*                                               | :heavy_check_mark:                                     | N/A                                                    |
+| `userId`                                               | *number*                                               | :heavy_check_mark:                                     | N/A                                                    |
+| `user`                                                 | *string*                                               | :heavy_check_mark:                                     | N/A                                                    |
+| `userImageURL`                                         | *string*                                               | :heavy_check_mark:                                     | N/A                                                    |

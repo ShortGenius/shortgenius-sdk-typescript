@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod";
+import { ShortGeniusError } from "./shortgeniuserror.js";
 
 /**
  * An error response object.
@@ -17,15 +18,18 @@ export type DraftNewsVideoResponseResponseBodyData = {
 /**
  * An error response object.
  */
-export class DraftNewsVideoResponseResponseBody extends Error {
+export class DraftNewsVideoResponseResponseBody extends ShortGeniusError {
   /** The original data that was passed to this error instance. */
   data$: DraftNewsVideoResponseResponseBodyData;
 
-  constructor(err: DraftNewsVideoResponseResponseBodyData) {
+  constructor(
+    err: DraftNewsVideoResponseResponseBodyData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
 
     this.name = "DraftNewsVideoResponseResponseBody";
@@ -45,15 +49,18 @@ export type DraftNewsVideoResponseBodyData = {
 /**
  * An error response object.
  */
-export class DraftNewsVideoResponseBody extends Error {
+export class DraftNewsVideoResponseBody extends ShortGeniusError {
   /** The original data that was passed to this error instance. */
   data$: DraftNewsVideoResponseBodyData;
 
-  constructor(err: DraftNewsVideoResponseBodyData) {
+  constructor(
+    err: DraftNewsVideoResponseBodyData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
 
     this.name = "DraftNewsVideoResponseBody";
@@ -67,9 +74,16 @@ export const DraftNewsVideoResponseResponseBody$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   message: z.nullable(z.string()).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new DraftNewsVideoResponseResponseBody(v);
+    return new DraftNewsVideoResponseResponseBody(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */
@@ -109,9 +123,16 @@ export const DraftNewsVideoResponseBody$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   message: z.nullable(z.string()).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new DraftNewsVideoResponseBody(v);
+    return new DraftNewsVideoResponseBody(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

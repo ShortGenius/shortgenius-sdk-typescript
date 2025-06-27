@@ -5,7 +5,7 @@
 ```typescript
 import { SeriesCustomWatermarkCaptionAlignment } from "shortgenius/models/components";
 
-let value: SeriesCustomWatermarkCaptionAlignment = "bottom-center";
+let value: SeriesCustomWatermarkCaptionAlignment = "top-right";
 ```
 
 ## Values

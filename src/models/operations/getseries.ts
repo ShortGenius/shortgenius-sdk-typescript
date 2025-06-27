@@ -20,14 +20,14 @@ export type GetSeriesRequest = {
 /**
  * Type of the series (e.g., automatically generated).
  */
-export const Type = {
+export const GetSeriesType = {
   SingleVideo: "SingleVideo",
   Series: "Series",
 } as const;
 /**
  * Type of the series (e.g., automatically generated).
  */
-export type Type = ClosedEnum<typeof Type>;
+export type GetSeriesType = ClosedEnum<typeof GetSeriesType>;
 
 export const GetSeriesTimeZone = {
   PacificPagoPago: "Pacific/Pago_Pago",
@@ -183,6 +183,7 @@ export const GetSeriesContentType = {
   LifeTips: "LifeTips",
   Eli5: "ELI5",
   Philosophy: "Philosophy",
+  Ad: "Ad",
 } as const;
 /**
  * Indicates the type of content in this series.
@@ -193,9 +194,9 @@ export type GetSeriesContentType = ClosedEnum<typeof GetSeriesContentType>;
  * Aspect ratio of the series videos.
  */
 export const GetSeriesAspectRatio = {
-  Nine16: "9:16",
-  Sixteen9: "16:9",
-  One1: "1:1",
+  NineHundredAndSixteen: "9:16",
+  OneHundredAndSixtyNine: "16:9",
+  Eleven: "1:1",
 } as const;
 /**
  * Aspect ratio of the series videos.
@@ -382,6 +383,153 @@ export const Theme = {
 } as const;
 export type Theme = ClosedEnum<typeof Theme>;
 
+export type GetSeriesMediaResponse200Metadata = {
+  adId: string;
+  adName?: string | null | undefined;
+  creativeId: string;
+  pageId?: string | null | undefined;
+  instagramUserId?: string | null | undefined;
+  link?: string | null | undefined;
+  imageHash?: string | null | undefined;
+  callToActionType?: string | null | undefined;
+  imageUrl?: string | null | undefined;
+  thumbnailUrl?: string | null | undefined;
+};
+
+export const GetSeriesMediaResponseState = {
+  Completed: "completed",
+} as const;
+export type GetSeriesMediaResponseState = ClosedEnum<
+  typeof GetSeriesMediaResponseState
+>;
+
+export type Media9 = {
+  id: string;
+  url: string | null;
+  deletedAt?: string | null | undefined;
+  metadata: GetSeriesMediaResponse200Metadata;
+  lastError?: string | null | undefined;
+  type?: "MetaAd" | undefined;
+  source?: "Meta" | undefined;
+  category?: "Ad" | undefined;
+  state: GetSeriesMediaResponseState;
+};
+
+export type GetSeriesMediaResponseMetadata = {
+  contentType?: string | null | undefined;
+  brandDomain: string;
+  assetType: string;
+  width?: number | null | undefined;
+  height?: number | null | undefined;
+};
+
+export const GetSeriesMediaState = {
+  Completed: "completed",
+  Error: "error",
+} as const;
+export type GetSeriesMediaState = ClosedEnum<typeof GetSeriesMediaState>;
+
+export const ImageFormat = {
+  Png: "png",
+  Jpg: "jpg",
+  Jpeg: "jpeg",
+  Webp: "webp",
+} as const;
+export type ImageFormat = ClosedEnum<typeof ImageFormat>;
+
+export type GetSeriesMediaResponseData = {
+  originalUrl?: string | undefined;
+  assetKey: string;
+  uploadedAt: string;
+  imageFormat?: ImageFormat | undefined;
+};
+
+export type Media8 = {
+  id: string;
+  url: string | null;
+  deletedAt?: string | null | undefined;
+  metadata: GetSeriesMediaResponseMetadata;
+  lastError?: string | null | undefined;
+  type?: "BrandImage" | undefined;
+  source?: "BrandFetch" | undefined;
+  category?: "Brand" | undefined;
+  state: GetSeriesMediaState;
+  data: GetSeriesMediaResponseData;
+};
+
+export type GetSeries7Metadata = {
+  assetId: string;
+  assetVersionId: string;
+  assetRenderId: string;
+  aspectRatio?: string | null | undefined;
+};
+
+export const GetSeries7State = {
+  Pending: "pending",
+  Generating: "generating",
+  Completed: "completed",
+  Error: "error",
+} as const;
+export type GetSeries7State = ClosedEnum<typeof GetSeries7State>;
+
+export type GetSeries7Data = {};
+
+export type Seven2 = {
+  id: string;
+  url: string | null;
+  deletedAt?: string | null | undefined;
+  metadata: GetSeries7Metadata;
+  lastError?: string | null | undefined;
+  type?: "Graphic" | undefined;
+  source?: "Graphic" | undefined;
+  category?: "Asset" | undefined;
+  state: GetSeries7State;
+  data: GetSeries7Data;
+};
+
+export const SevenAspectRatio = {
+  Portrait916: "Portrait 9:16",
+  Landscape169: "Landscape 16:9",
+  Square11: "Square 1:1",
+} as const;
+export type SevenAspectRatio = ClosedEnum<typeof SevenAspectRatio>;
+
+export type SevenMetadata = {
+  assetId: string;
+  assetVersionId: string;
+  assetRenderId: string;
+  aspectRatio?: SevenAspectRatio | null | undefined;
+};
+
+export const SevenState = {
+  Pending: "pending",
+  Generating: "generating",
+  Completed: "completed",
+  Error: "error",
+} as const;
+export type SevenState = ClosedEnum<typeof SevenState>;
+
+export type SevenData = {
+  thumbnailUrl?: string | null | undefined;
+  muxPlaybackId?: string | null | undefined;
+  duration?: number | null | undefined;
+};
+
+export type Seven1 = {
+  id: string;
+  url: string | null;
+  deletedAt?: string | null | undefined;
+  metadata: SevenMetadata;
+  lastError?: string | null | undefined;
+  type?: "Block" | undefined;
+  source?: "Block" | undefined;
+  category?: "Asset" | undefined;
+  state: SevenState;
+  data: SevenData;
+};
+
+export type Media7 = Seven1 | Seven2;
+
 export type SixMetadata = {
   sourceImageUrl: string;
   muxPlaybackId: string | null;
@@ -397,6 +545,7 @@ export type GetSeries6Data = {
   ugcCreatorId: string;
   ugcPresetId: string;
   createdAt: string;
+  hook?: string | null | undefined;
 };
 
 export const SixState = {
@@ -426,6 +575,7 @@ export type SixSource = ClosedEnum<typeof SixSource>;
 
 export type SixData = {
   id: string;
+  hook?: string | null | undefined;
 };
 
 export type Six1 = {
@@ -440,21 +590,21 @@ export type Six1 = {
   state?: "completed" | undefined;
 };
 
-export type Media6 = Six1 | Six2;
+export type Media6 = Six2 | Six1;
 
-export type MediaMetadata = {
+export type GetSeriesMediaMetadata = {
   muxPlaybackId: string | null;
   startTime: number | null;
   endTime: number | null;
   durationTillEnd: number | null;
 };
 
-export const MediaSource = {
+export const GetSeriesMediaSource = {
   Gameplay: "Gameplay",
 } as const;
-export type MediaSource = ClosedEnum<typeof MediaSource>;
+export type GetSeriesMediaSource = ClosedEnum<typeof GetSeriesMediaSource>;
 
-export type MediaData = {
+export type GetSeriesMediaData = {
   id: string;
   collectionId: string;
 };
@@ -462,25 +612,25 @@ export type MediaData = {
 export type Media5 = {
   url: string | null;
   deletedAt?: string | null | undefined;
-  metadata: MediaMetadata;
+  metadata: GetSeriesMediaMetadata;
   lastError?: string | null | undefined;
   type?: "VideoClip" | undefined;
-  source: MediaSource | null;
+  source: GetSeriesMediaSource | null;
   category?: "Gameplay" | undefined;
   state?: "completed" | undefined;
-  data: MediaData;
+  data: GetSeriesMediaData;
 };
 
-export type Metadata = {
+export type MediaMetadata = {
   sourceMedia?: any | undefined;
 };
 
-export const Source = {
+export const MediaSource = {
   GeneratedImage: "GeneratedImage",
   Image: "Image",
   UserImage: "UserImage",
 } as const;
-export type Source = ClosedEnum<typeof Source>;
+export type MediaSource = ClosedEnum<typeof MediaSource>;
 
 export const Category = {
   AIGenerated: "AIGenerated",
@@ -488,7 +638,7 @@ export const Category = {
 } as const;
 export type Category = ClosedEnum<typeof Category>;
 
-export type GetSeriesMediaData = {
+export type GetSeriesMediaResponse200Data = {
   width: number;
   height: number;
 };
@@ -518,10 +668,10 @@ export type MediaResults = {
   maskImage?: MaskImage | null | undefined;
 };
 
-export type Data = {
+export type MediaData = {
   url?: string | null | undefined;
   path?: string | null | undefined;
-  data?: GetSeriesMediaData | null | undefined;
+  data?: GetSeriesMediaResponse200Data | null | undefined;
   results?: MediaResults | undefined;
 };
 
@@ -537,12 +687,12 @@ export type Media4 = {
   id: string;
   url: string | null;
   deletedAt?: string | null | undefined;
-  metadata: Metadata;
+  metadata: MediaMetadata;
   lastError?: string | null | undefined;
   type?: "Segmentation" | undefined;
-  source: Source;
+  source: MediaSource;
   category: Category;
-  data: Data;
+  data: MediaData;
   state: MediaState;
 };
 
@@ -733,14 +883,81 @@ export type Three1 = {
 
 export type Media3 = Three1 | Three2 | Three3 | Three4;
 
-export type GetSeries2Metadata = {
+export type GetSeries2ResponseMetadata = {
   prompt: string;
   sourceImageUrl?: string | null | undefined;
   parentMediaId?: string | null | undefined;
 };
 
-export const GetSeries2Source = {
+export const GetSeries2ResponseSource = {
   LumaAi: "luma-ai",
+} as const;
+export type GetSeries2ResponseSource = ClosedEnum<
+  typeof GetSeries2ResponseSource
+>;
+
+export const GetSeries2ResponseState = {
+  Pending: "pending",
+  Generating: "generating",
+  Completed: "completed",
+  Error: "error",
+} as const;
+export type GetSeries2ResponseState = ClosedEnum<
+  typeof GetSeries2ResponseState
+>;
+
+export type GetSeries2ResponseData = {
+  lumaId?: string | null | undefined;
+};
+
+export type Two3 = {
+  id: string;
+  url: string | null;
+  deletedAt?: string | null | undefined;
+  metadata: GetSeries2ResponseMetadata;
+  lastError?: string | null | undefined;
+  type?: "LumaGeneratedVideo" | undefined;
+  source: GetSeries2ResponseSource | null;
+  category?: "AIGenerated" | undefined;
+  state: GetSeries2ResponseState;
+  data: GetSeries2ResponseData | null;
+};
+
+export const GetSeries2AnimationModel = {
+  None: "None",
+  Seedance: "Seedance",
+  Kling: "Kling",
+  Hailuo02Standard: "Hailuo02Standard",
+  Hailuo02Pro: "Hailuo02Pro",
+  Veo3: "Veo3",
+  SeedanceTTV: "SeedanceTTV",
+} as const;
+export type GetSeries2AnimationModel = ClosedEnum<
+  typeof GetSeries2AnimationModel
+>;
+
+export type GetSeries2Metadata = {
+  sourceImageUrl?: string | null | undefined;
+  parentMediaId?: string | null | undefined;
+  animationPrompt?: string | null | undefined;
+  animationModel?: GetSeries2AnimationModel | null | undefined;
+  imageStylePresetId?: string | null | undefined;
+  imageStyleCustomPrompt?: string | null | undefined;
+};
+
+export const GetSeries2Source = {
+  FalAiStableVideo: "fal-ai/stable-video",
+  FalAiKlingVideoV16ProImageToVideo:
+    "fal-ai/kling-video/v1.6/pro/image-to-video",
+  FalAiMinimaxHailuo02StandardImageToVideo:
+    "fal-ai/minimax/hailuo-02/standard/image-to-video",
+  FalAiMinimaxHailuo02ProImageToVideo:
+    "fal-ai/minimax/hailuo-02/pro/image-to-video",
+  FalAiBytedanceSeedanceV1LiteImageToVideo:
+    "fal-ai/bytedance/seedance/v1/lite/image-to-video",
+  FalAiBytedanceSeedanceV1LiteTextToVideo:
+    "fal-ai/bytedance/seedance/v1/lite/text-to-video",
+  FalAiVeo3: "fal-ai/veo3",
 } as const;
 export type GetSeries2Source = ClosedEnum<typeof GetSeries2Source>;
 
@@ -752,41 +969,6 @@ export const GetSeries2State = {
 } as const;
 export type GetSeries2State = ClosedEnum<typeof GetSeries2State>;
 
-export type GetSeries2ResponseData = {
-  lumaId?: string | null | undefined;
-};
-
-export type Two3 = {
-  id: string;
-  url: string | null;
-  deletedAt?: string | null | undefined;
-  metadata: GetSeries2Metadata;
-  lastError?: string | null | undefined;
-  type?: "LumaGeneratedVideo" | undefined;
-  source: GetSeries2Source | null;
-  category?: "AIGenerated" | undefined;
-  state: GetSeries2State;
-  data: GetSeries2ResponseData | null;
-};
-
-export type TwoMetadata = {
-  sourceImageUrl?: string | null | undefined;
-  parentMediaId?: string | null | undefined;
-};
-
-export const TwoSource = {
-  FalAiStableVideo: "fal-ai/stable-video",
-} as const;
-export type TwoSource = ClosedEnum<typeof TwoSource>;
-
-export const TwoState = {
-  Pending: "pending",
-  Generating: "generating",
-  Completed: "completed",
-  Error: "error",
-} as const;
-export type TwoState = ClosedEnum<typeof TwoState>;
-
 export type Video = {
   url: string;
   contentType?: string | null | undefined;
@@ -797,7 +979,6 @@ export type Video = {
 
 export type Result = {
   video: Video;
-  seed: number;
 };
 
 export type GetSeries2Data = {
@@ -809,12 +990,12 @@ export type Two2 = {
   id: string;
   url: string | null;
   deletedAt?: string | null | undefined;
-  metadata: TwoMetadata;
+  metadata: GetSeries2Metadata;
   lastError?: string | null | undefined;
   type?: "GeneratedVideo" | undefined;
-  source: TwoSource | null;
+  source: GetSeries2Source | null;
   category?: "AIGenerated" | undefined;
-  state: TwoState;
+  state: GetSeries2State;
   data: GetSeries2Data | null;
 };
 
@@ -825,27 +1006,54 @@ export const TwoAspectRatio = {
 } as const;
 export type TwoAspectRatio = ClosedEnum<typeof TwoAspectRatio>;
 
-export type GetSeries2ResponseMetadata = {
+export const TwoQuality = {
+  Low: "low",
+  Medium: "medium",
+  High: "high",
+} as const;
+export type TwoQuality = ClosedEnum<typeof TwoQuality>;
+
+export const TwoAnimationModel = {
+  None: "None",
+  Seedance: "Seedance",
+  Kling: "Kling",
+  Hailuo02Standard: "Hailuo02Standard",
+  Hailuo02Pro: "Hailuo02Pro",
+  Veo3: "Veo3",
+  SeedanceTTV: "SeedanceTTV",
+} as const;
+export type TwoAnimationModel = ClosedEnum<typeof TwoAnimationModel>;
+
+export type TwoMetadata = {
   prompt: string;
   translatedPrompt?: string | null | undefined;
   rephrasedPrompt?: string | null | undefined;
   imageStylePresetId?: string | null | undefined;
+  imageStyleCustomPrompt?: string | null | undefined;
   aspectRatio?: TwoAspectRatio | null | undefined;
+  width?: number | null | undefined;
+  height?: number | null | undefined;
+  clonedMediaId?: string | null | undefined;
+  originalImageUrl?: string | null | undefined;
+  quality?: TwoQuality | null | undefined;
+  animationModel?: TwoAnimationModel | null | undefined;
+  animationPrompt?: string | null | undefined;
 };
 
-export const GetSeries2ResponseSource = {
+export const TwoSource = {
   DallE3: "dall-e-3",
   StabilityStableDiffusionXlV1: "stability.stable-diffusion-xl-v1",
   FalAiFluxPro: "fal-ai/flux-pro",
   FalAiFluxProV11: "fal-ai/flux-pro/v1.1",
   FalAiFluxProV11Ultra: "fal-ai/flux-pro/v1.1-ultra",
   FalAiFluxRealism: "fal-ai/flux-realism",
+  FalAiFluxProKontext: "fal-ai/flux-pro/kontext",
+  FalAiFluxProKontextMaxMulti: "fal-ai/flux-pro/kontext/max/multi",
+  GptImage1: "gpt-image-1",
 } as const;
-export type GetSeries2ResponseSource = ClosedEnum<
-  typeof GetSeries2ResponseSource
->;
+export type TwoSource = ClosedEnum<typeof TwoSource>;
 
-export const GetSeries2ResponseState = {
+export const TwoState = {
   Pending: "pending",
   Generating: "generating",
   Completed: "completed",
@@ -853,26 +1061,7 @@ export const GetSeries2ResponseState = {
   RequestSmartMotion: "request_smart_motion",
   Placeholder: "placeholder",
 } as const;
-export type GetSeries2ResponseState = ClosedEnum<
-  typeof GetSeries2ResponseState
->;
-
-export type Images = {
-  url: string;
-  width: number;
-  height: number;
-  contentType: string;
-};
-
-export type Timings = {};
-
-export type TwoResults = {
-  images: Array<Images>;
-  timings: Timings;
-  seed: number;
-  hasNsfwConcepts: Array<boolean>;
-  prompt: string;
-};
+export type TwoState = ClosedEnum<typeof TwoState>;
 
 export type Artifacts = {
   seed?: number | undefined;
@@ -881,7 +1070,7 @@ export type Artifacts = {
 
 export type TwoData = {
   path?: string | null | undefined;
-  results?: TwoResults | undefined;
+  results?: { [k: string]: any } | undefined;
   result?: string | null | undefined;
   artifacts?: Array<Artifacts> | undefined;
 };
@@ -890,12 +1079,12 @@ export type Two1 = {
   id: string;
   url: string | null;
   deletedAt?: string | null | undefined;
-  metadata: GetSeries2ResponseMetadata;
+  metadata: TwoMetadata;
   lastError?: string | null | undefined;
   type?: "GeneratedImage" | undefined;
-  source: GetSeries2ResponseSource | null;
+  source: TwoSource | null;
   category?: "AIGenerated" | undefined;
-  state: GetSeries2ResponseState;
+  state: TwoState;
   data: TwoData | null;
 };
 
@@ -907,7 +1096,7 @@ export type Imageinfo = {
   descriptionshorturl: string;
 };
 
-export type GetSeries1Response200ApplicationJSONResponseBodyData = {
+export type GetSeries1Response200ApplicationJSONResponseBodyThumbnailData = {
   pageid: number;
   ns: number;
   title: string;
@@ -925,7 +1114,7 @@ export type One7 = {
   category?: "Stock" | undefined;
   state?: "completed" | undefined;
   source?: "Wikimedia" | undefined;
-  data: GetSeries1Response200ApplicationJSONResponseBodyData;
+  data: GetSeries1Response200ApplicationJSONResponseBodyThumbnailData;
 };
 
 export type Urls = {
@@ -978,7 +1167,7 @@ export type OneUser = {
   username: string;
 };
 
-export type GetSeries1Response200ApplicationJSONData = {
+export type GetSeries1Response200ApplicationJSONResponseBodyData = {
   id: string;
   createdAt: string;
   updatedAt: string;
@@ -1004,7 +1193,7 @@ export type One6 = {
   category?: "Stock" | undefined;
   state?: "completed" | undefined;
   source?: "Unsplash" | undefined;
-  data: GetSeries1Response200ApplicationJSONData;
+  data: GetSeries1Response200ApplicationJSONResponseBodyData;
 };
 
 export type Large = {
@@ -1046,7 +1235,7 @@ export type Videos = {
   tiny: Tiny;
 };
 
-export type GetSeries1Response200Data = {
+export type GetSeries1Response200ApplicationJSONData = {
   id: number;
   pageURL: string;
   videos: Videos;
@@ -1070,10 +1259,10 @@ export type One5 = {
   category?: "Stock" | undefined;
   state?: "completed" | undefined;
   source?: "Pixabay" | undefined;
-  data: GetSeries1Response200Data;
+  data: GetSeries1Response200ApplicationJSONData;
 };
 
-export type GetSeries1ResponseData = {
+export type GetSeries1Response200Data = {
   id: number;
   tags?: string | undefined;
   pageURL: string;
@@ -1101,7 +1290,7 @@ export type GetSeries14 = {
   category?: "Stock" | undefined;
   state?: "completed" | undefined;
   source?: "Pixabay" | undefined;
-  data: GetSeries1ResponseData;
+  data: GetSeries1Response200Data;
 };
 
 export type User = {
@@ -1110,16 +1299,16 @@ export type User = {
   url: string;
 };
 
-export const Quality = {
+export const OneQuality = {
   Hd: "hd",
   Sd: "sd",
   Uhd: "uhd",
 } as const;
-export type Quality = ClosedEnum<typeof Quality>;
+export type OneQuality = ClosedEnum<typeof OneQuality>;
 
 export type VideoFiles = {
   id: number;
-  quality: Quality | null;
+  quality: OneQuality | null;
   fileType: string;
   width: number | null;
   height: number | null;
@@ -1133,7 +1322,7 @@ export type VideoPictures = {
   nr: number;
 };
 
-export type GetSeries1Data = {
+export type GetSeries1ResponseData = {
   id: number;
   width: number;
   height: number;
@@ -1156,7 +1345,7 @@ export type GetSeries13 = {
   category?: "Stock" | undefined;
   state?: "completed" | undefined;
   source?: "Pexels" | undefined;
-  data: GetSeries1Data;
+  data: GetSeries1ResponseData;
 };
 
 export type Src = {
@@ -1170,7 +1359,7 @@ export type Src = {
   tiny: string;
 };
 
-export type OneData = {
+export type GetSeries1Data = {
   id: number;
   width: number;
   height: number;
@@ -1193,7 +1382,7 @@ export type GetSeries12 = {
   category?: "Stock" | undefined;
   state?: "completed" | undefined;
   source?: "Pexels" | undefined;
-  data: OneData;
+  data: GetSeries1Data;
 };
 
 export type Image = {
@@ -1206,7 +1395,7 @@ export type Image = {
   thumbnailWidth: number;
 };
 
-export type GetSeries1Response200ApplicationJSONResponseBodyThumbnailData = {
+export type OneData = {
   kind: string;
   title: string;
   htmlTitle: string;
@@ -1228,7 +1417,7 @@ export type GetSeries11 = {
   category?: "Stock" | undefined;
   state?: "completed" | undefined;
   source?: "Google" | undefined;
-  data: GetSeries1Response200ApplicationJSONResponseBodyThumbnailData;
+  data: OneData;
 };
 
 export type Media1 =
@@ -1241,8 +1430,10 @@ export type Media1 =
   | One7;
 
 export type Media =
-  | Media5
   | Media4
+  | Media8
+  | Media5
+  | Media9
   | GetSeries11
   | GetSeries12
   | GetSeries13
@@ -1257,8 +1448,10 @@ export type Media =
   | Three2
   | Three3
   | Three4
+  | Six2
   | Six1
-  | Six2;
+  | Seven1
+  | Seven2;
 
 /**
  * Thumbnail for the series.
@@ -1273,8 +1466,10 @@ export type Thumbnail = {
   text: string | null;
   theme: Theme;
   media:
-    | Media5
     | Media4
+    | Media8
+    | Media5
+    | Media9
     | GetSeries11
     | GetSeries12
     | GetSeries13
@@ -1289,8 +1484,10 @@ export type Thumbnail = {
     | Three2
     | Three3
     | Three4
-    | Six1
     | Six2
+    | Six1
+    | Seven1
+    | Seven2
     | null;
 };
 
@@ -1453,7 +1650,7 @@ export type GetSeriesResponseBody = {
   /**
    * Type of the series (e.g., automatically generated).
    */
-  type: Type;
+  type: GetSeriesType;
   /**
    * The publishing schedule for the video series.
    */
@@ -1587,23 +1784,24 @@ export function getSeriesRequestFromJSON(
 }
 
 /** @internal */
-export const Type$inboundSchema: z.ZodNativeEnum<typeof Type> = z.nativeEnum(
-  Type,
-);
+export const GetSeriesType$inboundSchema: z.ZodNativeEnum<
+  typeof GetSeriesType
+> = z.nativeEnum(GetSeriesType);
 
 /** @internal */
-export const Type$outboundSchema: z.ZodNativeEnum<typeof Type> =
-  Type$inboundSchema;
+export const GetSeriesType$outboundSchema: z.ZodNativeEnum<
+  typeof GetSeriesType
+> = GetSeriesType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Type$ {
-  /** @deprecated use `Type$inboundSchema` instead. */
-  export const inboundSchema = Type$inboundSchema;
-  /** @deprecated use `Type$outboundSchema` instead. */
-  export const outboundSchema = Type$outboundSchema;
+export namespace GetSeriesType$ {
+  /** @deprecated use `GetSeriesType$inboundSchema` instead. */
+  export const inboundSchema = GetSeriesType$inboundSchema;
+  /** @deprecated use `GetSeriesType$outboundSchema` instead. */
+  export const outboundSchema = GetSeriesType$outboundSchema;
 }
 
 /** @internal */
@@ -2333,6 +2531,1033 @@ export namespace Theme$ {
 }
 
 /** @internal */
+export const GetSeriesMediaResponse200Metadata$inboundSchema: z.ZodType<
+  GetSeriesMediaResponse200Metadata,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  ad_id: z.string(),
+  ad_name: z.nullable(z.string()).optional(),
+  creative_id: z.string(),
+  page_id: z.nullable(z.string()).optional(),
+  instagram_user_id: z.nullable(z.string()).optional(),
+  link: z.nullable(z.string()).optional(),
+  image_hash: z.nullable(z.string()).optional(),
+  call_to_action_type: z.nullable(z.string()).optional(),
+  image_url: z.nullable(z.string()).optional(),
+  thumbnail_url: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "ad_id": "adId",
+    "ad_name": "adName",
+    "creative_id": "creativeId",
+    "page_id": "pageId",
+    "instagram_user_id": "instagramUserId",
+    "image_hash": "imageHash",
+    "call_to_action_type": "callToActionType",
+    "image_url": "imageUrl",
+    "thumbnail_url": "thumbnailUrl",
+  });
+});
+
+/** @internal */
+export type GetSeriesMediaResponse200Metadata$Outbound = {
+  ad_id: string;
+  ad_name?: string | null | undefined;
+  creative_id: string;
+  page_id?: string | null | undefined;
+  instagram_user_id?: string | null | undefined;
+  link?: string | null | undefined;
+  image_hash?: string | null | undefined;
+  call_to_action_type?: string | null | undefined;
+  image_url?: string | null | undefined;
+  thumbnail_url?: string | null | undefined;
+};
+
+/** @internal */
+export const GetSeriesMediaResponse200Metadata$outboundSchema: z.ZodType<
+  GetSeriesMediaResponse200Metadata$Outbound,
+  z.ZodTypeDef,
+  GetSeriesMediaResponse200Metadata
+> = z.object({
+  adId: z.string(),
+  adName: z.nullable(z.string()).optional(),
+  creativeId: z.string(),
+  pageId: z.nullable(z.string()).optional(),
+  instagramUserId: z.nullable(z.string()).optional(),
+  link: z.nullable(z.string()).optional(),
+  imageHash: z.nullable(z.string()).optional(),
+  callToActionType: z.nullable(z.string()).optional(),
+  imageUrl: z.nullable(z.string()).optional(),
+  thumbnailUrl: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    adId: "ad_id",
+    adName: "ad_name",
+    creativeId: "creative_id",
+    pageId: "page_id",
+    instagramUserId: "instagram_user_id",
+    imageHash: "image_hash",
+    callToActionType: "call_to_action_type",
+    imageUrl: "image_url",
+    thumbnailUrl: "thumbnail_url",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetSeriesMediaResponse200Metadata$ {
+  /** @deprecated use `GetSeriesMediaResponse200Metadata$inboundSchema` instead. */
+  export const inboundSchema = GetSeriesMediaResponse200Metadata$inboundSchema;
+  /** @deprecated use `GetSeriesMediaResponse200Metadata$outboundSchema` instead. */
+  export const outboundSchema =
+    GetSeriesMediaResponse200Metadata$outboundSchema;
+  /** @deprecated use `GetSeriesMediaResponse200Metadata$Outbound` instead. */
+  export type Outbound = GetSeriesMediaResponse200Metadata$Outbound;
+}
+
+export function getSeriesMediaResponse200MetadataToJSON(
+  getSeriesMediaResponse200Metadata: GetSeriesMediaResponse200Metadata,
+): string {
+  return JSON.stringify(
+    GetSeriesMediaResponse200Metadata$outboundSchema.parse(
+      getSeriesMediaResponse200Metadata,
+    ),
+  );
+}
+
+export function getSeriesMediaResponse200MetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<GetSeriesMediaResponse200Metadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetSeriesMediaResponse200Metadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetSeriesMediaResponse200Metadata' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetSeriesMediaResponseState$inboundSchema: z.ZodNativeEnum<
+  typeof GetSeriesMediaResponseState
+> = z.nativeEnum(GetSeriesMediaResponseState);
+
+/** @internal */
+export const GetSeriesMediaResponseState$outboundSchema: z.ZodNativeEnum<
+  typeof GetSeriesMediaResponseState
+> = GetSeriesMediaResponseState$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetSeriesMediaResponseState$ {
+  /** @deprecated use `GetSeriesMediaResponseState$inboundSchema` instead. */
+  export const inboundSchema = GetSeriesMediaResponseState$inboundSchema;
+  /** @deprecated use `GetSeriesMediaResponseState$outboundSchema` instead. */
+  export const outboundSchema = GetSeriesMediaResponseState$outboundSchema;
+}
+
+/** @internal */
+export const Media9$inboundSchema: z.ZodType<Media9, z.ZodTypeDef, unknown> = z
+  .object({
+    id: z.string(),
+    url: z.nullable(z.string()),
+    deleted_at: z.nullable(z.string()).optional(),
+    metadata: z.lazy(() => GetSeriesMediaResponse200Metadata$inboundSchema),
+    last_error: z.nullable(z.string()).optional(),
+    type: z.literal("MetaAd").default("MetaAd").optional(),
+    source: z.literal("Meta").default("Meta").optional(),
+    category: z.literal("Ad").default("Ad").optional(),
+    state: GetSeriesMediaResponseState$inboundSchema,
+  }).transform((v) => {
+    return remap$(v, {
+      "deleted_at": "deletedAt",
+      "last_error": "lastError",
+    });
+  });
+
+/** @internal */
+export type Media9$Outbound = {
+  id: string;
+  url: string | null;
+  deleted_at?: string | null | undefined;
+  metadata: GetSeriesMediaResponse200Metadata$Outbound;
+  last_error?: string | null | undefined;
+  type: "MetaAd";
+  source: "Meta";
+  category: "Ad";
+  state: string;
+};
+
+/** @internal */
+export const Media9$outboundSchema: z.ZodType<
+  Media9$Outbound,
+  z.ZodTypeDef,
+  Media9
+> = z.object({
+  id: z.string(),
+  url: z.nullable(z.string()),
+  deletedAt: z.nullable(z.string()).optional(),
+  metadata: z.lazy(() => GetSeriesMediaResponse200Metadata$outboundSchema),
+  lastError: z.nullable(z.string()).optional(),
+  type: z.literal("MetaAd").default("MetaAd" as const),
+  source: z.literal("Meta").default("Meta" as const),
+  category: z.literal("Ad").default("Ad" as const),
+  state: GetSeriesMediaResponseState$outboundSchema,
+}).transform((v) => {
+  return remap$(v, {
+    deletedAt: "deleted_at",
+    lastError: "last_error",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Media9$ {
+  /** @deprecated use `Media9$inboundSchema` instead. */
+  export const inboundSchema = Media9$inboundSchema;
+  /** @deprecated use `Media9$outboundSchema` instead. */
+  export const outboundSchema = Media9$outboundSchema;
+  /** @deprecated use `Media9$Outbound` instead. */
+  export type Outbound = Media9$Outbound;
+}
+
+export function media9ToJSON(media9: Media9): string {
+  return JSON.stringify(Media9$outboundSchema.parse(media9));
+}
+
+export function media9FromJSON(
+  jsonString: string,
+): SafeParseResult<Media9, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Media9$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Media9' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetSeriesMediaResponseMetadata$inboundSchema: z.ZodType<
+  GetSeriesMediaResponseMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  content_type: z.nullable(z.string()).optional(),
+  brand_domain: z.string(),
+  asset_type: z.string(),
+  width: z.nullable(z.number()).optional(),
+  height: z.nullable(z.number()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "content_type": "contentType",
+    "brand_domain": "brandDomain",
+    "asset_type": "assetType",
+  });
+});
+
+/** @internal */
+export type GetSeriesMediaResponseMetadata$Outbound = {
+  content_type?: string | null | undefined;
+  brand_domain: string;
+  asset_type: string;
+  width?: number | null | undefined;
+  height?: number | null | undefined;
+};
+
+/** @internal */
+export const GetSeriesMediaResponseMetadata$outboundSchema: z.ZodType<
+  GetSeriesMediaResponseMetadata$Outbound,
+  z.ZodTypeDef,
+  GetSeriesMediaResponseMetadata
+> = z.object({
+  contentType: z.nullable(z.string()).optional(),
+  brandDomain: z.string(),
+  assetType: z.string(),
+  width: z.nullable(z.number()).optional(),
+  height: z.nullable(z.number()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    contentType: "content_type",
+    brandDomain: "brand_domain",
+    assetType: "asset_type",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetSeriesMediaResponseMetadata$ {
+  /** @deprecated use `GetSeriesMediaResponseMetadata$inboundSchema` instead. */
+  export const inboundSchema = GetSeriesMediaResponseMetadata$inboundSchema;
+  /** @deprecated use `GetSeriesMediaResponseMetadata$outboundSchema` instead. */
+  export const outboundSchema = GetSeriesMediaResponseMetadata$outboundSchema;
+  /** @deprecated use `GetSeriesMediaResponseMetadata$Outbound` instead. */
+  export type Outbound = GetSeriesMediaResponseMetadata$Outbound;
+}
+
+export function getSeriesMediaResponseMetadataToJSON(
+  getSeriesMediaResponseMetadata: GetSeriesMediaResponseMetadata,
+): string {
+  return JSON.stringify(
+    GetSeriesMediaResponseMetadata$outboundSchema.parse(
+      getSeriesMediaResponseMetadata,
+    ),
+  );
+}
+
+export function getSeriesMediaResponseMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<GetSeriesMediaResponseMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetSeriesMediaResponseMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetSeriesMediaResponseMetadata' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetSeriesMediaState$inboundSchema: z.ZodNativeEnum<
+  typeof GetSeriesMediaState
+> = z.nativeEnum(GetSeriesMediaState);
+
+/** @internal */
+export const GetSeriesMediaState$outboundSchema: z.ZodNativeEnum<
+  typeof GetSeriesMediaState
+> = GetSeriesMediaState$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetSeriesMediaState$ {
+  /** @deprecated use `GetSeriesMediaState$inboundSchema` instead. */
+  export const inboundSchema = GetSeriesMediaState$inboundSchema;
+  /** @deprecated use `GetSeriesMediaState$outboundSchema` instead. */
+  export const outboundSchema = GetSeriesMediaState$outboundSchema;
+}
+
+/** @internal */
+export const ImageFormat$inboundSchema: z.ZodNativeEnum<typeof ImageFormat> = z
+  .nativeEnum(ImageFormat);
+
+/** @internal */
+export const ImageFormat$outboundSchema: z.ZodNativeEnum<typeof ImageFormat> =
+  ImageFormat$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace ImageFormat$ {
+  /** @deprecated use `ImageFormat$inboundSchema` instead. */
+  export const inboundSchema = ImageFormat$inboundSchema;
+  /** @deprecated use `ImageFormat$outboundSchema` instead. */
+  export const outboundSchema = ImageFormat$outboundSchema;
+}
+
+/** @internal */
+export const GetSeriesMediaResponseData$inboundSchema: z.ZodType<
+  GetSeriesMediaResponseData,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  original_url: z.string().optional(),
+  asset_key: z.string(),
+  uploaded_at: z.string(),
+  image_format: ImageFormat$inboundSchema.optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "original_url": "originalUrl",
+    "asset_key": "assetKey",
+    "uploaded_at": "uploadedAt",
+    "image_format": "imageFormat",
+  });
+});
+
+/** @internal */
+export type GetSeriesMediaResponseData$Outbound = {
+  original_url?: string | undefined;
+  asset_key: string;
+  uploaded_at: string;
+  image_format?: string | undefined;
+};
+
+/** @internal */
+export const GetSeriesMediaResponseData$outboundSchema: z.ZodType<
+  GetSeriesMediaResponseData$Outbound,
+  z.ZodTypeDef,
+  GetSeriesMediaResponseData
+> = z.object({
+  originalUrl: z.string().optional(),
+  assetKey: z.string(),
+  uploadedAt: z.string(),
+  imageFormat: ImageFormat$outboundSchema.optional(),
+}).transform((v) => {
+  return remap$(v, {
+    originalUrl: "original_url",
+    assetKey: "asset_key",
+    uploadedAt: "uploaded_at",
+    imageFormat: "image_format",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetSeriesMediaResponseData$ {
+  /** @deprecated use `GetSeriesMediaResponseData$inboundSchema` instead. */
+  export const inboundSchema = GetSeriesMediaResponseData$inboundSchema;
+  /** @deprecated use `GetSeriesMediaResponseData$outboundSchema` instead. */
+  export const outboundSchema = GetSeriesMediaResponseData$outboundSchema;
+  /** @deprecated use `GetSeriesMediaResponseData$Outbound` instead. */
+  export type Outbound = GetSeriesMediaResponseData$Outbound;
+}
+
+export function getSeriesMediaResponseDataToJSON(
+  getSeriesMediaResponseData: GetSeriesMediaResponseData,
+): string {
+  return JSON.stringify(
+    GetSeriesMediaResponseData$outboundSchema.parse(getSeriesMediaResponseData),
+  );
+}
+
+export function getSeriesMediaResponseDataFromJSON(
+  jsonString: string,
+): SafeParseResult<GetSeriesMediaResponseData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetSeriesMediaResponseData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetSeriesMediaResponseData' from JSON`,
+  );
+}
+
+/** @internal */
+export const Media8$inboundSchema: z.ZodType<Media8, z.ZodTypeDef, unknown> = z
+  .object({
+    id: z.string(),
+    url: z.nullable(z.string()),
+    deleted_at: z.nullable(z.string()).optional(),
+    metadata: z.lazy(() => GetSeriesMediaResponseMetadata$inboundSchema),
+    last_error: z.nullable(z.string()).optional(),
+    type: z.literal("BrandImage").default("BrandImage").optional(),
+    source: z.literal("BrandFetch").default("BrandFetch").optional(),
+    category: z.literal("Brand").default("Brand").optional(),
+    state: GetSeriesMediaState$inboundSchema,
+    data: z.lazy(() => GetSeriesMediaResponseData$inboundSchema),
+  }).transform((v) => {
+    return remap$(v, {
+      "deleted_at": "deletedAt",
+      "last_error": "lastError",
+    });
+  });
+
+/** @internal */
+export type Media8$Outbound = {
+  id: string;
+  url: string | null;
+  deleted_at?: string | null | undefined;
+  metadata: GetSeriesMediaResponseMetadata$Outbound;
+  last_error?: string | null | undefined;
+  type: "BrandImage";
+  source: "BrandFetch";
+  category: "Brand";
+  state: string;
+  data: GetSeriesMediaResponseData$Outbound;
+};
+
+/** @internal */
+export const Media8$outboundSchema: z.ZodType<
+  Media8$Outbound,
+  z.ZodTypeDef,
+  Media8
+> = z.object({
+  id: z.string(),
+  url: z.nullable(z.string()),
+  deletedAt: z.nullable(z.string()).optional(),
+  metadata: z.lazy(() => GetSeriesMediaResponseMetadata$outboundSchema),
+  lastError: z.nullable(z.string()).optional(),
+  type: z.literal("BrandImage").default("BrandImage" as const),
+  source: z.literal("BrandFetch").default("BrandFetch" as const),
+  category: z.literal("Brand").default("Brand" as const),
+  state: GetSeriesMediaState$outboundSchema,
+  data: z.lazy(() => GetSeriesMediaResponseData$outboundSchema),
+}).transform((v) => {
+  return remap$(v, {
+    deletedAt: "deleted_at",
+    lastError: "last_error",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Media8$ {
+  /** @deprecated use `Media8$inboundSchema` instead. */
+  export const inboundSchema = Media8$inboundSchema;
+  /** @deprecated use `Media8$outboundSchema` instead. */
+  export const outboundSchema = Media8$outboundSchema;
+  /** @deprecated use `Media8$Outbound` instead. */
+  export type Outbound = Media8$Outbound;
+}
+
+export function media8ToJSON(media8: Media8): string {
+  return JSON.stringify(Media8$outboundSchema.parse(media8));
+}
+
+export function media8FromJSON(
+  jsonString: string,
+): SafeParseResult<Media8, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Media8$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Media8' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetSeries7Metadata$inboundSchema: z.ZodType<
+  GetSeries7Metadata,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  asset_id: z.string(),
+  asset_version_id: z.string(),
+  asset_render_id: z.string(),
+  aspect_ratio: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "asset_id": "assetId",
+    "asset_version_id": "assetVersionId",
+    "asset_render_id": "assetRenderId",
+    "aspect_ratio": "aspectRatio",
+  });
+});
+
+/** @internal */
+export type GetSeries7Metadata$Outbound = {
+  asset_id: string;
+  asset_version_id: string;
+  asset_render_id: string;
+  aspect_ratio?: string | null | undefined;
+};
+
+/** @internal */
+export const GetSeries7Metadata$outboundSchema: z.ZodType<
+  GetSeries7Metadata$Outbound,
+  z.ZodTypeDef,
+  GetSeries7Metadata
+> = z.object({
+  assetId: z.string(),
+  assetVersionId: z.string(),
+  assetRenderId: z.string(),
+  aspectRatio: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    assetId: "asset_id",
+    assetVersionId: "asset_version_id",
+    assetRenderId: "asset_render_id",
+    aspectRatio: "aspect_ratio",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetSeries7Metadata$ {
+  /** @deprecated use `GetSeries7Metadata$inboundSchema` instead. */
+  export const inboundSchema = GetSeries7Metadata$inboundSchema;
+  /** @deprecated use `GetSeries7Metadata$outboundSchema` instead. */
+  export const outboundSchema = GetSeries7Metadata$outboundSchema;
+  /** @deprecated use `GetSeries7Metadata$Outbound` instead. */
+  export type Outbound = GetSeries7Metadata$Outbound;
+}
+
+export function getSeries7MetadataToJSON(
+  getSeries7Metadata: GetSeries7Metadata,
+): string {
+  return JSON.stringify(
+    GetSeries7Metadata$outboundSchema.parse(getSeries7Metadata),
+  );
+}
+
+export function getSeries7MetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<GetSeries7Metadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetSeries7Metadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetSeries7Metadata' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetSeries7State$inboundSchema: z.ZodNativeEnum<
+  typeof GetSeries7State
+> = z.nativeEnum(GetSeries7State);
+
+/** @internal */
+export const GetSeries7State$outboundSchema: z.ZodNativeEnum<
+  typeof GetSeries7State
+> = GetSeries7State$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetSeries7State$ {
+  /** @deprecated use `GetSeries7State$inboundSchema` instead. */
+  export const inboundSchema = GetSeries7State$inboundSchema;
+  /** @deprecated use `GetSeries7State$outboundSchema` instead. */
+  export const outboundSchema = GetSeries7State$outboundSchema;
+}
+
+/** @internal */
+export const GetSeries7Data$inboundSchema: z.ZodType<
+  GetSeries7Data,
+  z.ZodTypeDef,
+  unknown
+> = z.object({});
+
+/** @internal */
+export type GetSeries7Data$Outbound = {};
+
+/** @internal */
+export const GetSeries7Data$outboundSchema: z.ZodType<
+  GetSeries7Data$Outbound,
+  z.ZodTypeDef,
+  GetSeries7Data
+> = z.object({});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetSeries7Data$ {
+  /** @deprecated use `GetSeries7Data$inboundSchema` instead. */
+  export const inboundSchema = GetSeries7Data$inboundSchema;
+  /** @deprecated use `GetSeries7Data$outboundSchema` instead. */
+  export const outboundSchema = GetSeries7Data$outboundSchema;
+  /** @deprecated use `GetSeries7Data$Outbound` instead. */
+  export type Outbound = GetSeries7Data$Outbound;
+}
+
+export function getSeries7DataToJSON(getSeries7Data: GetSeries7Data): string {
+  return JSON.stringify(GetSeries7Data$outboundSchema.parse(getSeries7Data));
+}
+
+export function getSeries7DataFromJSON(
+  jsonString: string,
+): SafeParseResult<GetSeries7Data, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetSeries7Data$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetSeries7Data' from JSON`,
+  );
+}
+
+/** @internal */
+export const Seven2$inboundSchema: z.ZodType<Seven2, z.ZodTypeDef, unknown> = z
+  .object({
+    id: z.string(),
+    url: z.nullable(z.string()),
+    deleted_at: z.nullable(z.string()).optional(),
+    metadata: z.lazy(() => GetSeries7Metadata$inboundSchema),
+    last_error: z.nullable(z.string()).optional(),
+    type: z.literal("Graphic").default("Graphic").optional(),
+    source: z.literal("Graphic").default("Graphic").optional(),
+    category: z.literal("Asset").default("Asset").optional(),
+    state: GetSeries7State$inboundSchema,
+    data: z.lazy(() => GetSeries7Data$inboundSchema),
+  }).transform((v) => {
+    return remap$(v, {
+      "deleted_at": "deletedAt",
+      "last_error": "lastError",
+    });
+  });
+
+/** @internal */
+export type Seven2$Outbound = {
+  id: string;
+  url: string | null;
+  deleted_at?: string | null | undefined;
+  metadata: GetSeries7Metadata$Outbound;
+  last_error?: string | null | undefined;
+  type: "Graphic";
+  source: "Graphic";
+  category: "Asset";
+  state: string;
+  data: GetSeries7Data$Outbound;
+};
+
+/** @internal */
+export const Seven2$outboundSchema: z.ZodType<
+  Seven2$Outbound,
+  z.ZodTypeDef,
+  Seven2
+> = z.object({
+  id: z.string(),
+  url: z.nullable(z.string()),
+  deletedAt: z.nullable(z.string()).optional(),
+  metadata: z.lazy(() => GetSeries7Metadata$outboundSchema),
+  lastError: z.nullable(z.string()).optional(),
+  type: z.literal("Graphic").default("Graphic" as const),
+  source: z.literal("Graphic").default("Graphic" as const),
+  category: z.literal("Asset").default("Asset" as const),
+  state: GetSeries7State$outboundSchema,
+  data: z.lazy(() => GetSeries7Data$outboundSchema),
+}).transform((v) => {
+  return remap$(v, {
+    deletedAt: "deleted_at",
+    lastError: "last_error",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Seven2$ {
+  /** @deprecated use `Seven2$inboundSchema` instead. */
+  export const inboundSchema = Seven2$inboundSchema;
+  /** @deprecated use `Seven2$outboundSchema` instead. */
+  export const outboundSchema = Seven2$outboundSchema;
+  /** @deprecated use `Seven2$Outbound` instead. */
+  export type Outbound = Seven2$Outbound;
+}
+
+export function seven2ToJSON(seven2: Seven2): string {
+  return JSON.stringify(Seven2$outboundSchema.parse(seven2));
+}
+
+export function seven2FromJSON(
+  jsonString: string,
+): SafeParseResult<Seven2, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Seven2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Seven2' from JSON`,
+  );
+}
+
+/** @internal */
+export const SevenAspectRatio$inboundSchema: z.ZodNativeEnum<
+  typeof SevenAspectRatio
+> = z.nativeEnum(SevenAspectRatio);
+
+/** @internal */
+export const SevenAspectRatio$outboundSchema: z.ZodNativeEnum<
+  typeof SevenAspectRatio
+> = SevenAspectRatio$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SevenAspectRatio$ {
+  /** @deprecated use `SevenAspectRatio$inboundSchema` instead. */
+  export const inboundSchema = SevenAspectRatio$inboundSchema;
+  /** @deprecated use `SevenAspectRatio$outboundSchema` instead. */
+  export const outboundSchema = SevenAspectRatio$outboundSchema;
+}
+
+/** @internal */
+export const SevenMetadata$inboundSchema: z.ZodType<
+  SevenMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  asset_id: z.string(),
+  asset_version_id: z.string(),
+  asset_render_id: z.string(),
+  aspect_ratio: z.nullable(SevenAspectRatio$inboundSchema).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "asset_id": "assetId",
+    "asset_version_id": "assetVersionId",
+    "asset_render_id": "assetRenderId",
+    "aspect_ratio": "aspectRatio",
+  });
+});
+
+/** @internal */
+export type SevenMetadata$Outbound = {
+  asset_id: string;
+  asset_version_id: string;
+  asset_render_id: string;
+  aspect_ratio?: string | null | undefined;
+};
+
+/** @internal */
+export const SevenMetadata$outboundSchema: z.ZodType<
+  SevenMetadata$Outbound,
+  z.ZodTypeDef,
+  SevenMetadata
+> = z.object({
+  assetId: z.string(),
+  assetVersionId: z.string(),
+  assetRenderId: z.string(),
+  aspectRatio: z.nullable(SevenAspectRatio$outboundSchema).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    assetId: "asset_id",
+    assetVersionId: "asset_version_id",
+    assetRenderId: "asset_render_id",
+    aspectRatio: "aspect_ratio",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SevenMetadata$ {
+  /** @deprecated use `SevenMetadata$inboundSchema` instead. */
+  export const inboundSchema = SevenMetadata$inboundSchema;
+  /** @deprecated use `SevenMetadata$outboundSchema` instead. */
+  export const outboundSchema = SevenMetadata$outboundSchema;
+  /** @deprecated use `SevenMetadata$Outbound` instead. */
+  export type Outbound = SevenMetadata$Outbound;
+}
+
+export function sevenMetadataToJSON(sevenMetadata: SevenMetadata): string {
+  return JSON.stringify(SevenMetadata$outboundSchema.parse(sevenMetadata));
+}
+
+export function sevenMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<SevenMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SevenMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SevenMetadata' from JSON`,
+  );
+}
+
+/** @internal */
+export const SevenState$inboundSchema: z.ZodNativeEnum<typeof SevenState> = z
+  .nativeEnum(SevenState);
+
+/** @internal */
+export const SevenState$outboundSchema: z.ZodNativeEnum<typeof SevenState> =
+  SevenState$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SevenState$ {
+  /** @deprecated use `SevenState$inboundSchema` instead. */
+  export const inboundSchema = SevenState$inboundSchema;
+  /** @deprecated use `SevenState$outboundSchema` instead. */
+  export const outboundSchema = SevenState$outboundSchema;
+}
+
+/** @internal */
+export const SevenData$inboundSchema: z.ZodType<
+  SevenData,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  thumbnail_url: z.nullable(z.string()).optional(),
+  mux_playback_id: z.nullable(z.string()).optional(),
+  duration: z.nullable(z.number()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "thumbnail_url": "thumbnailUrl",
+    "mux_playback_id": "muxPlaybackId",
+  });
+});
+
+/** @internal */
+export type SevenData$Outbound = {
+  thumbnail_url?: string | null | undefined;
+  mux_playback_id?: string | null | undefined;
+  duration?: number | null | undefined;
+};
+
+/** @internal */
+export const SevenData$outboundSchema: z.ZodType<
+  SevenData$Outbound,
+  z.ZodTypeDef,
+  SevenData
+> = z.object({
+  thumbnailUrl: z.nullable(z.string()).optional(),
+  muxPlaybackId: z.nullable(z.string()).optional(),
+  duration: z.nullable(z.number()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    thumbnailUrl: "thumbnail_url",
+    muxPlaybackId: "mux_playback_id",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SevenData$ {
+  /** @deprecated use `SevenData$inboundSchema` instead. */
+  export const inboundSchema = SevenData$inboundSchema;
+  /** @deprecated use `SevenData$outboundSchema` instead. */
+  export const outboundSchema = SevenData$outboundSchema;
+  /** @deprecated use `SevenData$Outbound` instead. */
+  export type Outbound = SevenData$Outbound;
+}
+
+export function sevenDataToJSON(sevenData: SevenData): string {
+  return JSON.stringify(SevenData$outboundSchema.parse(sevenData));
+}
+
+export function sevenDataFromJSON(
+  jsonString: string,
+): SafeParseResult<SevenData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SevenData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SevenData' from JSON`,
+  );
+}
+
+/** @internal */
+export const Seven1$inboundSchema: z.ZodType<Seven1, z.ZodTypeDef, unknown> = z
+  .object({
+    id: z.string(),
+    url: z.nullable(z.string()),
+    deleted_at: z.nullable(z.string()).optional(),
+    metadata: z.lazy(() => SevenMetadata$inboundSchema),
+    last_error: z.nullable(z.string()).optional(),
+    type: z.literal("Block").default("Block").optional(),
+    source: z.literal("Block").default("Block").optional(),
+    category: z.literal("Asset").default("Asset").optional(),
+    state: SevenState$inboundSchema,
+    data: z.lazy(() => SevenData$inboundSchema),
+  }).transform((v) => {
+    return remap$(v, {
+      "deleted_at": "deletedAt",
+      "last_error": "lastError",
+    });
+  });
+
+/** @internal */
+export type Seven1$Outbound = {
+  id: string;
+  url: string | null;
+  deleted_at?: string | null | undefined;
+  metadata: SevenMetadata$Outbound;
+  last_error?: string | null | undefined;
+  type: "Block";
+  source: "Block";
+  category: "Asset";
+  state: string;
+  data: SevenData$Outbound;
+};
+
+/** @internal */
+export const Seven1$outboundSchema: z.ZodType<
+  Seven1$Outbound,
+  z.ZodTypeDef,
+  Seven1
+> = z.object({
+  id: z.string(),
+  url: z.nullable(z.string()),
+  deletedAt: z.nullable(z.string()).optional(),
+  metadata: z.lazy(() => SevenMetadata$outboundSchema),
+  lastError: z.nullable(z.string()).optional(),
+  type: z.literal("Block").default("Block" as const),
+  source: z.literal("Block").default("Block" as const),
+  category: z.literal("Asset").default("Asset" as const),
+  state: SevenState$outboundSchema,
+  data: z.lazy(() => SevenData$outboundSchema),
+}).transform((v) => {
+  return remap$(v, {
+    deletedAt: "deleted_at",
+    lastError: "last_error",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Seven1$ {
+  /** @deprecated use `Seven1$inboundSchema` instead. */
+  export const inboundSchema = Seven1$inboundSchema;
+  /** @deprecated use `Seven1$outboundSchema` instead. */
+  export const outboundSchema = Seven1$outboundSchema;
+  /** @deprecated use `Seven1$Outbound` instead. */
+  export type Outbound = Seven1$Outbound;
+}
+
+export function seven1ToJSON(seven1: Seven1): string {
+  return JSON.stringify(Seven1$outboundSchema.parse(seven1));
+}
+
+export function seven1FromJSON(
+  jsonString: string,
+): SafeParseResult<Seven1, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Seven1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Seven1' from JSON`,
+  );
+}
+
+/** @internal */
+export const Media7$inboundSchema: z.ZodType<Media7, z.ZodTypeDef, unknown> = z
+  .union([
+    z.lazy(() => Seven1$inboundSchema),
+    z.lazy(() => Seven2$inboundSchema),
+  ]);
+
+/** @internal */
+export type Media7$Outbound = Seven1$Outbound | Seven2$Outbound;
+
+/** @internal */
+export const Media7$outboundSchema: z.ZodType<
+  Media7$Outbound,
+  z.ZodTypeDef,
+  Media7
+> = z.union([
+  z.lazy(() => Seven1$outboundSchema),
+  z.lazy(() => Seven2$outboundSchema),
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Media7$ {
+  /** @deprecated use `Media7$inboundSchema` instead. */
+  export const inboundSchema = Media7$inboundSchema;
+  /** @deprecated use `Media7$outboundSchema` instead. */
+  export const outboundSchema = Media7$outboundSchema;
+  /** @deprecated use `Media7$Outbound` instead. */
+  export type Outbound = Media7$Outbound;
+}
+
+export function media7ToJSON(media7: Media7): string {
+  return JSON.stringify(Media7$outboundSchema.parse(media7));
+}
+
+export function media7FromJSON(
+  jsonString: string,
+): SafeParseResult<Media7, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Media7$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Media7' from JSON`,
+  );
+}
+
+/** @internal */
 export const SixMetadata$inboundSchema: z.ZodType<
   SixMetadata,
   z.ZodTypeDef,
@@ -2426,6 +3651,7 @@ export const GetSeries6Data$inboundSchema: z.ZodType<
   ugc_creator_id: z.string(),
   ugc_preset_id: z.string(),
   created_at: z.string(),
+  hook: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "ugc_creator_id": "ugcCreatorId",
@@ -2440,6 +3666,7 @@ export type GetSeries6Data$Outbound = {
   ugc_creator_id: string;
   ugc_preset_id: string;
   created_at: string;
+  hook?: string | null | undefined;
 };
 
 /** @internal */
@@ -2452,6 +3679,7 @@ export const GetSeries6Data$outboundSchema: z.ZodType<
   ugcCreatorId: z.string(),
   ugcPresetId: z.string(),
   createdAt: z.string(),
+  hook: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     ugcCreatorId: "ugc_creator_id",
@@ -2513,9 +3741,9 @@ export const Six2$inboundSchema: z.ZodType<Six2, z.ZodTypeDef, unknown> = z
     deleted_at: z.nullable(z.string()).optional(),
     metadata: z.lazy(() => SixMetadata$inboundSchema),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("UgcVideo").optional(),
+    type: z.literal("UgcVideo").default("UgcVideo").optional(),
     source: z.nullable(GetSeries6Source$inboundSchema),
-    category: z.literal("Ugc").optional(),
+    category: z.literal("Ugc").default("Ugc").optional(),
     data: z.lazy(() => GetSeries6Data$inboundSchema),
     state: SixState$inboundSchema,
   }).transform((v) => {
@@ -2607,11 +3835,13 @@ export namespace SixSource$ {
 export const SixData$inboundSchema: z.ZodType<SixData, z.ZodTypeDef, unknown> =
   z.object({
     id: z.string(),
+    hook: z.nullable(z.string()).optional(),
   });
 
 /** @internal */
 export type SixData$Outbound = {
   id: string;
+  hook?: string | null | undefined;
 };
 
 /** @internal */
@@ -2621,6 +3851,7 @@ export const SixData$outboundSchema: z.ZodType<
   SixData
 > = z.object({
   id: z.string(),
+  hook: z.nullable(z.string()).optional(),
 });
 
 /**
@@ -2657,11 +3888,11 @@ export const Six1$inboundSchema: z.ZodType<Six1, z.ZodTypeDef, unknown> = z
     deleted_at: z.nullable(z.string()).optional(),
     metadata: z.any().optional(),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("UgcCreator").optional(),
+    type: z.literal("UgcCreator").default("UgcCreator").optional(),
     source: z.nullable(SixSource$inboundSchema),
-    category: z.literal("Ugc").optional(),
+    category: z.literal("Ugc").default("Ugc").optional(),
     data: z.lazy(() => SixData$inboundSchema),
-    state: z.literal("completed").optional(),
+    state: z.literal("completed").default("completed").optional(),
   }).transform((v) => {
     return remap$(v, {
       "deleted_at": "deletedAt",
@@ -2730,10 +3961,10 @@ export function six1FromJSON(
 
 /** @internal */
 export const Media6$inboundSchema: z.ZodType<Media6, z.ZodTypeDef, unknown> = z
-  .union([z.lazy(() => Six1$inboundSchema), z.lazy(() => Six2$inboundSchema)]);
+  .union([z.lazy(() => Six2$inboundSchema), z.lazy(() => Six1$inboundSchema)]);
 
 /** @internal */
-export type Media6$Outbound = Six1$Outbound | Six2$Outbound;
+export type Media6$Outbound = Six2$Outbound | Six1$Outbound;
 
 /** @internal */
 export const Media6$outboundSchema: z.ZodType<
@@ -2741,8 +3972,8 @@ export const Media6$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Media6
 > = z.union([
-  z.lazy(() => Six1$outboundSchema),
   z.lazy(() => Six2$outboundSchema),
+  z.lazy(() => Six1$outboundSchema),
 ]);
 
 /**
@@ -2773,8 +4004,8 @@ export function media6FromJSON(
 }
 
 /** @internal */
-export const MediaMetadata$inboundSchema: z.ZodType<
-  MediaMetadata,
+export const GetSeriesMediaMetadata$inboundSchema: z.ZodType<
+  GetSeriesMediaMetadata,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -2792,7 +4023,7 @@ export const MediaMetadata$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type MediaMetadata$Outbound = {
+export type GetSeriesMediaMetadata$Outbound = {
   mux_playback_id: string | null;
   start_time: number | null;
   end_time: number | null;
@@ -2800,10 +4031,10 @@ export type MediaMetadata$Outbound = {
 };
 
 /** @internal */
-export const MediaMetadata$outboundSchema: z.ZodType<
-  MediaMetadata$Outbound,
+export const GetSeriesMediaMetadata$outboundSchema: z.ZodType<
+  GetSeriesMediaMetadata$Outbound,
   z.ZodTypeDef,
-  MediaMetadata
+  GetSeriesMediaMetadata
 > = z.object({
   muxPlaybackId: z.nullable(z.string()),
   startTime: z.nullable(z.number()),
@@ -2815,6 +4046,235 @@ export const MediaMetadata$outboundSchema: z.ZodType<
     startTime: "start_time",
     endTime: "end_time",
     durationTillEnd: "duration_till_end",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetSeriesMediaMetadata$ {
+  /** @deprecated use `GetSeriesMediaMetadata$inboundSchema` instead. */
+  export const inboundSchema = GetSeriesMediaMetadata$inboundSchema;
+  /** @deprecated use `GetSeriesMediaMetadata$outboundSchema` instead. */
+  export const outboundSchema = GetSeriesMediaMetadata$outboundSchema;
+  /** @deprecated use `GetSeriesMediaMetadata$Outbound` instead. */
+  export type Outbound = GetSeriesMediaMetadata$Outbound;
+}
+
+export function getSeriesMediaMetadataToJSON(
+  getSeriesMediaMetadata: GetSeriesMediaMetadata,
+): string {
+  return JSON.stringify(
+    GetSeriesMediaMetadata$outboundSchema.parse(getSeriesMediaMetadata),
+  );
+}
+
+export function getSeriesMediaMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<GetSeriesMediaMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetSeriesMediaMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetSeriesMediaMetadata' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetSeriesMediaSource$inboundSchema: z.ZodNativeEnum<
+  typeof GetSeriesMediaSource
+> = z.nativeEnum(GetSeriesMediaSource);
+
+/** @internal */
+export const GetSeriesMediaSource$outboundSchema: z.ZodNativeEnum<
+  typeof GetSeriesMediaSource
+> = GetSeriesMediaSource$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetSeriesMediaSource$ {
+  /** @deprecated use `GetSeriesMediaSource$inboundSchema` instead. */
+  export const inboundSchema = GetSeriesMediaSource$inboundSchema;
+  /** @deprecated use `GetSeriesMediaSource$outboundSchema` instead. */
+  export const outboundSchema = GetSeriesMediaSource$outboundSchema;
+}
+
+/** @internal */
+export const GetSeriesMediaData$inboundSchema: z.ZodType<
+  GetSeriesMediaData,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string(),
+  collection_id: z.string(),
+}).transform((v) => {
+  return remap$(v, {
+    "collection_id": "collectionId",
+  });
+});
+
+/** @internal */
+export type GetSeriesMediaData$Outbound = {
+  id: string;
+  collection_id: string;
+};
+
+/** @internal */
+export const GetSeriesMediaData$outboundSchema: z.ZodType<
+  GetSeriesMediaData$Outbound,
+  z.ZodTypeDef,
+  GetSeriesMediaData
+> = z.object({
+  id: z.string(),
+  collectionId: z.string(),
+}).transform((v) => {
+  return remap$(v, {
+    collectionId: "collection_id",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetSeriesMediaData$ {
+  /** @deprecated use `GetSeriesMediaData$inboundSchema` instead. */
+  export const inboundSchema = GetSeriesMediaData$inboundSchema;
+  /** @deprecated use `GetSeriesMediaData$outboundSchema` instead. */
+  export const outboundSchema = GetSeriesMediaData$outboundSchema;
+  /** @deprecated use `GetSeriesMediaData$Outbound` instead. */
+  export type Outbound = GetSeriesMediaData$Outbound;
+}
+
+export function getSeriesMediaDataToJSON(
+  getSeriesMediaData: GetSeriesMediaData,
+): string {
+  return JSON.stringify(
+    GetSeriesMediaData$outboundSchema.parse(getSeriesMediaData),
+  );
+}
+
+export function getSeriesMediaDataFromJSON(
+  jsonString: string,
+): SafeParseResult<GetSeriesMediaData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetSeriesMediaData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetSeriesMediaData' from JSON`,
+  );
+}
+
+/** @internal */
+export const Media5$inboundSchema: z.ZodType<Media5, z.ZodTypeDef, unknown> = z
+  .object({
+    url: z.nullable(z.string()),
+    deleted_at: z.nullable(z.string()).optional(),
+    metadata: z.lazy(() => GetSeriesMediaMetadata$inboundSchema),
+    last_error: z.nullable(z.string()).optional(),
+    type: z.literal("VideoClip").default("VideoClip").optional(),
+    source: z.nullable(GetSeriesMediaSource$inboundSchema),
+    category: z.literal("Gameplay").default("Gameplay").optional(),
+    state: z.literal("completed").default("completed").optional(),
+    data: z.lazy(() => GetSeriesMediaData$inboundSchema),
+  }).transform((v) => {
+    return remap$(v, {
+      "deleted_at": "deletedAt",
+      "last_error": "lastError",
+    });
+  });
+
+/** @internal */
+export type Media5$Outbound = {
+  url: string | null;
+  deleted_at?: string | null | undefined;
+  metadata: GetSeriesMediaMetadata$Outbound;
+  last_error?: string | null | undefined;
+  type: "VideoClip";
+  source: string | null;
+  category: "Gameplay";
+  state: "completed";
+  data: GetSeriesMediaData$Outbound;
+};
+
+/** @internal */
+export const Media5$outboundSchema: z.ZodType<
+  Media5$Outbound,
+  z.ZodTypeDef,
+  Media5
+> = z.object({
+  url: z.nullable(z.string()),
+  deletedAt: z.nullable(z.string()).optional(),
+  metadata: z.lazy(() => GetSeriesMediaMetadata$outboundSchema),
+  lastError: z.nullable(z.string()).optional(),
+  type: z.literal("VideoClip").default("VideoClip" as const),
+  source: z.nullable(GetSeriesMediaSource$outboundSchema),
+  category: z.literal("Gameplay").default("Gameplay" as const),
+  state: z.literal("completed").default("completed" as const),
+  data: z.lazy(() => GetSeriesMediaData$outboundSchema),
+}).transform((v) => {
+  return remap$(v, {
+    deletedAt: "deleted_at",
+    lastError: "last_error",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Media5$ {
+  /** @deprecated use `Media5$inboundSchema` instead. */
+  export const inboundSchema = Media5$inboundSchema;
+  /** @deprecated use `Media5$outboundSchema` instead. */
+  export const outboundSchema = Media5$outboundSchema;
+  /** @deprecated use `Media5$Outbound` instead. */
+  export type Outbound = Media5$Outbound;
+}
+
+export function media5ToJSON(media5: Media5): string {
+  return JSON.stringify(Media5$outboundSchema.parse(media5));
+}
+
+export function media5FromJSON(
+  jsonString: string,
+): SafeParseResult<Media5, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Media5$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Media5' from JSON`,
+  );
+}
+
+/** @internal */
+export const MediaMetadata$inboundSchema: z.ZodType<
+  MediaMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  source_media: z.any().optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "source_media": "sourceMedia",
+  });
+});
+
+/** @internal */
+export type MediaMetadata$Outbound = {
+  source_media?: any | undefined;
+};
+
+/** @internal */
+export const MediaMetadata$outboundSchema: z.ZodType<
+  MediaMetadata$Outbound,
+  z.ZodTypeDef,
+  MediaMetadata
+> = z.object({
+  sourceMedia: z.any().optional(),
+}).transform((v) => {
+  return remap$(v, {
+    sourceMedia: "source_media",
   });
 });
 
@@ -2865,225 +4325,6 @@ export namespace MediaSource$ {
 }
 
 /** @internal */
-export const MediaData$inboundSchema: z.ZodType<
-  MediaData,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  collection_id: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "collection_id": "collectionId",
-  });
-});
-
-/** @internal */
-export type MediaData$Outbound = {
-  id: string;
-  collection_id: string;
-};
-
-/** @internal */
-export const MediaData$outboundSchema: z.ZodType<
-  MediaData$Outbound,
-  z.ZodTypeDef,
-  MediaData
-> = z.object({
-  id: z.string(),
-  collectionId: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    collectionId: "collection_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MediaData$ {
-  /** @deprecated use `MediaData$inboundSchema` instead. */
-  export const inboundSchema = MediaData$inboundSchema;
-  /** @deprecated use `MediaData$outboundSchema` instead. */
-  export const outboundSchema = MediaData$outboundSchema;
-  /** @deprecated use `MediaData$Outbound` instead. */
-  export type Outbound = MediaData$Outbound;
-}
-
-export function mediaDataToJSON(mediaData: MediaData): string {
-  return JSON.stringify(MediaData$outboundSchema.parse(mediaData));
-}
-
-export function mediaDataFromJSON(
-  jsonString: string,
-): SafeParseResult<MediaData, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => MediaData$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'MediaData' from JSON`,
-  );
-}
-
-/** @internal */
-export const Media5$inboundSchema: z.ZodType<Media5, z.ZodTypeDef, unknown> = z
-  .object({
-    url: z.nullable(z.string()),
-    deleted_at: z.nullable(z.string()).optional(),
-    metadata: z.lazy(() => MediaMetadata$inboundSchema),
-    last_error: z.nullable(z.string()).optional(),
-    type: z.literal("VideoClip").optional(),
-    source: z.nullable(MediaSource$inboundSchema),
-    category: z.literal("Gameplay").optional(),
-    state: z.literal("completed").optional(),
-    data: z.lazy(() => MediaData$inboundSchema),
-  }).transform((v) => {
-    return remap$(v, {
-      "deleted_at": "deletedAt",
-      "last_error": "lastError",
-    });
-  });
-
-/** @internal */
-export type Media5$Outbound = {
-  url: string | null;
-  deleted_at?: string | null | undefined;
-  metadata: MediaMetadata$Outbound;
-  last_error?: string | null | undefined;
-  type: "VideoClip";
-  source: string | null;
-  category: "Gameplay";
-  state: "completed";
-  data: MediaData$Outbound;
-};
-
-/** @internal */
-export const Media5$outboundSchema: z.ZodType<
-  Media5$Outbound,
-  z.ZodTypeDef,
-  Media5
-> = z.object({
-  url: z.nullable(z.string()),
-  deletedAt: z.nullable(z.string()).optional(),
-  metadata: z.lazy(() => MediaMetadata$outboundSchema),
-  lastError: z.nullable(z.string()).optional(),
-  type: z.literal("VideoClip").default("VideoClip" as const),
-  source: z.nullable(MediaSource$outboundSchema),
-  category: z.literal("Gameplay").default("Gameplay" as const),
-  state: z.literal("completed").default("completed" as const),
-  data: z.lazy(() => MediaData$outboundSchema),
-}).transform((v) => {
-  return remap$(v, {
-    deletedAt: "deleted_at",
-    lastError: "last_error",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Media5$ {
-  /** @deprecated use `Media5$inboundSchema` instead. */
-  export const inboundSchema = Media5$inboundSchema;
-  /** @deprecated use `Media5$outboundSchema` instead. */
-  export const outboundSchema = Media5$outboundSchema;
-  /** @deprecated use `Media5$Outbound` instead. */
-  export type Outbound = Media5$Outbound;
-}
-
-export function media5ToJSON(media5: Media5): string {
-  return JSON.stringify(Media5$outboundSchema.parse(media5));
-}
-
-export function media5FromJSON(
-  jsonString: string,
-): SafeParseResult<Media5, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Media5$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Media5' from JSON`,
-  );
-}
-
-/** @internal */
-export const Metadata$inboundSchema: z.ZodType<
-  Metadata,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  source_media: z.any().optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "source_media": "sourceMedia",
-  });
-});
-
-/** @internal */
-export type Metadata$Outbound = {
-  source_media?: any | undefined;
-};
-
-/** @internal */
-export const Metadata$outboundSchema: z.ZodType<
-  Metadata$Outbound,
-  z.ZodTypeDef,
-  Metadata
-> = z.object({
-  sourceMedia: z.any().optional(),
-}).transform((v) => {
-  return remap$(v, {
-    sourceMedia: "source_media",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Metadata$ {
-  /** @deprecated use `Metadata$inboundSchema` instead. */
-  export const inboundSchema = Metadata$inboundSchema;
-  /** @deprecated use `Metadata$outboundSchema` instead. */
-  export const outboundSchema = Metadata$outboundSchema;
-  /** @deprecated use `Metadata$Outbound` instead. */
-  export type Outbound = Metadata$Outbound;
-}
-
-export function metadataToJSON(metadata: Metadata): string {
-  return JSON.stringify(Metadata$outboundSchema.parse(metadata));
-}
-
-export function metadataFromJSON(
-  jsonString: string,
-): SafeParseResult<Metadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Metadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Metadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const Source$inboundSchema: z.ZodNativeEnum<typeof Source> = z
-  .nativeEnum(Source);
-
-/** @internal */
-export const Source$outboundSchema: z.ZodNativeEnum<typeof Source> =
-  Source$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Source$ {
-  /** @deprecated use `Source$inboundSchema` instead. */
-  export const inboundSchema = Source$inboundSchema;
-  /** @deprecated use `Source$outboundSchema` instead. */
-  export const outboundSchema = Source$outboundSchema;
-}
-
-/** @internal */
 export const Category$inboundSchema: z.ZodNativeEnum<typeof Category> = z
   .nativeEnum(Category);
 
@@ -3103,8 +4344,8 @@ export namespace Category$ {
 }
 
 /** @internal */
-export const GetSeriesMediaData$inboundSchema: z.ZodType<
-  GetSeriesMediaData,
+export const GetSeriesMediaResponse200Data$inboundSchema: z.ZodType<
+  GetSeriesMediaResponse200Data,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -3113,16 +4354,16 @@ export const GetSeriesMediaData$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type GetSeriesMediaData$Outbound = {
+export type GetSeriesMediaResponse200Data$Outbound = {
   width: number;
   height: number;
 };
 
 /** @internal */
-export const GetSeriesMediaData$outboundSchema: z.ZodType<
-  GetSeriesMediaData$Outbound,
+export const GetSeriesMediaResponse200Data$outboundSchema: z.ZodType<
+  GetSeriesMediaResponse200Data$Outbound,
   z.ZodTypeDef,
-  GetSeriesMediaData
+  GetSeriesMediaResponse200Data
 > = z.object({
   width: z.number(),
   height: z.number(),
@@ -3132,30 +4373,32 @@ export const GetSeriesMediaData$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetSeriesMediaData$ {
-  /** @deprecated use `GetSeriesMediaData$inboundSchema` instead. */
-  export const inboundSchema = GetSeriesMediaData$inboundSchema;
-  /** @deprecated use `GetSeriesMediaData$outboundSchema` instead. */
-  export const outboundSchema = GetSeriesMediaData$outboundSchema;
-  /** @deprecated use `GetSeriesMediaData$Outbound` instead. */
-  export type Outbound = GetSeriesMediaData$Outbound;
+export namespace GetSeriesMediaResponse200Data$ {
+  /** @deprecated use `GetSeriesMediaResponse200Data$inboundSchema` instead. */
+  export const inboundSchema = GetSeriesMediaResponse200Data$inboundSchema;
+  /** @deprecated use `GetSeriesMediaResponse200Data$outboundSchema` instead. */
+  export const outboundSchema = GetSeriesMediaResponse200Data$outboundSchema;
+  /** @deprecated use `GetSeriesMediaResponse200Data$Outbound` instead. */
+  export type Outbound = GetSeriesMediaResponse200Data$Outbound;
 }
 
-export function getSeriesMediaDataToJSON(
-  getSeriesMediaData: GetSeriesMediaData,
+export function getSeriesMediaResponse200DataToJSON(
+  getSeriesMediaResponse200Data: GetSeriesMediaResponse200Data,
 ): string {
   return JSON.stringify(
-    GetSeriesMediaData$outboundSchema.parse(getSeriesMediaData),
+    GetSeriesMediaResponse200Data$outboundSchema.parse(
+      getSeriesMediaResponse200Data,
+    ),
   );
 }
 
-export function getSeriesMediaDataFromJSON(
+export function getSeriesMediaResponse200DataFromJSON(
   jsonString: string,
-): SafeParseResult<GetSeriesMediaData, SDKValidationError> {
+): SafeParseResult<GetSeriesMediaResponse200Data, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => GetSeriesMediaData$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetSeriesMediaData' from JSON`,
+    (x) => GetSeriesMediaResponse200Data$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetSeriesMediaResponse200Data' from JSON`,
   );
 }
 
@@ -3385,56 +4628,63 @@ export function mediaResultsFromJSON(
 }
 
 /** @internal */
-export const Data$inboundSchema: z.ZodType<Data, z.ZodTypeDef, unknown> = z
-  .object({
-    url: z.nullable(z.string()).optional(),
-    path: z.nullable(z.string()).optional(),
-    data: z.nullable(z.lazy(() => GetSeriesMediaData$inboundSchema)).optional(),
-    results: z.lazy(() => MediaResults$inboundSchema).optional(),
-  });
+export const MediaData$inboundSchema: z.ZodType<
+  MediaData,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  url: z.nullable(z.string()).optional(),
+  path: z.nullable(z.string()).optional(),
+  data: z.nullable(z.lazy(() => GetSeriesMediaResponse200Data$inboundSchema))
+    .optional(),
+  results: z.lazy(() => MediaResults$inboundSchema).optional(),
+});
 
 /** @internal */
-export type Data$Outbound = {
+export type MediaData$Outbound = {
   url?: string | null | undefined;
   path?: string | null | undefined;
-  data?: GetSeriesMediaData$Outbound | null | undefined;
+  data?: GetSeriesMediaResponse200Data$Outbound | null | undefined;
   results?: MediaResults$Outbound | undefined;
 };
 
 /** @internal */
-export const Data$outboundSchema: z.ZodType<Data$Outbound, z.ZodTypeDef, Data> =
-  z.object({
-    url: z.nullable(z.string()).optional(),
-    path: z.nullable(z.string()).optional(),
-    data: z.nullable(z.lazy(() => GetSeriesMediaData$outboundSchema))
-      .optional(),
-    results: z.lazy(() => MediaResults$outboundSchema).optional(),
-  });
+export const MediaData$outboundSchema: z.ZodType<
+  MediaData$Outbound,
+  z.ZodTypeDef,
+  MediaData
+> = z.object({
+  url: z.nullable(z.string()).optional(),
+  path: z.nullable(z.string()).optional(),
+  data: z.nullable(z.lazy(() => GetSeriesMediaResponse200Data$outboundSchema))
+    .optional(),
+  results: z.lazy(() => MediaResults$outboundSchema).optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Data$ {
-  /** @deprecated use `Data$inboundSchema` instead. */
-  export const inboundSchema = Data$inboundSchema;
-  /** @deprecated use `Data$outboundSchema` instead. */
-  export const outboundSchema = Data$outboundSchema;
-  /** @deprecated use `Data$Outbound` instead. */
-  export type Outbound = Data$Outbound;
+export namespace MediaData$ {
+  /** @deprecated use `MediaData$inboundSchema` instead. */
+  export const inboundSchema = MediaData$inboundSchema;
+  /** @deprecated use `MediaData$outboundSchema` instead. */
+  export const outboundSchema = MediaData$outboundSchema;
+  /** @deprecated use `MediaData$Outbound` instead. */
+  export type Outbound = MediaData$Outbound;
 }
 
-export function dataToJSON(data: Data): string {
-  return JSON.stringify(Data$outboundSchema.parse(data));
+export function mediaDataToJSON(mediaData: MediaData): string {
+  return JSON.stringify(MediaData$outboundSchema.parse(mediaData));
 }
 
-export function dataFromJSON(
+export function mediaDataFromJSON(
   jsonString: string,
-): SafeParseResult<Data, SDKValidationError> {
+): SafeParseResult<MediaData, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Data$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Data' from JSON`,
+    (x) => MediaData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MediaData' from JSON`,
   );
 }
 
@@ -3463,12 +4713,12 @@ export const Media4$inboundSchema: z.ZodType<Media4, z.ZodTypeDef, unknown> = z
     id: z.string(),
     url: z.nullable(z.string()),
     deleted_at: z.nullable(z.string()).optional(),
-    metadata: z.lazy(() => Metadata$inboundSchema),
+    metadata: z.lazy(() => MediaMetadata$inboundSchema),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("Segmentation").optional(),
-    source: Source$inboundSchema,
+    type: z.literal("Segmentation").default("Segmentation").optional(),
+    source: MediaSource$inboundSchema,
     category: Category$inboundSchema,
-    data: z.lazy(() => Data$inboundSchema),
+    data: z.lazy(() => MediaData$inboundSchema),
     state: MediaState$inboundSchema,
   }).transform((v) => {
     return remap$(v, {
@@ -3482,12 +4732,12 @@ export type Media4$Outbound = {
   id: string;
   url: string | null;
   deleted_at?: string | null | undefined;
-  metadata: Metadata$Outbound;
+  metadata: MediaMetadata$Outbound;
   last_error?: string | null | undefined;
   type: "Segmentation";
   source: string;
   category: string;
-  data: Data$Outbound;
+  data: MediaData$Outbound;
   state: string;
 };
 
@@ -3500,12 +4750,12 @@ export const Media4$outboundSchema: z.ZodType<
   id: z.string(),
   url: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()).optional(),
-  metadata: z.lazy(() => Metadata$outboundSchema),
+  metadata: z.lazy(() => MediaMetadata$outboundSchema),
   lastError: z.nullable(z.string()).optional(),
   type: z.literal("Segmentation").default("Segmentation" as const),
-  source: Source$outboundSchema,
+  source: MediaSource$outboundSchema,
   category: Category$outboundSchema,
-  data: z.lazy(() => Data$outboundSchema),
+  data: z.lazy(() => MediaData$outboundSchema),
   state: MediaState$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -3718,9 +4968,10 @@ export const Three4$inboundSchema: z.ZodType<Three4, z.ZodTypeDef, unknown> = z
     metadata: z.lazy(() => GetSeries3Response200Metadata$inboundSchema),
     last_error: z.nullable(z.string()).optional(),
     source: GetSeries3Response200Source$inboundSchema,
-    category: z.literal("UserUploaded").optional(),
+    category: z.literal("UserUploaded").default("UserUploaded").optional(),
     state: GetSeries3Response200State$inboundSchema,
-    type: z.literal("UserImageFromPicker").optional(),
+    type: z.literal("UserImageFromPicker").default("UserImageFromPicker")
+      .optional(),
     data: z.lazy(() => GetSeries3Response200Data$inboundSchema),
   }).transform((v) => {
     return remap$(v, {
@@ -4251,8 +5502,9 @@ export const Three3$inboundSchema: z.ZodType<Three3, z.ZodTypeDef, unknown> = z
     metadata: z.lazy(() => GetSeries3ResponseMetadata$inboundSchema),
     last_error: z.nullable(z.string()).optional(),
     source: GetSeries3ResponseSource$inboundSchema,
-    category: z.literal("UserUploaded").optional(),
-    type: z.literal("UserImageSegmentation").optional(),
+    category: z.literal("UserUploaded").default("UserUploaded").optional(),
+    type: z.literal("UserImageSegmentation").default("UserImageSegmentation")
+      .optional(),
     data: z.lazy(() => GetSeries3ResponseData$inboundSchema),
     state: GetSeries3ResponseState$inboundSchema,
   }).transform((v) => {
@@ -4510,9 +5762,9 @@ export const Three2$inboundSchema: z.ZodType<Three2, z.ZodTypeDef, unknown> = z
     metadata: z.lazy(() => GetSeries3Metadata$inboundSchema),
     last_error: z.nullable(z.string()).optional(),
     source: GetSeries3Source$inboundSchema,
-    category: z.literal("UserUploaded").optional(),
+    category: z.literal("UserUploaded").default("UserUploaded").optional(),
     state: GetSeries3State$inboundSchema,
-    type: z.literal("UserVideo").optional(),
+    type: z.literal("UserVideo").default("UserVideo").optional(),
     data: z.lazy(() => GetSeries3Data$inboundSchema),
   }).transform((v) => {
     return remap$(v, {
@@ -4759,9 +6011,9 @@ export const Three1$inboundSchema: z.ZodType<Three1, z.ZodTypeDef, unknown> = z
     metadata: z.lazy(() => ThreeMetadata$inboundSchema),
     last_error: z.nullable(z.string()).optional(),
     source: ThreeSource$inboundSchema,
-    category: z.literal("UserUploaded").optional(),
+    category: z.literal("UserUploaded").default("UserUploaded").optional(),
     state: ThreeState$inboundSchema,
-    type: z.literal("UserImage").optional(),
+    type: z.literal("UserImage").default("UserImage").optional(),
     data: z.lazy(() => ThreeData$inboundSchema),
   }).transform((v) => {
     return remap$(v, {
@@ -4890,8 +6142,8 @@ export function media3FromJSON(
 }
 
 /** @internal */
-export const GetSeries2Metadata$inboundSchema: z.ZodType<
-  GetSeries2Metadata,
+export const GetSeries2ResponseMetadata$inboundSchema: z.ZodType<
+  GetSeries2ResponseMetadata,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -4906,17 +6158,17 @@ export const GetSeries2Metadata$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type GetSeries2Metadata$Outbound = {
+export type GetSeries2ResponseMetadata$Outbound = {
   prompt: string;
   source_image_url?: string | null | undefined;
   parent_media_id?: string | null | undefined;
 };
 
 /** @internal */
-export const GetSeries2Metadata$outboundSchema: z.ZodType<
-  GetSeries2Metadata$Outbound,
+export const GetSeries2ResponseMetadata$outboundSchema: z.ZodType<
+  GetSeries2ResponseMetadata$Outbound,
   z.ZodTypeDef,
-  GetSeries2Metadata
+  GetSeries2ResponseMetadata
 > = z.object({
   prompt: z.string(),
   sourceImageUrl: z.nullable(z.string()).optional(),
@@ -4925,6 +6177,304 @@ export const GetSeries2Metadata$outboundSchema: z.ZodType<
   return remap$(v, {
     sourceImageUrl: "source_image_url",
     parentMediaId: "parent_media_id",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetSeries2ResponseMetadata$ {
+  /** @deprecated use `GetSeries2ResponseMetadata$inboundSchema` instead. */
+  export const inboundSchema = GetSeries2ResponseMetadata$inboundSchema;
+  /** @deprecated use `GetSeries2ResponseMetadata$outboundSchema` instead. */
+  export const outboundSchema = GetSeries2ResponseMetadata$outboundSchema;
+  /** @deprecated use `GetSeries2ResponseMetadata$Outbound` instead. */
+  export type Outbound = GetSeries2ResponseMetadata$Outbound;
+}
+
+export function getSeries2ResponseMetadataToJSON(
+  getSeries2ResponseMetadata: GetSeries2ResponseMetadata,
+): string {
+  return JSON.stringify(
+    GetSeries2ResponseMetadata$outboundSchema.parse(getSeries2ResponseMetadata),
+  );
+}
+
+export function getSeries2ResponseMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<GetSeries2ResponseMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetSeries2ResponseMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetSeries2ResponseMetadata' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetSeries2ResponseSource$inboundSchema: z.ZodNativeEnum<
+  typeof GetSeries2ResponseSource
+> = z.nativeEnum(GetSeries2ResponseSource);
+
+/** @internal */
+export const GetSeries2ResponseSource$outboundSchema: z.ZodNativeEnum<
+  typeof GetSeries2ResponseSource
+> = GetSeries2ResponseSource$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetSeries2ResponseSource$ {
+  /** @deprecated use `GetSeries2ResponseSource$inboundSchema` instead. */
+  export const inboundSchema = GetSeries2ResponseSource$inboundSchema;
+  /** @deprecated use `GetSeries2ResponseSource$outboundSchema` instead. */
+  export const outboundSchema = GetSeries2ResponseSource$outboundSchema;
+}
+
+/** @internal */
+export const GetSeries2ResponseState$inboundSchema: z.ZodNativeEnum<
+  typeof GetSeries2ResponseState
+> = z.nativeEnum(GetSeries2ResponseState);
+
+/** @internal */
+export const GetSeries2ResponseState$outboundSchema: z.ZodNativeEnum<
+  typeof GetSeries2ResponseState
+> = GetSeries2ResponseState$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetSeries2ResponseState$ {
+  /** @deprecated use `GetSeries2ResponseState$inboundSchema` instead. */
+  export const inboundSchema = GetSeries2ResponseState$inboundSchema;
+  /** @deprecated use `GetSeries2ResponseState$outboundSchema` instead. */
+  export const outboundSchema = GetSeries2ResponseState$outboundSchema;
+}
+
+/** @internal */
+export const GetSeries2ResponseData$inboundSchema: z.ZodType<
+  GetSeries2ResponseData,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  luma_id: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "luma_id": "lumaId",
+  });
+});
+
+/** @internal */
+export type GetSeries2ResponseData$Outbound = {
+  luma_id?: string | null | undefined;
+};
+
+/** @internal */
+export const GetSeries2ResponseData$outboundSchema: z.ZodType<
+  GetSeries2ResponseData$Outbound,
+  z.ZodTypeDef,
+  GetSeries2ResponseData
+> = z.object({
+  lumaId: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    lumaId: "luma_id",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetSeries2ResponseData$ {
+  /** @deprecated use `GetSeries2ResponseData$inboundSchema` instead. */
+  export const inboundSchema = GetSeries2ResponseData$inboundSchema;
+  /** @deprecated use `GetSeries2ResponseData$outboundSchema` instead. */
+  export const outboundSchema = GetSeries2ResponseData$outboundSchema;
+  /** @deprecated use `GetSeries2ResponseData$Outbound` instead. */
+  export type Outbound = GetSeries2ResponseData$Outbound;
+}
+
+export function getSeries2ResponseDataToJSON(
+  getSeries2ResponseData: GetSeries2ResponseData,
+): string {
+  return JSON.stringify(
+    GetSeries2ResponseData$outboundSchema.parse(getSeries2ResponseData),
+  );
+}
+
+export function getSeries2ResponseDataFromJSON(
+  jsonString: string,
+): SafeParseResult<GetSeries2ResponseData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetSeries2ResponseData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetSeries2ResponseData' from JSON`,
+  );
+}
+
+/** @internal */
+export const Two3$inboundSchema: z.ZodType<Two3, z.ZodTypeDef, unknown> = z
+  .object({
+    id: z.string(),
+    url: z.nullable(z.string()),
+    deleted_at: z.nullable(z.string()).optional(),
+    metadata: z.lazy(() => GetSeries2ResponseMetadata$inboundSchema),
+    last_error: z.nullable(z.string()).optional(),
+    type: z.literal("LumaGeneratedVideo").default("LumaGeneratedVideo")
+      .optional(),
+    source: z.nullable(GetSeries2ResponseSource$inboundSchema),
+    category: z.literal("AIGenerated").default("AIGenerated").optional(),
+    state: GetSeries2ResponseState$inboundSchema,
+    data: z.nullable(z.lazy(() => GetSeries2ResponseData$inboundSchema)),
+  }).transform((v) => {
+    return remap$(v, {
+      "deleted_at": "deletedAt",
+      "last_error": "lastError",
+    });
+  });
+
+/** @internal */
+export type Two3$Outbound = {
+  id: string;
+  url: string | null;
+  deleted_at?: string | null | undefined;
+  metadata: GetSeries2ResponseMetadata$Outbound;
+  last_error?: string | null | undefined;
+  type: "LumaGeneratedVideo";
+  source: string | null;
+  category: "AIGenerated";
+  state: string;
+  data: GetSeries2ResponseData$Outbound | null;
+};
+
+/** @internal */
+export const Two3$outboundSchema: z.ZodType<Two3$Outbound, z.ZodTypeDef, Two3> =
+  z.object({
+    id: z.string(),
+    url: z.nullable(z.string()),
+    deletedAt: z.nullable(z.string()).optional(),
+    metadata: z.lazy(() => GetSeries2ResponseMetadata$outboundSchema),
+    lastError: z.nullable(z.string()).optional(),
+    type: z.literal("LumaGeneratedVideo").default(
+      "LumaGeneratedVideo" as const,
+    ),
+    source: z.nullable(GetSeries2ResponseSource$outboundSchema),
+    category: z.literal("AIGenerated").default("AIGenerated" as const),
+    state: GetSeries2ResponseState$outboundSchema,
+    data: z.nullable(z.lazy(() => GetSeries2ResponseData$outboundSchema)),
+  }).transform((v) => {
+    return remap$(v, {
+      deletedAt: "deleted_at",
+      lastError: "last_error",
+    });
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Two3$ {
+  /** @deprecated use `Two3$inboundSchema` instead. */
+  export const inboundSchema = Two3$inboundSchema;
+  /** @deprecated use `Two3$outboundSchema` instead. */
+  export const outboundSchema = Two3$outboundSchema;
+  /** @deprecated use `Two3$Outbound` instead. */
+  export type Outbound = Two3$Outbound;
+}
+
+export function two3ToJSON(two3: Two3): string {
+  return JSON.stringify(Two3$outboundSchema.parse(two3));
+}
+
+export function two3FromJSON(
+  jsonString: string,
+): SafeParseResult<Two3, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Two3$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Two3' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetSeries2AnimationModel$inboundSchema: z.ZodNativeEnum<
+  typeof GetSeries2AnimationModel
+> = z.nativeEnum(GetSeries2AnimationModel);
+
+/** @internal */
+export const GetSeries2AnimationModel$outboundSchema: z.ZodNativeEnum<
+  typeof GetSeries2AnimationModel
+> = GetSeries2AnimationModel$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetSeries2AnimationModel$ {
+  /** @deprecated use `GetSeries2AnimationModel$inboundSchema` instead. */
+  export const inboundSchema = GetSeries2AnimationModel$inboundSchema;
+  /** @deprecated use `GetSeries2AnimationModel$outboundSchema` instead. */
+  export const outboundSchema = GetSeries2AnimationModel$outboundSchema;
+}
+
+/** @internal */
+export const GetSeries2Metadata$inboundSchema: z.ZodType<
+  GetSeries2Metadata,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  source_image_url: z.nullable(z.string()).optional(),
+  parent_media_id: z.nullable(z.string()).optional(),
+  animation_prompt: z.nullable(z.string()).optional(),
+  animation_model: z.nullable(GetSeries2AnimationModel$inboundSchema)
+    .optional(),
+  image_style_preset_id: z.nullable(z.string()).optional(),
+  image_style_custom_prompt: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "source_image_url": "sourceImageUrl",
+    "parent_media_id": "parentMediaId",
+    "animation_prompt": "animationPrompt",
+    "animation_model": "animationModel",
+    "image_style_preset_id": "imageStylePresetId",
+    "image_style_custom_prompt": "imageStyleCustomPrompt",
+  });
+});
+
+/** @internal */
+export type GetSeries2Metadata$Outbound = {
+  source_image_url?: string | null | undefined;
+  parent_media_id?: string | null | undefined;
+  animation_prompt?: string | null | undefined;
+  animation_model?: string | null | undefined;
+  image_style_preset_id?: string | null | undefined;
+  image_style_custom_prompt?: string | null | undefined;
+};
+
+/** @internal */
+export const GetSeries2Metadata$outboundSchema: z.ZodType<
+  GetSeries2Metadata$Outbound,
+  z.ZodTypeDef,
+  GetSeries2Metadata
+> = z.object({
+  sourceImageUrl: z.nullable(z.string()).optional(),
+  parentMediaId: z.nullable(z.string()).optional(),
+  animationPrompt: z.nullable(z.string()).optional(),
+  animationModel: z.nullable(GetSeries2AnimationModel$outboundSchema)
+    .optional(),
+  imageStylePresetId: z.nullable(z.string()).optional(),
+  imageStyleCustomPrompt: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    sourceImageUrl: "source_image_url",
+    parentMediaId: "parent_media_id",
+    animationPrompt: "animation_prompt",
+    animationModel: "animation_model",
+    imageStylePresetId: "image_style_preset_id",
+    imageStyleCustomPrompt: "image_style_custom_prompt",
   });
 });
 
@@ -4999,252 +6549,6 @@ export namespace GetSeries2State$ {
   export const inboundSchema = GetSeries2State$inboundSchema;
   /** @deprecated use `GetSeries2State$outboundSchema` instead. */
   export const outboundSchema = GetSeries2State$outboundSchema;
-}
-
-/** @internal */
-export const GetSeries2ResponseData$inboundSchema: z.ZodType<
-  GetSeries2ResponseData,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  luma_id: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "luma_id": "lumaId",
-  });
-});
-
-/** @internal */
-export type GetSeries2ResponseData$Outbound = {
-  luma_id?: string | null | undefined;
-};
-
-/** @internal */
-export const GetSeries2ResponseData$outboundSchema: z.ZodType<
-  GetSeries2ResponseData$Outbound,
-  z.ZodTypeDef,
-  GetSeries2ResponseData
-> = z.object({
-  lumaId: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    lumaId: "luma_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSeries2ResponseData$ {
-  /** @deprecated use `GetSeries2ResponseData$inboundSchema` instead. */
-  export const inboundSchema = GetSeries2ResponseData$inboundSchema;
-  /** @deprecated use `GetSeries2ResponseData$outboundSchema` instead. */
-  export const outboundSchema = GetSeries2ResponseData$outboundSchema;
-  /** @deprecated use `GetSeries2ResponseData$Outbound` instead. */
-  export type Outbound = GetSeries2ResponseData$Outbound;
-}
-
-export function getSeries2ResponseDataToJSON(
-  getSeries2ResponseData: GetSeries2ResponseData,
-): string {
-  return JSON.stringify(
-    GetSeries2ResponseData$outboundSchema.parse(getSeries2ResponseData),
-  );
-}
-
-export function getSeries2ResponseDataFromJSON(
-  jsonString: string,
-): SafeParseResult<GetSeries2ResponseData, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetSeries2ResponseData$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetSeries2ResponseData' from JSON`,
-  );
-}
-
-/** @internal */
-export const Two3$inboundSchema: z.ZodType<Two3, z.ZodTypeDef, unknown> = z
-  .object({
-    id: z.string(),
-    url: z.nullable(z.string()),
-    deleted_at: z.nullable(z.string()).optional(),
-    metadata: z.lazy(() => GetSeries2Metadata$inboundSchema),
-    last_error: z.nullable(z.string()).optional(),
-    type: z.literal("LumaGeneratedVideo").optional(),
-    source: z.nullable(GetSeries2Source$inboundSchema),
-    category: z.literal("AIGenerated").optional(),
-    state: GetSeries2State$inboundSchema,
-    data: z.nullable(z.lazy(() => GetSeries2ResponseData$inboundSchema)),
-  }).transform((v) => {
-    return remap$(v, {
-      "deleted_at": "deletedAt",
-      "last_error": "lastError",
-    });
-  });
-
-/** @internal */
-export type Two3$Outbound = {
-  id: string;
-  url: string | null;
-  deleted_at?: string | null | undefined;
-  metadata: GetSeries2Metadata$Outbound;
-  last_error?: string | null | undefined;
-  type: "LumaGeneratedVideo";
-  source: string | null;
-  category: "AIGenerated";
-  state: string;
-  data: GetSeries2ResponseData$Outbound | null;
-};
-
-/** @internal */
-export const Two3$outboundSchema: z.ZodType<Two3$Outbound, z.ZodTypeDef, Two3> =
-  z.object({
-    id: z.string(),
-    url: z.nullable(z.string()),
-    deletedAt: z.nullable(z.string()).optional(),
-    metadata: z.lazy(() => GetSeries2Metadata$outboundSchema),
-    lastError: z.nullable(z.string()).optional(),
-    type: z.literal("LumaGeneratedVideo").default(
-      "LumaGeneratedVideo" as const,
-    ),
-    source: z.nullable(GetSeries2Source$outboundSchema),
-    category: z.literal("AIGenerated").default("AIGenerated" as const),
-    state: GetSeries2State$outboundSchema,
-    data: z.nullable(z.lazy(() => GetSeries2ResponseData$outboundSchema)),
-  }).transform((v) => {
-    return remap$(v, {
-      deletedAt: "deleted_at",
-      lastError: "last_error",
-    });
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Two3$ {
-  /** @deprecated use `Two3$inboundSchema` instead. */
-  export const inboundSchema = Two3$inboundSchema;
-  /** @deprecated use `Two3$outboundSchema` instead. */
-  export const outboundSchema = Two3$outboundSchema;
-  /** @deprecated use `Two3$Outbound` instead. */
-  export type Outbound = Two3$Outbound;
-}
-
-export function two3ToJSON(two3: Two3): string {
-  return JSON.stringify(Two3$outboundSchema.parse(two3));
-}
-
-export function two3FromJSON(
-  jsonString: string,
-): SafeParseResult<Two3, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Two3$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Two3' from JSON`,
-  );
-}
-
-/** @internal */
-export const TwoMetadata$inboundSchema: z.ZodType<
-  TwoMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  source_image_url: z.nullable(z.string()).optional(),
-  parent_media_id: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "source_image_url": "sourceImageUrl",
-    "parent_media_id": "parentMediaId",
-  });
-});
-
-/** @internal */
-export type TwoMetadata$Outbound = {
-  source_image_url?: string | null | undefined;
-  parent_media_id?: string | null | undefined;
-};
-
-/** @internal */
-export const TwoMetadata$outboundSchema: z.ZodType<
-  TwoMetadata$Outbound,
-  z.ZodTypeDef,
-  TwoMetadata
-> = z.object({
-  sourceImageUrl: z.nullable(z.string()).optional(),
-  parentMediaId: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    sourceImageUrl: "source_image_url",
-    parentMediaId: "parent_media_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TwoMetadata$ {
-  /** @deprecated use `TwoMetadata$inboundSchema` instead. */
-  export const inboundSchema = TwoMetadata$inboundSchema;
-  /** @deprecated use `TwoMetadata$outboundSchema` instead. */
-  export const outboundSchema = TwoMetadata$outboundSchema;
-  /** @deprecated use `TwoMetadata$Outbound` instead. */
-  export type Outbound = TwoMetadata$Outbound;
-}
-
-export function twoMetadataToJSON(twoMetadata: TwoMetadata): string {
-  return JSON.stringify(TwoMetadata$outboundSchema.parse(twoMetadata));
-}
-
-export function twoMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<TwoMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => TwoMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TwoMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const TwoSource$inboundSchema: z.ZodNativeEnum<typeof TwoSource> = z
-  .nativeEnum(TwoSource);
-
-/** @internal */
-export const TwoSource$outboundSchema: z.ZodNativeEnum<typeof TwoSource> =
-  TwoSource$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TwoSource$ {
-  /** @deprecated use `TwoSource$inboundSchema` instead. */
-  export const inboundSchema = TwoSource$inboundSchema;
-  /** @deprecated use `TwoSource$outboundSchema` instead. */
-  export const outboundSchema = TwoSource$outboundSchema;
-}
-
-/** @internal */
-export const TwoState$inboundSchema: z.ZodNativeEnum<typeof TwoState> = z
-  .nativeEnum(TwoState);
-
-/** @internal */
-export const TwoState$outboundSchema: z.ZodNativeEnum<typeof TwoState> =
-  TwoState$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TwoState$ {
-  /** @deprecated use `TwoState$inboundSchema` instead. */
-  export const inboundSchema = TwoState$inboundSchema;
-  /** @deprecated use `TwoState$outboundSchema` instead. */
-  export const outboundSchema = TwoState$outboundSchema;
 }
 
 /** @internal */
@@ -5324,13 +6628,11 @@ export function videoFromJSON(
 export const Result$inboundSchema: z.ZodType<Result, z.ZodTypeDef, unknown> = z
   .object({
     video: z.lazy(() => Video$inboundSchema),
-    seed: z.number(),
   });
 
 /** @internal */
 export type Result$Outbound = {
   video: Video$Outbound;
-  seed: number;
 };
 
 /** @internal */
@@ -5340,7 +6642,6 @@ export const Result$outboundSchema: z.ZodType<
   Result
 > = z.object({
   video: z.lazy(() => Video$outboundSchema),
-  seed: z.number(),
 });
 
 /**
@@ -5429,12 +6730,12 @@ export const Two2$inboundSchema: z.ZodType<Two2, z.ZodTypeDef, unknown> = z
     id: z.string(),
     url: z.nullable(z.string()),
     deleted_at: z.nullable(z.string()).optional(),
-    metadata: z.lazy(() => TwoMetadata$inboundSchema),
+    metadata: z.lazy(() => GetSeries2Metadata$inboundSchema),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("GeneratedVideo").optional(),
-    source: z.nullable(TwoSource$inboundSchema),
-    category: z.literal("AIGenerated").optional(),
-    state: TwoState$inboundSchema,
+    type: z.literal("GeneratedVideo").default("GeneratedVideo").optional(),
+    source: z.nullable(GetSeries2Source$inboundSchema),
+    category: z.literal("AIGenerated").default("AIGenerated").optional(),
+    state: GetSeries2State$inboundSchema,
     data: z.nullable(z.lazy(() => GetSeries2Data$inboundSchema)),
   }).transform((v) => {
     return remap$(v, {
@@ -5448,7 +6749,7 @@ export type Two2$Outbound = {
   id: string;
   url: string | null;
   deleted_at?: string | null | undefined;
-  metadata: TwoMetadata$Outbound;
+  metadata: GetSeries2Metadata$Outbound;
   last_error?: string | null | undefined;
   type: "GeneratedVideo";
   source: string | null;
@@ -5463,12 +6764,12 @@ export const Two2$outboundSchema: z.ZodType<Two2$Outbound, z.ZodTypeDef, Two2> =
     id: z.string(),
     url: z.nullable(z.string()),
     deletedAt: z.nullable(z.string()).optional(),
-    metadata: z.lazy(() => TwoMetadata$outboundSchema),
+    metadata: z.lazy(() => GetSeries2Metadata$outboundSchema),
     lastError: z.nullable(z.string()).optional(),
     type: z.literal("GeneratedVideo").default("GeneratedVideo" as const),
-    source: z.nullable(TwoSource$outboundSchema),
+    source: z.nullable(GetSeries2Source$outboundSchema),
     category: z.literal("AIGenerated").default("AIGenerated" as const),
-    state: TwoState$outboundSchema,
+    state: GetSeries2State$outboundSchema,
     data: z.nullable(z.lazy(() => GetSeries2Data$outboundSchema)),
   }).transform((v) => {
     return remap$(v, {
@@ -5526,8 +6827,48 @@ export namespace TwoAspectRatio$ {
 }
 
 /** @internal */
-export const GetSeries2ResponseMetadata$inboundSchema: z.ZodType<
-  GetSeries2ResponseMetadata,
+export const TwoQuality$inboundSchema: z.ZodNativeEnum<typeof TwoQuality> = z
+  .nativeEnum(TwoQuality);
+
+/** @internal */
+export const TwoQuality$outboundSchema: z.ZodNativeEnum<typeof TwoQuality> =
+  TwoQuality$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TwoQuality$ {
+  /** @deprecated use `TwoQuality$inboundSchema` instead. */
+  export const inboundSchema = TwoQuality$inboundSchema;
+  /** @deprecated use `TwoQuality$outboundSchema` instead. */
+  export const outboundSchema = TwoQuality$outboundSchema;
+}
+
+/** @internal */
+export const TwoAnimationModel$inboundSchema: z.ZodNativeEnum<
+  typeof TwoAnimationModel
+> = z.nativeEnum(TwoAnimationModel);
+
+/** @internal */
+export const TwoAnimationModel$outboundSchema: z.ZodNativeEnum<
+  typeof TwoAnimationModel
+> = TwoAnimationModel$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TwoAnimationModel$ {
+  /** @deprecated use `TwoAnimationModel$inboundSchema` instead. */
+  export const inboundSchema = TwoAnimationModel$inboundSchema;
+  /** @deprecated use `TwoAnimationModel$outboundSchema` instead. */
+  export const outboundSchema = TwoAnimationModel$outboundSchema;
+}
+
+/** @internal */
+export const TwoMetadata$inboundSchema: z.ZodType<
+  TwoMetadata,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -5535,42 +6876,76 @@ export const GetSeries2ResponseMetadata$inboundSchema: z.ZodType<
   translated_prompt: z.nullable(z.string()).optional(),
   rephrased_prompt: z.nullable(z.string()).optional(),
   image_style_preset_id: z.nullable(z.string()).optional(),
+  image_style_custom_prompt: z.nullable(z.string()).optional(),
   aspect_ratio: z.nullable(TwoAspectRatio$inboundSchema).optional(),
+  width: z.nullable(z.number()).optional(),
+  height: z.nullable(z.number()).optional(),
+  cloned_media_id: z.nullable(z.string()).optional(),
+  original_image_url: z.nullable(z.string()).optional(),
+  quality: z.nullable(TwoQuality$inboundSchema).optional(),
+  animation_model: z.nullable(TwoAnimationModel$inboundSchema).optional(),
+  animation_prompt: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "translated_prompt": "translatedPrompt",
     "rephrased_prompt": "rephrasedPrompt",
     "image_style_preset_id": "imageStylePresetId",
+    "image_style_custom_prompt": "imageStyleCustomPrompt",
     "aspect_ratio": "aspectRatio",
+    "cloned_media_id": "clonedMediaId",
+    "original_image_url": "originalImageUrl",
+    "animation_model": "animationModel",
+    "animation_prompt": "animationPrompt",
   });
 });
 
 /** @internal */
-export type GetSeries2ResponseMetadata$Outbound = {
+export type TwoMetadata$Outbound = {
   prompt: string;
   translated_prompt?: string | null | undefined;
   rephrased_prompt?: string | null | undefined;
   image_style_preset_id?: string | null | undefined;
+  image_style_custom_prompt?: string | null | undefined;
   aspect_ratio?: string | null | undefined;
+  width?: number | null | undefined;
+  height?: number | null | undefined;
+  cloned_media_id?: string | null | undefined;
+  original_image_url?: string | null | undefined;
+  quality?: string | null | undefined;
+  animation_model?: string | null | undefined;
+  animation_prompt?: string | null | undefined;
 };
 
 /** @internal */
-export const GetSeries2ResponseMetadata$outboundSchema: z.ZodType<
-  GetSeries2ResponseMetadata$Outbound,
+export const TwoMetadata$outboundSchema: z.ZodType<
+  TwoMetadata$Outbound,
   z.ZodTypeDef,
-  GetSeries2ResponseMetadata
+  TwoMetadata
 > = z.object({
   prompt: z.string(),
   translatedPrompt: z.nullable(z.string()).optional(),
   rephrasedPrompt: z.nullable(z.string()).optional(),
   imageStylePresetId: z.nullable(z.string()).optional(),
+  imageStyleCustomPrompt: z.nullable(z.string()).optional(),
   aspectRatio: z.nullable(TwoAspectRatio$outboundSchema).optional(),
+  width: z.nullable(z.number()).optional(),
+  height: z.nullable(z.number()).optional(),
+  clonedMediaId: z.nullable(z.string()).optional(),
+  originalImageUrl: z.nullable(z.string()).optional(),
+  quality: z.nullable(TwoQuality$outboundSchema).optional(),
+  animationModel: z.nullable(TwoAnimationModel$outboundSchema).optional(),
+  animationPrompt: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     translatedPrompt: "translated_prompt",
     rephrasedPrompt: "rephrased_prompt",
     imageStylePresetId: "image_style_preset_id",
+    imageStyleCustomPrompt: "image_style_custom_prompt",
     aspectRatio: "aspect_ratio",
+    clonedMediaId: "cloned_media_id",
+    originalImageUrl: "original_image_url",
+    animationModel: "animation_model",
+    animationPrompt: "animation_prompt",
   });
 });
 
@@ -5578,248 +6953,65 @@ export const GetSeries2ResponseMetadata$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetSeries2ResponseMetadata$ {
-  /** @deprecated use `GetSeries2ResponseMetadata$inboundSchema` instead. */
-  export const inboundSchema = GetSeries2ResponseMetadata$inboundSchema;
-  /** @deprecated use `GetSeries2ResponseMetadata$outboundSchema` instead. */
-  export const outboundSchema = GetSeries2ResponseMetadata$outboundSchema;
-  /** @deprecated use `GetSeries2ResponseMetadata$Outbound` instead. */
-  export type Outbound = GetSeries2ResponseMetadata$Outbound;
+export namespace TwoMetadata$ {
+  /** @deprecated use `TwoMetadata$inboundSchema` instead. */
+  export const inboundSchema = TwoMetadata$inboundSchema;
+  /** @deprecated use `TwoMetadata$outboundSchema` instead. */
+  export const outboundSchema = TwoMetadata$outboundSchema;
+  /** @deprecated use `TwoMetadata$Outbound` instead. */
+  export type Outbound = TwoMetadata$Outbound;
 }
 
-export function getSeries2ResponseMetadataToJSON(
-  getSeries2ResponseMetadata: GetSeries2ResponseMetadata,
-): string {
-  return JSON.stringify(
-    GetSeries2ResponseMetadata$outboundSchema.parse(getSeries2ResponseMetadata),
-  );
+export function twoMetadataToJSON(twoMetadata: TwoMetadata): string {
+  return JSON.stringify(TwoMetadata$outboundSchema.parse(twoMetadata));
 }
 
-export function getSeries2ResponseMetadataFromJSON(
+export function twoMetadataFromJSON(
   jsonString: string,
-): SafeParseResult<GetSeries2ResponseMetadata, SDKValidationError> {
+): SafeParseResult<TwoMetadata, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => GetSeries2ResponseMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetSeries2ResponseMetadata' from JSON`,
+    (x) => TwoMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TwoMetadata' from JSON`,
   );
 }
 
 /** @internal */
-export const GetSeries2ResponseSource$inboundSchema: z.ZodNativeEnum<
-  typeof GetSeries2ResponseSource
-> = z.nativeEnum(GetSeries2ResponseSource);
+export const TwoSource$inboundSchema: z.ZodNativeEnum<typeof TwoSource> = z
+  .nativeEnum(TwoSource);
 
 /** @internal */
-export const GetSeries2ResponseSource$outboundSchema: z.ZodNativeEnum<
-  typeof GetSeries2ResponseSource
-> = GetSeries2ResponseSource$inboundSchema;
+export const TwoSource$outboundSchema: z.ZodNativeEnum<typeof TwoSource> =
+  TwoSource$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetSeries2ResponseSource$ {
-  /** @deprecated use `GetSeries2ResponseSource$inboundSchema` instead. */
-  export const inboundSchema = GetSeries2ResponseSource$inboundSchema;
-  /** @deprecated use `GetSeries2ResponseSource$outboundSchema` instead. */
-  export const outboundSchema = GetSeries2ResponseSource$outboundSchema;
+export namespace TwoSource$ {
+  /** @deprecated use `TwoSource$inboundSchema` instead. */
+  export const inboundSchema = TwoSource$inboundSchema;
+  /** @deprecated use `TwoSource$outboundSchema` instead. */
+  export const outboundSchema = TwoSource$outboundSchema;
 }
 
 /** @internal */
-export const GetSeries2ResponseState$inboundSchema: z.ZodNativeEnum<
-  typeof GetSeries2ResponseState
-> = z.nativeEnum(GetSeries2ResponseState);
+export const TwoState$inboundSchema: z.ZodNativeEnum<typeof TwoState> = z
+  .nativeEnum(TwoState);
 
 /** @internal */
-export const GetSeries2ResponseState$outboundSchema: z.ZodNativeEnum<
-  typeof GetSeries2ResponseState
-> = GetSeries2ResponseState$inboundSchema;
+export const TwoState$outboundSchema: z.ZodNativeEnum<typeof TwoState> =
+  TwoState$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetSeries2ResponseState$ {
-  /** @deprecated use `GetSeries2ResponseState$inboundSchema` instead. */
-  export const inboundSchema = GetSeries2ResponseState$inboundSchema;
-  /** @deprecated use `GetSeries2ResponseState$outboundSchema` instead. */
-  export const outboundSchema = GetSeries2ResponseState$outboundSchema;
-}
-
-/** @internal */
-export const Images$inboundSchema: z.ZodType<Images, z.ZodTypeDef, unknown> = z
-  .object({
-    url: z.string(),
-    width: z.number(),
-    height: z.number(),
-    content_type: z.string(),
-  }).transform((v) => {
-    return remap$(v, {
-      "content_type": "contentType",
-    });
-  });
-
-/** @internal */
-export type Images$Outbound = {
-  url: string;
-  width: number;
-  height: number;
-  content_type: string;
-};
-
-/** @internal */
-export const Images$outboundSchema: z.ZodType<
-  Images$Outbound,
-  z.ZodTypeDef,
-  Images
-> = z.object({
-  url: z.string(),
-  width: z.number(),
-  height: z.number(),
-  contentType: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    contentType: "content_type",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Images$ {
-  /** @deprecated use `Images$inboundSchema` instead. */
-  export const inboundSchema = Images$inboundSchema;
-  /** @deprecated use `Images$outboundSchema` instead. */
-  export const outboundSchema = Images$outboundSchema;
-  /** @deprecated use `Images$Outbound` instead. */
-  export type Outbound = Images$Outbound;
-}
-
-export function imagesToJSON(images: Images): string {
-  return JSON.stringify(Images$outboundSchema.parse(images));
-}
-
-export function imagesFromJSON(
-  jsonString: string,
-): SafeParseResult<Images, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Images$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Images' from JSON`,
-  );
-}
-
-/** @internal */
-export const Timings$inboundSchema: z.ZodType<Timings, z.ZodTypeDef, unknown> =
-  z.object({});
-
-/** @internal */
-export type Timings$Outbound = {};
-
-/** @internal */
-export const Timings$outboundSchema: z.ZodType<
-  Timings$Outbound,
-  z.ZodTypeDef,
-  Timings
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Timings$ {
-  /** @deprecated use `Timings$inboundSchema` instead. */
-  export const inboundSchema = Timings$inboundSchema;
-  /** @deprecated use `Timings$outboundSchema` instead. */
-  export const outboundSchema = Timings$outboundSchema;
-  /** @deprecated use `Timings$Outbound` instead. */
-  export type Outbound = Timings$Outbound;
-}
-
-export function timingsToJSON(timings: Timings): string {
-  return JSON.stringify(Timings$outboundSchema.parse(timings));
-}
-
-export function timingsFromJSON(
-  jsonString: string,
-): SafeParseResult<Timings, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Timings$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Timings' from JSON`,
-  );
-}
-
-/** @internal */
-export const TwoResults$inboundSchema: z.ZodType<
-  TwoResults,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  images: z.array(z.lazy(() => Images$inboundSchema)),
-  timings: z.lazy(() => Timings$inboundSchema),
-  seed: z.number(),
-  has_nsfw_concepts: z.array(z.boolean()),
-  prompt: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "has_nsfw_concepts": "hasNsfwConcepts",
-  });
-});
-
-/** @internal */
-export type TwoResults$Outbound = {
-  images: Array<Images$Outbound>;
-  timings: Timings$Outbound;
-  seed: number;
-  has_nsfw_concepts: Array<boolean>;
-  prompt: string;
-};
-
-/** @internal */
-export const TwoResults$outboundSchema: z.ZodType<
-  TwoResults$Outbound,
-  z.ZodTypeDef,
-  TwoResults
-> = z.object({
-  images: z.array(z.lazy(() => Images$outboundSchema)),
-  timings: z.lazy(() => Timings$outboundSchema),
-  seed: z.number(),
-  hasNsfwConcepts: z.array(z.boolean()),
-  prompt: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    hasNsfwConcepts: "has_nsfw_concepts",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TwoResults$ {
-  /** @deprecated use `TwoResults$inboundSchema` instead. */
-  export const inboundSchema = TwoResults$inboundSchema;
-  /** @deprecated use `TwoResults$outboundSchema` instead. */
-  export const outboundSchema = TwoResults$outboundSchema;
-  /** @deprecated use `TwoResults$Outbound` instead. */
-  export type Outbound = TwoResults$Outbound;
-}
-
-export function twoResultsToJSON(twoResults: TwoResults): string {
-  return JSON.stringify(TwoResults$outboundSchema.parse(twoResults));
-}
-
-export function twoResultsFromJSON(
-  jsonString: string,
-): SafeParseResult<TwoResults, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => TwoResults$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TwoResults' from JSON`,
-  );
+export namespace TwoState$ {
+  /** @deprecated use `TwoState$inboundSchema` instead. */
+  export const inboundSchema = TwoState$inboundSchema;
+  /** @deprecated use `TwoState$outboundSchema` instead. */
+  export const outboundSchema = TwoState$outboundSchema;
 }
 
 /** @internal */
@@ -5887,7 +7079,7 @@ export function artifactsFromJSON(
 export const TwoData$inboundSchema: z.ZodType<TwoData, z.ZodTypeDef, unknown> =
   z.object({
     path: z.nullable(z.string()).optional(),
-    results: z.lazy(() => TwoResults$inboundSchema).optional(),
+    results: z.record(z.any()).optional(),
     result: z.nullable(z.string()).optional(),
     artifacts: z.array(z.lazy(() => Artifacts$inboundSchema)).optional(),
   });
@@ -5895,7 +7087,7 @@ export const TwoData$inboundSchema: z.ZodType<TwoData, z.ZodTypeDef, unknown> =
 /** @internal */
 export type TwoData$Outbound = {
   path?: string | null | undefined;
-  results?: TwoResults$Outbound | undefined;
+  results?: { [k: string]: any } | undefined;
   result?: string | null | undefined;
   artifacts?: Array<Artifacts$Outbound> | undefined;
 };
@@ -5907,7 +7099,7 @@ export const TwoData$outboundSchema: z.ZodType<
   TwoData
 > = z.object({
   path: z.nullable(z.string()).optional(),
-  results: z.lazy(() => TwoResults$outboundSchema).optional(),
+  results: z.record(z.any()).optional(),
   result: z.nullable(z.string()).optional(),
   artifacts: z.array(z.lazy(() => Artifacts$outboundSchema)).optional(),
 });
@@ -5945,12 +7137,12 @@ export const Two1$inboundSchema: z.ZodType<Two1, z.ZodTypeDef, unknown> = z
     id: z.string(),
     url: z.nullable(z.string()),
     deleted_at: z.nullable(z.string()).optional(),
-    metadata: z.lazy(() => GetSeries2ResponseMetadata$inboundSchema),
+    metadata: z.lazy(() => TwoMetadata$inboundSchema),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("GeneratedImage").optional(),
-    source: z.nullable(GetSeries2ResponseSource$inboundSchema),
-    category: z.literal("AIGenerated").optional(),
-    state: GetSeries2ResponseState$inboundSchema,
+    type: z.literal("GeneratedImage").default("GeneratedImage").optional(),
+    source: z.nullable(TwoSource$inboundSchema),
+    category: z.literal("AIGenerated").default("AIGenerated").optional(),
+    state: TwoState$inboundSchema,
     data: z.nullable(z.lazy(() => TwoData$inboundSchema)),
   }).transform((v) => {
     return remap$(v, {
@@ -5964,7 +7156,7 @@ export type Two1$Outbound = {
   id: string;
   url: string | null;
   deleted_at?: string | null | undefined;
-  metadata: GetSeries2ResponseMetadata$Outbound;
+  metadata: TwoMetadata$Outbound;
   last_error?: string | null | undefined;
   type: "GeneratedImage";
   source: string | null;
@@ -5979,12 +7171,12 @@ export const Two1$outboundSchema: z.ZodType<Two1$Outbound, z.ZodTypeDef, Two1> =
     id: z.string(),
     url: z.nullable(z.string()),
     deletedAt: z.nullable(z.string()).optional(),
-    metadata: z.lazy(() => GetSeries2ResponseMetadata$outboundSchema),
+    metadata: z.lazy(() => TwoMetadata$outboundSchema),
     lastError: z.nullable(z.string()).optional(),
     type: z.literal("GeneratedImage").default("GeneratedImage" as const),
-    source: z.nullable(GetSeries2ResponseSource$outboundSchema),
+    source: z.nullable(TwoSource$outboundSchema),
     category: z.literal("AIGenerated").default("AIGenerated" as const),
-    state: GetSeries2ResponseState$outboundSchema,
+    state: TwoState$outboundSchema,
     data: z.nullable(z.lazy(() => TwoData$outboundSchema)),
   }).transform((v) => {
     return remap$(v, {
@@ -6126,9 +7318,9 @@ export function imageinfoFromJSON(
 }
 
 /** @internal */
-export const GetSeries1Response200ApplicationJSONResponseBodyData$inboundSchema:
+export const GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$inboundSchema:
   z.ZodType<
-    GetSeries1Response200ApplicationJSONResponseBodyData,
+    GetSeries1Response200ApplicationJSONResponseBodyThumbnailData,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -6141,21 +7333,22 @@ export const GetSeries1Response200ApplicationJSONResponseBodyData$inboundSchema:
   });
 
 /** @internal */
-export type GetSeries1Response200ApplicationJSONResponseBodyData$Outbound = {
-  pageid: number;
-  ns: number;
-  title: string;
-  index: number;
-  imagerepository: string;
-  imageinfo: Array<Imageinfo$Outbound>;
-};
+export type GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$Outbound =
+  {
+    pageid: number;
+    ns: number;
+    title: string;
+    index: number;
+    imagerepository: string;
+    imageinfo: Array<Imageinfo$Outbound>;
+  };
 
 /** @internal */
-export const GetSeries1Response200ApplicationJSONResponseBodyData$outboundSchema:
+export const GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$outboundSchema:
   z.ZodType<
-    GetSeries1Response200ApplicationJSONResponseBodyData$Outbound,
+    GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$Outbound,
     z.ZodTypeDef,
-    GetSeries1Response200ApplicationJSONResponseBodyData
+    GetSeries1Response200ApplicationJSONResponseBodyThumbnailData
   > = z.object({
     pageid: z.number(),
     ns: z.number(),
@@ -6169,42 +7362,40 @@ export const GetSeries1Response200ApplicationJSONResponseBodyData$outboundSchema
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetSeries1Response200ApplicationJSONResponseBodyData$ {
-  /** @deprecated use `GetSeries1Response200ApplicationJSONResponseBodyData$inboundSchema` instead. */
+export namespace GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$ {
+  /** @deprecated use `GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$inboundSchema` instead. */
   export const inboundSchema =
-    GetSeries1Response200ApplicationJSONResponseBodyData$inboundSchema;
-  /** @deprecated use `GetSeries1Response200ApplicationJSONResponseBodyData$outboundSchema` instead. */
+    GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$inboundSchema;
+  /** @deprecated use `GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$outboundSchema` instead. */
   export const outboundSchema =
-    GetSeries1Response200ApplicationJSONResponseBodyData$outboundSchema;
-  /** @deprecated use `GetSeries1Response200ApplicationJSONResponseBodyData$Outbound` instead. */
+    GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$outboundSchema;
+  /** @deprecated use `GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$Outbound` instead. */
   export type Outbound =
-    GetSeries1Response200ApplicationJSONResponseBodyData$Outbound;
+    GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$Outbound;
 }
 
-export function getSeries1Response200ApplicationJSONResponseBodyDataToJSON(
-  getSeries1Response200ApplicationJSONResponseBodyData:
-    GetSeries1Response200ApplicationJSONResponseBodyData,
+export function getSeries1Response200ApplicationJSONResponseBodyThumbnailDataToJSON(
+  getSeries1Response200ApplicationJSONResponseBodyThumbnailData:
+    GetSeries1Response200ApplicationJSONResponseBodyThumbnailData,
 ): string {
   return JSON.stringify(
-    GetSeries1Response200ApplicationJSONResponseBodyData$outboundSchema.parse(
-      getSeries1Response200ApplicationJSONResponseBodyData,
-    ),
+    GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$outboundSchema
+      .parse(getSeries1Response200ApplicationJSONResponseBodyThumbnailData),
   );
 }
 
-export function getSeries1Response200ApplicationJSONResponseBodyDataFromJSON(
+export function getSeries1Response200ApplicationJSONResponseBodyThumbnailDataFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  GetSeries1Response200ApplicationJSONResponseBodyData,
+  GetSeries1Response200ApplicationJSONResponseBodyThumbnailData,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      GetSeries1Response200ApplicationJSONResponseBodyData$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'GetSeries1Response200ApplicationJSONResponseBodyData' from JSON`,
+      GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'GetSeries1Response200ApplicationJSONResponseBodyThumbnailData' from JSON`,
   );
 }
 
@@ -6215,12 +7406,12 @@ export const One7$inboundSchema: z.ZodType<One7, z.ZodTypeDef, unknown> = z
     deleted_at: z.nullable(z.string()).optional(),
     metadata: z.any().optional(),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("Image").optional(),
+    type: z.literal("Image").default("Image").optional(),
     category: z.literal("Stock").default("Stock"),
-    state: z.literal("completed").optional(),
-    source: z.literal("Wikimedia").optional(),
+    state: z.literal("completed").default("completed").optional(),
+    source: z.literal("Wikimedia").default("Wikimedia").optional(),
     data: z.lazy(() =>
-      GetSeries1Response200ApplicationJSONResponseBodyData$inboundSchema
+      GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$inboundSchema
     ),
   }).transform((v) => {
     return remap$(v, {
@@ -6239,7 +7430,7 @@ export type One7$Outbound = {
   category: "Stock";
   state: "completed";
   source: "Wikimedia";
-  data: GetSeries1Response200ApplicationJSONResponseBodyData$Outbound;
+  data: GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$Outbound;
 };
 
 /** @internal */
@@ -6254,7 +7445,7 @@ export const One7$outboundSchema: z.ZodType<One7$Outbound, z.ZodTypeDef, One7> =
     state: z.literal("completed").default("completed" as const),
     source: z.literal("Wikimedia").default("Wikimedia" as const),
     data: z.lazy(() =>
-      GetSeries1Response200ApplicationJSONResponseBodyData$outboundSchema
+      GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$outboundSchema
     ),
   }).transform((v) => {
     return remap$(v, {
@@ -6653,37 +7844,38 @@ export function oneUserFromJSON(
 }
 
 /** @internal */
-export const GetSeries1Response200ApplicationJSONData$inboundSchema: z.ZodType<
-  GetSeries1Response200ApplicationJSONData,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  created_at: z.string(),
-  updated_at: z.string(),
-  urls: z.lazy(() => Urls$inboundSchema),
-  alt_description: z.nullable(z.string()),
-  blur_hash: z.nullable(z.string()),
-  color: z.nullable(z.string()),
-  description: z.nullable(z.string()),
-  height: z.number(),
-  likes: z.number(),
-  links: z.lazy(() => Links$inboundSchema),
-  promoted_at: z.nullable(z.string()),
-  width: z.number(),
-  user: z.lazy(() => OneUser$inboundSchema),
-}).transform((v) => {
-  return remap$(v, {
-    "created_at": "createdAt",
-    "updated_at": "updatedAt",
-    "alt_description": "altDescription",
-    "blur_hash": "blurHash",
-    "promoted_at": "promotedAt",
+export const GetSeries1Response200ApplicationJSONResponseBodyData$inboundSchema:
+  z.ZodType<
+    GetSeries1Response200ApplicationJSONResponseBodyData,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    id: z.string(),
+    created_at: z.string(),
+    updated_at: z.string(),
+    urls: z.lazy(() => Urls$inboundSchema),
+    alt_description: z.nullable(z.string()),
+    blur_hash: z.nullable(z.string()),
+    color: z.nullable(z.string()),
+    description: z.nullable(z.string()),
+    height: z.number(),
+    likes: z.number(),
+    links: z.lazy(() => Links$inboundSchema),
+    promoted_at: z.nullable(z.string()),
+    width: z.number(),
+    user: z.lazy(() => OneUser$inboundSchema),
+  }).transform((v) => {
+    return remap$(v, {
+      "created_at": "createdAt",
+      "updated_at": "updatedAt",
+      "alt_description": "altDescription",
+      "blur_hash": "blurHash",
+      "promoted_at": "promotedAt",
+    });
   });
-});
 
 /** @internal */
-export type GetSeries1Response200ApplicationJSONData$Outbound = {
+export type GetSeries1Response200ApplicationJSONResponseBodyData$Outbound = {
   id: string;
   created_at: string;
   updated_at: string;
@@ -6701,74 +7893,76 @@ export type GetSeries1Response200ApplicationJSONData$Outbound = {
 };
 
 /** @internal */
-export const GetSeries1Response200ApplicationJSONData$outboundSchema: z.ZodType<
-  GetSeries1Response200ApplicationJSONData$Outbound,
-  z.ZodTypeDef,
-  GetSeries1Response200ApplicationJSONData
-> = z.object({
-  id: z.string(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  urls: z.lazy(() => Urls$outboundSchema),
-  altDescription: z.nullable(z.string()),
-  blurHash: z.nullable(z.string()),
-  color: z.nullable(z.string()),
-  description: z.nullable(z.string()),
-  height: z.number(),
-  likes: z.number(),
-  links: z.lazy(() => Links$outboundSchema),
-  promotedAt: z.nullable(z.string()),
-  width: z.number(),
-  user: z.lazy(() => OneUser$outboundSchema),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    updatedAt: "updated_at",
-    altDescription: "alt_description",
-    blurHash: "blur_hash",
-    promotedAt: "promoted_at",
+export const GetSeries1Response200ApplicationJSONResponseBodyData$outboundSchema:
+  z.ZodType<
+    GetSeries1Response200ApplicationJSONResponseBodyData$Outbound,
+    z.ZodTypeDef,
+    GetSeries1Response200ApplicationJSONResponseBodyData
+  > = z.object({
+    id: z.string(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    urls: z.lazy(() => Urls$outboundSchema),
+    altDescription: z.nullable(z.string()),
+    blurHash: z.nullable(z.string()),
+    color: z.nullable(z.string()),
+    description: z.nullable(z.string()),
+    height: z.number(),
+    likes: z.number(),
+    links: z.lazy(() => Links$outboundSchema),
+    promotedAt: z.nullable(z.string()),
+    width: z.number(),
+    user: z.lazy(() => OneUser$outboundSchema),
+  }).transform((v) => {
+    return remap$(v, {
+      createdAt: "created_at",
+      updatedAt: "updated_at",
+      altDescription: "alt_description",
+      blurHash: "blur_hash",
+      promotedAt: "promoted_at",
+    });
   });
-});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetSeries1Response200ApplicationJSONData$ {
-  /** @deprecated use `GetSeries1Response200ApplicationJSONData$inboundSchema` instead. */
+export namespace GetSeries1Response200ApplicationJSONResponseBodyData$ {
+  /** @deprecated use `GetSeries1Response200ApplicationJSONResponseBodyData$inboundSchema` instead. */
   export const inboundSchema =
-    GetSeries1Response200ApplicationJSONData$inboundSchema;
-  /** @deprecated use `GetSeries1Response200ApplicationJSONData$outboundSchema` instead. */
+    GetSeries1Response200ApplicationJSONResponseBodyData$inboundSchema;
+  /** @deprecated use `GetSeries1Response200ApplicationJSONResponseBodyData$outboundSchema` instead. */
   export const outboundSchema =
-    GetSeries1Response200ApplicationJSONData$outboundSchema;
-  /** @deprecated use `GetSeries1Response200ApplicationJSONData$Outbound` instead. */
-  export type Outbound = GetSeries1Response200ApplicationJSONData$Outbound;
+    GetSeries1Response200ApplicationJSONResponseBodyData$outboundSchema;
+  /** @deprecated use `GetSeries1Response200ApplicationJSONResponseBodyData$Outbound` instead. */
+  export type Outbound =
+    GetSeries1Response200ApplicationJSONResponseBodyData$Outbound;
 }
 
-export function getSeries1Response200ApplicationJSONDataToJSON(
-  getSeries1Response200ApplicationJSONData:
-    GetSeries1Response200ApplicationJSONData,
+export function getSeries1Response200ApplicationJSONResponseBodyDataToJSON(
+  getSeries1Response200ApplicationJSONResponseBodyData:
+    GetSeries1Response200ApplicationJSONResponseBodyData,
 ): string {
   return JSON.stringify(
-    GetSeries1Response200ApplicationJSONData$outboundSchema.parse(
-      getSeries1Response200ApplicationJSONData,
+    GetSeries1Response200ApplicationJSONResponseBodyData$outboundSchema.parse(
+      getSeries1Response200ApplicationJSONResponseBodyData,
     ),
   );
 }
 
-export function getSeries1Response200ApplicationJSONDataFromJSON(
+export function getSeries1Response200ApplicationJSONResponseBodyDataFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  GetSeries1Response200ApplicationJSONData,
+  GetSeries1Response200ApplicationJSONResponseBodyData,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      GetSeries1Response200ApplicationJSONData$inboundSchema.parse(
+      GetSeries1Response200ApplicationJSONResponseBodyData$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'GetSeries1Response200ApplicationJSONData' from JSON`,
+    `Failed to parse 'GetSeries1Response200ApplicationJSONResponseBodyData' from JSON`,
   );
 }
 
@@ -6779,11 +7973,13 @@ export const One6$inboundSchema: z.ZodType<One6, z.ZodTypeDef, unknown> = z
     deleted_at: z.nullable(z.string()).optional(),
     metadata: z.any().optional(),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("Image").optional(),
+    type: z.literal("Image").default("Image").optional(),
     category: z.literal("Stock").default("Stock"),
-    state: z.literal("completed").optional(),
-    source: z.literal("Unsplash").optional(),
-    data: z.lazy(() => GetSeries1Response200ApplicationJSONData$inboundSchema),
+    state: z.literal("completed").default("completed").optional(),
+    source: z.literal("Unsplash").default("Unsplash").optional(),
+    data: z.lazy(() =>
+      GetSeries1Response200ApplicationJSONResponseBodyData$inboundSchema
+    ),
   }).transform((v) => {
     return remap$(v, {
       "deleted_at": "deletedAt",
@@ -6801,7 +7997,7 @@ export type One6$Outbound = {
   category: "Stock";
   state: "completed";
   source: "Unsplash";
-  data: GetSeries1Response200ApplicationJSONData$Outbound;
+  data: GetSeries1Response200ApplicationJSONResponseBodyData$Outbound;
 };
 
 /** @internal */
@@ -6815,7 +8011,9 @@ export const One6$outboundSchema: z.ZodType<One6$Outbound, z.ZodTypeDef, One6> =
     category: z.literal("Stock").default("Stock" as const),
     state: z.literal("completed").default("completed" as const),
     source: z.literal("Unsplash").default("Unsplash" as const),
-    data: z.lazy(() => GetSeries1Response200ApplicationJSONData$outboundSchema),
+    data: z.lazy(() =>
+      GetSeries1Response200ApplicationJSONResponseBodyData$outboundSchema
+    ),
   }).transform((v) => {
     return remap$(v, {
       deletedAt: "deleted_at",
@@ -7140,8 +8338,8 @@ export function videosFromJSON(
 }
 
 /** @internal */
-export const GetSeries1Response200Data$inboundSchema: z.ZodType<
-  GetSeries1Response200Data,
+export const GetSeries1Response200ApplicationJSONData$inboundSchema: z.ZodType<
+  GetSeries1Response200ApplicationJSONData,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -7166,7 +8364,7 @@ export const GetSeries1Response200Data$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type GetSeries1Response200Data$Outbound = {
+export type GetSeries1Response200ApplicationJSONData$Outbound = {
   id: number;
   page_u_r_l: string;
   videos: Videos$Outbound;
@@ -7182,10 +8380,10 @@ export type GetSeries1Response200Data$Outbound = {
 };
 
 /** @internal */
-export const GetSeries1Response200Data$outboundSchema: z.ZodType<
-  GetSeries1Response200Data$Outbound,
+export const GetSeries1Response200ApplicationJSONData$outboundSchema: z.ZodType<
+  GetSeries1Response200ApplicationJSONData$Outbound,
   z.ZodTypeDef,
-  GetSeries1Response200Data
+  GetSeries1Response200ApplicationJSONData
 > = z.object({
   id: z.number(),
   pageURL: z.string(),
@@ -7211,30 +8409,41 @@ export const GetSeries1Response200Data$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetSeries1Response200Data$ {
-  /** @deprecated use `GetSeries1Response200Data$inboundSchema` instead. */
-  export const inboundSchema = GetSeries1Response200Data$inboundSchema;
-  /** @deprecated use `GetSeries1Response200Data$outboundSchema` instead. */
-  export const outboundSchema = GetSeries1Response200Data$outboundSchema;
-  /** @deprecated use `GetSeries1Response200Data$Outbound` instead. */
-  export type Outbound = GetSeries1Response200Data$Outbound;
+export namespace GetSeries1Response200ApplicationJSONData$ {
+  /** @deprecated use `GetSeries1Response200ApplicationJSONData$inboundSchema` instead. */
+  export const inboundSchema =
+    GetSeries1Response200ApplicationJSONData$inboundSchema;
+  /** @deprecated use `GetSeries1Response200ApplicationJSONData$outboundSchema` instead. */
+  export const outboundSchema =
+    GetSeries1Response200ApplicationJSONData$outboundSchema;
+  /** @deprecated use `GetSeries1Response200ApplicationJSONData$Outbound` instead. */
+  export type Outbound = GetSeries1Response200ApplicationJSONData$Outbound;
 }
 
-export function getSeries1Response200DataToJSON(
-  getSeries1Response200Data: GetSeries1Response200Data,
+export function getSeries1Response200ApplicationJSONDataToJSON(
+  getSeries1Response200ApplicationJSONData:
+    GetSeries1Response200ApplicationJSONData,
 ): string {
   return JSON.stringify(
-    GetSeries1Response200Data$outboundSchema.parse(getSeries1Response200Data),
+    GetSeries1Response200ApplicationJSONData$outboundSchema.parse(
+      getSeries1Response200ApplicationJSONData,
+    ),
   );
 }
 
-export function getSeries1Response200DataFromJSON(
+export function getSeries1Response200ApplicationJSONDataFromJSON(
   jsonString: string,
-): SafeParseResult<GetSeries1Response200Data, SDKValidationError> {
+): SafeParseResult<
+  GetSeries1Response200ApplicationJSONData,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
-    (x) => GetSeries1Response200Data$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetSeries1Response200Data' from JSON`,
+    (x) =>
+      GetSeries1Response200ApplicationJSONData$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'GetSeries1Response200ApplicationJSONData' from JSON`,
   );
 }
 
@@ -7245,11 +8454,11 @@ export const One5$inboundSchema: z.ZodType<One5, z.ZodTypeDef, unknown> = z
     deleted_at: z.nullable(z.string()).optional(),
     metadata: z.any().optional(),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("Video").optional(),
+    type: z.literal("Video").default("Video").optional(),
     category: z.literal("Stock").default("Stock"),
-    state: z.literal("completed").optional(),
-    source: z.literal("Pixabay").optional(),
-    data: z.lazy(() => GetSeries1Response200Data$inboundSchema),
+    state: z.literal("completed").default("completed").optional(),
+    source: z.literal("Pixabay").default("Pixabay").optional(),
+    data: z.lazy(() => GetSeries1Response200ApplicationJSONData$inboundSchema),
   }).transform((v) => {
     return remap$(v, {
       "deleted_at": "deletedAt",
@@ -7267,7 +8476,7 @@ export type One5$Outbound = {
   category: "Stock";
   state: "completed";
   source: "Pixabay";
-  data: GetSeries1Response200Data$Outbound;
+  data: GetSeries1Response200ApplicationJSONData$Outbound;
 };
 
 /** @internal */
@@ -7281,7 +8490,7 @@ export const One5$outboundSchema: z.ZodType<One5$Outbound, z.ZodTypeDef, One5> =
     category: z.literal("Stock").default("Stock" as const),
     state: z.literal("completed").default("completed" as const),
     source: z.literal("Pixabay").default("Pixabay" as const),
-    data: z.lazy(() => GetSeries1Response200Data$outboundSchema),
+    data: z.lazy(() => GetSeries1Response200ApplicationJSONData$outboundSchema),
   }).transform((v) => {
     return remap$(v, {
       deletedAt: "deleted_at",
@@ -7317,8 +8526,8 @@ export function one5FromJSON(
 }
 
 /** @internal */
-export const GetSeries1ResponseData$inboundSchema: z.ZodType<
-  GetSeries1ResponseData,
+export const GetSeries1Response200Data$inboundSchema: z.ZodType<
+  GetSeries1Response200Data,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -7353,7 +8562,7 @@ export const GetSeries1ResponseData$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type GetSeries1ResponseData$Outbound = {
+export type GetSeries1Response200Data$Outbound = {
   id: number;
   tags?: string | undefined;
   page_u_r_l: string;
@@ -7373,10 +8582,10 @@ export type GetSeries1ResponseData$Outbound = {
 };
 
 /** @internal */
-export const GetSeries1ResponseData$outboundSchema: z.ZodType<
-  GetSeries1ResponseData$Outbound,
+export const GetSeries1Response200Data$outboundSchema: z.ZodType<
+  GetSeries1Response200Data$Outbound,
   z.ZodTypeDef,
-  GetSeries1ResponseData
+  GetSeries1Response200Data
 > = z.object({
   id: z.number(),
   tags: z.string().optional(),
@@ -7412,30 +8621,30 @@ export const GetSeries1ResponseData$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetSeries1ResponseData$ {
-  /** @deprecated use `GetSeries1ResponseData$inboundSchema` instead. */
-  export const inboundSchema = GetSeries1ResponseData$inboundSchema;
-  /** @deprecated use `GetSeries1ResponseData$outboundSchema` instead. */
-  export const outboundSchema = GetSeries1ResponseData$outboundSchema;
-  /** @deprecated use `GetSeries1ResponseData$Outbound` instead. */
-  export type Outbound = GetSeries1ResponseData$Outbound;
+export namespace GetSeries1Response200Data$ {
+  /** @deprecated use `GetSeries1Response200Data$inboundSchema` instead. */
+  export const inboundSchema = GetSeries1Response200Data$inboundSchema;
+  /** @deprecated use `GetSeries1Response200Data$outboundSchema` instead. */
+  export const outboundSchema = GetSeries1Response200Data$outboundSchema;
+  /** @deprecated use `GetSeries1Response200Data$Outbound` instead. */
+  export type Outbound = GetSeries1Response200Data$Outbound;
 }
 
-export function getSeries1ResponseDataToJSON(
-  getSeries1ResponseData: GetSeries1ResponseData,
+export function getSeries1Response200DataToJSON(
+  getSeries1Response200Data: GetSeries1Response200Data,
 ): string {
   return JSON.stringify(
-    GetSeries1ResponseData$outboundSchema.parse(getSeries1ResponseData),
+    GetSeries1Response200Data$outboundSchema.parse(getSeries1Response200Data),
   );
 }
 
-export function getSeries1ResponseDataFromJSON(
+export function getSeries1Response200DataFromJSON(
   jsonString: string,
-): SafeParseResult<GetSeries1ResponseData, SDKValidationError> {
+): SafeParseResult<GetSeries1Response200Data, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => GetSeries1ResponseData$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetSeries1ResponseData' from JSON`,
+    (x) => GetSeries1Response200Data$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetSeries1Response200Data' from JSON`,
   );
 }
 
@@ -7449,11 +8658,11 @@ export const GetSeries14$inboundSchema: z.ZodType<
   deleted_at: z.nullable(z.string()).optional(),
   metadata: z.any().optional(),
   last_error: z.nullable(z.string()).optional(),
-  type: z.literal("Image").optional(),
+  type: z.literal("Image").default("Image").optional(),
   category: z.literal("Stock").default("Stock"),
-  state: z.literal("completed").optional(),
-  source: z.literal("Pixabay").optional(),
-  data: z.lazy(() => GetSeries1ResponseData$inboundSchema),
+  state: z.literal("completed").default("completed").optional(),
+  source: z.literal("Pixabay").default("Pixabay").optional(),
+  data: z.lazy(() => GetSeries1Response200Data$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "deleted_at": "deletedAt",
@@ -7471,7 +8680,7 @@ export type GetSeries14$Outbound = {
   category: "Stock";
   state: "completed";
   source: "Pixabay";
-  data: GetSeries1ResponseData$Outbound;
+  data: GetSeries1Response200Data$Outbound;
 };
 
 /** @internal */
@@ -7488,7 +8697,7 @@ export const GetSeries14$outboundSchema: z.ZodType<
   category: z.literal("Stock").default("Stock" as const),
   state: z.literal("completed").default("completed" as const),
   source: z.literal("Pixabay").default("Pixabay" as const),
-  data: z.lazy(() => GetSeries1ResponseData$outboundSchema),
+  data: z.lazy(() => GetSeries1Response200Data$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     deletedAt: "deleted_at",
@@ -7574,22 +8783,22 @@ export function userFromJSON(
 }
 
 /** @internal */
-export const Quality$inboundSchema: z.ZodNativeEnum<typeof Quality> = z
-  .nativeEnum(Quality);
+export const OneQuality$inboundSchema: z.ZodNativeEnum<typeof OneQuality> = z
+  .nativeEnum(OneQuality);
 
 /** @internal */
-export const Quality$outboundSchema: z.ZodNativeEnum<typeof Quality> =
-  Quality$inboundSchema;
+export const OneQuality$outboundSchema: z.ZodNativeEnum<typeof OneQuality> =
+  OneQuality$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Quality$ {
-  /** @deprecated use `Quality$inboundSchema` instead. */
-  export const inboundSchema = Quality$inboundSchema;
-  /** @deprecated use `Quality$outboundSchema` instead. */
-  export const outboundSchema = Quality$outboundSchema;
+export namespace OneQuality$ {
+  /** @deprecated use `OneQuality$inboundSchema` instead. */
+  export const inboundSchema = OneQuality$inboundSchema;
+  /** @deprecated use `OneQuality$outboundSchema` instead. */
+  export const outboundSchema = OneQuality$outboundSchema;
 }
 
 /** @internal */
@@ -7599,7 +8808,7 @@ export const VideoFiles$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.number(),
-  quality: z.nullable(Quality$inboundSchema),
+  quality: z.nullable(OneQuality$inboundSchema),
   file_type: z.string(),
   width: z.nullable(z.number()),
   height: z.nullable(z.number()),
@@ -7629,7 +8838,7 @@ export const VideoFiles$outboundSchema: z.ZodType<
   VideoFiles
 > = z.object({
   id: z.number(),
-  quality: z.nullable(Quality$outboundSchema),
+  quality: z.nullable(OneQuality$outboundSchema),
   fileType: z.string(),
   width: z.nullable(z.number()),
   height: z.nullable(z.number()),
@@ -7725,8 +8934,8 @@ export function videoPicturesFromJSON(
 }
 
 /** @internal */
-export const GetSeries1Data$inboundSchema: z.ZodType<
-  GetSeries1Data,
+export const GetSeries1ResponseData$inboundSchema: z.ZodType<
+  GetSeries1ResponseData,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -7750,7 +8959,7 @@ export const GetSeries1Data$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type GetSeries1Data$Outbound = {
+export type GetSeries1ResponseData$Outbound = {
   id: number;
   width: number;
   height: number;
@@ -7765,10 +8974,10 @@ export type GetSeries1Data$Outbound = {
 };
 
 /** @internal */
-export const GetSeries1Data$outboundSchema: z.ZodType<
-  GetSeries1Data$Outbound,
+export const GetSeries1ResponseData$outboundSchema: z.ZodType<
+  GetSeries1ResponseData$Outbound,
   z.ZodTypeDef,
-  GetSeries1Data
+  GetSeries1ResponseData
 > = z.object({
   id: z.number(),
   width: z.number(),
@@ -7793,26 +9002,30 @@ export const GetSeries1Data$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetSeries1Data$ {
-  /** @deprecated use `GetSeries1Data$inboundSchema` instead. */
-  export const inboundSchema = GetSeries1Data$inboundSchema;
-  /** @deprecated use `GetSeries1Data$outboundSchema` instead. */
-  export const outboundSchema = GetSeries1Data$outboundSchema;
-  /** @deprecated use `GetSeries1Data$Outbound` instead. */
-  export type Outbound = GetSeries1Data$Outbound;
+export namespace GetSeries1ResponseData$ {
+  /** @deprecated use `GetSeries1ResponseData$inboundSchema` instead. */
+  export const inboundSchema = GetSeries1ResponseData$inboundSchema;
+  /** @deprecated use `GetSeries1ResponseData$outboundSchema` instead. */
+  export const outboundSchema = GetSeries1ResponseData$outboundSchema;
+  /** @deprecated use `GetSeries1ResponseData$Outbound` instead. */
+  export type Outbound = GetSeries1ResponseData$Outbound;
 }
 
-export function getSeries1DataToJSON(getSeries1Data: GetSeries1Data): string {
-  return JSON.stringify(GetSeries1Data$outboundSchema.parse(getSeries1Data));
+export function getSeries1ResponseDataToJSON(
+  getSeries1ResponseData: GetSeries1ResponseData,
+): string {
+  return JSON.stringify(
+    GetSeries1ResponseData$outboundSchema.parse(getSeries1ResponseData),
+  );
 }
 
-export function getSeries1DataFromJSON(
+export function getSeries1ResponseDataFromJSON(
   jsonString: string,
-): SafeParseResult<GetSeries1Data, SDKValidationError> {
+): SafeParseResult<GetSeries1ResponseData, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => GetSeries1Data$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetSeries1Data' from JSON`,
+    (x) => GetSeries1ResponseData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetSeries1ResponseData' from JSON`,
   );
 }
 
@@ -7826,11 +9039,11 @@ export const GetSeries13$inboundSchema: z.ZodType<
   deleted_at: z.nullable(z.string()).optional(),
   metadata: z.any().optional(),
   last_error: z.nullable(z.string()).optional(),
-  type: z.literal("Video").optional(),
+  type: z.literal("Video").default("Video").optional(),
   category: z.literal("Stock").default("Stock"),
-  state: z.literal("completed").optional(),
-  source: z.literal("Pexels").optional(),
-  data: z.lazy(() => GetSeries1Data$inboundSchema),
+  state: z.literal("completed").default("completed").optional(),
+  source: z.literal("Pexels").default("Pexels").optional(),
+  data: z.lazy(() => GetSeries1ResponseData$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "deleted_at": "deletedAt",
@@ -7848,7 +9061,7 @@ export type GetSeries13$Outbound = {
   category: "Stock";
   state: "completed";
   source: "Pexels";
-  data: GetSeries1Data$Outbound;
+  data: GetSeries1ResponseData$Outbound;
 };
 
 /** @internal */
@@ -7865,7 +9078,7 @@ export const GetSeries13$outboundSchema: z.ZodType<
   category: z.literal("Stock").default("Stock" as const),
   state: z.literal("completed").default("completed" as const),
   source: z.literal("Pexels").default("Pexels" as const),
-  data: z.lazy(() => GetSeries1Data$outboundSchema),
+  data: z.lazy(() => GetSeries1ResponseData$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     deletedAt: "deleted_at",
@@ -7966,29 +9179,32 @@ export function srcFromJSON(
 }
 
 /** @internal */
-export const OneData$inboundSchema: z.ZodType<OneData, z.ZodTypeDef, unknown> =
-  z.object({
-    id: z.number(),
-    width: z.number(),
-    height: z.number(),
-    url: z.string(),
-    alt: z.nullable(z.string()),
-    avg_color: z.nullable(z.string()),
-    photographer: z.string(),
-    photographer_url: z.string(),
-    photographer_id: z.number(),
-    liked: z.boolean(),
-    src: z.lazy(() => Src$inboundSchema),
-  }).transform((v) => {
-    return remap$(v, {
-      "avg_color": "avgColor",
-      "photographer_url": "photographerUrl",
-      "photographer_id": "photographerId",
-    });
+export const GetSeries1Data$inboundSchema: z.ZodType<
+  GetSeries1Data,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.number(),
+  width: z.number(),
+  height: z.number(),
+  url: z.string(),
+  alt: z.nullable(z.string()),
+  avg_color: z.nullable(z.string()),
+  photographer: z.string(),
+  photographer_url: z.string(),
+  photographer_id: z.number(),
+  liked: z.boolean(),
+  src: z.lazy(() => Src$inboundSchema),
+}).transform((v) => {
+  return remap$(v, {
+    "avg_color": "avgColor",
+    "photographer_url": "photographerUrl",
+    "photographer_id": "photographerId",
   });
+});
 
 /** @internal */
-export type OneData$Outbound = {
+export type GetSeries1Data$Outbound = {
   id: number;
   width: number;
   height: number;
@@ -8003,10 +9219,10 @@ export type OneData$Outbound = {
 };
 
 /** @internal */
-export const OneData$outboundSchema: z.ZodType<
-  OneData$Outbound,
+export const GetSeries1Data$outboundSchema: z.ZodType<
+  GetSeries1Data$Outbound,
   z.ZodTypeDef,
-  OneData
+  GetSeries1Data
 > = z.object({
   id: z.number(),
   width: z.number(),
@@ -8031,26 +9247,26 @@ export const OneData$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace OneData$ {
-  /** @deprecated use `OneData$inboundSchema` instead. */
-  export const inboundSchema = OneData$inboundSchema;
-  /** @deprecated use `OneData$outboundSchema` instead. */
-  export const outboundSchema = OneData$outboundSchema;
-  /** @deprecated use `OneData$Outbound` instead. */
-  export type Outbound = OneData$Outbound;
+export namespace GetSeries1Data$ {
+  /** @deprecated use `GetSeries1Data$inboundSchema` instead. */
+  export const inboundSchema = GetSeries1Data$inboundSchema;
+  /** @deprecated use `GetSeries1Data$outboundSchema` instead. */
+  export const outboundSchema = GetSeries1Data$outboundSchema;
+  /** @deprecated use `GetSeries1Data$Outbound` instead. */
+  export type Outbound = GetSeries1Data$Outbound;
 }
 
-export function oneDataToJSON(oneData: OneData): string {
-  return JSON.stringify(OneData$outboundSchema.parse(oneData));
+export function getSeries1DataToJSON(getSeries1Data: GetSeries1Data): string {
+  return JSON.stringify(GetSeries1Data$outboundSchema.parse(getSeries1Data));
 }
 
-export function oneDataFromJSON(
+export function getSeries1DataFromJSON(
   jsonString: string,
-): SafeParseResult<OneData, SDKValidationError> {
+): SafeParseResult<GetSeries1Data, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => OneData$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OneData' from JSON`,
+    (x) => GetSeries1Data$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetSeries1Data' from JSON`,
   );
 }
 
@@ -8064,11 +9280,11 @@ export const GetSeries12$inboundSchema: z.ZodType<
   deleted_at: z.nullable(z.string()).optional(),
   metadata: z.any().optional(),
   last_error: z.nullable(z.string()).optional(),
-  type: z.literal("Image").optional(),
+  type: z.literal("Image").default("Image").optional(),
   category: z.literal("Stock").default("Stock"),
-  state: z.literal("completed").optional(),
-  source: z.literal("Pexels").optional(),
-  data: z.lazy(() => OneData$inboundSchema),
+  state: z.literal("completed").default("completed").optional(),
+  source: z.literal("Pexels").default("Pexels").optional(),
+  data: z.lazy(() => GetSeries1Data$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "deleted_at": "deletedAt",
@@ -8086,7 +9302,7 @@ export type GetSeries12$Outbound = {
   category: "Stock";
   state: "completed";
   source: "Pexels";
-  data: OneData$Outbound;
+  data: GetSeries1Data$Outbound;
 };
 
 /** @internal */
@@ -8103,7 +9319,7 @@ export const GetSeries12$outboundSchema: z.ZodType<
   category: z.literal("Stock").default("Stock" as const),
   state: z.literal("completed").default("completed" as const),
   source: z.literal("Pexels").default("Pexels" as const),
-  data: z.lazy(() => OneData$outboundSchema),
+  data: z.lazy(() => GetSeries1Data$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     deletedAt: "deleted_at",
@@ -8220,12 +9436,8 @@ export function imageFromJSON(
 }
 
 /** @internal */
-export const GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$inboundSchema:
-  z.ZodType<
-    GetSeries1Response200ApplicationJSONResponseBodyThumbnailData,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
+export const OneData$inboundSchema: z.ZodType<OneData, z.ZodTypeDef, unknown> =
+  z.object({
     kind: z.string(),
     title: z.string(),
     html_title: z.string(),
@@ -8246,84 +9458,68 @@ export const GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$inbou
   });
 
 /** @internal */
-export type GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$Outbound =
-  {
-    kind: string;
-    title: string;
-    html_title: string;
-    link: string;
-    display_link: string;
-    snippet: string;
-    html_snippet: string;
-    mime: string;
-    file_format: string;
-    image: Image$Outbound;
-  };
+export type OneData$Outbound = {
+  kind: string;
+  title: string;
+  html_title: string;
+  link: string;
+  display_link: string;
+  snippet: string;
+  html_snippet: string;
+  mime: string;
+  file_format: string;
+  image: Image$Outbound;
+};
 
 /** @internal */
-export const GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$outboundSchema:
-  z.ZodType<
-    GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$Outbound,
-    z.ZodTypeDef,
-    GetSeries1Response200ApplicationJSONResponseBodyThumbnailData
-  > = z.object({
-    kind: z.string(),
-    title: z.string(),
-    htmlTitle: z.string(),
-    link: z.string(),
-    displayLink: z.string(),
-    snippet: z.string(),
-    htmlSnippet: z.string(),
-    mime: z.string(),
-    fileFormat: z.string(),
-    image: z.lazy(() => Image$outboundSchema),
-  }).transform((v) => {
-    return remap$(v, {
-      htmlTitle: "html_title",
-      displayLink: "display_link",
-      htmlSnippet: "html_snippet",
-      fileFormat: "file_format",
-    });
+export const OneData$outboundSchema: z.ZodType<
+  OneData$Outbound,
+  z.ZodTypeDef,
+  OneData
+> = z.object({
+  kind: z.string(),
+  title: z.string(),
+  htmlTitle: z.string(),
+  link: z.string(),
+  displayLink: z.string(),
+  snippet: z.string(),
+  htmlSnippet: z.string(),
+  mime: z.string(),
+  fileFormat: z.string(),
+  image: z.lazy(() => Image$outboundSchema),
+}).transform((v) => {
+  return remap$(v, {
+    htmlTitle: "html_title",
+    displayLink: "display_link",
+    htmlSnippet: "html_snippet",
+    fileFormat: "file_format",
   });
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$ {
-  /** @deprecated use `GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$inboundSchema` instead. */
-  export const inboundSchema =
-    GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$inboundSchema;
-  /** @deprecated use `GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$outboundSchema` instead. */
-  export const outboundSchema =
-    GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$outboundSchema;
-  /** @deprecated use `GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$Outbound` instead. */
-  export type Outbound =
-    GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$Outbound;
+export namespace OneData$ {
+  /** @deprecated use `OneData$inboundSchema` instead. */
+  export const inboundSchema = OneData$inboundSchema;
+  /** @deprecated use `OneData$outboundSchema` instead. */
+  export const outboundSchema = OneData$outboundSchema;
+  /** @deprecated use `OneData$Outbound` instead. */
+  export type Outbound = OneData$Outbound;
 }
 
-export function getSeries1Response200ApplicationJSONResponseBodyThumbnailDataToJSON(
-  getSeries1Response200ApplicationJSONResponseBodyThumbnailData:
-    GetSeries1Response200ApplicationJSONResponseBodyThumbnailData,
-): string {
-  return JSON.stringify(
-    GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$outboundSchema
-      .parse(getSeries1Response200ApplicationJSONResponseBodyThumbnailData),
-  );
+export function oneDataToJSON(oneData: OneData): string {
+  return JSON.stringify(OneData$outboundSchema.parse(oneData));
 }
 
-export function getSeries1Response200ApplicationJSONResponseBodyThumbnailDataFromJSON(
+export function oneDataFromJSON(
   jsonString: string,
-): SafeParseResult<
-  GetSeries1Response200ApplicationJSONResponseBodyThumbnailData,
-  SDKValidationError
-> {
+): SafeParseResult<OneData, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'GetSeries1Response200ApplicationJSONResponseBodyThumbnailData' from JSON`,
+    (x) => OneData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OneData' from JSON`,
   );
 }
 
@@ -8337,13 +9533,11 @@ export const GetSeries11$inboundSchema: z.ZodType<
   deleted_at: z.nullable(z.string()).optional(),
   metadata: z.any().optional(),
   last_error: z.nullable(z.string()).optional(),
-  type: z.literal("Image").optional(),
+  type: z.literal("Image").default("Image").optional(),
   category: z.literal("Stock").default("Stock"),
-  state: z.literal("completed").optional(),
-  source: z.literal("Google").optional(),
-  data: z.lazy(() =>
-    GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$inboundSchema
-  ),
+  state: z.literal("completed").default("completed").optional(),
+  source: z.literal("Google").default("Google").optional(),
+  data: z.lazy(() => OneData$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "deleted_at": "deletedAt",
@@ -8361,7 +9555,7 @@ export type GetSeries11$Outbound = {
   category: "Stock";
   state: "completed";
   source: "Google";
-  data: GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$Outbound;
+  data: OneData$Outbound;
 };
 
 /** @internal */
@@ -8378,9 +9572,7 @@ export const GetSeries11$outboundSchema: z.ZodType<
   category: z.literal("Stock").default("Stock" as const),
   state: z.literal("completed").default("completed" as const),
   source: z.literal("Google").default("Google" as const),
-  data: z.lazy(() =>
-    GetSeries1Response200ApplicationJSONResponseBodyThumbnailData$outboundSchema
-  ),
+  data: z.lazy(() => OneData$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     deletedAt: "deleted_at",
@@ -8482,8 +9674,10 @@ export function media1FromJSON(
 /** @internal */
 export const Media$inboundSchema: z.ZodType<Media, z.ZodTypeDef, unknown> = z
   .union([
-    z.lazy(() => Media5$inboundSchema),
     z.lazy(() => Media4$inboundSchema),
+    z.lazy(() => Media8$inboundSchema),
+    z.lazy(() => Media5$inboundSchema),
+    z.lazy(() => Media9$inboundSchema),
     z.union([
       z.lazy(() => GetSeries11$inboundSchema),
       z.lazy(() => GetSeries12$inboundSchema),
@@ -8505,15 +9699,21 @@ export const Media$inboundSchema: z.ZodType<Media, z.ZodTypeDef, unknown> = z
       z.lazy(() => Three4$inboundSchema),
     ]),
     z.union([
-      z.lazy(() => Six1$inboundSchema),
       z.lazy(() => Six2$inboundSchema),
+      z.lazy(() => Six1$inboundSchema),
+    ]),
+    z.union([
+      z.lazy(() => Seven1$inboundSchema),
+      z.lazy(() => Seven2$inboundSchema),
     ]),
   ]);
 
 /** @internal */
 export type Media$Outbound =
-  | Media5$Outbound
   | Media4$Outbound
+  | Media8$Outbound
+  | Media5$Outbound
+  | Media9$Outbound
   | GetSeries11$Outbound
   | GetSeries12$Outbound
   | GetSeries13$Outbound
@@ -8528,8 +9728,10 @@ export type Media$Outbound =
   | Three2$Outbound
   | Three3$Outbound
   | Three4$Outbound
+  | Six2$Outbound
   | Six1$Outbound
-  | Six2$Outbound;
+  | Seven1$Outbound
+  | Seven2$Outbound;
 
 /** @internal */
 export const Media$outboundSchema: z.ZodType<
@@ -8537,8 +9739,10 @@ export const Media$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Media
 > = z.union([
-  z.lazy(() => Media5$outboundSchema),
   z.lazy(() => Media4$outboundSchema),
+  z.lazy(() => Media8$outboundSchema),
+  z.lazy(() => Media5$outboundSchema),
+  z.lazy(() => Media9$outboundSchema),
   z.union([
     z.lazy(() => GetSeries11$outboundSchema),
     z.lazy(() => GetSeries12$outboundSchema),
@@ -8560,8 +9764,12 @@ export const Media$outboundSchema: z.ZodType<
     z.lazy(() => Three4$outboundSchema),
   ]),
   z.union([
-    z.lazy(() => Six1$outboundSchema),
     z.lazy(() => Six2$outboundSchema),
+    z.lazy(() => Six1$outboundSchema),
+  ]),
+  z.union([
+    z.lazy(() => Seven1$outboundSchema),
+    z.lazy(() => Seven2$outboundSchema),
   ]),
 ]);
 
@@ -8608,8 +9816,10 @@ export const Thumbnail$inboundSchema: z.ZodType<
   theme: Theme$inboundSchema,
   media: z.nullable(
     z.union([
-      z.lazy(() => Media5$inboundSchema),
       z.lazy(() => Media4$inboundSchema),
+      z.lazy(() => Media8$inboundSchema),
+      z.lazy(() => Media5$inboundSchema),
+      z.lazy(() => Media9$inboundSchema),
       z.union([
         z.lazy(() => GetSeries11$inboundSchema),
         z.lazy(() => GetSeries12$inboundSchema),
@@ -8633,8 +9843,12 @@ export const Thumbnail$inboundSchema: z.ZodType<
         z.lazy(() => Three4$inboundSchema),
       ]),
       z.union([
-        z.lazy(() => Six1$inboundSchema),
         z.lazy(() => Six2$inboundSchema),
+        z.lazy(() => Six1$inboundSchema),
+      ]),
+      z.union([
+        z.lazy(() => Seven1$inboundSchema),
+        z.lazy(() => Seven2$inboundSchema),
       ]),
     ]),
   ),
@@ -8660,8 +9874,10 @@ export type Thumbnail$Outbound = {
   text: string | null;
   theme: string;
   media:
-    | Media5$Outbound
     | Media4$Outbound
+    | Media8$Outbound
+    | Media5$Outbound
+    | Media9$Outbound
     | GetSeries11$Outbound
     | GetSeries12$Outbound
     | GetSeries13$Outbound
@@ -8676,8 +9892,10 @@ export type Thumbnail$Outbound = {
     | Three2$Outbound
     | Three3$Outbound
     | Three4$Outbound
-    | Six1$Outbound
     | Six2$Outbound
+    | Six1$Outbound
+    | Seven1$Outbound
+    | Seven2$Outbound
     | null;
 };
 
@@ -8697,8 +9915,10 @@ export const Thumbnail$outboundSchema: z.ZodType<
   theme: Theme$outboundSchema,
   media: z.nullable(
     z.union([
-      z.lazy(() => Media5$outboundSchema),
       z.lazy(() => Media4$outboundSchema),
+      z.lazy(() => Media8$outboundSchema),
+      z.lazy(() => Media5$outboundSchema),
+      z.lazy(() => Media9$outboundSchema),
       z.union([
         z.lazy(() => GetSeries11$outboundSchema),
         z.lazy(() => GetSeries12$outboundSchema),
@@ -8722,8 +9942,12 @@ export const Thumbnail$outboundSchema: z.ZodType<
         z.lazy(() => Three4$outboundSchema),
       ]),
       z.union([
-        z.lazy(() => Six1$outboundSchema),
         z.lazy(() => Six2$outboundSchema),
+        z.lazy(() => Six1$outboundSchema),
+      ]),
+      z.union([
+        z.lazy(() => Seven1$outboundSchema),
+        z.lazy(() => Seven2$outboundSchema),
       ]),
     ]),
   ),
@@ -9301,7 +10525,7 @@ export const GetSeriesResponseBody$inboundSchema: z.ZodType<
   created_at: z.string(),
   updated_at: z.nullable(z.string()).optional(),
   next_posting_at: z.nullable(z.string()),
-  type: Type$inboundSchema,
+  type: GetSeriesType$inboundSchema,
   schedule: z.nullable(z.lazy(() => GetSeriesSchedule$inboundSchema)),
   content_type: z.nullable(GetSeriesContentType$inboundSchema).optional(),
   name: z.nullable(z.string()).optional(),
@@ -9378,7 +10602,7 @@ export const GetSeriesResponseBody$outboundSchema: z.ZodType<
   createdAt: z.string(),
   updatedAt: z.nullable(z.string()).optional(),
   nextPostingAt: z.nullable(z.string()),
-  type: Type$outboundSchema,
+  type: GetSeriesType$outboundSchema,
   schedule: z.nullable(z.lazy(() => GetSeriesSchedule$outboundSchema)),
   contentType: z.nullable(GetSeriesContentType$outboundSchema).optional(),
   name: z.nullable(z.string()).optional(),

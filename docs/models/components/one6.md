@@ -6,11 +6,11 @@
 import { One6 } from "shortgenius/models/components";
 
 let value: One6 = {
-  url: "https://political-paintwork.org/",
+  url: null,
   data: {
     id: "<id>",
-    createdAt: "1734317340114",
-    updatedAt: "1741296519863",
+    createdAt: "1709560596565",
+    updatedAt: "1735625241346",
     urls: {
       full: "<value>",
       raw: "<value>",
@@ -20,10 +20,10 @@ let value: One6 = {
     },
     altDescription: "<value>",
     blurHash: "<value>",
-    color: "olive",
-    description: "mmm fabricate forenenst furthermore",
-    height: 3106.29,
-    likes: 7912.28,
+    color: "teal",
+    description: null,
+    height: 5368.97,
+    likes: 1536.42,
     links: {
       self: "<value>",
       html: "<value>",
@@ -31,13 +31,13 @@ let value: One6 = {
       downloadLocation: "<value>",
     },
     promotedAt: "<value>",
-    width: 7151.43,
+    width: 6264.69,
     user: {
       id: "<id>",
       bio: "<value>",
-      firstName: "Keara",
-      instagramUsername: "<value>",
-      lastName: "Johnston",
+      firstName: "Dortha",
+      instagramUsername: null,
+      lastName: "Lind",
       links: {
         followers: "<value>",
         following: "<value>",
@@ -49,18 +49,18 @@ let value: One6 = {
       },
       location: "<value>",
       name: "<value>",
-      portfolioUrl: "https://advanced-lashes.com/",
+      portfolioUrl: "https://harmful-season.info/",
       profileImage: {
         small: "<value>",
         medium: "<value>",
         large: "<value>",
       },
-      totalCollections: 510.75,
-      totalLikes: 9655.17,
-      totalPhotos: 8590.03,
+      totalCollections: 6020.59,
+      totalLikes: 9574.92,
+      totalPhotos: 6078.51,
       twitterUsername: "<value>",
-      updatedAt: "1741236358701",
-      username: "Aaron.Gottlieb69",
+      updatedAt: "1735624945166",
+      username: "Joan.Quigley94",
     },
   },
 };

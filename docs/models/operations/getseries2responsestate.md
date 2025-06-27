@@ -5,11 +5,11 @@
 ```typescript
 import { GetSeries2ResponseState } from "shortgenius/models/operations";
 
-let value: GetSeries2ResponseState = "generating";
+let value: GetSeries2ResponseState = "completed";
 ```
 
 ## Values
 
 ```typescript
-"pending" | "generating" | "completed" | "error" | "request_smart_motion" | "placeholder"
+"pending" | "generating" | "completed" | "error"
 ```

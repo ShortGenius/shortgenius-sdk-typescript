@@ -5,11 +5,11 @@
 ```typescript
 import { MediaSource } from "shortgenius/models/operations";
 
-let value: MediaSource = "Gameplay";
+let value: MediaSource = "Image";
 ```
 
 ## Values
 
 ```typescript
-"Gameplay"
+"GeneratedImage" | "Image" | "UserImage"
 ```

@@ -6,20 +6,20 @@
 import { One4 } from "shortgenius/models/components";
 
 let value: One4 = {
-  url: "https://wordy-straw.info",
+  url: "https://puny-spear.biz/",
   data: {
-    id: 8877.01,
-    pageURL: "https://internal-amnesty.net",
-    previewURL: "https://spiteful-republican.net",
-    webformatURL: "https://sticky-mantua.info/",
-    largeImageURL: "https://alarmed-brochure.biz",
-    views: 9829.91,
-    downloads: 1397.45,
-    likes: 3305.96,
-    comments: 510.53,
-    userId: 3312.69,
-    user: "Emmet2",
-    userImageURL: "https://crooked-yin.com",
+    id: 5732.79,
+    pageURL: "https://variable-cruelty.org",
+    previewURL: "https://sad-reach.net/",
+    webformatURL: "https://dark-tuxedo.info",
+    largeImageURL: "https://edible-equal.info/",
+    views: 4329.4,
+    downloads: 6631.41,
+    likes: 5371.77,
+    comments: 269.97,
+    userId: 3159.04,
+    user: "Nicola_Stokes",
+    userImageURL: "https://rapid-starboard.name/",
   },
 };
 ```

@@ -21,6 +21,7 @@ export const CreateSeriesContentType = {
   LifeTips: "LifeTips",
   Eli5: "ELI5",
   Philosophy: "Philosophy",
+  Ad: "Ad",
 } as const;
 export type CreateSeriesContentType = ClosedEnum<
   typeof CreateSeriesContentType
@@ -78,12 +79,74 @@ export const CreateSeriesLocale = {
 export type CreateSeriesLocale = ClosedEnum<typeof CreateSeriesLocale>;
 
 /**
+ * Image model for the generated video.
+ */
+export const CreateSeriesImageModel = {
+  OpenAI: "OpenAI",
+  FluxUltraMax: "Flux Ultra/Max",
+  FluxPro: "Flux Pro",
+} as const;
+/**
+ * Image model for the generated video.
+ */
+export type CreateSeriesImageModel = ClosedEnum<typeof CreateSeriesImageModel>;
+
+/**
+ * Image quality for the generated video.
+ */
+export const CreateSeriesImageQuality = {
+  Low: "low",
+  Medium: "medium",
+  High: "high",
+} as const;
+/**
+ * Image quality for the generated video.
+ */
+export type CreateSeriesImageQuality = ClosedEnum<
+  typeof CreateSeriesImageQuality
+>;
+
+/**
+ * Default animation model for scene images when not specified individually.
+ */
+export const CreateSeriesAnimationModel = {
+  None: "None",
+  Seedance: "Seedance",
+  Kling: "Kling",
+  Hailuo02Standard: "Hailuo02Standard",
+  Hailuo02Pro: "Hailuo02Pro",
+  Veo3: "Veo3",
+  SeedanceTTV: "SeedanceTTV",
+} as const;
+/**
+ * Default animation model for scene images when not specified individually.
+ */
+export type CreateSeriesAnimationModel = ClosedEnum<
+  typeof CreateSeriesAnimationModel
+>;
+
+/**
+ * Default animation preset for scene images when not specified individually.
+ */
+export const CreateSeriesAnimationModelPreset = {
+  FullyAnimated: "fully_animated",
+  FirstSceneOnly: "first_scene_only",
+  FirstImageEachScene: "first_image_each_scene",
+} as const;
+/**
+ * Default animation preset for scene images when not specified individually.
+ */
+export type CreateSeriesAnimationModelPreset = ClosedEnum<
+  typeof CreateSeriesAnimationModelPreset
+>;
+
+/**
  * Aspect ratio of the video. Not required for News videos.
  */
 export const CreateSeriesAspectRatio = {
-  Nine16: "9:16",
-  Sixteen9: "16:9",
-  One1: "1:1",
+  NineHundredAndSixteen: "9:16",
+  OneHundredAndSixtyNine: "16:9",
+  Eleven: "1:1",
 } as const;
 /**
  * Aspect ratio of the video. Not required for News videos.
@@ -238,6 +301,107 @@ export type Topics = {
   topic: string;
 };
 
+/**
+ * The ad type.
+ */
+export const CreateSeriesType = {
+  JustTheHook: "JustTheHook",
+  HookAndVideo: "HookAndVideo",
+  HookAndRealVideos: "HookAndRealVideos",
+} as const;
+/**
+ * The ad type.
+ */
+export type CreateSeriesType = ClosedEnum<typeof CreateSeriesType>;
+
+export type UgcMediaMetadata = {
+  sourceImageUrl: string;
+  muxPlaybackId: string | null;
+};
+
+export const CreateSeriesUgcMediaRequestSource = {
+  Ugc: "Ugc",
+} as const;
+export type CreateSeriesUgcMediaRequestSource = ClosedEnum<
+  typeof CreateSeriesUgcMediaRequestSource
+>;
+
+export type CreateSeriesUgcMediaRequestData = {
+  id: string;
+  ugcCreatorId: string;
+  ugcPresetId: string;
+  createdAt: string;
+  hook?: string | null | undefined;
+};
+
+export const UgcMediaState = {
+  Pending: "pending",
+  Generating: "generating",
+  Completed: "completed",
+  Error: "error",
+} as const;
+export type UgcMediaState = ClosedEnum<typeof UgcMediaState>;
+
+export type UgcMedia2 = {
+  url: string | null;
+  deletedAt?: string | null | undefined;
+  metadata: UgcMediaMetadata;
+  lastError?: string | null | undefined;
+  type?: "UgcVideo" | undefined;
+  source: CreateSeriesUgcMediaRequestSource | null;
+  category?: "Ugc" | undefined;
+  data: CreateSeriesUgcMediaRequestData;
+  state: UgcMediaState;
+};
+
+export const CreateSeriesUgcMediaSource = {
+  Ugc: "Ugc",
+} as const;
+export type CreateSeriesUgcMediaSource = ClosedEnum<
+  typeof CreateSeriesUgcMediaSource
+>;
+
+export type CreateSeriesUgcMediaData = {
+  id: string;
+  hook?: string | null | undefined;
+};
+
+export type UgcMedia1 = {
+  url: string | null;
+  deletedAt?: string | null | undefined;
+  metadata?: any | undefined;
+  lastError?: string | null | undefined;
+  type?: "UgcCreator" | undefined;
+  source: CreateSeriesUgcMediaSource | null;
+  category?: "Ugc" | undefined;
+  data: CreateSeriesUgcMediaData;
+  state?: "completed" | undefined;
+};
+
+export type CreateSeriesUgcMedia = UgcMedia2 | UgcMedia1;
+
+/**
+ * Ad content to be converted into a single video. Required for Ad videos.
+ */
+export type CreateSeriesAd = {
+  /**
+   * The ad product ID.
+   */
+  productId: string;
+  /**
+   * The ad type.
+   */
+  type: CreateSeriesType;
+  /**
+   * The ad UGC media.
+   */
+  ugcMedia: Array<UgcMedia2 | UgcMedia1>;
+  /**
+   * The ad media ID. Required for HookAndVideo type.
+   */
+  mediaIds?: Array<string> | undefined;
+};
+
 export type CreateSeriesRequestBody = {
   contentType?: CreateSeriesContentType | undefined;
   /**
@@ -248,6 +412,30 @@ export type CreateSeriesRequestBody = {
    * The ID of the image style to use. Use the [List image styles](#tag/images/GET/presets/{type}) endpoint to get a list of available image styles. If left empty, the AI chooses.
    */
   imageStyleId?: string | undefined;
+  /**
+   * Image model for the generated video.
+   */
+  imageModel?: CreateSeriesImageModel | undefined;
+  /**
+   * Image quality for the generated video.
+   */
+  imageQuality?: CreateSeriesImageQuality | undefined;
+  /**
+   * Whether to use the raw image style mode. If true, the image style will be ignored.
+   */
+  imageStyleRawMode?: boolean | undefined;
+  /**
+   * Custom prompt for the image style. If you provide a custom prompt, the image style will be ignored.
+   */
+  imageStyleCustomPrompt?: string | undefined;
+  /**
+   * Default animation model for scene images when not specified individually.
+   */
+  animationModel?: CreateSeriesAnimationModel | undefined;
+  /**
+   * Default animation preset for scene images when not specified individually.
+   */
+  animationModelPreset?: CreateSeriesAnimationModelPreset | undefined;
   /**
    * List of publishing connection ids. Use the [List connections](#tag/connections/GET) endpoint to get a list of available connections
    */
@@ -284,6 +472,10 @@ export type CreateSeriesRequestBody = {
    * Array of series topics.
    */
   topics?: Array<Topics> | undefined;
+  /**
+   * Ad content to be converted into a single video. Required for Ad videos.
+   */
+  ad?: CreateSeriesAd | undefined;
   /**
    * Base idea or theme for generating custom topics. Required for Custom and Quiz series
    */
@@ -338,6 +530,90 @@ export namespace CreateSeriesLocale$ {
   export const inboundSchema = CreateSeriesLocale$inboundSchema;
   /** @deprecated use `CreateSeriesLocale$outboundSchema` instead. */
   export const outboundSchema = CreateSeriesLocale$outboundSchema;
+}
+
+/** @internal */
+export const CreateSeriesImageModel$inboundSchema: z.ZodNativeEnum<
+  typeof CreateSeriesImageModel
+> = z.nativeEnum(CreateSeriesImageModel);
+
+/** @internal */
+export const CreateSeriesImageModel$outboundSchema: z.ZodNativeEnum<
+  typeof CreateSeriesImageModel
+> = CreateSeriesImageModel$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateSeriesImageModel$ {
+  /** @deprecated use `CreateSeriesImageModel$inboundSchema` instead. */
+  export const inboundSchema = CreateSeriesImageModel$inboundSchema;
+  /** @deprecated use `CreateSeriesImageModel$outboundSchema` instead. */
+  export const outboundSchema = CreateSeriesImageModel$outboundSchema;
+}
+
+/** @internal */
+export const CreateSeriesImageQuality$inboundSchema: z.ZodNativeEnum<
+  typeof CreateSeriesImageQuality
+> = z.nativeEnum(CreateSeriesImageQuality);
+
+/** @internal */
+export const CreateSeriesImageQuality$outboundSchema: z.ZodNativeEnum<
+  typeof CreateSeriesImageQuality
+> = CreateSeriesImageQuality$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateSeriesImageQuality$ {
+  /** @deprecated use `CreateSeriesImageQuality$inboundSchema` instead. */
+  export const inboundSchema = CreateSeriesImageQuality$inboundSchema;
+  /** @deprecated use `CreateSeriesImageQuality$outboundSchema` instead. */
+  export const outboundSchema = CreateSeriesImageQuality$outboundSchema;
+}
+
+/** @internal */
+export const CreateSeriesAnimationModel$inboundSchema: z.ZodNativeEnum<
+  typeof CreateSeriesAnimationModel
+> = z.nativeEnum(CreateSeriesAnimationModel);
+
+/** @internal */
+export const CreateSeriesAnimationModel$outboundSchema: z.ZodNativeEnum<
+  typeof CreateSeriesAnimationModel
+> = CreateSeriesAnimationModel$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateSeriesAnimationModel$ {
+  /** @deprecated use `CreateSeriesAnimationModel$inboundSchema` instead. */
+  export const inboundSchema = CreateSeriesAnimationModel$inboundSchema;
+  /** @deprecated use `CreateSeriesAnimationModel$outboundSchema` instead. */
+  export const outboundSchema = CreateSeriesAnimationModel$outboundSchema;
+}
+
+/** @internal */
+export const CreateSeriesAnimationModelPreset$inboundSchema: z.ZodNativeEnum<
+  typeof CreateSeriesAnimationModelPreset
+> = z.nativeEnum(CreateSeriesAnimationModelPreset);
+
+/** @internal */
+export const CreateSeriesAnimationModelPreset$outboundSchema: z.ZodNativeEnum<
+  typeof CreateSeriesAnimationModelPreset
+> = CreateSeriesAnimationModelPreset$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateSeriesAnimationModelPreset$ {
+  /** @deprecated use `CreateSeriesAnimationModelPreset$inboundSchema` instead. */
+  export const inboundSchema = CreateSeriesAnimationModelPreset$inboundSchema;
+  /** @deprecated use `CreateSeriesAnimationModelPreset$outboundSchema` instead. */
+  export const outboundSchema = CreateSeriesAnimationModelPreset$outboundSchema;
 }
 
 /** @internal */
@@ -531,6 +807,558 @@ export function topicsFromJSON(
 }
 
 /** @internal */
+export const CreateSeriesType$inboundSchema: z.ZodNativeEnum<
+  typeof CreateSeriesType
+> = z.nativeEnum(CreateSeriesType);
+
+/** @internal */
+export const CreateSeriesType$outboundSchema: z.ZodNativeEnum<
+  typeof CreateSeriesType
+> = CreateSeriesType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateSeriesType$ {
+  /** @deprecated use `CreateSeriesType$inboundSchema` instead. */
+  export const inboundSchema = CreateSeriesType$inboundSchema;
+  /** @deprecated use `CreateSeriesType$outboundSchema` instead. */
+  export const outboundSchema = CreateSeriesType$outboundSchema;
+}
+
+/** @internal */
+export const UgcMediaMetadata$inboundSchema: z.ZodType<
+  UgcMediaMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  sourceImageUrl: z.string(),
+  muxPlaybackId: z.nullable(z.string()),
+});
+
+/** @internal */
+export type UgcMediaMetadata$Outbound = {
+  sourceImageUrl: string;
+  muxPlaybackId: string | null;
+};
+
+/** @internal */
+export const UgcMediaMetadata$outboundSchema: z.ZodType<
+  UgcMediaMetadata$Outbound,
+  z.ZodTypeDef,
+  UgcMediaMetadata
+> = z.object({
+  sourceImageUrl: z.string(),
+  muxPlaybackId: z.nullable(z.string()),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace UgcMediaMetadata$ {
+  /** @deprecated use `UgcMediaMetadata$inboundSchema` instead. */
+  export const inboundSchema = UgcMediaMetadata$inboundSchema;
+  /** @deprecated use `UgcMediaMetadata$outboundSchema` instead. */
+  export const outboundSchema = UgcMediaMetadata$outboundSchema;
+  /** @deprecated use `UgcMediaMetadata$Outbound` instead. */
+  export type Outbound = UgcMediaMetadata$Outbound;
+}
+
+export function ugcMediaMetadataToJSON(
+  ugcMediaMetadata: UgcMediaMetadata,
+): string {
+  return JSON.stringify(
+    UgcMediaMetadata$outboundSchema.parse(ugcMediaMetadata),
+  );
+}
+
+export function ugcMediaMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<UgcMediaMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UgcMediaMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UgcMediaMetadata' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateSeriesUgcMediaRequestSource$inboundSchema: z.ZodNativeEnum<
+  typeof CreateSeriesUgcMediaRequestSource
+> = z.nativeEnum(CreateSeriesUgcMediaRequestSource);
+
+/** @internal */
+export const CreateSeriesUgcMediaRequestSource$outboundSchema: z.ZodNativeEnum<
+  typeof CreateSeriesUgcMediaRequestSource
+> = CreateSeriesUgcMediaRequestSource$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateSeriesUgcMediaRequestSource$ {
+  /** @deprecated use `CreateSeriesUgcMediaRequestSource$inboundSchema` instead. */
+  export const inboundSchema = CreateSeriesUgcMediaRequestSource$inboundSchema;
+  /** @deprecated use `CreateSeriesUgcMediaRequestSource$outboundSchema` instead. */
+  export const outboundSchema =
+    CreateSeriesUgcMediaRequestSource$outboundSchema;
+}
+
+/** @internal */
+export const CreateSeriesUgcMediaRequestData$inboundSchema: z.ZodType<
+  CreateSeriesUgcMediaRequestData,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string(),
+  ugcCreatorId: z.string(),
+  ugcPresetId: z.string(),
+  createdAt: z.string(),
+  hook: z.nullable(z.string()).optional(),
+});
+
+/** @internal */
+export type CreateSeriesUgcMediaRequestData$Outbound = {
+  id: string;
+  ugcCreatorId: string;
+  ugcPresetId: string;
+  createdAt: string;
+  hook?: string | null | undefined;
+};
+
+/** @internal */
+export const CreateSeriesUgcMediaRequestData$outboundSchema: z.ZodType<
+  CreateSeriesUgcMediaRequestData$Outbound,
+  z.ZodTypeDef,
+  CreateSeriesUgcMediaRequestData
+> = z.object({
+  id: z.string(),
+  ugcCreatorId: z.string(),
+  ugcPresetId: z.string(),
+  createdAt: z.string(),
+  hook: z.nullable(z.string()).optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateSeriesUgcMediaRequestData$ {
+  /** @deprecated use `CreateSeriesUgcMediaRequestData$inboundSchema` instead. */
+  export const inboundSchema = CreateSeriesUgcMediaRequestData$inboundSchema;
+  /** @deprecated use `CreateSeriesUgcMediaRequestData$outboundSchema` instead. */
+  export const outboundSchema = CreateSeriesUgcMediaRequestData$outboundSchema;
+  /** @deprecated use `CreateSeriesUgcMediaRequestData$Outbound` instead. */
+  export type Outbound = CreateSeriesUgcMediaRequestData$Outbound;
+}
+
+export function createSeriesUgcMediaRequestDataToJSON(
+  createSeriesUgcMediaRequestData: CreateSeriesUgcMediaRequestData,
+): string {
+  return JSON.stringify(
+    CreateSeriesUgcMediaRequestData$outboundSchema.parse(
+      createSeriesUgcMediaRequestData,
+    ),
+  );
+}
+
+export function createSeriesUgcMediaRequestDataFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateSeriesUgcMediaRequestData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateSeriesUgcMediaRequestData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateSeriesUgcMediaRequestData' from JSON`,
+  );
+}
+
+/** @internal */
+export const UgcMediaState$inboundSchema: z.ZodNativeEnum<
+  typeof UgcMediaState
+> = z.nativeEnum(UgcMediaState);
+
+/** @internal */
+export const UgcMediaState$outboundSchema: z.ZodNativeEnum<
+  typeof UgcMediaState
+> = UgcMediaState$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace UgcMediaState$ {
+  /** @deprecated use `UgcMediaState$inboundSchema` instead. */
+  export const inboundSchema = UgcMediaState$inboundSchema;
+  /** @deprecated use `UgcMediaState$outboundSchema` instead. */
+  export const outboundSchema = UgcMediaState$outboundSchema;
+}
+
+/** @internal */
+export const UgcMedia2$inboundSchema: z.ZodType<
+  UgcMedia2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  url: z.nullable(z.string()),
+  deletedAt: z.nullable(z.string()).optional(),
+  metadata: z.lazy(() => UgcMediaMetadata$inboundSchema),
+  lastError: z.nullable(z.string()).optional(),
+  type: z.literal("UgcVideo").default("UgcVideo").optional(),
+  source: z.nullable(CreateSeriesUgcMediaRequestSource$inboundSchema),
+  category: z.literal("Ugc").default("Ugc").optional(),
+  data: z.lazy(() => CreateSeriesUgcMediaRequestData$inboundSchema),
+  state: UgcMediaState$inboundSchema,
+});
+
+/** @internal */
+export type UgcMedia2$Outbound = {
+  url: string | null;
+  deletedAt?: string | null | undefined;
+  metadata: UgcMediaMetadata$Outbound;
+  lastError?: string | null | undefined;
+  type: "UgcVideo";
+  source: string | null;
+  category: "Ugc";
+  data: CreateSeriesUgcMediaRequestData$Outbound;
+  state: string;
+};
+
+/** @internal */
+export const UgcMedia2$outboundSchema: z.ZodType<
+  UgcMedia2$Outbound,
+  z.ZodTypeDef,
+  UgcMedia2
+> = z.object({
+  url: z.nullable(z.string()),
+  deletedAt: z.nullable(z.string()).optional(),
+  metadata: z.lazy(() => UgcMediaMetadata$outboundSchema),
+  lastError: z.nullable(z.string()).optional(),
+  type: z.literal("UgcVideo").default("UgcVideo" as const),
+  source: z.nullable(CreateSeriesUgcMediaRequestSource$outboundSchema),
+  category: z.literal("Ugc").default("Ugc" as const),
+  data: z.lazy(() => CreateSeriesUgcMediaRequestData$outboundSchema),
+  state: UgcMediaState$outboundSchema,
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace UgcMedia2$ {
+  /** @deprecated use `UgcMedia2$inboundSchema` instead. */
+  export const inboundSchema = UgcMedia2$inboundSchema;
+  /** @deprecated use `UgcMedia2$outboundSchema` instead. */
+  export const outboundSchema = UgcMedia2$outboundSchema;
+  /** @deprecated use `UgcMedia2$Outbound` instead. */
+  export type Outbound = UgcMedia2$Outbound;
+}
+
+export function ugcMedia2ToJSON(ugcMedia2: UgcMedia2): string {
+  return JSON.stringify(UgcMedia2$outboundSchema.parse(ugcMedia2));
+}
+
+export function ugcMedia2FromJSON(
+  jsonString: string,
+): SafeParseResult<UgcMedia2, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UgcMedia2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UgcMedia2' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateSeriesUgcMediaSource$inboundSchema: z.ZodNativeEnum<
+  typeof CreateSeriesUgcMediaSource
+> = z.nativeEnum(CreateSeriesUgcMediaSource);
+
+/** @internal */
+export const CreateSeriesUgcMediaSource$outboundSchema: z.ZodNativeEnum<
+  typeof CreateSeriesUgcMediaSource
+> = CreateSeriesUgcMediaSource$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateSeriesUgcMediaSource$ {
+  /** @deprecated use `CreateSeriesUgcMediaSource$inboundSchema` instead. */
+  export const inboundSchema = CreateSeriesUgcMediaSource$inboundSchema;
+  /** @deprecated use `CreateSeriesUgcMediaSource$outboundSchema` instead. */
+  export const outboundSchema = CreateSeriesUgcMediaSource$outboundSchema;
+}
+
+/** @internal */
+export const CreateSeriesUgcMediaData$inboundSchema: z.ZodType<
+  CreateSeriesUgcMediaData,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string(),
+  hook: z.nullable(z.string()).optional(),
+});
+
+/** @internal */
+export type CreateSeriesUgcMediaData$Outbound = {
+  id: string;
+  hook?: string | null | undefined;
+};
+
+/** @internal */
+export const CreateSeriesUgcMediaData$outboundSchema: z.ZodType<
+  CreateSeriesUgcMediaData$Outbound,
+  z.ZodTypeDef,
+  CreateSeriesUgcMediaData
+> = z.object({
+  id: z.string(),
+  hook: z.nullable(z.string()).optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateSeriesUgcMediaData$ {
+  /** @deprecated use `CreateSeriesUgcMediaData$inboundSchema` instead. */
+  export const inboundSchema = CreateSeriesUgcMediaData$inboundSchema;
+  /** @deprecated use `CreateSeriesUgcMediaData$outboundSchema` instead. */
+  export const outboundSchema = CreateSeriesUgcMediaData$outboundSchema;
+  /** @deprecated use `CreateSeriesUgcMediaData$Outbound` instead. */
+  export type Outbound = CreateSeriesUgcMediaData$Outbound;
+}
+
+export function createSeriesUgcMediaDataToJSON(
+  createSeriesUgcMediaData: CreateSeriesUgcMediaData,
+): string {
+  return JSON.stringify(
+    CreateSeriesUgcMediaData$outboundSchema.parse(createSeriesUgcMediaData),
+  );
+}
+
+export function createSeriesUgcMediaDataFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateSeriesUgcMediaData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateSeriesUgcMediaData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateSeriesUgcMediaData' from JSON`,
+  );
+}
+
+/** @internal */
+export const UgcMedia1$inboundSchema: z.ZodType<
+  UgcMedia1,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  url: z.nullable(z.string()),
+  deletedAt: z.nullable(z.string()).optional(),
+  metadata: z.any().optional(),
+  lastError: z.nullable(z.string()).optional(),
+  type: z.literal("UgcCreator").default("UgcCreator").optional(),
+  source: z.nullable(CreateSeriesUgcMediaSource$inboundSchema),
+  category: z.literal("Ugc").default("Ugc").optional(),
+  data: z.lazy(() => CreateSeriesUgcMediaData$inboundSchema),
+  state: z.literal("completed").default("completed").optional(),
+});
+
+/** @internal */
+export type UgcMedia1$Outbound = {
+  url: string | null;
+  deletedAt?: string | null | undefined;
+  metadata?: any | undefined;
+  lastError?: string | null | undefined;
+  type: "UgcCreator";
+  source: string | null;
+  category: "Ugc";
+  data: CreateSeriesUgcMediaData$Outbound;
+  state: "completed";
+};
+
+/** @internal */
+export const UgcMedia1$outboundSchema: z.ZodType<
+  UgcMedia1$Outbound,
+  z.ZodTypeDef,
+  UgcMedia1
+> = z.object({
+  url: z.nullable(z.string()),
+  deletedAt: z.nullable(z.string()).optional(),
+  metadata: z.any().optional(),
+  lastError: z.nullable(z.string()).optional(),
+  type: z.literal("UgcCreator").default("UgcCreator" as const),
+  source: z.nullable(CreateSeriesUgcMediaSource$outboundSchema),
+  category: z.literal("Ugc").default("Ugc" as const),
+  data: z.lazy(() => CreateSeriesUgcMediaData$outboundSchema),
+  state: z.literal("completed").default("completed" as const),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace UgcMedia1$ {
+  /** @deprecated use `UgcMedia1$inboundSchema` instead. */
+  export const inboundSchema = UgcMedia1$inboundSchema;
+  /** @deprecated use `UgcMedia1$outboundSchema` instead. */
+  export const outboundSchema = UgcMedia1$outboundSchema;
+  /** @deprecated use `UgcMedia1$Outbound` instead. */
+  export type Outbound = UgcMedia1$Outbound;
+}
+
+export function ugcMedia1ToJSON(ugcMedia1: UgcMedia1): string {
+  return JSON.stringify(UgcMedia1$outboundSchema.parse(ugcMedia1));
+}
+
+export function ugcMedia1FromJSON(
+  jsonString: string,
+): SafeParseResult<UgcMedia1, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UgcMedia1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UgcMedia1' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateSeriesUgcMedia$inboundSchema: z.ZodType<
+  CreateSeriesUgcMedia,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.lazy(() => UgcMedia2$inboundSchema),
+  z.lazy(() => UgcMedia1$inboundSchema),
+]);
+
+/** @internal */
+export type CreateSeriesUgcMedia$Outbound =
+  | UgcMedia2$Outbound
+  | UgcMedia1$Outbound;
+
+/** @internal */
+export const CreateSeriesUgcMedia$outboundSchema: z.ZodType<
+  CreateSeriesUgcMedia$Outbound,
+  z.ZodTypeDef,
+  CreateSeriesUgcMedia
+> = z.union([
+  z.lazy(() => UgcMedia2$outboundSchema),
+  z.lazy(() => UgcMedia1$outboundSchema),
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateSeriesUgcMedia$ {
+  /** @deprecated use `CreateSeriesUgcMedia$inboundSchema` instead. */
+  export const inboundSchema = CreateSeriesUgcMedia$inboundSchema;
+  /** @deprecated use `CreateSeriesUgcMedia$outboundSchema` instead. */
+  export const outboundSchema = CreateSeriesUgcMedia$outboundSchema;
+  /** @deprecated use `CreateSeriesUgcMedia$Outbound` instead. */
+  export type Outbound = CreateSeriesUgcMedia$Outbound;
+}
+
+export function createSeriesUgcMediaToJSON(
+  createSeriesUgcMedia: CreateSeriesUgcMedia,
+): string {
+  return JSON.stringify(
+    CreateSeriesUgcMedia$outboundSchema.parse(createSeriesUgcMedia),
+  );
+}
+
+export function createSeriesUgcMediaFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateSeriesUgcMedia, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateSeriesUgcMedia$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateSeriesUgcMedia' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateSeriesAd$inboundSchema: z.ZodType<
+  CreateSeriesAd,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  product_id: z.string(),
+  type: CreateSeriesType$inboundSchema,
+  ugc_media: z.array(
+    z.union([
+      z.lazy(() => UgcMedia2$inboundSchema),
+      z.lazy(() => UgcMedia1$inboundSchema),
+    ]),
+  ),
+  media_ids: z.array(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "product_id": "productId",
+    "ugc_media": "ugcMedia",
+    "media_ids": "mediaIds",
+  });
+});
+
+/** @internal */
+export type CreateSeriesAd$Outbound = {
+  product_id: string;
+  type: string;
+  ugc_media: Array<UgcMedia2$Outbound | UgcMedia1$Outbound>;
+  media_ids?: Array<string> | undefined;
+};
+
+/** @internal */
+export const CreateSeriesAd$outboundSchema: z.ZodType<
+  CreateSeriesAd$Outbound,
+  z.ZodTypeDef,
+  CreateSeriesAd
+> = z.object({
+  productId: z.string(),
+  type: CreateSeriesType$outboundSchema,
+  ugcMedia: z.array(
+    z.union([
+      z.lazy(() => UgcMedia2$outboundSchema),
+      z.lazy(() => UgcMedia1$outboundSchema),
+    ]),
+  ),
+  mediaIds: z.array(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    productId: "product_id",
+    ugcMedia: "ugc_media",
+    mediaIds: "media_ids",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateSeriesAd$ {
+  /** @deprecated use `CreateSeriesAd$inboundSchema` instead. */
+  export const inboundSchema = CreateSeriesAd$inboundSchema;
+  /** @deprecated use `CreateSeriesAd$outboundSchema` instead. */
+  export const outboundSchema = CreateSeriesAd$outboundSchema;
+  /** @deprecated use `CreateSeriesAd$Outbound` instead. */
+  export type Outbound = CreateSeriesAd$Outbound;
+}
+
+export function createSeriesAdToJSON(createSeriesAd: CreateSeriesAd): string {
+  return JSON.stringify(CreateSeriesAd$outboundSchema.parse(createSeriesAd));
+}
+
+export function createSeriesAdFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateSeriesAd, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateSeriesAd$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateSeriesAd' from JSON`,
+  );
+}
+
+/** @internal */
 export const CreateSeriesRequestBody$inboundSchema: z.ZodType<
   CreateSeriesRequestBody,
   z.ZodTypeDef,
@@ -539,6 +1367,13 @@ export const CreateSeriesRequestBody$inboundSchema: z.ZodType<
   content_type: CreateSeriesContentType$inboundSchema.default("Custom"),
   locale: CreateSeriesLocale$inboundSchema.default("auto"),
   image_style_id: z.string().optional(),
+  image_model: CreateSeriesImageModel$inboundSchema.optional(),
+  image_quality: CreateSeriesImageQuality$inboundSchema.optional(),
+  image_style_raw_mode: z.boolean().optional(),
+  image_style_custom_prompt: z.string().optional(),
+  animation_model: CreateSeriesAnimationModel$inboundSchema.optional(),
+  animation_model_preset: CreateSeriesAnimationModelPreset$inboundSchema
+    .optional(),
   connection_ids: z.array(z.string()),
   aspect_ratio: CreateSeriesAspectRatio$inboundSchema.default("9:16"),
   voice_playback_rate: z.number().default(100),
@@ -548,6 +1383,7 @@ export const CreateSeriesRequestBody$inboundSchema: z.ZodType<
   schedule: z.lazy(() => Schedule$inboundSchema).optional(),
   duration: z.number().optional(),
   topics: z.array(z.lazy(() => Topics$inboundSchema)).optional(),
+  ad: z.lazy(() => CreateSeriesAd$inboundSchema).optional(),
   parent_topic: z.string().optional(),
   voice_ids: z.array(z.string()).optional(),
   soundtrack_ids: z.array(z.string()).optional(),
@@ -555,6 +1391,12 @@ export const CreateSeriesRequestBody$inboundSchema: z.ZodType<
   return remap$(v, {
     "content_type": "contentType",
     "image_style_id": "imageStyleId",
+    "image_model": "imageModel",
+    "image_quality": "imageQuality",
+    "image_style_raw_mode": "imageStyleRawMode",
+    "image_style_custom_prompt": "imageStyleCustomPrompt",
+    "animation_model": "animationModel",
+    "animation_model_preset": "animationModelPreset",
     "connection_ids": "connectionIds",
     "aspect_ratio": "aspectRatio",
     "voice_playback_rate": "voicePlaybackRate",
@@ -572,6 +1414,12 @@ export type CreateSeriesRequestBody$Outbound = {
   content_type: string;
   locale: string;
   image_style_id?: string | undefined;
+  image_model?: string | undefined;
+  image_quality?: string | undefined;
+  image_style_raw_mode?: boolean | undefined;
+  image_style_custom_prompt?: string | undefined;
+  animation_model?: string | undefined;
+  animation_model_preset?: string | undefined;
   connection_ids: Array<string>;
   aspect_ratio: string;
   voice_playback_rate: number;
@@ -581,6 +1429,7 @@ export type CreateSeriesRequestBody$Outbound = {
   schedule?: Schedule$Outbound | undefined;
   duration?: number | undefined;
   topics?: Array<Topics$Outbound> | undefined;
+  ad?: CreateSeriesAd$Outbound | undefined;
   parent_topic?: string | undefined;
   voice_ids?: Array<string> | undefined;
   soundtrack_ids?: Array<string> | undefined;
@@ -595,6 +1444,13 @@ export const CreateSeriesRequestBody$outboundSchema: z.ZodType<
   contentType: CreateSeriesContentType$outboundSchema.default("Custom"),
   locale: CreateSeriesLocale$outboundSchema.default("auto"),
   imageStyleId: z.string().optional(),
+  imageModel: CreateSeriesImageModel$outboundSchema.optional(),
+  imageQuality: CreateSeriesImageQuality$outboundSchema.optional(),
+  imageStyleRawMode: z.boolean().optional(),
+  imageStyleCustomPrompt: z.string().optional(),
+  animationModel: CreateSeriesAnimationModel$outboundSchema.optional(),
+  animationModelPreset: CreateSeriesAnimationModelPreset$outboundSchema
+    .optional(),
   connectionIds: z.array(z.string()),
   aspectRatio: CreateSeriesAspectRatio$outboundSchema.default("9:16"),
   voicePlaybackRate: z.number().default(100),
@@ -604,6 +1460,7 @@ export const CreateSeriesRequestBody$outboundSchema: z.ZodType<
   schedule: z.lazy(() => Schedule$outboundSchema).optional(),
   duration: z.number().optional(),
   topics: z.array(z.lazy(() => Topics$outboundSchema)).optional(),
+  ad: z.lazy(() => CreateSeriesAd$outboundSchema).optional(),
   parentTopic: z.string().optional(),
   voiceIds: z.array(z.string()).optional(),
   soundtrackIds: z.array(z.string()).optional(),
@@ -611,6 +1468,12 @@ export const CreateSeriesRequestBody$outboundSchema: z.ZodType<
   return remap$(v, {
     contentType: "content_type",
     imageStyleId: "image_style_id",
+    imageModel: "image_model",
+    imageQuality: "image_quality",
+    imageStyleRawMode: "image_style_raw_mode",
+    imageStyleCustomPrompt: "image_style_custom_prompt",
+    animationModel: "animation_model",
+    animationModelPreset: "animation_model_preset",
     connectionIds: "connection_ids",
     aspectRatio: "aspect_ratio",
     voicePlaybackRate: "voice_playback_rate",

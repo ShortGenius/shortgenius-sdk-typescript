@@ -77,6 +77,7 @@ export const GenerateVideoTopicsContentType = {
   LifeTips: "LifeTips",
   Eli5: "ELI5",
   Philosophy: "Philosophy",
+  Ad: "Ad",
 } as const;
 /**
  * Content type of the video.

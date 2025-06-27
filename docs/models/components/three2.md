@@ -6,11 +6,11 @@
 import { Three2 } from "shortgenius/models/components";
 
 let value: Three2 = {
-  id: "e1fd7539-0061-4434-a201-9ff62a7f1c43",
-  url: "https://rapid-league.info/",
+  id: "32b897dc-0fc2-4cd8-9721-ce27c0dffae5",
+  url: "https://vague-corporation.name/",
   metadata: {},
   source: "ImagePicker",
-  state: "error",
+  state: "uploading",
   data: {
     uploadId: "<id>",
     key: "<key>",

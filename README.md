@@ -82,7 +82,7 @@ yarn add shortgenius zod
 This SDK is also an installable MCP server where the various SDK methods are
 exposed as tools that can be invoked by AI applications.
 
-> Node.js v20 or greater is required to run the MCP server.
+> Node.js v20 or greater is required to run the MCP server from npm.
 
 <details>
 <summary>Claude installation steps</summary>
@@ -110,16 +110,49 @@ Add the following server definition to your `claude_desktop_config.json` file:
 <details>
 <summary>Cursor installation steps</summary>
 
-Go to `Cursor Settings > Features > MCP Servers > Add new MCP server` and use the following settings:
+Create a `.cursor/mcp.json` file in your project root with the following content:
 
-- Name: ShortGenius
-- Type: `command`
-- Command:
-```sh
-npx -y --package shortgenius -- mcp start --bearer-auth ... 
+```json
+{
+  "mcpServers": {
+    "ShortGenius": {
+      "command": "npx",
+      "args": [
+        "-y", "--package", "shortgenius",
+        "--",
+        "mcp", "start",
+        "--bearer-auth", "..."
+      ]
+    }
+  }
+}
 ```
 
 </details>
+
+You can also run MCP servers as a standalone binary with no additional dependencies. You must pull these binaries from available Github releases:
+
+```bash
+curl -L -o mcp-server \
+    https://github.com/{org}/{repo}/releases/download/{tag}/mcp-server-bun-darwin-arm64 && \
+chmod +x mcp-server
+```
+
+If the repo is a private repo you must add your Github PAT to download a release `-H "Authorization: Bearer {GITHUB_PAT}"`.
+
+
+```json
+{
+  "mcpServers": {
+    "Todos": {
+      "command": "./DOWNLOAD/PATH/mcp-server",
+      "args": [
+        "start"
+      ]
+    }
+  }
+}
+```
 
 For a full list of server arguments, run:
 
@@ -149,7 +182,6 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.getMusicGenres();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -180,7 +212,6 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.getMusicGenres();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -302,7 +333,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -331,7 +361,6 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.getMusicGenres();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -343,51 +372,42 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `getMusic` method may throw the following errors:
+[`ShortGeniusError`](./src/models/errors/shortgeniuserror.ts) is the base class for all HTTP error responses. It has the following properties:
 
-| Error Type                  | Status Code | Content Type     |
-| --------------------------- | ----------- | ---------------- |
-| errors.GetMusicResponseBody | 400         | application/json |
-| errors.APIError             | 4XX, 5XX    | \*/\*            |
+| Property            | Type       | Description                                                                             |
+| ------------------- | ---------- | --------------------------------------------------------------------------------------- |
+| `error.message`     | `string`   | Error message                                                                           |
+| `error.statusCode`  | `number`   | HTTP response status code eg `404`                                                      |
+| `error.headers`     | `Headers`  | HTTP response headers                                                                   |
+| `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned.                                  |
+| `error.rawResponse` | `Response` | Raw HTTP response                                                                       |
+| `error.data$`       |            | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
 
-If the method throws an error and it is not captured by the known errors, it will default to throwing a `APIError`.
-
+### Example
 ```typescript
 import { ShortGenius } from "shortgenius";
-import {
-  GetMusicResponseBody,
-  SDKValidationError,
-} from "shortgenius/models/errors";
+import * as errors from "shortgenius/models/errors";
 
 const shortGenius = new ShortGenius({
   bearerAuth: process.env["SHORTGENIUS_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
-  let result;
   try {
-    result = await shortGenius.getMusic("<id>");
+    const result = await shortGenius.getMusic("<id>");
 
-    // Handle the result
     console.log(result);
-  } catch (err) {
-    switch (true) {
-      // The server response does not match the expected SDK schema
-      case (err instanceof SDKValidationError): {
-        // Pretty-print will provide a human-readable multi-line error message
-        console.error(err.pretty());
-        // Raw value may also be inspected
-        console.error(err.rawValue);
-        return;
-      }
-      case (err instanceof GetMusicResponseBody): {
-        // Handle err.data$: GetMusicResponseBodyData
-        console.error(err);
-        return;
-      }
-      default: {
-        // Other errors such as network errors, see HTTPClientErrors for more details
-        throw err;
+  } catch (error) {
+    // The base class for HTTP error responses
+    if (error instanceof errors.ShortGeniusError) {
+      console.log(error.message);
+      console.log(error.statusCode);
+      console.log(error.body);
+      console.log(error.headers);
+
+      // Depending on the method different errors may be thrown
+      if (error instanceof errors.GetMusicResponseBody) {
+        console.log(error.data$.message); // string
       }
     }
   }
@@ -397,17 +417,61 @@ run();
 
 ```
 
-Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted multi-line string since validation errors can list many issues and the plain error string may be difficult read when debugging.
+### Error Classes
+**Primary error:**
+* [`ShortGeniusError`](./src/models/errors/shortgeniuserror.ts): The base class for HTTP error responses.
 
-In some rare cases, the SDK can fail to get a response from the server or even make the request due to unexpected circumstances such as network conditions. These types of errors are captured in the `models/errors/httpclienterrors.ts` module:
+<details><summary>Less common errors (39)</summary>
 
-| HTTP Client Error                                    | Description                                          |
-| ---------------------------------------------------- | ---------------------------------------------------- |
-| RequestAbortedError                                  | HTTP request was aborted by the client               |
-| RequestTimeoutError                                  | HTTP request timed out due to an AbortSignal signal  |
-| ConnectionError                                      | HTTP client was unable to make a request to a server |
-| InvalidRequestError                                  | Any input used to create a request is invalid        |
-| UnexpectedClientError                                | Unrecognised or unexpected error                     |
+<br />
+
+**Network errors:**
+* [`ConnectionError`](./src/models/errors/httpclienterrors.ts): HTTP client was unable to make a request to a server.
+* [`RequestTimeoutError`](./src/models/errors/httpclienterrors.ts): HTTP request timed out due to an AbortSignal signal.
+* [`RequestAbortedError`](./src/models/errors/httpclienterrors.ts): HTTP request was aborted by the client.
+* [`InvalidRequestError`](./src/models/errors/httpclienterrors.ts): Any input used to create a request is invalid.
+* [`UnexpectedClientError`](./src/models/errors/httpclienterrors.ts): Unrecognised or unexpected error.
+
+
+**Inherit from [`ShortGeniusError`](./src/models/errors/shortgeniuserror.ts)**:
+* [`GetMusicResponseBody`](docs/models/errors/getmusicresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`DraftVideoResponseBody`](docs/models/errors/draftvideoresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`DraftVideoFromURLResponseBody`](docs/models/errors/draftvideofromurlresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`DraftVideoFromScriptResponseBody`](docs/models/errors/draftvideofromscriptresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`DraftQuizVideoResponseBody`](docs/models/errors/draftquizvideoresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`DraftNewsVideoResponseBody`](docs/models/errors/draftnewsvideoresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`GetVideoResponseBody`](docs/models/errors/getvideoresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`GetVideosResponseBody`](docs/models/errors/getvideosresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`CreateVideoResponseBody`](docs/models/errors/createvideoresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`GenerateVideoTopicsResponseBody`](docs/models/errors/generatevideotopicsresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`CreateSeriesResponseBody`](docs/models/errors/createseriesresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`GetAllSeriesResponseBody`](docs/models/errors/getallseriesresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`GetSeriesResponseBody`](docs/models/errors/getseriesresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`CreateImageResponseBody`](docs/models/errors/createimageresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`GetImagesResponseBody`](docs/models/errors/getimagesresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`GetImageResponseBody`](docs/models/errors/getimageresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`GetImageStylesResponseBody`](docs/models/errors/getimagestylesresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`CreateSpeechResponseBody`](docs/models/errors/createspeechresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`GetAllAudioResponseBody`](docs/models/errors/getallaudioresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`GetAudioResponseBody`](docs/models/errors/getaudioresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`GetVoicesResponseBody`](docs/models/errors/getvoicesresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`GetVoiceResponseBody`](docs/models/errors/getvoiceresponsebody.md): An error response object. Status code `400`. Applicable to 1 of 26 methods.*
+* [`DraftVideoResponseResponseBody`](docs/models/errors/draftvideoresponseresponsebody.md): An error response object. Status code `401`. Applicable to 1 of 26 methods.*
+* [`DraftVideoFromURLResponseResponseBody`](docs/models/errors/draftvideofromurlresponseresponsebody.md): An error response object. Status code `401`. Applicable to 1 of 26 methods.*
+* [`DraftVideoFromScriptResponseResponseBody`](docs/models/errors/draftvideofromscriptresponseresponsebody.md): An error response object. Status code `401`. Applicable to 1 of 26 methods.*
+* [`DraftQuizVideoResponseResponseBody`](docs/models/errors/draftquizvideoresponseresponsebody.md): An error response object. Status code `401`. Applicable to 1 of 26 methods.*
+* [`DraftNewsVideoResponseResponseBody`](docs/models/errors/draftnewsvideoresponseresponsebody.md): An error response object. Status code `401`. Applicable to 1 of 26 methods.*
+* [`CreateVideoResponseResponseBody`](docs/models/errors/createvideoresponseresponsebody.md): An error response object. Status code `401`. Applicable to 1 of 26 methods.*
+* [`GenerateVideoTopicsResponseResponseBody`](docs/models/errors/generatevideotopicsresponseresponsebody.md): An error response object. Status code `401`. Applicable to 1 of 26 methods.*
+* [`CreateSeriesResponseResponseBody`](docs/models/errors/createseriesresponseresponsebody.md): An error response object. Status code `401`. Applicable to 1 of 26 methods.*
+* [`GetConnectionsResponseBody`](docs/models/errors/getconnectionsresponsebody.md): An error response object. Status code `401`. Applicable to 1 of 26 methods.*
+* [`CreateImageResponseResponseBody`](docs/models/errors/createimageresponseresponsebody.md): An error response object. Status code `401`. Applicable to 1 of 26 methods.*
+* [`CreateSpeechResponseResponseBody`](docs/models/errors/createspeechresponseresponsebody.md): An error response object. Status code `401`. Applicable to 1 of 26 methods.*
+* [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
+
+</details>
+
+\* Check [the method documentation](#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
@@ -427,7 +491,6 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.getMusicGenres();
 
-  // Handle the result
   console.log(result);
 }
 

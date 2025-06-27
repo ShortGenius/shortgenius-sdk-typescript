@@ -6,24 +6,24 @@
 import { VideoFiles } from "shortgenius/models/operations";
 
 let value: VideoFiles = {
-  id: 9933.78,
-  quality: "hd",
-  fileType: "application",
-  width: 5018.36,
-  height: 5030.15,
+  id: 1729.78,
+  quality: "uhd",
+  fileType: "image",
+  width: 4169.98,
+  height: 5620.53,
   link: "<value>",
-  fps: 910.69,
+  fps: 8819.03,
 };
 ```
 
 ## Fields
 
-| Field                                                    | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `id`                                                     | *number*                                                 | :heavy_check_mark:                                       | N/A                                                      |
-| `quality`                                                | [operations.Quality](../../models/operations/quality.md) | :heavy_check_mark:                                       | N/A                                                      |
-| `fileType`                                               | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      |
-| `width`                                                  | *number*                                                 | :heavy_check_mark:                                       | N/A                                                      |
-| `height`                                                 | *number*                                                 | :heavy_check_mark:                                       | N/A                                                      |
-| `link`                                                   | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      |
-| `fps`                                                    | *number*                                                 | :heavy_check_mark:                                       | N/A                                                      |
+| Field                                                          | Type                                                           | Required                                                       | Description                                                    |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| `id`                                                           | *number*                                                       | :heavy_check_mark:                                             | N/A                                                            |
+| `quality`                                                      | [operations.OneQuality](../../models/operations/onequality.md) | :heavy_check_mark:                                             | N/A                                                            |
+| `fileType`                                                     | *string*                                                       | :heavy_check_mark:                                             | N/A                                                            |
+| `width`                                                        | *number*                                                       | :heavy_check_mark:                                             | N/A                                                            |
+| `height`                                                       | *number*                                                       | :heavy_check_mark:                                             | N/A                                                            |
+| `link`                                                         | *string*                                                       | :heavy_check_mark:                                             | N/A                                                            |
+| `fps`                                                          | *number*                                                       | :heavy_check_mark:                                             | N/A                                                            |

@@ -7,11 +7,11 @@ Content type of the video.
 ```typescript
 import { GenerateVideoTopicsContentType } from "shortgenius/models/operations";
 
-let value: GenerateVideoTopicsContentType = "Motivational";
+let value: GenerateVideoTopicsContentType = "History";
 ```
 
 ## Values
 
 ```typescript
-"Custom" | "News" | "Quiz" | "History" | "Scary" | "Motivational" | "Bedtime" | "FunFacts" | "LifeTips" | "ELI5" | "Philosophy"
+"Custom" | "News" | "Quiz" | "History" | "Scary" | "Motivational" | "Bedtime" | "FunFacts" | "LifeTips" | "ELI5" | "Philosophy" | "Ad"
 ```

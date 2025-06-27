@@ -5,11 +5,11 @@
 ```typescript
 import { GetImageResponseBodyState } from "shortgenius/models/operations";
 
-let value: GetImageResponseBodyState = "request_smart_motion";
+let value: GetImageResponseBodyState = "pending";
 ```
 
 ## Values
 
 ```typescript
-"uploading" | "error" | "completed" | "request_smart_motion"
+"pending" | "generating" | "completed" | "error"
 ```

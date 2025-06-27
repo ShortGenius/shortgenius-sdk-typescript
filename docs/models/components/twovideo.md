@@ -6,7 +6,7 @@
 import { TwoVideo } from "shortgenius/models/components";
 
 let value: TwoVideo = {
-  url: "https://tender-gazebo.biz",
+  url: "https://acidic-meadow.info/",
 };
 ```
 

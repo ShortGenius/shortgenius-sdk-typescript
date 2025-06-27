@@ -5,11 +5,11 @@
 ```typescript
 import { Quality } from "shortgenius/models/components";
 
-let value: Quality = "uhd";
+let value: Quality = "high";
 ```
 
 ## Values
 
 ```typescript
-"hd" | "sd" | "uhd"
+"low" | "medium" | "high"
 ```

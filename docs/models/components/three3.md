@@ -6,17 +6,17 @@
 import { Three3 } from "shortgenius/models/components";
 
 let value: Three3 = {
-  id: "b462c0bc-c459-4453-870c-1849fa0688a4",
-  url: "https://well-to-do-cook.org/",
+  id: "a0284122-ce9f-4a38-b930-10fc3b814e50",
+  url: "https://inconsequential-kick.com/",
   metadata: {},
-  source: "ImagePicker",
+  source: "Upload",
   data: {
     sourceMedia: {
-      id: "7e7b6ebb-5ca3-42cf-b79d-7f9ded2a6164",
-      url: "https://which-fork.info/",
+      id: "d9b09632-43ea-4865-8742-33fd554d9abc",
+      url: "https://trivial-rationale.org",
     },
   },
-  state: "pending",
+  state: "generating",
 };
 ```
 

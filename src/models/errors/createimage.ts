@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod";
+import { ShortGeniusError } from "./shortgeniuserror.js";
 
 /**
  * An error response object.
@@ -17,15 +18,18 @@ export type CreateImageResponseResponseBodyData = {
 /**
  * An error response object.
  */
-export class CreateImageResponseResponseBody extends Error {
+export class CreateImageResponseResponseBody extends ShortGeniusError {
   /** The original data that was passed to this error instance. */
   data$: CreateImageResponseResponseBodyData;
 
-  constructor(err: CreateImageResponseResponseBodyData) {
+  constructor(
+    err: CreateImageResponseResponseBodyData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
 
     this.name = "CreateImageResponseResponseBody";
@@ -45,15 +49,18 @@ export type CreateImageResponseBodyData = {
 /**
  * An error response object.
  */
-export class CreateImageResponseBody extends Error {
+export class CreateImageResponseBody extends ShortGeniusError {
   /** The original data that was passed to this error instance. */
   data$: CreateImageResponseBodyData;
 
-  constructor(err: CreateImageResponseBodyData) {
+  constructor(
+    err: CreateImageResponseBodyData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
 
     this.name = "CreateImageResponseBody";
@@ -67,9 +74,16 @@ export const CreateImageResponseResponseBody$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   message: z.nullable(z.string()).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new CreateImageResponseResponseBody(v);
+    return new CreateImageResponseResponseBody(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */
@@ -108,9 +122,16 @@ export const CreateImageResponseBody$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   message: z.nullable(z.string()).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new CreateImageResponseBody(v);
+    return new CreateImageResponseBody(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

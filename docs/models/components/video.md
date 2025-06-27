@@ -8,9 +8,9 @@ Details about the created or retrieved video, including scenes and their media.
 import { Video } from "shortgenius/models/components";
 
 let value: Video = {
-  id: "ef6c89e1-10dc-4dfc-a7c1-a2f864c79099",
-  createdAt: "1739535661695",
-  seriesId: "a56b0aa3-2559-47f1-832a-47321a235d1d",
+  id: "95b2e1ec-90b4-4020-a922-6795ddf4a1b2",
+  createdAt: "1706137012127",
+  seriesId: "5a75a91e-3cb4-4ccb-ba72-441daeb38c7a",
   publishingState: "error",
   publishAt: "<value>",
 };

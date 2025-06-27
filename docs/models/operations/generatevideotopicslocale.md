@@ -7,7 +7,7 @@ Locale for topic generation.
 ```typescript
 import { GenerateVideoTopicsLocale } from "shortgenius/models/operations";
 
-let value: GenerateVideoTopicsLocale = "he-IL";
+let value: GenerateVideoTopicsLocale = "no-NO";
 ```
 
 ## Values

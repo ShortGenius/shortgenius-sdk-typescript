@@ -16,21 +16,43 @@ export type GetImageRequest = {
   id: string;
 };
 
-export const GetImageResponseBodyResponse200ApplicationJSONState = {
+export const GetImageResponseBodyResponse200ApplicationJson11State = {
   Pending: "pending",
   Generating: "generating",
   Error: "error",
   Completed: "completed",
 } as const;
-export type GetImageResponseBodyResponse200ApplicationJSONState = ClosedEnum<
-  typeof GetImageResponseBodyResponse200ApplicationJSONState
+export type GetImageResponseBodyResponse200ApplicationJson11State = ClosedEnum<
+  typeof GetImageResponseBodyResponse200ApplicationJson11State
 >;
 
 export type Eleven = {
   id: string;
   url: string | null;
   type?: "UserImageSegmentation" | undefined;
+  state: GetImageResponseBodyResponse200ApplicationJson11State;
+  /**
+   * Date and time (ISO 8601) when the media was created.
+   */
+  createdAt: string;
+  updatedAt?: string | null | undefined;
+};
+
+export const GetImageResponseBodyResponse200ApplicationJSONState = {
+  Uploading: "uploading",
+  Error: "error",
+  Completed: "completed",
+  RequestSmartMotion: "request_smart_motion",
+} as const;
+export type GetImageResponseBodyResponse200ApplicationJSONState = ClosedEnum<
+  typeof GetImageResponseBodyResponse200ApplicationJSONState
+>;
+
+export type Ten = {
+  id: string;
+  url: string | null;
   state: GetImageResponseBodyResponse200ApplicationJSONState;
+  type?: "UserVideo" | undefined;
   /**
    * Date and time (ISO 8601) when the media was created.
    */
@@ -48,11 +70,11 @@ export type GetImageResponseBodyResponse200State = ClosedEnum<
   typeof GetImageResponseBodyResponse200State
 >;
 
-export type Ten = {
+export type Nine = {
   id: string;
   url: string | null;
   state: GetImageResponseBodyResponse200State;
-  type?: "UserVideo" | undefined;
+  type?: "UserImageFromPicker" | undefined;
   /**
    * Date and time (ISO 8601) when the media was created.
    */
@@ -70,32 +92,10 @@ export type GetImageResponseBodyResponseState = ClosedEnum<
   typeof GetImageResponseBodyResponseState
 >;
 
-export type Nine = {
-  id: string;
-  url: string | null;
-  state: GetImageResponseBodyResponseState;
-  type?: "UserImageFromPicker" | undefined;
-  /**
-   * Date and time (ISO 8601) when the media was created.
-   */
-  createdAt: string;
-  updatedAt?: string | null | undefined;
-};
-
-export const GetImageResponseBodyState = {
-  Uploading: "uploading",
-  Error: "error",
-  Completed: "completed",
-  RequestSmartMotion: "request_smart_motion",
-} as const;
-export type GetImageResponseBodyState = ClosedEnum<
-  typeof GetImageResponseBodyState
->;
-
 export type Eight = {
   id: string;
   url: string | null;
-  state: GetImageResponseBodyState;
+  state: GetImageResponseBodyResponseState;
   type?: "UserImage" | undefined;
   /**
    * Date and time (ISO 8601) when the media was created.
@@ -104,19 +104,21 @@ export type Eight = {
   updatedAt?: string | null | undefined;
 };
 
-export const ResponseBodyState = {
+export const GetImageResponseBodyState = {
   Pending: "pending",
   Generating: "generating",
   Completed: "completed",
   Error: "error",
 } as const;
-export type ResponseBodyState = ClosedEnum<typeof ResponseBodyState>;
+export type GetImageResponseBodyState = ClosedEnum<
+  typeof GetImageResponseBodyState
+>;
 
 export type Seven = {
   id: string;
   url: string | null;
   type?: "Segmentation" | undefined;
-  state: ResponseBodyState;
+  state: GetImageResponseBodyState;
   /**
    * Date and time (ISO 8601) when the media was created.
    */
@@ -136,19 +138,19 @@ export type Six = {
   updatedAt?: string | null | undefined;
 };
 
-export const State = {
+export const ResponseBodyState = {
   Pending: "pending",
   Generating: "generating",
   Completed: "completed",
   Error: "error",
 } as const;
-export type State = ClosedEnum<typeof State>;
+export type ResponseBodyState = ClosedEnum<typeof ResponseBodyState>;
 
 export type Five = {
   id: string;
   url: string | null;
   type?: "UgcVideo" | undefined;
-  state: State;
+  state: ResponseBodyState;
   /**
    * Date and time (ISO 8601) when the media was created.
    */
@@ -181,12 +183,34 @@ export type Three = {
   updatedAt?: string | null | undefined;
 };
 
-export type Two = {
+export type ResponseBody2 = {
   id: string;
   url: string | null;
   userId: string;
   type?: "Image" | undefined;
   state?: "completed" | undefined;
+  /**
+   * Date and time (ISO 8601) when the media was created.
+   */
+  createdAt: string;
+  updatedAt?: string | null | undefined;
+};
+
+export const GetImage1Response200State = {
+  Pending: "pending",
+  Generating: "generating",
+  Completed: "completed",
+  Error: "error",
+} as const;
+export type GetImage1Response200State = ClosedEnum<
+  typeof GetImage1Response200State
+>;
+
+export type One4 = {
+  id: string;
+  url: string | null;
+  type?: "Segmentation" | undefined;
+  state: GetImage1Response200State;
   /**
    * Date and time (ISO 8601) when the media was created.
    */
@@ -202,10 +226,10 @@ export const GetImage1ResponseState = {
 } as const;
 export type GetImage1ResponseState = ClosedEnum<typeof GetImage1ResponseState>;
 
-export type One4 = {
+export type One3 = {
   id: string;
   url: string | null;
-  type?: "Segmentation" | undefined;
+  type?: "LumaGeneratedVideo" | undefined;
   state: GetImage1ResponseState;
   /**
    * Date and time (ISO 8601) when the media was created.
@@ -222,31 +246,11 @@ export const GetImage1State = {
 } as const;
 export type GetImage1State = ClosedEnum<typeof GetImage1State>;
 
-export type One3 = {
-  id: string;
-  url: string | null;
-  type?: "LumaGeneratedVideo" | undefined;
-  state: GetImage1State;
-  /**
-   * Date and time (ISO 8601) when the media was created.
-   */
-  createdAt: string;
-  updatedAt?: string | null | undefined;
-};
-
-export const OneState = {
-  Pending: "pending",
-  Generating: "generating",
-  Completed: "completed",
-  Error: "error",
-} as const;
-export type OneState = ClosedEnum<typeof OneState>;
-
 export type One2 = {
   id: string;
   url: string | null;
   type?: "GeneratedVideo" | undefined;
-  state: OneState;
+  state: GetImage1State;
   /**
    * Date and time (ISO 8601) when the media was created.
    */
@@ -255,7 +259,7 @@ export type One2 = {
   firstFrameImageId?: string | null | undefined;
 };
 
-export const GetImage1Response200State = {
+export const OneState = {
   Pending: "pending",
   Generating: "generating",
   Completed: "completed",
@@ -263,14 +267,12 @@ export const GetImage1Response200State = {
   RequestSmartMotion: "request_smart_motion",
   Placeholder: "placeholder",
 } as const;
-export type GetImage1Response200State = ClosedEnum<
-  typeof GetImage1Response200State
->;
+export type OneState = ClosedEnum<typeof OneState>;
 
 export const OneAspectRatio = {
-  Nine16: "9:16",
-  Sixteen9: "16:9",
-  One1: "1:1",
+  NineHundredAndSixteen: "9:16",
+  OneHundredAndSixtyNine: "16:9",
+  Eleven: "1:1",
 } as const;
 export type OneAspectRatio = ClosedEnum<typeof OneAspectRatio>;
 
@@ -278,7 +280,7 @@ export type One1 = {
   id: string;
   url: string | null;
   type?: "GeneratedImage" | undefined;
-  state: GetImage1Response200State;
+  state: OneState;
   /**
    * Date and time (ISO 8601) when the media was created.
    */
@@ -290,12 +292,14 @@ export type One1 = {
   imageStyleId?: string | null | undefined;
 };
 
-export type One = One3 | One4 | One2 | One1;
+export type ResponseBody1 = One1 | One2 | One3 | One4;
 
 /**
  * Details of the requested image record.
  */
 export type GetImageResponseBody =
+  | ResponseBody2
+  | Three
   | Four
   | Five
   | Six
@@ -304,12 +308,10 @@ export type GetImageResponseBody =
   | Nine
   | Ten
   | Eleven
-  | Two
-  | Three
-  | One3
-  | One4
+  | One1
   | One2
-  | One1;
+  | One3
+  | One4;
 
 /** @internal */
 export const GetImageRequest$inboundSchema: z.ZodType<
@@ -364,26 +366,28 @@ export function getImageRequestFromJSON(
 }
 
 /** @internal */
-export const GetImageResponseBodyResponse200ApplicationJSONState$inboundSchema:
-  z.ZodNativeEnum<typeof GetImageResponseBodyResponse200ApplicationJSONState> =
-    z.nativeEnum(GetImageResponseBodyResponse200ApplicationJSONState);
+export const GetImageResponseBodyResponse200ApplicationJson11State$inboundSchema:
+  z.ZodNativeEnum<
+    typeof GetImageResponseBodyResponse200ApplicationJson11State
+  > = z.nativeEnum(GetImageResponseBodyResponse200ApplicationJson11State);
 
 /** @internal */
-export const GetImageResponseBodyResponse200ApplicationJSONState$outboundSchema:
-  z.ZodNativeEnum<typeof GetImageResponseBodyResponse200ApplicationJSONState> =
-    GetImageResponseBodyResponse200ApplicationJSONState$inboundSchema;
+export const GetImageResponseBodyResponse200ApplicationJson11State$outboundSchema:
+  z.ZodNativeEnum<
+    typeof GetImageResponseBodyResponse200ApplicationJson11State
+  > = GetImageResponseBodyResponse200ApplicationJson11State$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetImageResponseBodyResponse200ApplicationJSONState$ {
-  /** @deprecated use `GetImageResponseBodyResponse200ApplicationJSONState$inboundSchema` instead. */
+export namespace GetImageResponseBodyResponse200ApplicationJson11State$ {
+  /** @deprecated use `GetImageResponseBodyResponse200ApplicationJson11State$inboundSchema` instead. */
   export const inboundSchema =
-    GetImageResponseBodyResponse200ApplicationJSONState$inboundSchema;
-  /** @deprecated use `GetImageResponseBodyResponse200ApplicationJSONState$outboundSchema` instead. */
+    GetImageResponseBodyResponse200ApplicationJson11State$inboundSchema;
+  /** @deprecated use `GetImageResponseBodyResponse200ApplicationJson11State$outboundSchema` instead. */
   export const outboundSchema =
-    GetImageResponseBodyResponse200ApplicationJSONState$outboundSchema;
+    GetImageResponseBodyResponse200ApplicationJson11State$outboundSchema;
 }
 
 /** @internal */
@@ -391,8 +395,9 @@ export const Eleven$inboundSchema: z.ZodType<Eleven, z.ZodTypeDef, unknown> = z
   .object({
     id: z.string(),
     url: z.nullable(z.string()),
-    type: z.literal("UserImageSegmentation").optional(),
-    state: GetImageResponseBodyResponse200ApplicationJSONState$inboundSchema,
+    type: z.literal("UserImageSegmentation").default("UserImageSegmentation")
+      .optional(),
+    state: GetImageResponseBodyResponse200ApplicationJson11State$inboundSchema,
     created_at: z.string(),
     updated_at: z.nullable(z.string()).optional(),
   }).transform((v) => {
@@ -423,7 +428,7 @@ export const Eleven$outboundSchema: z.ZodType<
   type: z.literal("UserImageSegmentation").default(
     "UserImageSegmentation" as const,
   ),
-  state: GetImageResponseBodyResponse200ApplicationJSONState$outboundSchema,
+  state: GetImageResponseBodyResponse200ApplicationJson11State$outboundSchema,
   createdAt: z.string(),
   updatedAt: z.nullable(z.string()).optional(),
 }).transform((v) => {
@@ -461,27 +466,26 @@ export function elevenFromJSON(
 }
 
 /** @internal */
-export const GetImageResponseBodyResponse200State$inboundSchema:
-  z.ZodNativeEnum<typeof GetImageResponseBodyResponse200State> = z.nativeEnum(
-    GetImageResponseBodyResponse200State,
-  );
+export const GetImageResponseBodyResponse200ApplicationJSONState$inboundSchema:
+  z.ZodNativeEnum<typeof GetImageResponseBodyResponse200ApplicationJSONState> =
+    z.nativeEnum(GetImageResponseBodyResponse200ApplicationJSONState);
 
 /** @internal */
-export const GetImageResponseBodyResponse200State$outboundSchema:
-  z.ZodNativeEnum<typeof GetImageResponseBodyResponse200State> =
-    GetImageResponseBodyResponse200State$inboundSchema;
+export const GetImageResponseBodyResponse200ApplicationJSONState$outboundSchema:
+  z.ZodNativeEnum<typeof GetImageResponseBodyResponse200ApplicationJSONState> =
+    GetImageResponseBodyResponse200ApplicationJSONState$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetImageResponseBodyResponse200State$ {
-  /** @deprecated use `GetImageResponseBodyResponse200State$inboundSchema` instead. */
+export namespace GetImageResponseBodyResponse200ApplicationJSONState$ {
+  /** @deprecated use `GetImageResponseBodyResponse200ApplicationJSONState$inboundSchema` instead. */
   export const inboundSchema =
-    GetImageResponseBodyResponse200State$inboundSchema;
-  /** @deprecated use `GetImageResponseBodyResponse200State$outboundSchema` instead. */
+    GetImageResponseBodyResponse200ApplicationJSONState$inboundSchema;
+  /** @deprecated use `GetImageResponseBodyResponse200ApplicationJSONState$outboundSchema` instead. */
   export const outboundSchema =
-    GetImageResponseBodyResponse200State$outboundSchema;
+    GetImageResponseBodyResponse200ApplicationJSONState$outboundSchema;
 }
 
 /** @internal */
@@ -489,8 +493,8 @@ export const Ten$inboundSchema: z.ZodType<Ten, z.ZodTypeDef, unknown> = z
   .object({
     id: z.string(),
     url: z.nullable(z.string()),
-    state: GetImageResponseBodyResponse200State$inboundSchema,
-    type: z.literal("UserVideo").optional(),
+    state: GetImageResponseBodyResponse200ApplicationJSONState$inboundSchema,
+    type: z.literal("UserVideo").default("UserVideo").optional(),
     created_at: z.string(),
     updated_at: z.nullable(z.string()).optional(),
   }).transform((v) => {
@@ -515,7 +519,7 @@ export const Ten$outboundSchema: z.ZodType<Ten$Outbound, z.ZodTypeDef, Ten> = z
   .object({
     id: z.string(),
     url: z.nullable(z.string()),
-    state: GetImageResponseBodyResponse200State$outboundSchema,
+    state: GetImageResponseBodyResponse200ApplicationJSONState$outboundSchema,
     type: z.literal("UserVideo").default("UserVideo" as const),
     createdAt: z.string(),
     updatedAt: z.nullable(z.string()).optional(),
@@ -554,25 +558,27 @@ export function tenFromJSON(
 }
 
 /** @internal */
-export const GetImageResponseBodyResponseState$inboundSchema: z.ZodNativeEnum<
-  typeof GetImageResponseBodyResponseState
-> = z.nativeEnum(GetImageResponseBodyResponseState);
+export const GetImageResponseBodyResponse200State$inboundSchema:
+  z.ZodNativeEnum<typeof GetImageResponseBodyResponse200State> = z.nativeEnum(
+    GetImageResponseBodyResponse200State,
+  );
 
 /** @internal */
-export const GetImageResponseBodyResponseState$outboundSchema: z.ZodNativeEnum<
-  typeof GetImageResponseBodyResponseState
-> = GetImageResponseBodyResponseState$inboundSchema;
+export const GetImageResponseBodyResponse200State$outboundSchema:
+  z.ZodNativeEnum<typeof GetImageResponseBodyResponse200State> =
+    GetImageResponseBodyResponse200State$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetImageResponseBodyResponseState$ {
-  /** @deprecated use `GetImageResponseBodyResponseState$inboundSchema` instead. */
-  export const inboundSchema = GetImageResponseBodyResponseState$inboundSchema;
-  /** @deprecated use `GetImageResponseBodyResponseState$outboundSchema` instead. */
+export namespace GetImageResponseBodyResponse200State$ {
+  /** @deprecated use `GetImageResponseBodyResponse200State$inboundSchema` instead. */
+  export const inboundSchema =
+    GetImageResponseBodyResponse200State$inboundSchema;
+  /** @deprecated use `GetImageResponseBodyResponse200State$outboundSchema` instead. */
   export const outboundSchema =
-    GetImageResponseBodyResponseState$outboundSchema;
+    GetImageResponseBodyResponse200State$outboundSchema;
 }
 
 /** @internal */
@@ -580,8 +586,9 @@ export const Nine$inboundSchema: z.ZodType<Nine, z.ZodTypeDef, unknown> = z
   .object({
     id: z.string(),
     url: z.nullable(z.string()),
-    state: GetImageResponseBodyResponseState$inboundSchema,
-    type: z.literal("UserImageFromPicker").optional(),
+    state: GetImageResponseBodyResponse200State$inboundSchema,
+    type: z.literal("UserImageFromPicker").default("UserImageFromPicker")
+      .optional(),
     created_at: z.string(),
     updated_at: z.nullable(z.string()).optional(),
   }).transform((v) => {
@@ -606,7 +613,7 @@ export const Nine$outboundSchema: z.ZodType<Nine$Outbound, z.ZodTypeDef, Nine> =
   z.object({
     id: z.string(),
     url: z.nullable(z.string()),
-    state: GetImageResponseBodyResponseState$outboundSchema,
+    state: GetImageResponseBodyResponse200State$outboundSchema,
     type: z.literal("UserImageFromPicker").default(
       "UserImageFromPicker" as const,
     ),
@@ -647,24 +654,25 @@ export function nineFromJSON(
 }
 
 /** @internal */
-export const GetImageResponseBodyState$inboundSchema: z.ZodNativeEnum<
-  typeof GetImageResponseBodyState
-> = z.nativeEnum(GetImageResponseBodyState);
+export const GetImageResponseBodyResponseState$inboundSchema: z.ZodNativeEnum<
+  typeof GetImageResponseBodyResponseState
+> = z.nativeEnum(GetImageResponseBodyResponseState);
 
 /** @internal */
-export const GetImageResponseBodyState$outboundSchema: z.ZodNativeEnum<
-  typeof GetImageResponseBodyState
-> = GetImageResponseBodyState$inboundSchema;
+export const GetImageResponseBodyResponseState$outboundSchema: z.ZodNativeEnum<
+  typeof GetImageResponseBodyResponseState
+> = GetImageResponseBodyResponseState$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetImageResponseBodyState$ {
-  /** @deprecated use `GetImageResponseBodyState$inboundSchema` instead. */
-  export const inboundSchema = GetImageResponseBodyState$inboundSchema;
-  /** @deprecated use `GetImageResponseBodyState$outboundSchema` instead. */
-  export const outboundSchema = GetImageResponseBodyState$outboundSchema;
+export namespace GetImageResponseBodyResponseState$ {
+  /** @deprecated use `GetImageResponseBodyResponseState$inboundSchema` instead. */
+  export const inboundSchema = GetImageResponseBodyResponseState$inboundSchema;
+  /** @deprecated use `GetImageResponseBodyResponseState$outboundSchema` instead. */
+  export const outboundSchema =
+    GetImageResponseBodyResponseState$outboundSchema;
 }
 
 /** @internal */
@@ -672,8 +680,8 @@ export const Eight$inboundSchema: z.ZodType<Eight, z.ZodTypeDef, unknown> = z
   .object({
     id: z.string(),
     url: z.nullable(z.string()),
-    state: GetImageResponseBodyState$inboundSchema,
-    type: z.literal("UserImage").optional(),
+    state: GetImageResponseBodyResponseState$inboundSchema,
+    type: z.literal("UserImage").default("UserImage").optional(),
     created_at: z.string(),
     updated_at: z.nullable(z.string()).optional(),
   }).transform((v) => {
@@ -701,7 +709,7 @@ export const Eight$outboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   url: z.nullable(z.string()),
-  state: GetImageResponseBodyState$outboundSchema,
+  state: GetImageResponseBodyResponseState$outboundSchema,
   type: z.literal("UserImage").default("UserImage" as const),
   createdAt: z.string(),
   updatedAt: z.nullable(z.string()).optional(),
@@ -740,24 +748,24 @@ export function eightFromJSON(
 }
 
 /** @internal */
-export const ResponseBodyState$inboundSchema: z.ZodNativeEnum<
-  typeof ResponseBodyState
-> = z.nativeEnum(ResponseBodyState);
+export const GetImageResponseBodyState$inboundSchema: z.ZodNativeEnum<
+  typeof GetImageResponseBodyState
+> = z.nativeEnum(GetImageResponseBodyState);
 
 /** @internal */
-export const ResponseBodyState$outboundSchema: z.ZodNativeEnum<
-  typeof ResponseBodyState
-> = ResponseBodyState$inboundSchema;
+export const GetImageResponseBodyState$outboundSchema: z.ZodNativeEnum<
+  typeof GetImageResponseBodyState
+> = GetImageResponseBodyState$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace ResponseBodyState$ {
-  /** @deprecated use `ResponseBodyState$inboundSchema` instead. */
-  export const inboundSchema = ResponseBodyState$inboundSchema;
-  /** @deprecated use `ResponseBodyState$outboundSchema` instead. */
-  export const outboundSchema = ResponseBodyState$outboundSchema;
+export namespace GetImageResponseBodyState$ {
+  /** @deprecated use `GetImageResponseBodyState$inboundSchema` instead. */
+  export const inboundSchema = GetImageResponseBodyState$inboundSchema;
+  /** @deprecated use `GetImageResponseBodyState$outboundSchema` instead. */
+  export const outboundSchema = GetImageResponseBodyState$outboundSchema;
 }
 
 /** @internal */
@@ -765,8 +773,8 @@ export const Seven$inboundSchema: z.ZodType<Seven, z.ZodTypeDef, unknown> = z
   .object({
     id: z.string(),
     url: z.nullable(z.string()),
-    type: z.literal("Segmentation").optional(),
-    state: ResponseBodyState$inboundSchema,
+    type: z.literal("Segmentation").default("Segmentation").optional(),
+    state: GetImageResponseBodyState$inboundSchema,
     created_at: z.string(),
     updated_at: z.nullable(z.string()).optional(),
   }).transform((v) => {
@@ -795,7 +803,7 @@ export const Seven$outboundSchema: z.ZodType<
   id: z.string(),
   url: z.nullable(z.string()),
   type: z.literal("Segmentation").default("Segmentation" as const),
-  state: ResponseBodyState$outboundSchema,
+  state: GetImageResponseBodyState$outboundSchema,
   createdAt: z.string(),
   updatedAt: z.nullable(z.string()).optional(),
 }).transform((v) => {
@@ -837,8 +845,8 @@ export const Six$inboundSchema: z.ZodType<Six, z.ZodTypeDef, unknown> = z
   .object({
     id: z.string(),
     url: z.nullable(z.string()),
-    type: z.literal("VideoClip").optional(),
-    state: z.literal("completed").optional(),
+    type: z.literal("VideoClip").default("VideoClip").optional(),
+    state: z.literal("completed").default("completed").optional(),
     created_at: z.string(),
     updated_at: z.nullable(z.string()).optional(),
   }).transform((v) => {
@@ -902,23 +910,24 @@ export function sixFromJSON(
 }
 
 /** @internal */
-export const State$inboundSchema: z.ZodNativeEnum<typeof State> = z.nativeEnum(
-  State,
-);
+export const ResponseBodyState$inboundSchema: z.ZodNativeEnum<
+  typeof ResponseBodyState
+> = z.nativeEnum(ResponseBodyState);
 
 /** @internal */
-export const State$outboundSchema: z.ZodNativeEnum<typeof State> =
-  State$inboundSchema;
+export const ResponseBodyState$outboundSchema: z.ZodNativeEnum<
+  typeof ResponseBodyState
+> = ResponseBodyState$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace State$ {
-  /** @deprecated use `State$inboundSchema` instead. */
-  export const inboundSchema = State$inboundSchema;
-  /** @deprecated use `State$outboundSchema` instead. */
-  export const outboundSchema = State$outboundSchema;
+export namespace ResponseBodyState$ {
+  /** @deprecated use `ResponseBodyState$inboundSchema` instead. */
+  export const inboundSchema = ResponseBodyState$inboundSchema;
+  /** @deprecated use `ResponseBodyState$outboundSchema` instead. */
+  export const outboundSchema = ResponseBodyState$outboundSchema;
 }
 
 /** @internal */
@@ -926,8 +935,8 @@ export const Five$inboundSchema: z.ZodType<Five, z.ZodTypeDef, unknown> = z
   .object({
     id: z.string(),
     url: z.nullable(z.string()),
-    type: z.literal("UgcVideo").optional(),
-    state: State$inboundSchema,
+    type: z.literal("UgcVideo").default("UgcVideo").optional(),
+    state: ResponseBodyState$inboundSchema,
     created_at: z.string(),
     updated_at: z.nullable(z.string()).optional(),
   }).transform((v) => {
@@ -953,7 +962,7 @@ export const Five$outboundSchema: z.ZodType<Five$Outbound, z.ZodTypeDef, Five> =
     id: z.string(),
     url: z.nullable(z.string()),
     type: z.literal("UgcVideo").default("UgcVideo" as const),
-    state: State$outboundSchema,
+    state: ResponseBodyState$outboundSchema,
     createdAt: z.string(),
     updatedAt: z.nullable(z.string()).optional(),
   }).transform((v) => {
@@ -995,8 +1004,8 @@ export const Four$inboundSchema: z.ZodType<Four, z.ZodTypeDef, unknown> = z
   .object({
     id: z.string(),
     url: z.nullable(z.string()),
-    type: z.literal("UgcCreator").optional(),
-    state: z.literal("completed").optional(),
+    type: z.literal("UgcCreator").default("UgcCreator").optional(),
+    state: z.literal("completed").default("completed").optional(),
     created_at: z.string(),
     updated_at: z.nullable(z.string()).optional(),
   }).transform((v) => {
@@ -1065,8 +1074,8 @@ export const Three$inboundSchema: z.ZodType<Three, z.ZodTypeDef, unknown> = z
     id: z.string(),
     url: z.nullable(z.string()),
     user_id: z.string(),
-    type: z.literal("Video").optional(),
-    state: z.literal("completed").optional(),
+    type: z.literal("Video").default("Video").optional(),
+    state: z.literal("completed").default("completed").optional(),
     created_at: z.string(),
     updated_at: z.nullable(z.string()).optional(),
   }).transform((v) => {
@@ -1137,25 +1146,28 @@ export function threeFromJSON(
 }
 
 /** @internal */
-export const Two$inboundSchema: z.ZodType<Two, z.ZodTypeDef, unknown> = z
-  .object({
-    id: z.string(),
-    url: z.nullable(z.string()),
-    user_id: z.string(),
-    type: z.literal("Image").optional(),
-    state: z.literal("completed").optional(),
-    created_at: z.string(),
-    updated_at: z.nullable(z.string()).optional(),
-  }).transform((v) => {
-    return remap$(v, {
-      "user_id": "userId",
-      "created_at": "createdAt",
-      "updated_at": "updatedAt",
-    });
+export const ResponseBody2$inboundSchema: z.ZodType<
+  ResponseBody2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string(),
+  url: z.nullable(z.string()),
+  user_id: z.string(),
+  type: z.literal("Image").default("Image").optional(),
+  state: z.literal("completed").default("completed").optional(),
+  created_at: z.string(),
+  updated_at: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "user_id": "userId",
+    "created_at": "createdAt",
+    "updated_at": "updatedAt",
   });
+});
 
 /** @internal */
-export type Two$Outbound = {
+export type ResponseBody2$Outbound = {
   id: string;
   url: string | null;
   user_id: string;
@@ -1166,69 +1178,72 @@ export type Two$Outbound = {
 };
 
 /** @internal */
-export const Two$outboundSchema: z.ZodType<Two$Outbound, z.ZodTypeDef, Two> = z
-  .object({
-    id: z.string(),
-    url: z.nullable(z.string()),
-    userId: z.string(),
-    type: z.literal("Image").default("Image" as const),
-    state: z.literal("completed").default("completed" as const),
-    createdAt: z.string(),
-    updatedAt: z.nullable(z.string()).optional(),
-  }).transform((v) => {
-    return remap$(v, {
-      userId: "user_id",
-      createdAt: "created_at",
-      updatedAt: "updated_at",
-    });
+export const ResponseBody2$outboundSchema: z.ZodType<
+  ResponseBody2$Outbound,
+  z.ZodTypeDef,
+  ResponseBody2
+> = z.object({
+  id: z.string(),
+  url: z.nullable(z.string()),
+  userId: z.string(),
+  type: z.literal("Image").default("Image" as const),
+  state: z.literal("completed").default("completed" as const),
+  createdAt: z.string(),
+  updatedAt: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    userId: "user_id",
+    createdAt: "created_at",
+    updatedAt: "updated_at",
   });
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Two$ {
-  /** @deprecated use `Two$inboundSchema` instead. */
-  export const inboundSchema = Two$inboundSchema;
-  /** @deprecated use `Two$outboundSchema` instead. */
-  export const outboundSchema = Two$outboundSchema;
-  /** @deprecated use `Two$Outbound` instead. */
-  export type Outbound = Two$Outbound;
+export namespace ResponseBody2$ {
+  /** @deprecated use `ResponseBody2$inboundSchema` instead. */
+  export const inboundSchema = ResponseBody2$inboundSchema;
+  /** @deprecated use `ResponseBody2$outboundSchema` instead. */
+  export const outboundSchema = ResponseBody2$outboundSchema;
+  /** @deprecated use `ResponseBody2$Outbound` instead. */
+  export type Outbound = ResponseBody2$Outbound;
 }
 
-export function twoToJSON(two: Two): string {
-  return JSON.stringify(Two$outboundSchema.parse(two));
+export function responseBody2ToJSON(responseBody2: ResponseBody2): string {
+  return JSON.stringify(ResponseBody2$outboundSchema.parse(responseBody2));
 }
 
-export function twoFromJSON(
+export function responseBody2FromJSON(
   jsonString: string,
-): SafeParseResult<Two, SDKValidationError> {
+): SafeParseResult<ResponseBody2, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Two$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Two' from JSON`,
+    (x) => ResponseBody2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ResponseBody2' from JSON`,
   );
 }
 
 /** @internal */
-export const GetImage1ResponseState$inboundSchema: z.ZodNativeEnum<
-  typeof GetImage1ResponseState
-> = z.nativeEnum(GetImage1ResponseState);
+export const GetImage1Response200State$inboundSchema: z.ZodNativeEnum<
+  typeof GetImage1Response200State
+> = z.nativeEnum(GetImage1Response200State);
 
 /** @internal */
-export const GetImage1ResponseState$outboundSchema: z.ZodNativeEnum<
-  typeof GetImage1ResponseState
-> = GetImage1ResponseState$inboundSchema;
+export const GetImage1Response200State$outboundSchema: z.ZodNativeEnum<
+  typeof GetImage1Response200State
+> = GetImage1Response200State$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetImage1ResponseState$ {
-  /** @deprecated use `GetImage1ResponseState$inboundSchema` instead. */
-  export const inboundSchema = GetImage1ResponseState$inboundSchema;
-  /** @deprecated use `GetImage1ResponseState$outboundSchema` instead. */
-  export const outboundSchema = GetImage1ResponseState$outboundSchema;
+export namespace GetImage1Response200State$ {
+  /** @deprecated use `GetImage1Response200State$inboundSchema` instead. */
+  export const inboundSchema = GetImage1Response200State$inboundSchema;
+  /** @deprecated use `GetImage1Response200State$outboundSchema` instead. */
+  export const outboundSchema = GetImage1Response200State$outboundSchema;
 }
 
 /** @internal */
@@ -1236,8 +1251,8 @@ export const One4$inboundSchema: z.ZodType<One4, z.ZodTypeDef, unknown> = z
   .object({
     id: z.string(),
     url: z.nullable(z.string()),
-    type: z.literal("Segmentation").optional(),
-    state: GetImage1ResponseState$inboundSchema,
+    type: z.literal("Segmentation").default("Segmentation").optional(),
+    state: GetImage1Response200State$inboundSchema,
     created_at: z.string(),
     updated_at: z.nullable(z.string()).optional(),
   }).transform((v) => {
@@ -1263,7 +1278,7 @@ export const One4$outboundSchema: z.ZodType<One4$Outbound, z.ZodTypeDef, One4> =
     id: z.string(),
     url: z.nullable(z.string()),
     type: z.literal("Segmentation").default("Segmentation" as const),
-    state: GetImage1ResponseState$outboundSchema,
+    state: GetImage1Response200State$outboundSchema,
     createdAt: z.string(),
     updatedAt: z.nullable(z.string()).optional(),
   }).transform((v) => {
@@ -1301,24 +1316,24 @@ export function one4FromJSON(
 }
 
 /** @internal */
-export const GetImage1State$inboundSchema: z.ZodNativeEnum<
-  typeof GetImage1State
-> = z.nativeEnum(GetImage1State);
+export const GetImage1ResponseState$inboundSchema: z.ZodNativeEnum<
+  typeof GetImage1ResponseState
+> = z.nativeEnum(GetImage1ResponseState);
 
 /** @internal */
-export const GetImage1State$outboundSchema: z.ZodNativeEnum<
-  typeof GetImage1State
-> = GetImage1State$inboundSchema;
+export const GetImage1ResponseState$outboundSchema: z.ZodNativeEnum<
+  typeof GetImage1ResponseState
+> = GetImage1ResponseState$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetImage1State$ {
-  /** @deprecated use `GetImage1State$inboundSchema` instead. */
-  export const inboundSchema = GetImage1State$inboundSchema;
-  /** @deprecated use `GetImage1State$outboundSchema` instead. */
-  export const outboundSchema = GetImage1State$outboundSchema;
+export namespace GetImage1ResponseState$ {
+  /** @deprecated use `GetImage1ResponseState$inboundSchema` instead. */
+  export const inboundSchema = GetImage1ResponseState$inboundSchema;
+  /** @deprecated use `GetImage1ResponseState$outboundSchema` instead. */
+  export const outboundSchema = GetImage1ResponseState$outboundSchema;
 }
 
 /** @internal */
@@ -1326,8 +1341,9 @@ export const One3$inboundSchema: z.ZodType<One3, z.ZodTypeDef, unknown> = z
   .object({
     id: z.string(),
     url: z.nullable(z.string()),
-    type: z.literal("LumaGeneratedVideo").optional(),
-    state: GetImage1State$inboundSchema,
+    type: z.literal("LumaGeneratedVideo").default("LumaGeneratedVideo")
+      .optional(),
+    state: GetImage1ResponseState$inboundSchema,
     created_at: z.string(),
     updated_at: z.nullable(z.string()).optional(),
   }).transform((v) => {
@@ -1355,7 +1371,7 @@ export const One3$outboundSchema: z.ZodType<One3$Outbound, z.ZodTypeDef, One3> =
     type: z.literal("LumaGeneratedVideo").default(
       "LumaGeneratedVideo" as const,
     ),
-    state: GetImage1State$outboundSchema,
+    state: GetImage1ResponseState$outboundSchema,
     createdAt: z.string(),
     updatedAt: z.nullable(z.string()).optional(),
   }).transform((v) => {
@@ -1393,22 +1409,24 @@ export function one3FromJSON(
 }
 
 /** @internal */
-export const OneState$inboundSchema: z.ZodNativeEnum<typeof OneState> = z
-  .nativeEnum(OneState);
+export const GetImage1State$inboundSchema: z.ZodNativeEnum<
+  typeof GetImage1State
+> = z.nativeEnum(GetImage1State);
 
 /** @internal */
-export const OneState$outboundSchema: z.ZodNativeEnum<typeof OneState> =
-  OneState$inboundSchema;
+export const GetImage1State$outboundSchema: z.ZodNativeEnum<
+  typeof GetImage1State
+> = GetImage1State$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace OneState$ {
-  /** @deprecated use `OneState$inboundSchema` instead. */
-  export const inboundSchema = OneState$inboundSchema;
-  /** @deprecated use `OneState$outboundSchema` instead. */
-  export const outboundSchema = OneState$outboundSchema;
+export namespace GetImage1State$ {
+  /** @deprecated use `GetImage1State$inboundSchema` instead. */
+  export const inboundSchema = GetImage1State$inboundSchema;
+  /** @deprecated use `GetImage1State$outboundSchema` instead. */
+  export const outboundSchema = GetImage1State$outboundSchema;
 }
 
 /** @internal */
@@ -1416,8 +1434,8 @@ export const One2$inboundSchema: z.ZodType<One2, z.ZodTypeDef, unknown> = z
   .object({
     id: z.string(),
     url: z.nullable(z.string()),
-    type: z.literal("GeneratedVideo").optional(),
-    state: OneState$inboundSchema,
+    type: z.literal("GeneratedVideo").default("GeneratedVideo").optional(),
+    state: GetImage1State$inboundSchema,
     created_at: z.string(),
     updated_at: z.nullable(z.string()).optional(),
     first_frame_image_id: z.nullable(z.string()).optional(),
@@ -1446,7 +1464,7 @@ export const One2$outboundSchema: z.ZodType<One2$Outbound, z.ZodTypeDef, One2> =
     id: z.string(),
     url: z.nullable(z.string()),
     type: z.literal("GeneratedVideo").default("GeneratedVideo" as const),
-    state: OneState$outboundSchema,
+    state: GetImage1State$outboundSchema,
     createdAt: z.string(),
     updatedAt: z.nullable(z.string()).optional(),
     firstFrameImageId: z.nullable(z.string()).optional(),
@@ -1486,24 +1504,22 @@ export function one2FromJSON(
 }
 
 /** @internal */
-export const GetImage1Response200State$inboundSchema: z.ZodNativeEnum<
-  typeof GetImage1Response200State
-> = z.nativeEnum(GetImage1Response200State);
+export const OneState$inboundSchema: z.ZodNativeEnum<typeof OneState> = z
+  .nativeEnum(OneState);
 
 /** @internal */
-export const GetImage1Response200State$outboundSchema: z.ZodNativeEnum<
-  typeof GetImage1Response200State
-> = GetImage1Response200State$inboundSchema;
+export const OneState$outboundSchema: z.ZodNativeEnum<typeof OneState> =
+  OneState$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetImage1Response200State$ {
-  /** @deprecated use `GetImage1Response200State$inboundSchema` instead. */
-  export const inboundSchema = GetImage1Response200State$inboundSchema;
-  /** @deprecated use `GetImage1Response200State$outboundSchema` instead. */
-  export const outboundSchema = GetImage1Response200State$outboundSchema;
+export namespace OneState$ {
+  /** @deprecated use `OneState$inboundSchema` instead. */
+  export const inboundSchema = OneState$inboundSchema;
+  /** @deprecated use `OneState$outboundSchema` instead. */
+  export const outboundSchema = OneState$outboundSchema;
 }
 
 /** @internal */
@@ -1532,8 +1548,8 @@ export const One1$inboundSchema: z.ZodType<One1, z.ZodTypeDef, unknown> = z
   .object({
     id: z.string(),
     url: z.nullable(z.string()),
-    type: z.literal("GeneratedImage").optional(),
-    state: GetImage1Response200State$inboundSchema,
+    type: z.literal("GeneratedImage").default("GeneratedImage").optional(),
+    state: OneState$inboundSchema,
     created_at: z.string(),
     updated_at: z.nullable(z.string()).optional(),
     prompt: z.string(),
@@ -1570,7 +1586,7 @@ export const One1$outboundSchema: z.ZodType<One1$Outbound, z.ZodTypeDef, One1> =
     id: z.string(),
     url: z.nullable(z.string()),
     type: z.literal("GeneratedImage").default("GeneratedImage" as const),
-    state: GetImage1Response200State$outboundSchema,
+    state: OneState$outboundSchema,
     createdAt: z.string(),
     updatedAt: z.nullable(z.string()).optional(),
     prompt: z.string(),
@@ -1615,55 +1631,60 @@ export function one1FromJSON(
 }
 
 /** @internal */
-export const One$inboundSchema: z.ZodType<One, z.ZodTypeDef, unknown> = z.union(
-  [
-    z.lazy(() => One3$inboundSchema),
-    z.lazy(() => One4$inboundSchema),
-    z.lazy(() => One2$inboundSchema),
-    z.lazy(() => One1$inboundSchema),
-  ],
-);
+export const ResponseBody1$inboundSchema: z.ZodType<
+  ResponseBody1,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.lazy(() => One1$inboundSchema),
+  z.lazy(() => One2$inboundSchema),
+  z.lazy(() => One3$inboundSchema),
+  z.lazy(() => One4$inboundSchema),
+]);
 
 /** @internal */
-export type One$Outbound =
-  | One3$Outbound
-  | One4$Outbound
+export type ResponseBody1$Outbound =
+  | One1$Outbound
   | One2$Outbound
-  | One1$Outbound;
+  | One3$Outbound
+  | One4$Outbound;
 
 /** @internal */
-export const One$outboundSchema: z.ZodType<One$Outbound, z.ZodTypeDef, One> = z
-  .union([
-    z.lazy(() => One3$outboundSchema),
-    z.lazy(() => One4$outboundSchema),
-    z.lazy(() => One2$outboundSchema),
-    z.lazy(() => One1$outboundSchema),
-  ]);
+export const ResponseBody1$outboundSchema: z.ZodType<
+  ResponseBody1$Outbound,
+  z.ZodTypeDef,
+  ResponseBody1
+> = z.union([
+  z.lazy(() => One1$outboundSchema),
+  z.lazy(() => One2$outboundSchema),
+  z.lazy(() => One3$outboundSchema),
+  z.lazy(() => One4$outboundSchema),
+]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace One$ {
-  /** @deprecated use `One$inboundSchema` instead. */
-  export const inboundSchema = One$inboundSchema;
-  /** @deprecated use `One$outboundSchema` instead. */
-  export const outboundSchema = One$outboundSchema;
-  /** @deprecated use `One$Outbound` instead. */
-  export type Outbound = One$Outbound;
+export namespace ResponseBody1$ {
+  /** @deprecated use `ResponseBody1$inboundSchema` instead. */
+  export const inboundSchema = ResponseBody1$inboundSchema;
+  /** @deprecated use `ResponseBody1$outboundSchema` instead. */
+  export const outboundSchema = ResponseBody1$outboundSchema;
+  /** @deprecated use `ResponseBody1$Outbound` instead. */
+  export type Outbound = ResponseBody1$Outbound;
 }
 
-export function oneToJSON(one: One): string {
-  return JSON.stringify(One$outboundSchema.parse(one));
+export function responseBody1ToJSON(responseBody1: ResponseBody1): string {
+  return JSON.stringify(ResponseBody1$outboundSchema.parse(responseBody1));
 }
 
-export function oneFromJSON(
+export function responseBody1FromJSON(
   jsonString: string,
-): SafeParseResult<One, SDKValidationError> {
+): SafeParseResult<ResponseBody1, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => One$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'One' from JSON`,
+    (x) => ResponseBody1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ResponseBody1' from JSON`,
   );
 }
 
@@ -1673,6 +1694,8 @@ export const GetImageResponseBody$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
+  z.lazy(() => ResponseBody2$inboundSchema),
+  z.lazy(() => Three$inboundSchema),
   z.lazy(() => Four$inboundSchema),
   z.lazy(() => Five$inboundSchema),
   z.lazy(() => Six$inboundSchema),
@@ -1681,18 +1704,18 @@ export const GetImageResponseBody$inboundSchema: z.ZodType<
   z.lazy(() => Nine$inboundSchema),
   z.lazy(() => Ten$inboundSchema),
   z.lazy(() => Eleven$inboundSchema),
-  z.lazy(() => Two$inboundSchema),
-  z.lazy(() => Three$inboundSchema),
   z.union([
+    z.lazy(() => One1$inboundSchema),
+    z.lazy(() => One2$inboundSchema),
     z.lazy(() => One3$inboundSchema),
     z.lazy(() => One4$inboundSchema),
-    z.lazy(() => One2$inboundSchema),
-    z.lazy(() => One1$inboundSchema),
   ]),
 ]);
 
 /** @internal */
 export type GetImageResponseBody$Outbound =
+  | ResponseBody2$Outbound
+  | Three$Outbound
   | Four$Outbound
   | Five$Outbound
   | Six$Outbound
@@ -1701,12 +1724,10 @@ export type GetImageResponseBody$Outbound =
   | Nine$Outbound
   | Ten$Outbound
   | Eleven$Outbound
-  | Two$Outbound
-  | Three$Outbound
-  | One3$Outbound
-  | One4$Outbound
+  | One1$Outbound
   | One2$Outbound
-  | One1$Outbound;
+  | One3$Outbound
+  | One4$Outbound;
 
 /** @internal */
 export const GetImageResponseBody$outboundSchema: z.ZodType<
@@ -1714,6 +1735,8 @@ export const GetImageResponseBody$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetImageResponseBody
 > = z.union([
+  z.lazy(() => ResponseBody2$outboundSchema),
+  z.lazy(() => Three$outboundSchema),
   z.lazy(() => Four$outboundSchema),
   z.lazy(() => Five$outboundSchema),
   z.lazy(() => Six$outboundSchema),
@@ -1722,13 +1745,11 @@ export const GetImageResponseBody$outboundSchema: z.ZodType<
   z.lazy(() => Nine$outboundSchema),
   z.lazy(() => Ten$outboundSchema),
   z.lazy(() => Eleven$outboundSchema),
-  z.lazy(() => Two$outboundSchema),
-  z.lazy(() => Three$outboundSchema),
   z.union([
+    z.lazy(() => One1$outboundSchema),
+    z.lazy(() => One2$outboundSchema),
     z.lazy(() => One3$outboundSchema),
     z.lazy(() => One4$outboundSchema),
-    z.lazy(() => One2$outboundSchema),
-    z.lazy(() => One1$outboundSchema),
   ]),
 ]);
 

@@ -13,14 +13,28 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * The aspect ratio of the image.
  */
 export const CreateImageAspectRatio = {
-  Nine16: "9:16",
-  Sixteen9: "16:9",
-  One1: "1:1",
+  NineHundredAndSixteen: "9:16",
+  OneHundredAndSixtyNine: "16:9",
+  Eleven: "1:1",
 } as const;
 /**
  * The aspect ratio of the image.
  */
 export type CreateImageAspectRatio = ClosedEnum<typeof CreateImageAspectRatio>;
+
+export const Model = {
+  OpenAI: "OpenAI",
+  FluxUltraMax: "Flux Ultra/Max",
+  FluxPro: "Flux Pro",
+} as const;
+export type Model = ClosedEnum<typeof Model>;
+
+export const Quality = {
+  Low: "low",
+  Medium: "medium",
+  High: "high",
+} as const;
+export type Quality = ClosedEnum<typeof Quality>;
 
 /**
  * Parameters required to generate an image.
@@ -46,6 +60,12 @@ export type CreateImageRequestBody = {
    * If false, this endpoint immediately returns the incomplete image record, and you can poll the [Get image](#tag/images/GET/media/get/{id}) endpoint until the task completes. If true, this endpoint waits until the image generation completes, then returns the complete image record. Defaults to false.
    */
   waitForGeneration?: boolean | undefined;
+  model?: Model | undefined;
+  quality?: Quality | undefined;
+  /**
+   * The ID of the media to use as a source for the image.
+   */
+  sourceMediaId?: string | null | undefined;
 };
 
 /** @internal */
@@ -70,6 +90,45 @@ export namespace CreateImageAspectRatio$ {
 }
 
 /** @internal */
+export const Model$inboundSchema: z.ZodNativeEnum<typeof Model> = z.nativeEnum(
+  Model,
+);
+
+/** @internal */
+export const Model$outboundSchema: z.ZodNativeEnum<typeof Model> =
+  Model$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Model$ {
+  /** @deprecated use `Model$inboundSchema` instead. */
+  export const inboundSchema = Model$inboundSchema;
+  /** @deprecated use `Model$outboundSchema` instead. */
+  export const outboundSchema = Model$outboundSchema;
+}
+
+/** @internal */
+export const Quality$inboundSchema: z.ZodNativeEnum<typeof Quality> = z
+  .nativeEnum(Quality);
+
+/** @internal */
+export const Quality$outboundSchema: z.ZodNativeEnum<typeof Quality> =
+  Quality$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Quality$ {
+  /** @deprecated use `Quality$inboundSchema` instead. */
+  export const inboundSchema = Quality$inboundSchema;
+  /** @deprecated use `Quality$outboundSchema` instead. */
+  export const outboundSchema = Quality$outboundSchema;
+}
+
+/** @internal */
 export const CreateImageRequestBody$inboundSchema: z.ZodType<
   CreateImageRequestBody,
   z.ZodTypeDef,
@@ -80,12 +139,16 @@ export const CreateImageRequestBody$inboundSchema: z.ZodType<
   image_style_id: z.nullable(z.string()).optional(),
   scene_id: z.nullable(z.string()).optional(),
   wait_for_generation: z.boolean().default(false),
+  model: Model$inboundSchema.default("OpenAI"),
+  quality: Quality$inboundSchema.default("high"),
+  source_media_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "aspect_ratio": "aspectRatio",
     "image_style_id": "imageStyleId",
     "scene_id": "sceneId",
     "wait_for_generation": "waitForGeneration",
+    "source_media_id": "sourceMediaId",
   });
 });
 
@@ -96,6 +159,9 @@ export type CreateImageRequestBody$Outbound = {
   image_style_id?: string | null | undefined;
   scene_id?: string | null | undefined;
   wait_for_generation: boolean;
+  model: string;
+  quality: string;
+  source_media_id?: string | null | undefined;
 };
 
 /** @internal */
@@ -109,12 +175,16 @@ export const CreateImageRequestBody$outboundSchema: z.ZodType<
   imageStyleId: z.nullable(z.string()).optional(),
   sceneId: z.nullable(z.string()).optional(),
   waitForGeneration: z.boolean().default(false),
+  model: Model$outboundSchema.default("OpenAI"),
+  quality: Quality$outboundSchema.default("high"),
+  sourceMediaId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     aspectRatio: "aspect_ratio",
     imageStyleId: "image_style_id",
     sceneId: "scene_id",
     waitForGeneration: "wait_for_generation",
+    sourceMediaId: "source_media_id",
   });
 });
 

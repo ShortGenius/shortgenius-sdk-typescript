@@ -7,7 +7,7 @@ import { ThreeResults } from "shortgenius/models/operations";
 
 let value: ThreeResults = {
   image: {
-    url: "https://twin-carboxyl.biz/",
+    url: "https://ashamed-atrium.com",
   },
 };
 ```

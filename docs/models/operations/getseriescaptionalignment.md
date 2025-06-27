@@ -5,7 +5,7 @@
 ```typescript
 import { GetSeriesCaptionAlignment } from "shortgenius/models/operations";
 
-let value: GetSeriesCaptionAlignment = "middle-center";
+let value: GetSeriesCaptionAlignment = "top-center";
 ```
 
 ## Values

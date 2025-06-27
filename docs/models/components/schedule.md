@@ -8,11 +8,11 @@ The publishing schedule for the video series.
 import { Schedule } from "shortgenius/models/components";
 
 let value: Schedule = {
-  timeZone: "America/Anchorage",
+  timeZone: "Pacific/Marquesas",
   times: [
     {
-      dayOfWeek: 2828.07,
-      timeOfDay: 1201.96,
+      dayOfWeek: 2286.35,
+      timeOfDay: 2290.35,
     },
   ],
 };

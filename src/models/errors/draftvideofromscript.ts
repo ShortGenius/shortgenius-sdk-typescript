@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod";
+import { ShortGeniusError } from "./shortgeniuserror.js";
 
 /**
  * An error response object.
@@ -17,15 +18,18 @@ export type DraftVideoFromScriptResponseResponseBodyData = {
 /**
  * An error response object.
  */
-export class DraftVideoFromScriptResponseResponseBody extends Error {
+export class DraftVideoFromScriptResponseResponseBody extends ShortGeniusError {
   /** The original data that was passed to this error instance. */
   data$: DraftVideoFromScriptResponseResponseBodyData;
 
-  constructor(err: DraftVideoFromScriptResponseResponseBodyData) {
+  constructor(
+    err: DraftVideoFromScriptResponseResponseBodyData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
 
     this.name = "DraftVideoFromScriptResponseResponseBody";
@@ -45,15 +49,18 @@ export type DraftVideoFromScriptResponseBodyData = {
 /**
  * An error response object.
  */
-export class DraftVideoFromScriptResponseBody extends Error {
+export class DraftVideoFromScriptResponseBody extends ShortGeniusError {
   /** The original data that was passed to this error instance. */
   data$: DraftVideoFromScriptResponseBodyData;
 
-  constructor(err: DraftVideoFromScriptResponseBodyData) {
+  constructor(
+    err: DraftVideoFromScriptResponseBodyData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
 
     this.name = "DraftVideoFromScriptResponseBody";
@@ -67,9 +74,16 @@ export const DraftVideoFromScriptResponseResponseBody$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   message: z.nullable(z.string()).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new DraftVideoFromScriptResponseResponseBody(v);
+    return new DraftVideoFromScriptResponseResponseBody(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */
@@ -110,9 +124,16 @@ export const DraftVideoFromScriptResponseBody$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   message: z.nullable(z.string()).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new DraftVideoFromScriptResponseBody(v);
+    return new DraftVideoFromScriptResponseBody(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

@@ -5,7 +5,7 @@
 ```typescript
 import { CaptionAlignment } from "shortgenius/models/components";
 
-let value: CaptionAlignment = "bottom-left";
+let value: CaptionAlignment = "middle-right";
 ```
 
 ## Values

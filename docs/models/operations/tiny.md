@@ -6,10 +6,10 @@
 import { Tiny } from "shortgenius/models/operations";
 
 let value: Tiny = {
-  url: "https://tattered-flint.org/",
-  width: 8498.18,
-  height: 9049.2,
-  size: 5736.74,
+  url: "https://quiet-incandescence.net",
+  width: 1120.97,
+  height: 832.6,
+  size: 1241.91,
   thumbnail: "<value>",
 };
 ```

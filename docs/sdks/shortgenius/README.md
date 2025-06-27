@@ -48,7 +48,6 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.getMusicGenres();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -71,15 +70,12 @@ const shortGenius = new ShortGeniusCore({
 
 async function run() {
   const res = await getMusicGenres(shortGenius);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("getMusicGenres failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -119,7 +115,6 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.getMusic("<id>");
 
-  // Handle the result
   console.log(result);
 }
 
@@ -142,15 +137,12 @@ const shortGenius = new ShortGeniusCore({
 
 async function run() {
   const res = await getMusic(shortGenius, "<id>");
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("getMusic failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -192,10 +184,9 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.draftVideo({
     topic: "<value>",
-    duration: "840",
+    duration: "420",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -219,17 +210,14 @@ const shortGenius = new ShortGeniusCore({
 async function run() {
   const res = await draftVideo(shortGenius, {
     topic: "<value>",
-    duration: "840",
+    duration: "420",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("draftVideo failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -271,10 +259,9 @@ const shortGenius = new ShortGenius({
 
 async function run() {
   const result = await shortGenius.draftVideoFromURL({
-    url: "https://idealistic-someplace.info/",
+    url: "https://heavenly-teriyaki.net/",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -297,17 +284,14 @@ const shortGenius = new ShortGeniusCore({
 
 async function run() {
   const res = await draftVideoFromURL(shortGenius, {
-    url: "https://idealistic-someplace.info/",
+    url: "https://heavenly-teriyaki.net/",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("draftVideoFromURL failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -352,7 +336,6 @@ async function run() {
     script: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -377,15 +360,12 @@ async function run() {
   const res = await draftVideoFromScript(shortGenius, {
     script: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("draftVideoFromScript failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -430,7 +410,6 @@ async function run() {
     topic: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -455,15 +434,12 @@ async function run() {
   const res = await draftQuizVideo(shortGenius, {
     topic: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("draftQuizVideo failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -508,7 +484,6 @@ async function run() {
     topic: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -533,15 +508,12 @@ async function run() {
   const res = await draftNewsVideo(shortGenius, {
     topic: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("draftNewsVideo failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -582,9 +554,8 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.getVideo("1da911f6-eb73-4f3c-8df2-bee5ea49dfef");
+  const result = await shortGenius.getVideo("f734fa53-702b-4fdb-a03d-8537d6f38473");
 
-  // Handle the result
   console.log(result);
 }
 
@@ -606,16 +577,13 @@ const shortGenius = new ShortGeniusCore({
 });
 
 async function run() {
-  const res = await getVideo(shortGenius, "1da911f6-eb73-4f3c-8df2-bee5ea49dfef");
-
-  if (!res.ok) {
-    throw res.error;
+  const res = await getVideo(shortGenius, "f734fa53-702b-4fdb-a03d-8537d6f38473");
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("getVideo failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -657,7 +625,6 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.getVideos({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -680,15 +647,12 @@ const shortGenius = new ShortGeniusCore({
 
 async function run() {
   const res = await getVideos(shortGenius, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("getVideos failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -737,14 +701,12 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.createVideo({
     connectionIds: [
-      "a776cbb2-1149-49ca-88c7-409f336cd780",
-      "a279ac0a-70f9-44c7-8da5-99e8dd1ff7d3",
+      "04477ca1-5eaf-4beb-a18c-deab4082a26f",
     ],
     title: "<value>",
     caption: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -768,21 +730,17 @@ const shortGenius = new ShortGeniusCore({
 async function run() {
   const res = await createVideo(shortGenius, {
     connectionIds: [
-      "a776cbb2-1149-49ca-88c7-409f336cd780",
-      "a279ac0a-70f9-44c7-8da5-99e8dd1ff7d3",
+      "04477ca1-5eaf-4beb-a18c-deab4082a26f",
     ],
     title: "<value>",
     caption: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("createVideo failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -825,7 +783,6 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.generateVideoTopics({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -848,15 +805,12 @@ const shortGenius = new ShortGeniusCore({
 
 async function run() {
   const res = await generateVideoTopics(shortGenius, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("generateVideoTopics failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -899,13 +853,11 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.createSeries({
     connectionIds: [
-      "313efb04-22f7-4996-bf45-4baf19f5d611",
-      "7b877a82-7b6f-4e5a-8c80-b75243bef940",
-      "071c5f58-0ddf-48e7-a7c2-18820d264957",
+      "766953de-9e78-4ce4-924f-9dd1cace4472",
+      "b0f9c30e-78ea-456a-aa87-ea8e6384f404",
     ],
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -929,20 +881,16 @@ const shortGenius = new ShortGeniusCore({
 async function run() {
   const res = await createSeries(shortGenius, {
     connectionIds: [
-      "313efb04-22f7-4996-bf45-4baf19f5d611",
-      "7b877a82-7b6f-4e5a-8c80-b75243bef940",
-      "071c5f58-0ddf-48e7-a7c2-18820d264957",
+      "766953de-9e78-4ce4-924f-9dd1cace4472",
+      "b0f9c30e-78ea-456a-aa87-ea8e6384f404",
     ],
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("createSeries failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -985,7 +933,6 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.getAllSeries({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1008,15 +955,12 @@ const shortGenius = new ShortGeniusCore({
 
 async function run() {
   const res = await getAllSeries(shortGenius, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("getAllSeries failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1056,9 +1000,8 @@ const shortGenius = new ShortGenius({
 });
 
 async function run() {
-  const result = await shortGenius.getSeries("2c052674-65b4-43c1-b916-2f4dfdcbb4a8");
+  const result = await shortGenius.getSeries("0231886f-3b96-4b19-a947-9c24ac08ce54");
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1080,16 +1023,13 @@ const shortGenius = new ShortGeniusCore({
 });
 
 async function run() {
-  const res = await getSeries(shortGenius, "2c052674-65b4-43c1-b916-2f4dfdcbb4a8");
-
-  if (!res.ok) {
-    throw res.error;
+  const res = await getSeries(shortGenius, "0231886f-3b96-4b19-a947-9c24ac08ce54");
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("getSeries failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1131,7 +1071,6 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.getConnections();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1154,15 +1093,12 @@ const shortGenius = new ShortGeniusCore({
 
 async function run() {
   const res = await getConnections(shortGenius);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("getConnections failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1206,7 +1142,6 @@ async function run() {
     aspectRatio: "9:16",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1232,15 +1167,12 @@ async function run() {
     prompt: "<value>",
     aspectRatio: "9:16",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("createImage failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1283,7 +1215,6 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.getImages({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1306,15 +1237,12 @@ const shortGenius = new ShortGeniusCore({
 
 async function run() {
   const res = await getImages(shortGenius, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("getImages failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1356,7 +1284,6 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.getImage("<id>");
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1379,15 +1306,12 @@ const shortGenius = new ShortGeniusCore({
 
 async function run() {
   const res = await getImage(shortGenius, "<id>");
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("getImage failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1429,7 +1353,6 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.getImageStyles();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1452,15 +1375,12 @@ const shortGenius = new ShortGeniusCore({
 
 async function run() {
   const res = await getImageStyles(shortGenius);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("getImageStyles failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1504,7 +1424,6 @@ async function run() {
     voiceId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1530,15 +1449,12 @@ async function run() {
     text: "<value>",
     voiceId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("createSpeech failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1581,7 +1497,6 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.getAllAudio({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1604,15 +1519,12 @@ const shortGenius = new ShortGeniusCore({
 
 async function run() {
   const res = await getAllAudio(shortGenius, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("getAllAudio failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1654,7 +1566,6 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.getAudio("<id>");
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1677,15 +1588,12 @@ const shortGenius = new ShortGeniusCore({
 
 async function run() {
   const res = await getAudio(shortGenius, "<id>");
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("getAudio failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1727,7 +1635,6 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.getVoices({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1750,15 +1657,12 @@ const shortGenius = new ShortGeniusCore({
 
 async function run() {
   const res = await getVoices(shortGenius, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("getVoices failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1800,7 +1704,6 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.getVoice("<id>");
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1823,15 +1726,12 @@ const shortGenius = new ShortGeniusCore({
 
 async function run() {
   const res = await getVoice(shortGenius, "<id>");
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("getVoice failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1873,7 +1773,6 @@ const shortGenius = new ShortGenius({
 async function run() {
   const result = await shortGenius.getUsage();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1896,15 +1795,12 @@ const shortGenius = new ShortGeniusCore({
 
 async function run() {
   const res = await getUsage(shortGenius);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("getUsage failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

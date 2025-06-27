@@ -7,9 +7,8 @@ import { Result } from "shortgenius/models/operations";
 
 let value: Result = {
   video: {
-    url: "https://honored-majority.biz/",
+    url: "https://monumental-scrap.org",
   },
-  seed: 6492.69,
 };
 ```
 
@@ -18,4 +17,3 @@ let value: Result = {
 | Field                                                | Type                                                 | Required                                             | Description                                          |
 | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
 | `video`                                              | [operations.Video](../../models/operations/video.md) | :heavy_check_mark:                                   | N/A                                                  |
-| `seed`                                               | *number*                                             | :heavy_check_mark:                                   | N/A                                                  |

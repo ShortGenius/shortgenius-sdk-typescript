@@ -23,9 +23,9 @@ export type State = ClosedEnum<typeof State>;
  * Aspect ratio of the generated image.
  */
 export const ImageAspectRatio = {
-  Nine16: "9:16",
-  Sixteen9: "16:9",
-  One1: "1:1",
+  NineHundredAndSixteen: "9:16",
+  OneHundredAndSixtyNine: "16:9",
+  Eleven: "1:1",
 } as const;
 /**
  * Aspect ratio of the generated image.
@@ -100,7 +100,7 @@ export const Image$inboundSchema: z.ZodType<Image, z.ZodTypeDef, unknown> = z
   .object({
     id: z.string(),
     url: z.nullable(z.string()),
-    type: z.literal("GeneratedImage").optional(),
+    type: z.literal("GeneratedImage").default("GeneratedImage").optional(),
     state: State$inboundSchema,
     created_at: z.string(),
     updated_at: z.nullable(z.string()).optional(),

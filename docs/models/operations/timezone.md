@@ -5,7 +5,7 @@
 ```typescript
 import { TimeZone } from "shortgenius/models/operations";
 
-let value: TimeZone = "Europe/Moscow";
+let value: TimeZone = "Australia/Hobart";
 ```
 
 ## Values

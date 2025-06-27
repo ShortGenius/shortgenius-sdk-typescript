@@ -6,16 +6,16 @@
 import { Series1ThumbnailMedia7Data } from "shortgenius/models/components";
 
 let value: Series1ThumbnailMedia7Data = {
-  pageid: 3423.42,
-  ns: 7573.64,
+  pageid: 2515.99,
+  ns: 2171.9,
   title: "<value>",
-  index: 3145.73,
+  index: 1712.98,
   imagerepository: "<value>",
   imageinfo: [
     {
-      url: "https://minor-jellyfish.org",
-      descriptionurl: "https://supportive-quinoa.com",
-      descriptionshorturl: "https://edible-teriyaki.com",
+      url: "https://anguished-platypus.info/",
+      descriptionurl: "https://quick-handover.info/",
+      descriptionshorturl: "https://square-apricot.com/",
     },
   ],
 };

@@ -6,7 +6,7 @@
 import { Recommendations } from "shortgenius/models/components";
 
 let value: Recommendations = {
-  url: "https://vengeful-farmer.net",
+  url: "https://pushy-king.com/",
   reason: "<value>",
 };
 ```

@@ -6,8 +6,8 @@
 import { SourceMedia } from "shortgenius/models/operations";
 
 let value: SourceMedia = {
-  id: "20d92cfe-e094-4952-b77f-04dadac73c92",
-  url: "https://gruesome-embossing.com",
+  id: "cf8d8bb0-f239-4df8-9273-6ab6482fe2fe",
+  url: "https://rich-guidance.org/",
 };
 ```
 

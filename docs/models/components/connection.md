@@ -8,8 +8,8 @@ A connection to a publishing destination
 import { Connection } from "shortgenius/models/components";
 
 let value: Connection = {
-  id: "5fa51cbe-31b3-425d-a807-a893d8bf6e00",
-  type: "TikTok",
+  id: "654c9c3a-526d-4e3e-b9bf-4c9c84516453",
+  type: "X",
 };
 ```
 

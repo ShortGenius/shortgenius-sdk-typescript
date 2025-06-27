@@ -5,7 +5,7 @@
 ```typescript
 import { TwoState } from "shortgenius/models/components";
 
-let value: TwoState = "pending";
+let value: TwoState = "error";
 ```
 
 ## Values

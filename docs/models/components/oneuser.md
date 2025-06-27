@@ -8,9 +8,9 @@ import { OneUser } from "shortgenius/models/components";
 let value: OneUser = {
   id: "<id>",
   bio: "<value>",
-  firstName: "Wayne",
+  firstName: "Elisabeth",
   instagramUsername: "<value>",
-  lastName: "Greenfelder",
+  lastName: "Nitzsche",
   links: {
     followers: "<value>",
     following: "<value>",
@@ -22,18 +22,18 @@ let value: OneUser = {
   },
   location: "<value>",
   name: "<value>",
-  portfolioUrl: "https://grubby-iridescence.name/",
+  portfolioUrl: "https://mean-poppy.com",
   profileImage: {
     small: "<value>",
     medium: "<value>",
     large: "<value>",
   },
-  totalCollections: 8536.06,
-  totalLikes: 8894.48,
-  totalPhotos: 2201.04,
+  totalCollections: 7280.83,
+  totalLikes: 4652.17,
+  totalPhotos: 7591.58,
   twitterUsername: "<value>",
-  updatedAt: "1741277041080",
-  username: "Bert48",
+  updatedAt: "1735608226455",
+  username: "Elmira24",
 };
 ```
 

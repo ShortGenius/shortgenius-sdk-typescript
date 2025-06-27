@@ -6,13 +6,13 @@
 import { Two1 } from "shortgenius/models/components";
 
 let value: Two1 = {
-  id: "5d775eff-6fca-4332-8e47-7cd26dd12416",
-  url: "https://expensive-necklace.com",
+  id: "72056cc6-6651-4bc9-ac7f-f0eecc7db68e",
+  url: "https://acclaimed-fax.name/",
   metadata: {
     prompt: "<value>",
   },
-  source: "fal-ai/flux-realism",
-  state: "placeholder",
+  source: "fal-ai/flux-pro/v1.1-ultra",
+  state: "generating",
   data: {},
 };
 ```

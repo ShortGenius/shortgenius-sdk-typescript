@@ -6,21 +6,32 @@
 import { Two } from "shortgenius/models/operations";
 
 let value: Two = {
-  id: "2f2c5b6b-e92f-4836-9bee-2d967cda0c06",
-  url: "https://familiar-help.net",
-  userId: "4d02e709-7159-4ae7-a116-2e3685a9fd97",
-  createdAt: "1729422634203",
+  url: "https://fortunate-brace.net/",
+  metadata: {
+    sourceImageUrl: "https://junior-bog.com",
+    muxPlaybackId: "<id>",
+  },
+  source: "Ugc",
+  data: {
+    id: "<id>",
+    ugcCreatorId: "<id>",
+    ugcPresetId: "<id>",
+    createdAt: "1716080340789",
+  },
+  state: "pending",
 };
 ```
 
 ## Fields
 
-| Field                                                | Type                                                 | Required                                             | Description                                          |
-| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| `id`                                                 | *string*                                             | :heavy_check_mark:                                   | N/A                                                  |
-| `url`                                                | *string*                                             | :heavy_check_mark:                                   | N/A                                                  |
-| `userId`                                             | *string*                                             | :heavy_check_mark:                                   | N/A                                                  |
-| `type`                                               | *string*                                             | :heavy_check_mark:                                   | N/A                                                  |
-| `state`                                              | *string*                                             | :heavy_check_mark:                                   | N/A                                                  |
-| `createdAt`                                          | *string*                                             | :heavy_check_mark:                                   | Date and time (ISO 8601) when the media was created. |
-| `updatedAt`                                          | *string*                                             | :heavy_minus_sign:                                   | N/A                                                  |
+| Field                                                                  | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `url`                                                                  | *string*                                                               | :heavy_check_mark:                                                     | N/A                                                                    |
+| `deletedAt`                                                            | *string*                                                               | :heavy_minus_sign:                                                     | N/A                                                                    |
+| `metadata`                                                             | [operations.Metadata](../../models/operations/metadata.md)             | :heavy_check_mark:                                                     | N/A                                                                    |
+| `lastError`                                                            | *string*                                                               | :heavy_minus_sign:                                                     | N/A                                                                    |
+| `type`                                                                 | *string*                                                               | :heavy_check_mark:                                                     | N/A                                                                    |
+| `source`                                                               | [operations.UgcMediaSource](../../models/operations/ugcmediasource.md) | :heavy_check_mark:                                                     | N/A                                                                    |
+| `category`                                                             | *string*                                                               | :heavy_check_mark:                                                     | N/A                                                                    |
+| `data`                                                                 | [operations.UgcMediaData](../../models/operations/ugcmediadata.md)     | :heavy_check_mark:                                                     | N/A                                                                    |
+| `state`                                                                | [operations.State](../../models/operations/state.md)                   | :heavy_check_mark:                                                     | N/A                                                                    |

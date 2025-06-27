@@ -5,7 +5,7 @@
 ```typescript
 import { Series2ThumbnailState } from "shortgenius/models/components";
 
-let value: Series2ThumbnailState = "pending";
+let value: Series2ThumbnailState = "generating";
 ```
 
 ## Values

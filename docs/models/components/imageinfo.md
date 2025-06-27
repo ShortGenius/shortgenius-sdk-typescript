@@ -6,9 +6,9 @@
 import { Imageinfo } from "shortgenius/models/components";
 
 let value: Imageinfo = {
-  url: "https://cloudy-fireplace.biz",
-  descriptionurl: "https://unripe-babushka.org/",
-  descriptionshorturl: "https://tragic-mentor.info/",
+  url: "https://anguished-platypus.info/",
+  descriptionurl: "https://quick-handover.info/",
+  descriptionshorturl: "https://square-apricot.com/",
 };
 ```
 

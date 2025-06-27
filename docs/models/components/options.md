@@ -7,7 +7,7 @@ import { Options } from "shortgenius/models/components";
 
 let value: Options = {
   text: "<value>",
-  correct: false,
+  correct: true,
 };
 ```
 

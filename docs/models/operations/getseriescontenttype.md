@@ -7,11 +7,11 @@ Indicates the type of content in this series.
 ```typescript
 import { GetSeriesContentType } from "shortgenius/models/operations";
 
-let value: GetSeriesContentType = "News";
+let value: GetSeriesContentType = "Quiz";
 ```
 
 ## Values
 
 ```typescript
-"Custom" | "News" | "Quiz" | "History" | "Scary" | "Motivational" | "Bedtime" | "FunFacts" | "LifeTips" | "ELI5" | "Philosophy"
+"Custom" | "News" | "Quiz" | "History" | "Scary" | "Motivational" | "Bedtime" | "FunFacts" | "LifeTips" | "ELI5" | "Philosophy" | "Ad"
 ```

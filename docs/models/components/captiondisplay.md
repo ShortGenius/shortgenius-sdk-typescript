@@ -5,7 +5,7 @@
 ```typescript
 import { CaptionDisplay } from "shortgenius/models/components";
 
-let value: CaptionDisplay = "word";
+let value: CaptionDisplay = "phrase";
 ```
 
 ## Values

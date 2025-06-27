@@ -5,7 +5,7 @@
 ```typescript
 import { TimeZone } from "shortgenius/models/components";
 
-let value: TimeZone = "Pacific/Tongatapu";
+let value: TimeZone = "Australia/Hobart";
 ```
 
 ## Values

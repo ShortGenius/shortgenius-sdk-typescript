@@ -6,10 +6,10 @@
 import { Small } from "shortgenius/models/components";
 
 let value: Small = {
-  url: "https://cloudy-responsibility.org/",
-  width: 1002.51,
-  height: 7589.85,
-  size: 170.6,
+  url: "https://baggy-finer.net/",
+  width: 9346.7,
+  height: 5061.46,
+  size: 4394.82,
   thumbnail: "<value>",
 };
 ```

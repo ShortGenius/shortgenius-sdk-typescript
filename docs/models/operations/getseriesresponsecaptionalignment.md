@@ -5,7 +5,7 @@
 ```typescript
 import { GetSeriesResponseCaptionAlignment } from "shortgenius/models/operations";
 
-let value: GetSeriesResponseCaptionAlignment = "top-right";
+let value: GetSeriesResponseCaptionAlignment = "top-left";
 ```
 
 ## Values

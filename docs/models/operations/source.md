@@ -5,11 +5,11 @@
 ```typescript
 import { Source } from "shortgenius/models/operations";
 
-let value: Source = "GeneratedImage";
+let value: Source = "Ugc";
 ```
 
 ## Values
 
 ```typescript
-"GeneratedImage" | "Image" | "UserImage"
+"Ugc"
 ```

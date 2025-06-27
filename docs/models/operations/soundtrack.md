@@ -10,17 +10,17 @@ import { Soundtrack } from "shortgenius/models/operations";
 let value: Soundtrack = {
   tracks: [
     {
-      url: "https://disloyal-newsprint.info",
+      url: "https://regular-overcoat.net",
     },
   ],
   recommendations: [
     {
-      url: "https://menacing-elver.biz/",
+      url: "https://pushy-king.com/",
       reason: "<value>",
     },
   ],
-  playbackRate: 8797.23,
-  volume: 1557.62,
+  playbackRate: 6379.95,
+  volume: 2009.45,
 };
 ```
 

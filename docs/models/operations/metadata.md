@@ -5,11 +5,15 @@
 ```typescript
 import { Metadata } from "shortgenius/models/operations";
 
-let value: Metadata = {};
+let value: Metadata = {
+  sourceImageUrl: "https://inferior-heartache.com",
+  muxPlaybackId: "<id>",
+};
 ```
 
 ## Fields
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `sourceMedia`      | *any*              | :heavy_minus_sign: | N/A                |
+| `sourceImageUrl`   | *string*           | :heavy_check_mark: | N/A                |
+| `muxPlaybackId`    | *string*           | :heavy_check_mark: | N/A                |

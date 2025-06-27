@@ -6,10 +6,10 @@
 import { Small } from "shortgenius/models/operations";
 
 let value: Small = {
-  url: "https://immense-term.info",
-  width: 3246,
-  height: 9957.33,
-  size: 9524.11,
+  url: "https://baggy-finer.net/",
+  width: 9346.7,
+  height: 5061.46,
+  size: 4394.82,
   thumbnail: "<value>",
 };
 ```

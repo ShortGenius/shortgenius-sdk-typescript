@@ -5,7 +5,7 @@
 ```typescript
 import { RecommendedForLocales } from "shortgenius/models/components";
 
-let value: RecommendedForLocales = "sk-SK";
+let value: RecommendedForLocales = "fr-FR";
 ```
 
 ## Values

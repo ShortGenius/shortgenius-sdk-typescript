@@ -6,7 +6,7 @@
 import { Six1 } from "shortgenius/models/operations";
 
 let value: Six1 = {
-  url: "https://tricky-brush.biz",
+  url: "https://sugary-cappelletti.name/",
   source: "Ugc",
   data: {
     id: "<id>",

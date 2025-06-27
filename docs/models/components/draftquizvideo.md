@@ -14,23 +14,13 @@ let value: DraftQuizVideo = {
     questions: [
       {
         question: "<value>",
-        options: [
-          {
-            text: "<value>",
-            correct: false,
-          },
-        ],
+        options: [],
       },
     ],
     results: {
       header: "<value>",
       explanation: "<value>",
-      categories: [
-        {
-          scoreRange: "<value>",
-          title: "<value>",
-        },
-      ],
+      categories: [],
     },
   },
 };

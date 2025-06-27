@@ -8,26 +8,11 @@ Quiz content to be converted into a single video. Required for Quiz videos.
 import { Quiz } from "shortgenius/models/operations";
 
 let value: Quiz = {
-  questions: [
-    {
-      question: "<value>",
-      options: [
-        {
-          text: "<value>",
-          correct: false,
-        },
-      ],
-    },
-  ],
+  questions: [],
   results: {
     header: "<value>",
     explanation: "<value>",
-    categories: [
-      {
-        scoreRange: "<value>",
-        title: "<value>",
-      },
-    ],
+    categories: [],
   },
 };
 ```

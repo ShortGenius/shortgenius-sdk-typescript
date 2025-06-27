@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -12,6 +13,17 @@ import {
   DraftScene$Outbound,
   DraftScene$outboundSchema,
 } from "./draftscene.js";
+
+export type ImageStyleRecommendations = {
+  /**
+   * ID of the recommended image style preset.
+   */
+  presetId: string;
+  /**
+   * Reason why this style is recommended for the video.
+   */
+  reason: string;
+};
 
 export type DraftVideo = {
   /**
@@ -23,7 +35,80 @@ export type DraftVideo = {
    */
   caption: string;
   scenes: Array<DraftScene>;
+  /**
+   * AI-generated image style recommendations for the video.
+   */
+  imageStyleRecommendations?: Array<ImageStyleRecommendations> | undefined;
+  /**
+   * ID of the currently selected image style preset.
+   */
+  selectedImageStylePresetId?: string | undefined;
 };
+
+/** @internal */
+export const ImageStyleRecommendations$inboundSchema: z.ZodType<
+  ImageStyleRecommendations,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  preset_id: z.string(),
+  reason: z.string(),
+}).transform((v) => {
+  return remap$(v, {
+    "preset_id": "presetId",
+  });
+});
+
+/** @internal */
+export type ImageStyleRecommendations$Outbound = {
+  preset_id: string;
+  reason: string;
+};
+
+/** @internal */
+export const ImageStyleRecommendations$outboundSchema: z.ZodType<
+  ImageStyleRecommendations$Outbound,
+  z.ZodTypeDef,
+  ImageStyleRecommendations
+> = z.object({
+  presetId: z.string(),
+  reason: z.string(),
+}).transform((v) => {
+  return remap$(v, {
+    presetId: "preset_id",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace ImageStyleRecommendations$ {
+  /** @deprecated use `ImageStyleRecommendations$inboundSchema` instead. */
+  export const inboundSchema = ImageStyleRecommendations$inboundSchema;
+  /** @deprecated use `ImageStyleRecommendations$outboundSchema` instead. */
+  export const outboundSchema = ImageStyleRecommendations$outboundSchema;
+  /** @deprecated use `ImageStyleRecommendations$Outbound` instead. */
+  export type Outbound = ImageStyleRecommendations$Outbound;
+}
+
+export function imageStyleRecommendationsToJSON(
+  imageStyleRecommendations: ImageStyleRecommendations,
+): string {
+  return JSON.stringify(
+    ImageStyleRecommendations$outboundSchema.parse(imageStyleRecommendations),
+  );
+}
+
+export function imageStyleRecommendationsFromJSON(
+  jsonString: string,
+): SafeParseResult<ImageStyleRecommendations, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ImageStyleRecommendations$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ImageStyleRecommendations' from JSON`,
+  );
+}
 
 /** @internal */
 export const DraftVideo$inboundSchema: z.ZodType<
@@ -34,6 +119,15 @@ export const DraftVideo$inboundSchema: z.ZodType<
   title: z.string(),
   caption: z.string(),
   scenes: z.array(DraftScene$inboundSchema),
+  image_style_recommendations: z.array(
+    z.lazy(() => ImageStyleRecommendations$inboundSchema),
+  ).optional(),
+  selected_image_style_preset_id: z.string().optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "image_style_recommendations": "imageStyleRecommendations",
+    "selected_image_style_preset_id": "selectedImageStylePresetId",
+  });
 });
 
 /** @internal */
@@ -41,6 +135,10 @@ export type DraftVideo$Outbound = {
   title: string;
   caption: string;
   scenes: Array<DraftScene$Outbound>;
+  image_style_recommendations?:
+    | Array<ImageStyleRecommendations$Outbound>
+    | undefined;
+  selected_image_style_preset_id?: string | undefined;
 };
 
 /** @internal */
@@ -52,6 +150,15 @@ export const DraftVideo$outboundSchema: z.ZodType<
   title: z.string(),
   caption: z.string(),
   scenes: z.array(DraftScene$outboundSchema),
+  imageStyleRecommendations: z.array(
+    z.lazy(() => ImageStyleRecommendations$outboundSchema),
+  ).optional(),
+  selectedImageStylePresetId: z.string().optional(),
+}).transform((v) => {
+  return remap$(v, {
+    imageStyleRecommendations: "image_style_recommendations",
+    selectedImageStylePresetId: "selected_image_style_preset_id",
+  });
 });
 
 /**

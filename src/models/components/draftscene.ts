@@ -5,8 +5,47 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+
+/**
+ * Animation model for the first image.
+ */
+export const FirstImageAnimationModel = {
+  None: "None",
+  Seedance: "Seedance",
+  Kling: "Kling",
+  Hailuo02Standard: "Hailuo02Standard",
+  Hailuo02Pro: "Hailuo02Pro",
+  Veo3: "Veo3",
+  SeedanceTTV: "SeedanceTTV",
+} as const;
+/**
+ * Animation model for the first image.
+ */
+export type FirstImageAnimationModel = ClosedEnum<
+  typeof FirstImageAnimationModel
+>;
+
+/**
+ * Animation model for the second image.
+ */
+export const SecondImageAnimationModel = {
+  None: "None",
+  Seedance: "Seedance",
+  Kling: "Kling",
+  Hailuo02Standard: "Hailuo02Standard",
+  Hailuo02Pro: "Hailuo02Pro",
+  Veo3: "Veo3",
+  SeedanceTTV: "SeedanceTTV",
+} as const;
+/**
+ * Animation model for the second image.
+ */
+export type SecondImageAnimationModel = ClosedEnum<
+  typeof SecondImageAnimationModel
+>;
 
 /**
  * Scene suitable for a video.
@@ -15,20 +54,74 @@ export type DraftScene = {
   /**
    * If a news video, the headline for the story. Otherwise, blank.
    */
-  title: string | null;
+  title?: string | null | undefined;
   /**
    * The text narrated during the scene.
    */
   caption: string;
   /**
+   * The query for images search.
+   */
+  imageQuery?: string | null | undefined;
+  /**
    * The prompt for the first AI generated image.
    */
-  firstImageDescription: string;
+  firstImageDescription?: string | null | undefined;
   /**
    * The prompt for the second AI generated image.
    */
-  secondImageDescription: string;
+  secondImageDescription?: string | null | undefined;
+  /**
+   * Animation model for the first image.
+   */
+  firstImageAnimationModel?: FirstImageAnimationModel | undefined;
+  /**
+   * Animation model for the second image.
+   */
+  secondImageAnimationModel?: SecondImageAnimationModel | undefined;
 };
+
+/** @internal */
+export const FirstImageAnimationModel$inboundSchema: z.ZodNativeEnum<
+  typeof FirstImageAnimationModel
+> = z.nativeEnum(FirstImageAnimationModel);
+
+/** @internal */
+export const FirstImageAnimationModel$outboundSchema: z.ZodNativeEnum<
+  typeof FirstImageAnimationModel
+> = FirstImageAnimationModel$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FirstImageAnimationModel$ {
+  /** @deprecated use `FirstImageAnimationModel$inboundSchema` instead. */
+  export const inboundSchema = FirstImageAnimationModel$inboundSchema;
+  /** @deprecated use `FirstImageAnimationModel$outboundSchema` instead. */
+  export const outboundSchema = FirstImageAnimationModel$outboundSchema;
+}
+
+/** @internal */
+export const SecondImageAnimationModel$inboundSchema: z.ZodNativeEnum<
+  typeof SecondImageAnimationModel
+> = z.nativeEnum(SecondImageAnimationModel);
+
+/** @internal */
+export const SecondImageAnimationModel$outboundSchema: z.ZodNativeEnum<
+  typeof SecondImageAnimationModel
+> = SecondImageAnimationModel$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SecondImageAnimationModel$ {
+  /** @deprecated use `SecondImageAnimationModel$inboundSchema` instead. */
+  export const inboundSchema = SecondImageAnimationModel$inboundSchema;
+  /** @deprecated use `SecondImageAnimationModel$outboundSchema` instead. */
+  export const outboundSchema = SecondImageAnimationModel$outboundSchema;
+}
 
 /** @internal */
 export const DraftScene$inboundSchema: z.ZodType<
@@ -36,23 +129,34 @@ export const DraftScene$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  title: z.nullable(z.string()),
+  title: z.nullable(z.string()).optional(),
   caption: z.string(),
-  first_image_description: z.string(),
-  second_image_description: z.string(),
+  image_query: z.nullable(z.string()).optional(),
+  first_image_description: z.nullable(z.string()).optional(),
+  second_image_description: z.nullable(z.string()).optional(),
+  first_image_animation_model: FirstImageAnimationModel$inboundSchema
+    .optional(),
+  second_image_animation_model: SecondImageAnimationModel$inboundSchema
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
+    "image_query": "imageQuery",
     "first_image_description": "firstImageDescription",
     "second_image_description": "secondImageDescription",
+    "first_image_animation_model": "firstImageAnimationModel",
+    "second_image_animation_model": "secondImageAnimationModel",
   });
 });
 
 /** @internal */
 export type DraftScene$Outbound = {
-  title: string | null;
+  title?: string | null | undefined;
   caption: string;
-  first_image_description: string;
-  second_image_description: string;
+  image_query?: string | null | undefined;
+  first_image_description?: string | null | undefined;
+  second_image_description?: string | null | undefined;
+  first_image_animation_model?: string | undefined;
+  second_image_animation_model?: string | undefined;
 };
 
 /** @internal */
@@ -61,14 +165,21 @@ export const DraftScene$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DraftScene
 > = z.object({
-  title: z.nullable(z.string()),
+  title: z.nullable(z.string()).optional(),
   caption: z.string(),
-  firstImageDescription: z.string(),
-  secondImageDescription: z.string(),
+  imageQuery: z.nullable(z.string()).optional(),
+  firstImageDescription: z.nullable(z.string()).optional(),
+  secondImageDescription: z.nullable(z.string()).optional(),
+  firstImageAnimationModel: FirstImageAnimationModel$outboundSchema.optional(),
+  secondImageAnimationModel: SecondImageAnimationModel$outboundSchema
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
+    imageQuery: "image_query",
     firstImageDescription: "first_image_description",
     secondImageDescription: "second_image_description",
+    firstImageAnimationModel: "first_image_animation_model",
+    secondImageAnimationModel: "second_image_animation_model",
   });
 });
 

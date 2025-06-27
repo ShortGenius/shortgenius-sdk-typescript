@@ -6,7 +6,7 @@
 import { MaskImage } from "shortgenius/models/components";
 
 let value: MaskImage = {
-  url: "https://impure-battle.net",
+  url: "https://regal-lotion.com/",
 };
 ```
 

@@ -5,7 +5,7 @@
 ```typescript
 import { GetSeries3State } from "shortgenius/models/operations";
 
-let value: GetSeries3State = "uploading";
+let value: GetSeries3State = "completed";
 ```
 
 ## Values

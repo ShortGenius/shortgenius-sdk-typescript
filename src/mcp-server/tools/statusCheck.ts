@@ -6,7 +6,7 @@ import { statusCheck } from "../../funcs/statusCheck.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 export const tool$statusCheck: ToolDefinition = {
-  name: "status_check",
+  name: "status-check",
   description: `Health check
 
 Check if the service is running.`,

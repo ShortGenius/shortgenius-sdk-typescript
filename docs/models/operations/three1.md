@@ -6,11 +6,11 @@
 import { Three1 } from "shortgenius/models/operations";
 
 let value: Three1 = {
-  id: "4b3d5209-d4ec-4099-8357-0226bd2caef1",
-  url: "https://damp-corral.org",
+  id: "2686d41e-272e-4acb-8feb-ee42a4a25c94",
+  url: "https://weary-conversation.name/",
   metadata: {},
   source: "ImagePicker",
-  state: "error",
+  state: "request_smart_motion",
   data: {
     uploadId: "<id>",
     key: "<key>",

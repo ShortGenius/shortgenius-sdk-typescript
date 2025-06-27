@@ -16,6 +16,8 @@ export const ConnectionType = {
   TikTok: "TikTok",
   YouTube: "YouTube",
   X: "X",
+  Facebook: "Facebook",
+  Instagram: "Instagram",
 } as const;
 /**
  * The publishing destination.

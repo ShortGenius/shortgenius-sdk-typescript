@@ -7,7 +7,7 @@
 
 ```typescript
 const value: operations.GetSeries11 = {
-  url: "https://careless-cutover.name/",
+  url: "https://last-summary.org/",
   data: {
     kind: "<value>",
     title: "<value>",
@@ -20,12 +20,12 @@ const value: operations.GetSeries11 = {
     fileFormat: "<value>",
     image: {
       contextLink: "<value>",
-      height: 7891.85,
-      width: 97.43,
-      byteSize: 6124.27,
+      height: 4420.94,
+      width: 5080.7,
+      byteSize: 250.44,
       thumbnailLink: "<value>",
-      thumbnailHeight: 1158.81,
-      thumbnailWidth: 6040.5,
+      thumbnailHeight: 2267.14,
+      thumbnailWidth: 8797.16,
     },
   },
 };
@@ -35,18 +35,18 @@ const value: operations.GetSeries11 = {
 
 ```typescript
 const value: operations.GetSeries12 = {
-  url: "https://enchanting-kielbasa.net",
+  url: "https://thorny-fencing.com/",
   data: {
-    id: 1755.77,
-    width: 1525.61,
-    height: 9050.46,
-    url: "https://shoddy-stall.name",
+    id: 3459.57,
+    width: 1178.53,
+    height: 4047.35,
+    url: "https://carefree-solvency.com",
     alt: "<value>",
     avgColor: "<value>",
     photographer: "<value>",
-    photographerUrl: "https://nippy-publication.info/",
-    photographerId: 951.68,
-    liked: false,
+    photographerUrl: "https://fond-bend.name",
+    photographerId: 8834.76,
+    liked: true,
     src: {
       original: "<value>",
       large2x: "<value>",
@@ -65,39 +65,31 @@ const value: operations.GetSeries12 = {
 
 ```typescript
 const value: operations.GetSeries13 = {
-  url: "https://winged-atrium.net/",
+  url: "https://ugly-median.com",
   data: {
-    id: 9436.82,
-    width: 1292.59,
-    height: 7222.65,
-    url: "https://ethical-sticker.org/",
-    image: "https://loremflickr.com/1388/2530?lock=7113520607203209",
+    id: 5277.75,
+    width: 4036.38,
+    height: 454.98,
+    url: "https://bouncy-sauerkraut.org",
+    image: "https://loremflickr.com/355/150?lock=8997157064144293",
     fullRes: "<value>",
     tags: [
-      "<value>",
+      "<value 1>",
+      "<value 2>",
+      "<value 3>",
     ],
-    duration: 8812.4,
+    duration: 919.62,
     user: {
-      id: 3186.72,
+      id: 2063.59,
       name: "<value>",
-      url: "https://ugly-advertisement.org",
+      url: "https://nimble-permafrost.name",
     },
-    videoFiles: [
-      {
-        id: 5721.14,
-        quality: "sd",
-        fileType: "image",
-        width: 8240.62,
-        height: 7221.3,
-        link: "<value>",
-        fps: 5012.65,
-      },
-    ],
+    videoFiles: [],
     videoPictures: [
       {
-        id: 4876.52,
-        picture: "https://loremflickr.com/3597/930?lock=6112628756952323",
-        nr: 7022.12,
+        id: 5949.62,
+        picture: "https://loremflickr.com/1459/3106?lock=178391727751220",
+        nr: 4778.6,
       },
     ],
   },
@@ -108,20 +100,20 @@ const value: operations.GetSeries13 = {
 
 ```typescript
 const value: operations.GetSeries14 = {
-  url: "https://fatal-encouragement.name",
+  url: "https://royal-wombat.info/",
   data: {
-    id: 2729.58,
-    pageURL: "https://granular-larva.biz/",
-    previewURL: "https://shimmering-goodwill.biz/",
-    webformatURL: "https://important-captain.net",
-    largeImageURL: "https://oblong-opera.org/",
-    views: 1911.01,
-    downloads: 2841.72,
-    likes: 9322.2,
-    comments: 7182.93,
-    userId: 4493.31,
-    user: "Murphy.Jast52",
-    userImageURL: "https://impeccable-stir-fry.net",
+    id: 4515.31,
+    pageURL: "https://kooky-precedent.biz",
+    previewURL: "https://majestic-department.biz/",
+    webformatURL: "https://bad-shipper.net/",
+    largeImageURL: "https://outstanding-scale.net/",
+    views: 787.69,
+    downloads: 3338.09,
+    likes: 6579.48,
+    comments: 3887.91,
+    userId: 1752.86,
+    user: "Elise.Brown3",
+    userImageURL: "https://tense-creator.org",
   },
 };
 ```
@@ -130,47 +122,47 @@ const value: operations.GetSeries14 = {
 
 ```typescript
 const value: operations.One5 = {
-  url: "https://palatable-pronoun.name/",
+  url: "https://babyish-willow.name",
   data: {
-    id: 1139.47,
-    pageURL: "https://ironclad-fencing.name",
+    id: 8253.23,
+    pageURL: "https://critical-disappointment.com",
     videos: {
       large: {
-        url: "https://esteemed-receptor.biz/",
-        width: 8052.89,
-        height: 9791.61,
-        size: 4412.39,
+        url: "https://black-and-white-status.name/",
+        width: 6164.12,
+        height: 8309.57,
+        size: 6666.41,
         thumbnail: "<value>",
       },
       medium: {
-        url: "https://deadly-secret.org",
-        width: 5170.23,
-        height: 2557.2,
-        size: 1608.26,
+        url: "https://sociable-lace.info/",
+        width: 4754.94,
+        height: 5949.98,
+        size: 5174.04,
         thumbnail: "<value>",
       },
       small: {
-        url: "https://glum-king.info",
-        width: 4352.15,
-        height: 7652.59,
-        size: 9351.59,
+        url: "https://warped-hoof.net/",
+        width: 6214.39,
+        height: 515.06,
+        size: 6122.84,
         thumbnail: "<value>",
       },
       tiny: {
-        url: "https://well-worn-cope.name",
-        width: 6855.07,
-        height: 7149.77,
-        size: 7558.48,
+        url: "https://bulky-address.info/",
+        width: 3815.57,
+        height: 4004.21,
+        size: 8340.48,
         thumbnail: "<value>",
       },
     },
-    views: 3331.5,
-    downloads: 8821.95,
-    likes: 1317.05,
-    comments: 2785.35,
-    userId: 4687.14,
-    user: "Larissa10",
-    userImageURL: "https://gruesome-markup.name",
+    views: 5314.68,
+    downloads: 9781.38,
+    likes: 8191.82,
+    comments: 7261.28,
+    userId: 1438.51,
+    user: "Marcelle.Romaguera13",
+    userImageURL: "https://distorted-kick.info",
   },
 };
 ```
@@ -179,11 +171,11 @@ const value: operations.One5 = {
 
 ```typescript
 const value: operations.One6 = {
-  url: "https://critical-sprinkles.net",
+  url: null,
   data: {
     id: "<id>",
-    createdAt: "1710874865269",
-    updatedAt: "1741272206063",
+    createdAt: "1709560596565",
+    updatedAt: "1735625241346",
     urls: {
       full: "<value>",
       raw: "<value>",
@@ -193,10 +185,10 @@ const value: operations.One6 = {
     },
     altDescription: "<value>",
     blurHash: "<value>",
-    color: "azure",
-    description: "out unsung aw indeed blah freezing",
-    height: 6944.44,
-    likes: 3991.12,
+    color: "teal",
+    description: null,
+    height: 5368.97,
+    likes: 1536.42,
     links: {
       self: "<value>",
       html: "<value>",
@@ -204,13 +196,13 @@ const value: operations.One6 = {
       downloadLocation: "<value>",
     },
     promotedAt: "<value>",
-    width: 5419.48,
+    width: 6264.69,
     user: {
       id: "<id>",
       bio: "<value>",
-      firstName: "Opal",
+      firstName: "Amy",
       instagramUsername: "<value>",
-      lastName: "Collier-Lehner",
+      lastName: "Herman",
       links: {
         followers: "<value>",
         following: "<value>",
@@ -222,18 +214,18 @@ const value: operations.One6 = {
       },
       location: "<value>",
       name: "<value>",
-      portfolioUrl: "https://amused-representation.org/",
+      portfolioUrl: null,
       profileImage: {
         small: "<value>",
         medium: "<value>",
         large: "<value>",
       },
-      totalCollections: 5954.03,
-      totalLikes: 724.32,
-      totalPhotos: 617.28,
+      totalCollections: 5944.35,
+      totalLikes: 2353.32,
+      totalPhotos: 6221.94,
       twitterUsername: "<value>",
-      updatedAt: "1741250401743",
-      username: "George99",
+      updatedAt: "1735605691087",
+      username: "Estelle.Harvey",
     },
   },
 };
@@ -243,20 +235,14 @@ const value: operations.One6 = {
 
 ```typescript
 const value: operations.One7 = {
-  url: "https://powerless-exterior.biz",
+  url: "https://worldly-sundae.info/",
   data: {
-    pageid: 1302.05,
-    ns: 5454,
+    pageid: 4789.55,
+    ns: 2547.1,
     title: "<value>",
-    index: 816.71,
+    index: 3173.24,
     imagerepository: "<value>",
-    imageinfo: [
-      {
-        url: "https://gloomy-scrap.info/",
-        descriptionurl: "https://devoted-tray.name",
-        descriptionshorturl: "https://meager-doubter.net/",
-      },
-    ],
+    imageinfo: [],
   },
 };
 ```

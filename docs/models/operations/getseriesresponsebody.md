@@ -8,36 +8,26 @@ Public series information.
 import { GetSeriesResponseBody } from "shortgenius/models/operations";
 
 let value: GetSeriesResponseBody = {
-  id: "491391b7-4da1-4a3e-8293-f59279c8bd45",
-  createdAt: "1727252825286",
+  id: "8820da28-5474-456e-ae9a-c81d66439212",
+  createdAt: "1726531537294",
   nextPostingAt: "<value>",
-  type: "Series",
+  type: "SingleVideo",
   schedule: {
-    timeZone: "Asia/Shanghai",
-    times: [
-      {
-        dayOfWeek: 9925.86,
-        timeOfDay: 4543.52,
-      },
-    ],
+    timeZone: "Asia/Dhaka",
+    times: [],
   },
-  aspectRatio: "1:1",
+  aspectRatio: "16:9",
   soundtrackBehavior: "MutedAfter60s",
-  locale: "no-NO",
+  locale: "zh-TW",
   soundtrack: {
     tracks: [
       {
-        url: "https://knowledgeable-allegation.biz",
+        url: "https://regular-overcoat.net",
       },
     ],
-    recommendations: [
-      {
-        url: "https://immense-hygienic.org",
-        reason: "<value>",
-      },
-    ],
-    playbackRate: 2693.91,
-    volume: 6159.32,
+    recommendations: [],
+    playbackRate: 1023.97,
+    volume: 9587.55,
   },
   styles: {},
   imageStyle: {},
@@ -47,28 +37,23 @@ let value: GetSeriesResponseBody = {
         id: "<id>",
         name: "<value>",
         description:
-          "yum pace chainstay archive hmph blindly and foolishly horn",
+          "scamper woot dead merrily joyfully wriggler shadowbox politely frightfully not",
         tags: {},
-        previewUrl: "https://next-hose.org",
-        locale: "ca-ES",
-        source: "CartesiaClonedVoice",
+        previewUrl: "https://extra-large-decision.net/",
+        locale: null,
+        source: "ElevenLabsShared",
       },
     ],
-    playbackRate: 3463.94,
-    volume: 8535.03,
+    playbackRate: 5862.23,
+    volume: 1000.84,
   },
-  connections: [
-    {
-      id: "c4d17a41-4756-410e-914a-d5a7060fc536",
-      type: "TikTok",
-    },
-  ],
+  connections: [],
   episodes: [
     {
-      id: "e6b2879a-d360-49e6-9f93-8aaa333b7ac9",
-      createdAt: "1722467341037",
-      seriesId: "82cecdd2-fa6e-49fc-95bb-5e25a7af1cd4",
-      publishingState: "completed",
+      id: "b2409c35-0508-48e6-91d1-79c1076a441a",
+      createdAt: "1727261256798",
+      seriesId: "1ccc6683-aaf0-4858-8c71-3fb4f9e5eec3",
+      publishingState: "processing",
       publishAt: "<value>",
     },
   ],
@@ -83,7 +68,7 @@ let value: GetSeriesResponseBody = {
 | `createdAt`                                                                        | *string*                                                                           | :heavy_check_mark:                                                                 | Date and time (ISO 8601) when the series was created.                              |
 | `updatedAt`                                                                        | *string*                                                                           | :heavy_minus_sign:                                                                 | Date and time (ISO 8601) when the series was last updated.                         |
 | `nextPostingAt`                                                                    | *string*                                                                           | :heavy_check_mark:                                                                 | Date and time (ISO 8601) when the next video will be posted.                       |
-| `type`                                                                             | [operations.Type](../../models/operations/type.md)                                 | :heavy_check_mark:                                                                 | Type of the series (e.g., automatically generated).                                |
+| `type`                                                                             | [operations.GetSeriesType](../../models/operations/getseriestype.md)               | :heavy_check_mark:                                                                 | Type of the series (e.g., automatically generated).                                |
 | `schedule`                                                                         | [operations.GetSeriesSchedule](../../models/operations/getseriesschedule.md)       | :heavy_check_mark:                                                                 | The publishing schedule for the video series.                                      |
 | `contentType`                                                                      | [operations.GetSeriesContentType](../../models/operations/getseriescontenttype.md) | :heavy_minus_sign:                                                                 | Indicates the type of content in this series.                                      |
 | `name`                                                                             | *string*                                                                           | :heavy_minus_sign:                                                                 | User-friendly name for the series.                                                 |

@@ -5,7 +5,7 @@
 ```typescript
 import { GetImageResponseBodyResponse200State } from "shortgenius/models/operations";
 
-let value: GetImageResponseBodyResponse200State = "uploading";
+let value: GetImageResponseBodyResponse200State = "request_smart_motion";
 ```
 
 ## Values

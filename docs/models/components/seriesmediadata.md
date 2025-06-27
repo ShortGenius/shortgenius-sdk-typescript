@@ -6,14 +6,16 @@
 import { SeriesMediaData } from "shortgenius/models/components";
 
 let value: SeriesMediaData = {
-  width: 8681.26,
-  height: 1624.93,
+  assetKey: "<value>",
+  uploadedAt: "<value>",
 };
 ```
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `width`            | *number*           | :heavy_check_mark: | N/A                |
-| `height`           | *number*           | :heavy_check_mark: | N/A                |
+| Field                                                            | Type                                                             | Required                                                         | Description                                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `originalUrl`                                                    | *string*                                                         | :heavy_minus_sign:                                               | N/A                                                              |
+| `assetKey`                                                       | *string*                                                         | :heavy_check_mark:                                               | N/A                                                              |
+| `uploadedAt`                                                     | *string*                                                         | :heavy_check_mark:                                               | N/A                                                              |
+| `imageFormat`                                                    | [components.ImageFormat](../../models/components/imageformat.md) | :heavy_minus_sign:                                               | N/A                                                              |

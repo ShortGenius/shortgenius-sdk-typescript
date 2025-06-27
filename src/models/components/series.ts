@@ -187,6 +187,7 @@ export const ContentType = {
   LifeTips: "LifeTips",
   Eli5: "ELI5",
   Philosophy: "Philosophy",
+  Ad: "Ad",
 } as const;
 /**
  * Indicates the type of content in this series.
@@ -197,9 +198,9 @@ export type ContentType = ClosedEnum<typeof ContentType>;
  * Aspect ratio of the series videos.
  */
 export const AspectRatio = {
-  Nine16: "9:16",
-  Sixteen9: "16:9",
-  One1: "1:1",
+  NineHundredAndSixteen: "9:16",
+  OneHundredAndSixtyNine: "16:9",
+  Eleven: "1:1",
 } as const;
 /**
  * Aspect ratio of the series videos.
@@ -386,6 +387,151 @@ export const Theme = {
 } as const;
 export type Theme = ClosedEnum<typeof Theme>;
 
+export type SeriesMediaThumbnailMetadata = {
+  adId: string;
+  adName?: string | null | undefined;
+  creativeId: string;
+  pageId?: string | null | undefined;
+  instagramUserId?: string | null | undefined;
+  link?: string | null | undefined;
+  imageHash?: string | null | undefined;
+  callToActionType?: string | null | undefined;
+  imageUrl?: string | null | undefined;
+  thumbnailUrl?: string | null | undefined;
+};
+
+export const SeriesMediaState = {
+  Completed: "completed",
+} as const;
+export type SeriesMediaState = ClosedEnum<typeof SeriesMediaState>;
+
+export type Nine = {
+  id: string;
+  url: string | null;
+  deletedAt?: string | null | undefined;
+  metadata: SeriesMediaThumbnailMetadata;
+  lastError?: string | null | undefined;
+  type?: "MetaAd" | undefined;
+  source?: "Meta" | undefined;
+  category?: "Ad" | undefined;
+  state: SeriesMediaState;
+};
+
+export type SeriesMediaMetadata = {
+  contentType?: string | null | undefined;
+  brandDomain: string;
+  assetType: string;
+  width?: number | null | undefined;
+  height?: number | null | undefined;
+};
+
+export const MediaState = {
+  Completed: "completed",
+  Error: "error",
+} as const;
+export type MediaState = ClosedEnum<typeof MediaState>;
+
+export const ImageFormat = {
+  Png: "png",
+  Jpg: "jpg",
+  Jpeg: "jpeg",
+  Webp: "webp",
+} as const;
+export type ImageFormat = ClosedEnum<typeof ImageFormat>;
+
+export type SeriesMediaData = {
+  originalUrl?: string | undefined;
+  assetKey: string;
+  uploadedAt: string;
+  imageFormat?: ImageFormat | undefined;
+};
+
+export type Eight = {
+  id: string;
+  url: string | null;
+  deletedAt?: string | null | undefined;
+  metadata: SeriesMediaMetadata;
+  lastError?: string | null | undefined;
+  type?: "BrandImage" | undefined;
+  source?: "BrandFetch" | undefined;
+  category?: "Brand" | undefined;
+  state: MediaState;
+  data: SeriesMediaData;
+};
+
+export type Series7Metadata = {
+  assetId: string;
+  assetVersionId: string;
+  assetRenderId: string;
+  aspectRatio?: string | null | undefined;
+};
+
+export const Series7State = {
+  Pending: "pending",
+  Generating: "generating",
+  Completed: "completed",
+  Error: "error",
+} as const;
+export type Series7State = ClosedEnum<typeof Series7State>;
+
+export type Series7Data = {};
+
+export type Seven2 = {
+  id: string;
+  url: string | null;
+  deletedAt?: string | null | undefined;
+  metadata: Series7Metadata;
+  lastError?: string | null | undefined;
+  type?: "Graphic" | undefined;
+  source?: "Graphic" | undefined;
+  category?: "Asset" | undefined;
+  state: Series7State;
+  data: Series7Data;
+};
+
+export const SevenAspectRatio = {
+  Portrait916: "Portrait 9:16",
+  Landscape169: "Landscape 16:9",
+  Square11: "Square 1:1",
+} as const;
+export type SevenAspectRatio = ClosedEnum<typeof SevenAspectRatio>;
+
+export type SevenMetadata = {
+  assetId: string;
+  assetVersionId: string;
+  assetRenderId: string;
+  aspectRatio?: SevenAspectRatio | null | undefined;
+};
+
+export const SevenState = {
+  Pending: "pending",
+  Generating: "generating",
+  Completed: "completed",
+  Error: "error",
+} as const;
+export type SevenState = ClosedEnum<typeof SevenState>;
+
+export type SevenData = {
+  thumbnailUrl?: string | null | undefined;
+  muxPlaybackId?: string | null | undefined;
+  duration?: number | null | undefined;
+};
+
+export type Seven1 = {
+  id: string;
+  url: string | null;
+  deletedAt?: string | null | undefined;
+  metadata: SevenMetadata;
+  lastError?: string | null | undefined;
+  type?: "Block" | undefined;
+  source?: "Block" | undefined;
+  category?: "Asset" | undefined;
+  state: SevenState;
+  data: SevenData;
+};
+
+export type Seven = Seven1 | Seven2;
+
 export type SixMetadata = {
   sourceImageUrl: string;
   muxPlaybackId: string | null;
@@ -401,6 +547,7 @@ export type Series6Data = {
   ugcCreatorId: string;
   ugcPresetId: string;
   createdAt: string;
+  hook?: string | null | undefined;
 };
 
 export const SixState = {
@@ -430,6 +577,7 @@ export type SixSource = ClosedEnum<typeof SixSource>;
 
 export type SixData = {
   id: string;
+  hook?: string | null | undefined;
 };
 
 export type Six1 = {
@@ -444,7 +592,7 @@ export type Six1 = {
   state?: "completed" | undefined;
 };
 
-export type Six = Six1 | Six2;
+export type Six = Six2 | Six1;
 
 export type MediaMetadata = {
   muxPlaybackId: string | null;
@@ -492,7 +640,7 @@ export const Category = {
 } as const;
 export type Category = ClosedEnum<typeof Category>;
 
-export type SeriesMediaData = {
+export type SeriesMediaThumbnailData = {
   width: number;
   height: number;
 };
@@ -525,17 +673,19 @@ export type MediaResults = {
 export type Data = {
   url?: string | null | undefined;
   path?: string | null | undefined;
-  data?: SeriesMediaData | null | undefined;
+  data?: SeriesMediaThumbnailData | null | undefined;
   results?: MediaResults | undefined;
 };
 
-export const MediaState = {
+export const SeriesMediaThumbnailState = {
   Pending: "pending",
   Generating: "generating",
   Completed: "completed",
   Error: "error",
 } as const;
-export type MediaState = ClosedEnum<typeof MediaState>;
+export type SeriesMediaThumbnailState = ClosedEnum<
+  typeof SeriesMediaThumbnailState
+>;
 
 export type Four = {
   id: string;
@@ -547,7 +697,7 @@ export type Four = {
   source: SeriesMediaSource;
   category: Category;
   data: Data;
-  state: MediaState;
+  state: SeriesMediaThumbnailState;
 };
 
 export type Series3ThumbnailMediaMetadata = {
@@ -769,13 +919,39 @@ export type Two3 = {
   data: Series2ThumbnailData | null;
 };
 
+export const TwoAnimationModel = {
+  None: "None",
+  Seedance: "Seedance",
+  Kling: "Kling",
+  Hailuo02Standard: "Hailuo02Standard",
+  Hailuo02Pro: "Hailuo02Pro",
+  Veo3: "Veo3",
+  SeedanceTTV: "SeedanceTTV",
+} as const;
+export type TwoAnimationModel = ClosedEnum<typeof TwoAnimationModel>;
+
 export type TwoMetadata = {
   sourceImageUrl?: string | null | undefined;
   parentMediaId?: string | null | undefined;
+  animationPrompt?: string | null | undefined;
+  animationModel?: TwoAnimationModel | null | undefined;
+  imageStylePresetId?: string | null | undefined;
+  imageStyleCustomPrompt?: string | null | undefined;
 };
 
 export const TwoSource = {
   FalAiStableVideo: "fal-ai/stable-video",
+  FalAiKlingVideoV16ProImageToVideo:
+    "fal-ai/kling-video/v1.6/pro/image-to-video",
+  FalAiMinimaxHailuo02StandardImageToVideo:
+    "fal-ai/minimax/hailuo-02/standard/image-to-video",
+  FalAiMinimaxHailuo02ProImageToVideo:
+    "fal-ai/minimax/hailuo-02/pro/image-to-video",
+  FalAiBytedanceSeedanceV1LiteImageToVideo:
+    "fal-ai/bytedance/seedance/v1/lite/image-to-video",
+  FalAiBytedanceSeedanceV1LiteTextToVideo:
+    "fal-ai/bytedance/seedance/v1/lite/text-to-video",
+  FalAiVeo3: "fal-ai/veo3",
 } as const;
 export type TwoSource = ClosedEnum<typeof TwoSource>;
 
@@ -797,7 +973,6 @@ export type TwoVideo = {
 
 export type Result = {
   video: TwoVideo;
-  seed: number;
 };
 
 export type Series2Data = {
@@ -825,12 +1000,38 @@ export const TwoAspectRatio = {
 } as const;
 export type TwoAspectRatio = ClosedEnum<typeof TwoAspectRatio>;
 
+export const Quality = {
+  Low: "low",
+  Medium: "medium",
+  High: "high",
+} as const;
+export type Quality = ClosedEnum<typeof Quality>;
+
+export const AnimationModel = {
+  None: "None",
+  Seedance: "Seedance",
+  Kling: "Kling",
+  Hailuo02Standard: "Hailuo02Standard",
+  Hailuo02Pro: "Hailuo02Pro",
+  Veo3: "Veo3",
+  SeedanceTTV: "SeedanceTTV",
+} as const;
+export type AnimationModel = ClosedEnum<typeof AnimationModel>;
+
 export type Series2ThumbnailMetadata = {
   prompt: string;
   translatedPrompt?: string | null | undefined;
   rephrasedPrompt?: string | null | undefined;
   imageStylePresetId?: string | null | undefined;
+  imageStyleCustomPrompt?: string | null | undefined;
   aspectRatio?: TwoAspectRatio | null | undefined;
+  width?: number | null | undefined;
+  height?: number | null | undefined;
+  clonedMediaId?: string | null | undefined;
+  originalImageUrl?: string | null | undefined;
+  quality?: Quality | null | undefined;
+  animationModel?: AnimationModel | null | undefined;
+  animationPrompt?: string | null | undefined;
 };
 
 export const Series2ThumbnailSource = {
@@ -840,6 +1041,9 @@ export const Series2ThumbnailSource = {
   FalAiFluxProV11: "fal-ai/flux-pro/v1.1",
   FalAiFluxProV11Ultra: "fal-ai/flux-pro/v1.1-ultra",
   FalAiFluxRealism: "fal-ai/flux-realism",
+  FalAiFluxProKontext: "fal-ai/flux-pro/kontext",
+  FalAiFluxProKontextMaxMulti: "fal-ai/flux-pro/kontext/max/multi",
+  GptImage1: "gpt-image-1",
 } as const;
 export type Series2ThumbnailSource = ClosedEnum<typeof Series2ThumbnailSource>;
 
@@ -853,23 +1057,6 @@ export const Series2ThumbnailState = {
 } as const;
 export type Series2ThumbnailState = ClosedEnum<typeof Series2ThumbnailState>;
 
-export type Images = {
-  url: string;
-  width: number;
-  height: number;
-  contentType: string;
-};
-
-export type Timings = {};
-
-export type TwoResults = {
-  images: Array<Images>;
-  timings: Timings;
-  seed: number;
-  hasNsfwConcepts: Array<boolean>;
-  prompt: string;
-};
-
 export type Artifacts = {
   seed?: number | undefined;
   finishReason?: string | undefined;
@@ -877,7 +1064,7 @@ export type Artifacts = {
 
 export type TwoData = {
   path?: string | null | undefined;
-  results?: TwoResults | undefined;
+  results?: { [k: string]: any } | undefined;
   result?: string | null | undefined;
   artifacts?: Array<Artifacts> | undefined;
 };
@@ -912,7 +1099,7 @@ export type Series1ThumbnailMedia7Data = {
   imageinfo: Array<Imageinfo>;
 };
 
-export type Seven = {
+export type One7 = {
   url: string | null;
   deletedAt?: string | null | undefined;
   metadata?: any | undefined;
@@ -1106,16 +1293,16 @@ export type User = {
   url: string;
 };
 
-export const Quality = {
+export const OneQuality = {
   Hd: "hd",
   Sd: "sd",
   Uhd: "uhd",
 } as const;
-export type Quality = ClosedEnum<typeof Quality>;
+export type OneQuality = ClosedEnum<typeof OneQuality>;
 
 export type VideoFiles = {
   id: number;
-  quality: Quality | null;
+  quality: OneQuality | null;
   fileType: string;
   width: number | null;
   height: number | null;
@@ -1227,18 +1414,20 @@ export type One1 = {
   data: Series1ThumbnailMedia1Data;
 };
 
-export type One = One1 | One2 | One3 | One4 | One5 | One6 | Seven;
+export type One = One1 | One2 | One3 | One4 | One5 | One6 | One7;
 
 export type Media =
-  | Five
   | Four
+  | Eight
+  | Five
+  | Nine
   | One1
   | One2
   | One3
   | One4
   | One5
   | One6
-  | Seven
+  | One7
   | Two1
   | Two2
   | Two3
@@ -1246,8 +1435,10 @@ export type Media =
   | Three2
   | Three3
   | Three4
+  | Six2
   | Six1
-  | Six2;
+  | Seven1
+  | Seven2;
 
 /**
  * Thumbnail for the series.
@@ -1262,15 +1453,17 @@ export type Thumbnail = {
   text: string | null;
   theme: Theme;
   media:
-    | Five
     | Four
+    | Eight
+    | Five
+    | Nine
     | One1
     | One2
     | One3
     | One4
     | One5
     | One6
-    | Seven
+    | One7
     | Two1
     | Two2
     | Two3
@@ -1278,8 +1471,10 @@ export type Thumbnail = {
     | Three2
     | Three3
     | Three4
-    | Six1
     | Six2
+    | Six1
+    | Seven1
+    | Seven2
     | null;
 };
 
@@ -2247,6 +2442,1019 @@ export namespace Theme$ {
 }
 
 /** @internal */
+export const SeriesMediaThumbnailMetadata$inboundSchema: z.ZodType<
+  SeriesMediaThumbnailMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  ad_id: z.string(),
+  ad_name: z.nullable(z.string()).optional(),
+  creative_id: z.string(),
+  page_id: z.nullable(z.string()).optional(),
+  instagram_user_id: z.nullable(z.string()).optional(),
+  link: z.nullable(z.string()).optional(),
+  image_hash: z.nullable(z.string()).optional(),
+  call_to_action_type: z.nullable(z.string()).optional(),
+  image_url: z.nullable(z.string()).optional(),
+  thumbnail_url: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "ad_id": "adId",
+    "ad_name": "adName",
+    "creative_id": "creativeId",
+    "page_id": "pageId",
+    "instagram_user_id": "instagramUserId",
+    "image_hash": "imageHash",
+    "call_to_action_type": "callToActionType",
+    "image_url": "imageUrl",
+    "thumbnail_url": "thumbnailUrl",
+  });
+});
+
+/** @internal */
+export type SeriesMediaThumbnailMetadata$Outbound = {
+  ad_id: string;
+  ad_name?: string | null | undefined;
+  creative_id: string;
+  page_id?: string | null | undefined;
+  instagram_user_id?: string | null | undefined;
+  link?: string | null | undefined;
+  image_hash?: string | null | undefined;
+  call_to_action_type?: string | null | undefined;
+  image_url?: string | null | undefined;
+  thumbnail_url?: string | null | undefined;
+};
+
+/** @internal */
+export const SeriesMediaThumbnailMetadata$outboundSchema: z.ZodType<
+  SeriesMediaThumbnailMetadata$Outbound,
+  z.ZodTypeDef,
+  SeriesMediaThumbnailMetadata
+> = z.object({
+  adId: z.string(),
+  adName: z.nullable(z.string()).optional(),
+  creativeId: z.string(),
+  pageId: z.nullable(z.string()).optional(),
+  instagramUserId: z.nullable(z.string()).optional(),
+  link: z.nullable(z.string()).optional(),
+  imageHash: z.nullable(z.string()).optional(),
+  callToActionType: z.nullable(z.string()).optional(),
+  imageUrl: z.nullable(z.string()).optional(),
+  thumbnailUrl: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    adId: "ad_id",
+    adName: "ad_name",
+    creativeId: "creative_id",
+    pageId: "page_id",
+    instagramUserId: "instagram_user_id",
+    imageHash: "image_hash",
+    callToActionType: "call_to_action_type",
+    imageUrl: "image_url",
+    thumbnailUrl: "thumbnail_url",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SeriesMediaThumbnailMetadata$ {
+  /** @deprecated use `SeriesMediaThumbnailMetadata$inboundSchema` instead. */
+  export const inboundSchema = SeriesMediaThumbnailMetadata$inboundSchema;
+  /** @deprecated use `SeriesMediaThumbnailMetadata$outboundSchema` instead. */
+  export const outboundSchema = SeriesMediaThumbnailMetadata$outboundSchema;
+  /** @deprecated use `SeriesMediaThumbnailMetadata$Outbound` instead. */
+  export type Outbound = SeriesMediaThumbnailMetadata$Outbound;
+}
+
+export function seriesMediaThumbnailMetadataToJSON(
+  seriesMediaThumbnailMetadata: SeriesMediaThumbnailMetadata,
+): string {
+  return JSON.stringify(
+    SeriesMediaThumbnailMetadata$outboundSchema.parse(
+      seriesMediaThumbnailMetadata,
+    ),
+  );
+}
+
+export function seriesMediaThumbnailMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<SeriesMediaThumbnailMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SeriesMediaThumbnailMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SeriesMediaThumbnailMetadata' from JSON`,
+  );
+}
+
+/** @internal */
+export const SeriesMediaState$inboundSchema: z.ZodNativeEnum<
+  typeof SeriesMediaState
+> = z.nativeEnum(SeriesMediaState);
+
+/** @internal */
+export const SeriesMediaState$outboundSchema: z.ZodNativeEnum<
+  typeof SeriesMediaState
+> = SeriesMediaState$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SeriesMediaState$ {
+  /** @deprecated use `SeriesMediaState$inboundSchema` instead. */
+  export const inboundSchema = SeriesMediaState$inboundSchema;
+  /** @deprecated use `SeriesMediaState$outboundSchema` instead. */
+  export const outboundSchema = SeriesMediaState$outboundSchema;
+}
+
+/** @internal */
+export const Nine$inboundSchema: z.ZodType<Nine, z.ZodTypeDef, unknown> = z
+  .object({
+    id: z.string(),
+    url: z.nullable(z.string()),
+    deleted_at: z.nullable(z.string()).optional(),
+    metadata: z.lazy(() => SeriesMediaThumbnailMetadata$inboundSchema),
+    last_error: z.nullable(z.string()).optional(),
+    type: z.literal("MetaAd").default("MetaAd").optional(),
+    source: z.literal("Meta").default("Meta").optional(),
+    category: z.literal("Ad").default("Ad").optional(),
+    state: SeriesMediaState$inboundSchema,
+  }).transform((v) => {
+    return remap$(v, {
+      "deleted_at": "deletedAt",
+      "last_error": "lastError",
+    });
+  });
+
+/** @internal */
+export type Nine$Outbound = {
+  id: string;
+  url: string | null;
+  deleted_at?: string | null | undefined;
+  metadata: SeriesMediaThumbnailMetadata$Outbound;
+  last_error?: string | null | undefined;
+  type: "MetaAd";
+  source: "Meta";
+  category: "Ad";
+  state: string;
+};
+
+/** @internal */
+export const Nine$outboundSchema: z.ZodType<Nine$Outbound, z.ZodTypeDef, Nine> =
+  z.object({
+    id: z.string(),
+    url: z.nullable(z.string()),
+    deletedAt: z.nullable(z.string()).optional(),
+    metadata: z.lazy(() => SeriesMediaThumbnailMetadata$outboundSchema),
+    lastError: z.nullable(z.string()).optional(),
+    type: z.literal("MetaAd").default("MetaAd" as const),
+    source: z.literal("Meta").default("Meta" as const),
+    category: z.literal("Ad").default("Ad" as const),
+    state: SeriesMediaState$outboundSchema,
+  }).transform((v) => {
+    return remap$(v, {
+      deletedAt: "deleted_at",
+      lastError: "last_error",
+    });
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Nine$ {
+  /** @deprecated use `Nine$inboundSchema` instead. */
+  export const inboundSchema = Nine$inboundSchema;
+  /** @deprecated use `Nine$outboundSchema` instead. */
+  export const outboundSchema = Nine$outboundSchema;
+  /** @deprecated use `Nine$Outbound` instead. */
+  export type Outbound = Nine$Outbound;
+}
+
+export function nineToJSON(nine: Nine): string {
+  return JSON.stringify(Nine$outboundSchema.parse(nine));
+}
+
+export function nineFromJSON(
+  jsonString: string,
+): SafeParseResult<Nine, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Nine$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Nine' from JSON`,
+  );
+}
+
+/** @internal */
+export const SeriesMediaMetadata$inboundSchema: z.ZodType<
+  SeriesMediaMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  content_type: z.nullable(z.string()).optional(),
+  brand_domain: z.string(),
+  asset_type: z.string(),
+  width: z.nullable(z.number()).optional(),
+  height: z.nullable(z.number()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "content_type": "contentType",
+    "brand_domain": "brandDomain",
+    "asset_type": "assetType",
+  });
+});
+
+/** @internal */
+export type SeriesMediaMetadata$Outbound = {
+  content_type?: string | null | undefined;
+  brand_domain: string;
+  asset_type: string;
+  width?: number | null | undefined;
+  height?: number | null | undefined;
+};
+
+/** @internal */
+export const SeriesMediaMetadata$outboundSchema: z.ZodType<
+  SeriesMediaMetadata$Outbound,
+  z.ZodTypeDef,
+  SeriesMediaMetadata
+> = z.object({
+  contentType: z.nullable(z.string()).optional(),
+  brandDomain: z.string(),
+  assetType: z.string(),
+  width: z.nullable(z.number()).optional(),
+  height: z.nullable(z.number()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    contentType: "content_type",
+    brandDomain: "brand_domain",
+    assetType: "asset_type",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SeriesMediaMetadata$ {
+  /** @deprecated use `SeriesMediaMetadata$inboundSchema` instead. */
+  export const inboundSchema = SeriesMediaMetadata$inboundSchema;
+  /** @deprecated use `SeriesMediaMetadata$outboundSchema` instead. */
+  export const outboundSchema = SeriesMediaMetadata$outboundSchema;
+  /** @deprecated use `SeriesMediaMetadata$Outbound` instead. */
+  export type Outbound = SeriesMediaMetadata$Outbound;
+}
+
+export function seriesMediaMetadataToJSON(
+  seriesMediaMetadata: SeriesMediaMetadata,
+): string {
+  return JSON.stringify(
+    SeriesMediaMetadata$outboundSchema.parse(seriesMediaMetadata),
+  );
+}
+
+export function seriesMediaMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<SeriesMediaMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SeriesMediaMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SeriesMediaMetadata' from JSON`,
+  );
+}
+
+/** @internal */
+export const MediaState$inboundSchema: z.ZodNativeEnum<typeof MediaState> = z
+  .nativeEnum(MediaState);
+
+/** @internal */
+export const MediaState$outboundSchema: z.ZodNativeEnum<typeof MediaState> =
+  MediaState$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MediaState$ {
+  /** @deprecated use `MediaState$inboundSchema` instead. */
+  export const inboundSchema = MediaState$inboundSchema;
+  /** @deprecated use `MediaState$outboundSchema` instead. */
+  export const outboundSchema = MediaState$outboundSchema;
+}
+
+/** @internal */
+export const ImageFormat$inboundSchema: z.ZodNativeEnum<typeof ImageFormat> = z
+  .nativeEnum(ImageFormat);
+
+/** @internal */
+export const ImageFormat$outboundSchema: z.ZodNativeEnum<typeof ImageFormat> =
+  ImageFormat$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace ImageFormat$ {
+  /** @deprecated use `ImageFormat$inboundSchema` instead. */
+  export const inboundSchema = ImageFormat$inboundSchema;
+  /** @deprecated use `ImageFormat$outboundSchema` instead. */
+  export const outboundSchema = ImageFormat$outboundSchema;
+}
+
+/** @internal */
+export const SeriesMediaData$inboundSchema: z.ZodType<
+  SeriesMediaData,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  original_url: z.string().optional(),
+  asset_key: z.string(),
+  uploaded_at: z.string(),
+  image_format: ImageFormat$inboundSchema.optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "original_url": "originalUrl",
+    "asset_key": "assetKey",
+    "uploaded_at": "uploadedAt",
+    "image_format": "imageFormat",
+  });
+});
+
+/** @internal */
+export type SeriesMediaData$Outbound = {
+  original_url?: string | undefined;
+  asset_key: string;
+  uploaded_at: string;
+  image_format?: string | undefined;
+};
+
+/** @internal */
+export const SeriesMediaData$outboundSchema: z.ZodType<
+  SeriesMediaData$Outbound,
+  z.ZodTypeDef,
+  SeriesMediaData
+> = z.object({
+  originalUrl: z.string().optional(),
+  assetKey: z.string(),
+  uploadedAt: z.string(),
+  imageFormat: ImageFormat$outboundSchema.optional(),
+}).transform((v) => {
+  return remap$(v, {
+    originalUrl: "original_url",
+    assetKey: "asset_key",
+    uploadedAt: "uploaded_at",
+    imageFormat: "image_format",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SeriesMediaData$ {
+  /** @deprecated use `SeriesMediaData$inboundSchema` instead. */
+  export const inboundSchema = SeriesMediaData$inboundSchema;
+  /** @deprecated use `SeriesMediaData$outboundSchema` instead. */
+  export const outboundSchema = SeriesMediaData$outboundSchema;
+  /** @deprecated use `SeriesMediaData$Outbound` instead. */
+  export type Outbound = SeriesMediaData$Outbound;
+}
+
+export function seriesMediaDataToJSON(
+  seriesMediaData: SeriesMediaData,
+): string {
+  return JSON.stringify(SeriesMediaData$outboundSchema.parse(seriesMediaData));
+}
+
+export function seriesMediaDataFromJSON(
+  jsonString: string,
+): SafeParseResult<SeriesMediaData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SeriesMediaData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SeriesMediaData' from JSON`,
+  );
+}
+
+/** @internal */
+export const Eight$inboundSchema: z.ZodType<Eight, z.ZodTypeDef, unknown> = z
+  .object({
+    id: z.string(),
+    url: z.nullable(z.string()),
+    deleted_at: z.nullable(z.string()).optional(),
+    metadata: z.lazy(() => SeriesMediaMetadata$inboundSchema),
+    last_error: z.nullable(z.string()).optional(),
+    type: z.literal("BrandImage").default("BrandImage").optional(),
+    source: z.literal("BrandFetch").default("BrandFetch").optional(),
+    category: z.literal("Brand").default("Brand").optional(),
+    state: MediaState$inboundSchema,
+    data: z.lazy(() => SeriesMediaData$inboundSchema),
+  }).transform((v) => {
+    return remap$(v, {
+      "deleted_at": "deletedAt",
+      "last_error": "lastError",
+    });
+  });
+
+/** @internal */
+export type Eight$Outbound = {
+  id: string;
+  url: string | null;
+  deleted_at?: string | null | undefined;
+  metadata: SeriesMediaMetadata$Outbound;
+  last_error?: string | null | undefined;
+  type: "BrandImage";
+  source: "BrandFetch";
+  category: "Brand";
+  state: string;
+  data: SeriesMediaData$Outbound;
+};
+
+/** @internal */
+export const Eight$outboundSchema: z.ZodType<
+  Eight$Outbound,
+  z.ZodTypeDef,
+  Eight
+> = z.object({
+  id: z.string(),
+  url: z.nullable(z.string()),
+  deletedAt: z.nullable(z.string()).optional(),
+  metadata: z.lazy(() => SeriesMediaMetadata$outboundSchema),
+  lastError: z.nullable(z.string()).optional(),
+  type: z.literal("BrandImage").default("BrandImage" as const),
+  source: z.literal("BrandFetch").default("BrandFetch" as const),
+  category: z.literal("Brand").default("Brand" as const),
+  state: MediaState$outboundSchema,
+  data: z.lazy(() => SeriesMediaData$outboundSchema),
+}).transform((v) => {
+  return remap$(v, {
+    deletedAt: "deleted_at",
+    lastError: "last_error",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Eight$ {
+  /** @deprecated use `Eight$inboundSchema` instead. */
+  export const inboundSchema = Eight$inboundSchema;
+  /** @deprecated use `Eight$outboundSchema` instead. */
+  export const outboundSchema = Eight$outboundSchema;
+  /** @deprecated use `Eight$Outbound` instead. */
+  export type Outbound = Eight$Outbound;
+}
+
+export function eightToJSON(eight: Eight): string {
+  return JSON.stringify(Eight$outboundSchema.parse(eight));
+}
+
+export function eightFromJSON(
+  jsonString: string,
+): SafeParseResult<Eight, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Eight$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Eight' from JSON`,
+  );
+}
+
+/** @internal */
+export const Series7Metadata$inboundSchema: z.ZodType<
+  Series7Metadata,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  asset_id: z.string(),
+  asset_version_id: z.string(),
+  asset_render_id: z.string(),
+  aspect_ratio: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "asset_id": "assetId",
+    "asset_version_id": "assetVersionId",
+    "asset_render_id": "assetRenderId",
+    "aspect_ratio": "aspectRatio",
+  });
+});
+
+/** @internal */
+export type Series7Metadata$Outbound = {
+  asset_id: string;
+  asset_version_id: string;
+  asset_render_id: string;
+  aspect_ratio?: string | null | undefined;
+};
+
+/** @internal */
+export const Series7Metadata$outboundSchema: z.ZodType<
+  Series7Metadata$Outbound,
+  z.ZodTypeDef,
+  Series7Metadata
+> = z.object({
+  assetId: z.string(),
+  assetVersionId: z.string(),
+  assetRenderId: z.string(),
+  aspectRatio: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    assetId: "asset_id",
+    assetVersionId: "asset_version_id",
+    assetRenderId: "asset_render_id",
+    aspectRatio: "aspect_ratio",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Series7Metadata$ {
+  /** @deprecated use `Series7Metadata$inboundSchema` instead. */
+  export const inboundSchema = Series7Metadata$inboundSchema;
+  /** @deprecated use `Series7Metadata$outboundSchema` instead. */
+  export const outboundSchema = Series7Metadata$outboundSchema;
+  /** @deprecated use `Series7Metadata$Outbound` instead. */
+  export type Outbound = Series7Metadata$Outbound;
+}
+
+export function series7MetadataToJSON(
+  series7Metadata: Series7Metadata,
+): string {
+  return JSON.stringify(Series7Metadata$outboundSchema.parse(series7Metadata));
+}
+
+export function series7MetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<Series7Metadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Series7Metadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Series7Metadata' from JSON`,
+  );
+}
+
+/** @internal */
+export const Series7State$inboundSchema: z.ZodNativeEnum<typeof Series7State> =
+  z.nativeEnum(Series7State);
+
+/** @internal */
+export const Series7State$outboundSchema: z.ZodNativeEnum<typeof Series7State> =
+  Series7State$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Series7State$ {
+  /** @deprecated use `Series7State$inboundSchema` instead. */
+  export const inboundSchema = Series7State$inboundSchema;
+  /** @deprecated use `Series7State$outboundSchema` instead. */
+  export const outboundSchema = Series7State$outboundSchema;
+}
+
+/** @internal */
+export const Series7Data$inboundSchema: z.ZodType<
+  Series7Data,
+  z.ZodTypeDef,
+  unknown
+> = z.object({});
+
+/** @internal */
+export type Series7Data$Outbound = {};
+
+/** @internal */
+export const Series7Data$outboundSchema: z.ZodType<
+  Series7Data$Outbound,
+  z.ZodTypeDef,
+  Series7Data
+> = z.object({});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Series7Data$ {
+  /** @deprecated use `Series7Data$inboundSchema` instead. */
+  export const inboundSchema = Series7Data$inboundSchema;
+  /** @deprecated use `Series7Data$outboundSchema` instead. */
+  export const outboundSchema = Series7Data$outboundSchema;
+  /** @deprecated use `Series7Data$Outbound` instead. */
+  export type Outbound = Series7Data$Outbound;
+}
+
+export function series7DataToJSON(series7Data: Series7Data): string {
+  return JSON.stringify(Series7Data$outboundSchema.parse(series7Data));
+}
+
+export function series7DataFromJSON(
+  jsonString: string,
+): SafeParseResult<Series7Data, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Series7Data$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Series7Data' from JSON`,
+  );
+}
+
+/** @internal */
+export const Seven2$inboundSchema: z.ZodType<Seven2, z.ZodTypeDef, unknown> = z
+  .object({
+    id: z.string(),
+    url: z.nullable(z.string()),
+    deleted_at: z.nullable(z.string()).optional(),
+    metadata: z.lazy(() => Series7Metadata$inboundSchema),
+    last_error: z.nullable(z.string()).optional(),
+    type: z.literal("Graphic").default("Graphic").optional(),
+    source: z.literal("Graphic").default("Graphic").optional(),
+    category: z.literal("Asset").default("Asset").optional(),
+    state: Series7State$inboundSchema,
+    data: z.lazy(() => Series7Data$inboundSchema),
+  }).transform((v) => {
+    return remap$(v, {
+      "deleted_at": "deletedAt",
+      "last_error": "lastError",
+    });
+  });
+
+/** @internal */
+export type Seven2$Outbound = {
+  id: string;
+  url: string | null;
+  deleted_at?: string | null | undefined;
+  metadata: Series7Metadata$Outbound;
+  last_error?: string | null | undefined;
+  type: "Graphic";
+  source: "Graphic";
+  category: "Asset";
+  state: string;
+  data: Series7Data$Outbound;
+};
+
+/** @internal */
+export const Seven2$outboundSchema: z.ZodType<
+  Seven2$Outbound,
+  z.ZodTypeDef,
+  Seven2
+> = z.object({
+  id: z.string(),
+  url: z.nullable(z.string()),
+  deletedAt: z.nullable(z.string()).optional(),
+  metadata: z.lazy(() => Series7Metadata$outboundSchema),
+  lastError: z.nullable(z.string()).optional(),
+  type: z.literal("Graphic").default("Graphic" as const),
+  source: z.literal("Graphic").default("Graphic" as const),
+  category: z.literal("Asset").default("Asset" as const),
+  state: Series7State$outboundSchema,
+  data: z.lazy(() => Series7Data$outboundSchema),
+}).transform((v) => {
+  return remap$(v, {
+    deletedAt: "deleted_at",
+    lastError: "last_error",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Seven2$ {
+  /** @deprecated use `Seven2$inboundSchema` instead. */
+  export const inboundSchema = Seven2$inboundSchema;
+  /** @deprecated use `Seven2$outboundSchema` instead. */
+  export const outboundSchema = Seven2$outboundSchema;
+  /** @deprecated use `Seven2$Outbound` instead. */
+  export type Outbound = Seven2$Outbound;
+}
+
+export function seven2ToJSON(seven2: Seven2): string {
+  return JSON.stringify(Seven2$outboundSchema.parse(seven2));
+}
+
+export function seven2FromJSON(
+  jsonString: string,
+): SafeParseResult<Seven2, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Seven2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Seven2' from JSON`,
+  );
+}
+
+/** @internal */
+export const SevenAspectRatio$inboundSchema: z.ZodNativeEnum<
+  typeof SevenAspectRatio
+> = z.nativeEnum(SevenAspectRatio);
+
+/** @internal */
+export const SevenAspectRatio$outboundSchema: z.ZodNativeEnum<
+  typeof SevenAspectRatio
+> = SevenAspectRatio$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SevenAspectRatio$ {
+  /** @deprecated use `SevenAspectRatio$inboundSchema` instead. */
+  export const inboundSchema = SevenAspectRatio$inboundSchema;
+  /** @deprecated use `SevenAspectRatio$outboundSchema` instead. */
+  export const outboundSchema = SevenAspectRatio$outboundSchema;
+}
+
+/** @internal */
+export const SevenMetadata$inboundSchema: z.ZodType<
+  SevenMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  asset_id: z.string(),
+  asset_version_id: z.string(),
+  asset_render_id: z.string(),
+  aspect_ratio: z.nullable(SevenAspectRatio$inboundSchema).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "asset_id": "assetId",
+    "asset_version_id": "assetVersionId",
+    "asset_render_id": "assetRenderId",
+    "aspect_ratio": "aspectRatio",
+  });
+});
+
+/** @internal */
+export type SevenMetadata$Outbound = {
+  asset_id: string;
+  asset_version_id: string;
+  asset_render_id: string;
+  aspect_ratio?: string | null | undefined;
+};
+
+/** @internal */
+export const SevenMetadata$outboundSchema: z.ZodType<
+  SevenMetadata$Outbound,
+  z.ZodTypeDef,
+  SevenMetadata
+> = z.object({
+  assetId: z.string(),
+  assetVersionId: z.string(),
+  assetRenderId: z.string(),
+  aspectRatio: z.nullable(SevenAspectRatio$outboundSchema).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    assetId: "asset_id",
+    assetVersionId: "asset_version_id",
+    assetRenderId: "asset_render_id",
+    aspectRatio: "aspect_ratio",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SevenMetadata$ {
+  /** @deprecated use `SevenMetadata$inboundSchema` instead. */
+  export const inboundSchema = SevenMetadata$inboundSchema;
+  /** @deprecated use `SevenMetadata$outboundSchema` instead. */
+  export const outboundSchema = SevenMetadata$outboundSchema;
+  /** @deprecated use `SevenMetadata$Outbound` instead. */
+  export type Outbound = SevenMetadata$Outbound;
+}
+
+export function sevenMetadataToJSON(sevenMetadata: SevenMetadata): string {
+  return JSON.stringify(SevenMetadata$outboundSchema.parse(sevenMetadata));
+}
+
+export function sevenMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<SevenMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SevenMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SevenMetadata' from JSON`,
+  );
+}
+
+/** @internal */
+export const SevenState$inboundSchema: z.ZodNativeEnum<typeof SevenState> = z
+  .nativeEnum(SevenState);
+
+/** @internal */
+export const SevenState$outboundSchema: z.ZodNativeEnum<typeof SevenState> =
+  SevenState$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SevenState$ {
+  /** @deprecated use `SevenState$inboundSchema` instead. */
+  export const inboundSchema = SevenState$inboundSchema;
+  /** @deprecated use `SevenState$outboundSchema` instead. */
+  export const outboundSchema = SevenState$outboundSchema;
+}
+
+/** @internal */
+export const SevenData$inboundSchema: z.ZodType<
+  SevenData,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  thumbnail_url: z.nullable(z.string()).optional(),
+  mux_playback_id: z.nullable(z.string()).optional(),
+  duration: z.nullable(z.number()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "thumbnail_url": "thumbnailUrl",
+    "mux_playback_id": "muxPlaybackId",
+  });
+});
+
+/** @internal */
+export type SevenData$Outbound = {
+  thumbnail_url?: string | null | undefined;
+  mux_playback_id?: string | null | undefined;
+  duration?: number | null | undefined;
+};
+
+/** @internal */
+export const SevenData$outboundSchema: z.ZodType<
+  SevenData$Outbound,
+  z.ZodTypeDef,
+  SevenData
+> = z.object({
+  thumbnailUrl: z.nullable(z.string()).optional(),
+  muxPlaybackId: z.nullable(z.string()).optional(),
+  duration: z.nullable(z.number()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    thumbnailUrl: "thumbnail_url",
+    muxPlaybackId: "mux_playback_id",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SevenData$ {
+  /** @deprecated use `SevenData$inboundSchema` instead. */
+  export const inboundSchema = SevenData$inboundSchema;
+  /** @deprecated use `SevenData$outboundSchema` instead. */
+  export const outboundSchema = SevenData$outboundSchema;
+  /** @deprecated use `SevenData$Outbound` instead. */
+  export type Outbound = SevenData$Outbound;
+}
+
+export function sevenDataToJSON(sevenData: SevenData): string {
+  return JSON.stringify(SevenData$outboundSchema.parse(sevenData));
+}
+
+export function sevenDataFromJSON(
+  jsonString: string,
+): SafeParseResult<SevenData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SevenData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SevenData' from JSON`,
+  );
+}
+
+/** @internal */
+export const Seven1$inboundSchema: z.ZodType<Seven1, z.ZodTypeDef, unknown> = z
+  .object({
+    id: z.string(),
+    url: z.nullable(z.string()),
+    deleted_at: z.nullable(z.string()).optional(),
+    metadata: z.lazy(() => SevenMetadata$inboundSchema),
+    last_error: z.nullable(z.string()).optional(),
+    type: z.literal("Block").default("Block").optional(),
+    source: z.literal("Block").default("Block").optional(),
+    category: z.literal("Asset").default("Asset").optional(),
+    state: SevenState$inboundSchema,
+    data: z.lazy(() => SevenData$inboundSchema),
+  }).transform((v) => {
+    return remap$(v, {
+      "deleted_at": "deletedAt",
+      "last_error": "lastError",
+    });
+  });
+
+/** @internal */
+export type Seven1$Outbound = {
+  id: string;
+  url: string | null;
+  deleted_at?: string | null | undefined;
+  metadata: SevenMetadata$Outbound;
+  last_error?: string | null | undefined;
+  type: "Block";
+  source: "Block";
+  category: "Asset";
+  state: string;
+  data: SevenData$Outbound;
+};
+
+/** @internal */
+export const Seven1$outboundSchema: z.ZodType<
+  Seven1$Outbound,
+  z.ZodTypeDef,
+  Seven1
+> = z.object({
+  id: z.string(),
+  url: z.nullable(z.string()),
+  deletedAt: z.nullable(z.string()).optional(),
+  metadata: z.lazy(() => SevenMetadata$outboundSchema),
+  lastError: z.nullable(z.string()).optional(),
+  type: z.literal("Block").default("Block" as const),
+  source: z.literal("Block").default("Block" as const),
+  category: z.literal("Asset").default("Asset" as const),
+  state: SevenState$outboundSchema,
+  data: z.lazy(() => SevenData$outboundSchema),
+}).transform((v) => {
+  return remap$(v, {
+    deletedAt: "deleted_at",
+    lastError: "last_error",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Seven1$ {
+  /** @deprecated use `Seven1$inboundSchema` instead. */
+  export const inboundSchema = Seven1$inboundSchema;
+  /** @deprecated use `Seven1$outboundSchema` instead. */
+  export const outboundSchema = Seven1$outboundSchema;
+  /** @deprecated use `Seven1$Outbound` instead. */
+  export type Outbound = Seven1$Outbound;
+}
+
+export function seven1ToJSON(seven1: Seven1): string {
+  return JSON.stringify(Seven1$outboundSchema.parse(seven1));
+}
+
+export function seven1FromJSON(
+  jsonString: string,
+): SafeParseResult<Seven1, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Seven1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Seven1' from JSON`,
+  );
+}
+
+/** @internal */
+export const Seven$inboundSchema: z.ZodType<Seven, z.ZodTypeDef, unknown> = z
+  .union([
+    z.lazy(() => Seven1$inboundSchema),
+    z.lazy(() => Seven2$inboundSchema),
+  ]);
+
+/** @internal */
+export type Seven$Outbound = Seven1$Outbound | Seven2$Outbound;
+
+/** @internal */
+export const Seven$outboundSchema: z.ZodType<
+  Seven$Outbound,
+  z.ZodTypeDef,
+  Seven
+> = z.union([
+  z.lazy(() => Seven1$outboundSchema),
+  z.lazy(() => Seven2$outboundSchema),
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Seven$ {
+  /** @deprecated use `Seven$inboundSchema` instead. */
+  export const inboundSchema = Seven$inboundSchema;
+  /** @deprecated use `Seven$outboundSchema` instead. */
+  export const outboundSchema = Seven$outboundSchema;
+  /** @deprecated use `Seven$Outbound` instead. */
+  export type Outbound = Seven$Outbound;
+}
+
+export function sevenToJSON(seven: Seven): string {
+  return JSON.stringify(Seven$outboundSchema.parse(seven));
+}
+
+export function sevenFromJSON(
+  jsonString: string,
+): SafeParseResult<Seven, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Seven$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Seven' from JSON`,
+  );
+}
+
+/** @internal */
 export const SixMetadata$inboundSchema: z.ZodType<
   SixMetadata,
   z.ZodTypeDef,
@@ -2340,6 +3548,7 @@ export const Series6Data$inboundSchema: z.ZodType<
   ugc_creator_id: z.string(),
   ugc_preset_id: z.string(),
   created_at: z.string(),
+  hook: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "ugc_creator_id": "ugcCreatorId",
@@ -2354,6 +3563,7 @@ export type Series6Data$Outbound = {
   ugc_creator_id: string;
   ugc_preset_id: string;
   created_at: string;
+  hook?: string | null | undefined;
 };
 
 /** @internal */
@@ -2366,6 +3576,7 @@ export const Series6Data$outboundSchema: z.ZodType<
   ugcCreatorId: z.string(),
   ugcPresetId: z.string(),
   createdAt: z.string(),
+  hook: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     ugcCreatorId: "ugc_creator_id",
@@ -2427,9 +3638,9 @@ export const Six2$inboundSchema: z.ZodType<Six2, z.ZodTypeDef, unknown> = z
     deleted_at: z.nullable(z.string()).optional(),
     metadata: z.lazy(() => SixMetadata$inboundSchema),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("UgcVideo").optional(),
+    type: z.literal("UgcVideo").default("UgcVideo").optional(),
     source: z.nullable(Series6Source$inboundSchema),
-    category: z.literal("Ugc").optional(),
+    category: z.literal("Ugc").default("Ugc").optional(),
     data: z.lazy(() => Series6Data$inboundSchema),
     state: SixState$inboundSchema,
   }).transform((v) => {
@@ -2521,11 +3732,13 @@ export namespace SixSource$ {
 export const SixData$inboundSchema: z.ZodType<SixData, z.ZodTypeDef, unknown> =
   z.object({
     id: z.string(),
+    hook: z.nullable(z.string()).optional(),
   });
 
 /** @internal */
 export type SixData$Outbound = {
   id: string;
+  hook?: string | null | undefined;
 };
 
 /** @internal */
@@ -2535,6 +3748,7 @@ export const SixData$outboundSchema: z.ZodType<
   SixData
 > = z.object({
   id: z.string(),
+  hook: z.nullable(z.string()).optional(),
 });
 
 /**
@@ -2571,11 +3785,11 @@ export const Six1$inboundSchema: z.ZodType<Six1, z.ZodTypeDef, unknown> = z
     deleted_at: z.nullable(z.string()).optional(),
     metadata: z.any().optional(),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("UgcCreator").optional(),
+    type: z.literal("UgcCreator").default("UgcCreator").optional(),
     source: z.nullable(SixSource$inboundSchema),
-    category: z.literal("Ugc").optional(),
+    category: z.literal("Ugc").default("Ugc").optional(),
     data: z.lazy(() => SixData$inboundSchema),
-    state: z.literal("completed").optional(),
+    state: z.literal("completed").default("completed").optional(),
   }).transform((v) => {
     return remap$(v, {
       "deleted_at": "deletedAt",
@@ -2644,17 +3858,17 @@ export function six1FromJSON(
 
 /** @internal */
 export const Six$inboundSchema: z.ZodType<Six, z.ZodTypeDef, unknown> = z.union(
-  [z.lazy(() => Six1$inboundSchema), z.lazy(() => Six2$inboundSchema)],
+  [z.lazy(() => Six2$inboundSchema), z.lazy(() => Six1$inboundSchema)],
 );
 
 /** @internal */
-export type Six$Outbound = Six1$Outbound | Six2$Outbound;
+export type Six$Outbound = Six2$Outbound | Six1$Outbound;
 
 /** @internal */
 export const Six$outboundSchema: z.ZodType<Six$Outbound, z.ZodTypeDef, Six> = z
   .union([
-    z.lazy(() => Six1$outboundSchema),
     z.lazy(() => Six2$outboundSchema),
+    z.lazy(() => Six1$outboundSchema),
   ]);
 
 /**
@@ -2844,10 +4058,10 @@ export const Five$inboundSchema: z.ZodType<Five, z.ZodTypeDef, unknown> = z
     deleted_at: z.nullable(z.string()).optional(),
     metadata: z.lazy(() => MediaMetadata$inboundSchema),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("VideoClip").optional(),
+    type: z.literal("VideoClip").default("VideoClip").optional(),
     source: z.nullable(MediaSource$inboundSchema),
-    category: z.literal("Gameplay").optional(),
-    state: z.literal("completed").optional(),
+    category: z.literal("Gameplay").default("Gameplay").optional(),
+    state: z.literal("completed").default("completed").optional(),
     data: z.lazy(() => MediaData$inboundSchema),
   }).transform((v) => {
     return remap$(v, {
@@ -3014,8 +4228,8 @@ export namespace Category$ {
 }
 
 /** @internal */
-export const SeriesMediaData$inboundSchema: z.ZodType<
-  SeriesMediaData,
+export const SeriesMediaThumbnailData$inboundSchema: z.ZodType<
+  SeriesMediaThumbnailData,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -3024,16 +4238,16 @@ export const SeriesMediaData$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type SeriesMediaData$Outbound = {
+export type SeriesMediaThumbnailData$Outbound = {
   width: number;
   height: number;
 };
 
 /** @internal */
-export const SeriesMediaData$outboundSchema: z.ZodType<
-  SeriesMediaData$Outbound,
+export const SeriesMediaThumbnailData$outboundSchema: z.ZodType<
+  SeriesMediaThumbnailData$Outbound,
   z.ZodTypeDef,
-  SeriesMediaData
+  SeriesMediaThumbnailData
 > = z.object({
   width: z.number(),
   height: z.number(),
@@ -3043,28 +4257,30 @@ export const SeriesMediaData$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SeriesMediaData$ {
-  /** @deprecated use `SeriesMediaData$inboundSchema` instead. */
-  export const inboundSchema = SeriesMediaData$inboundSchema;
-  /** @deprecated use `SeriesMediaData$outboundSchema` instead. */
-  export const outboundSchema = SeriesMediaData$outboundSchema;
-  /** @deprecated use `SeriesMediaData$Outbound` instead. */
-  export type Outbound = SeriesMediaData$Outbound;
+export namespace SeriesMediaThumbnailData$ {
+  /** @deprecated use `SeriesMediaThumbnailData$inboundSchema` instead. */
+  export const inboundSchema = SeriesMediaThumbnailData$inboundSchema;
+  /** @deprecated use `SeriesMediaThumbnailData$outboundSchema` instead. */
+  export const outboundSchema = SeriesMediaThumbnailData$outboundSchema;
+  /** @deprecated use `SeriesMediaThumbnailData$Outbound` instead. */
+  export type Outbound = SeriesMediaThumbnailData$Outbound;
 }
 
-export function seriesMediaDataToJSON(
-  seriesMediaData: SeriesMediaData,
+export function seriesMediaThumbnailDataToJSON(
+  seriesMediaThumbnailData: SeriesMediaThumbnailData,
 ): string {
-  return JSON.stringify(SeriesMediaData$outboundSchema.parse(seriesMediaData));
+  return JSON.stringify(
+    SeriesMediaThumbnailData$outboundSchema.parse(seriesMediaThumbnailData),
+  );
 }
 
-export function seriesMediaDataFromJSON(
+export function seriesMediaThumbnailDataFromJSON(
   jsonString: string,
-): SafeParseResult<SeriesMediaData, SDKValidationError> {
+): SafeParseResult<SeriesMediaThumbnailData, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => SeriesMediaData$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SeriesMediaData' from JSON`,
+    (x) => SeriesMediaThumbnailData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SeriesMediaThumbnailData' from JSON`,
   );
 }
 
@@ -3298,7 +4514,8 @@ export const Data$inboundSchema: z.ZodType<Data, z.ZodTypeDef, unknown> = z
   .object({
     url: z.nullable(z.string()).optional(),
     path: z.nullable(z.string()).optional(),
-    data: z.nullable(z.lazy(() => SeriesMediaData$inboundSchema)).optional(),
+    data: z.nullable(z.lazy(() => SeriesMediaThumbnailData$inboundSchema))
+      .optional(),
     results: z.lazy(() => MediaResults$inboundSchema).optional(),
   });
 
@@ -3306,7 +4523,7 @@ export const Data$inboundSchema: z.ZodType<Data, z.ZodTypeDef, unknown> = z
 export type Data$Outbound = {
   url?: string | null | undefined;
   path?: string | null | undefined;
-  data?: SeriesMediaData$Outbound | null | undefined;
+  data?: SeriesMediaThumbnailData$Outbound | null | undefined;
   results?: MediaResults$Outbound | undefined;
 };
 
@@ -3315,7 +4532,8 @@ export const Data$outboundSchema: z.ZodType<Data$Outbound, z.ZodTypeDef, Data> =
   z.object({
     url: z.nullable(z.string()).optional(),
     path: z.nullable(z.string()).optional(),
-    data: z.nullable(z.lazy(() => SeriesMediaData$outboundSchema)).optional(),
+    data: z.nullable(z.lazy(() => SeriesMediaThumbnailData$outboundSchema))
+      .optional(),
     results: z.lazy(() => MediaResults$outboundSchema).optional(),
   });
 
@@ -3347,22 +4565,24 @@ export function dataFromJSON(
 }
 
 /** @internal */
-export const MediaState$inboundSchema: z.ZodNativeEnum<typeof MediaState> = z
-  .nativeEnum(MediaState);
+export const SeriesMediaThumbnailState$inboundSchema: z.ZodNativeEnum<
+  typeof SeriesMediaThumbnailState
+> = z.nativeEnum(SeriesMediaThumbnailState);
 
 /** @internal */
-export const MediaState$outboundSchema: z.ZodNativeEnum<typeof MediaState> =
-  MediaState$inboundSchema;
+export const SeriesMediaThumbnailState$outboundSchema: z.ZodNativeEnum<
+  typeof SeriesMediaThumbnailState
+> = SeriesMediaThumbnailState$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace MediaState$ {
-  /** @deprecated use `MediaState$inboundSchema` instead. */
-  export const inboundSchema = MediaState$inboundSchema;
-  /** @deprecated use `MediaState$outboundSchema` instead. */
-  export const outboundSchema = MediaState$outboundSchema;
+export namespace SeriesMediaThumbnailState$ {
+  /** @deprecated use `SeriesMediaThumbnailState$inboundSchema` instead. */
+  export const inboundSchema = SeriesMediaThumbnailState$inboundSchema;
+  /** @deprecated use `SeriesMediaThumbnailState$outboundSchema` instead. */
+  export const outboundSchema = SeriesMediaThumbnailState$outboundSchema;
 }
 
 /** @internal */
@@ -3373,11 +4593,11 @@ export const Four$inboundSchema: z.ZodType<Four, z.ZodTypeDef, unknown> = z
     deleted_at: z.nullable(z.string()).optional(),
     metadata: z.lazy(() => Metadata$inboundSchema),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("Segmentation").optional(),
+    type: z.literal("Segmentation").default("Segmentation").optional(),
     source: SeriesMediaSource$inboundSchema,
     category: Category$inboundSchema,
     data: z.lazy(() => Data$inboundSchema),
-    state: MediaState$inboundSchema,
+    state: SeriesMediaThumbnailState$inboundSchema,
   }).transform((v) => {
     return remap$(v, {
       "deleted_at": "deletedAt",
@@ -3411,7 +4631,7 @@ export const Four$outboundSchema: z.ZodType<Four$Outbound, z.ZodTypeDef, Four> =
     source: SeriesMediaSource$outboundSchema,
     category: Category$outboundSchema,
     data: z.lazy(() => Data$outboundSchema),
-    state: MediaState$outboundSchema,
+    state: SeriesMediaThumbnailState$outboundSchema,
   }).transform((v) => {
     return remap$(v, {
       deletedAt: "deleted_at",
@@ -3623,9 +4843,10 @@ export const Three4$inboundSchema: z.ZodType<Three4, z.ZodTypeDef, unknown> = z
     metadata: z.lazy(() => Series3ThumbnailMediaMetadata$inboundSchema),
     last_error: z.nullable(z.string()).optional(),
     source: Series3ThumbnailMediaSource$inboundSchema,
-    category: z.literal("UserUploaded").optional(),
+    category: z.literal("UserUploaded").default("UserUploaded").optional(),
     state: Series3ThumbnailMediaState$inboundSchema,
-    type: z.literal("UserImageFromPicker").optional(),
+    type: z.literal("UserImageFromPicker").default("UserImageFromPicker")
+      .optional(),
     data: z.lazy(() => Series3ThumbnailMediaData$inboundSchema),
   }).transform((v) => {
     return remap$(v, {
@@ -4156,8 +5377,9 @@ export const Three3$inboundSchema: z.ZodType<Three3, z.ZodTypeDef, unknown> = z
     metadata: z.lazy(() => Series3ThumbnailMetadata$inboundSchema),
     last_error: z.nullable(z.string()).optional(),
     source: Series3ThumbnailSource$inboundSchema,
-    category: z.literal("UserUploaded").optional(),
-    type: z.literal("UserImageSegmentation").optional(),
+    category: z.literal("UserUploaded").default("UserUploaded").optional(),
+    type: z.literal("UserImageSegmentation").default("UserImageSegmentation")
+      .optional(),
     data: z.lazy(() => Series3ThumbnailData$inboundSchema),
     state: Series3ThumbnailState$inboundSchema,
   }).transform((v) => {
@@ -4411,9 +5633,9 @@ export const Three2$inboundSchema: z.ZodType<Three2, z.ZodTypeDef, unknown> = z
     metadata: z.lazy(() => Series3Metadata$inboundSchema),
     last_error: z.nullable(z.string()).optional(),
     source: Series3Source$inboundSchema,
-    category: z.literal("UserUploaded").optional(),
+    category: z.literal("UserUploaded").default("UserUploaded").optional(),
     state: Series3State$inboundSchema,
-    type: z.literal("UserVideo").optional(),
+    type: z.literal("UserVideo").default("UserVideo").optional(),
     data: z.lazy(() => Series3Data$inboundSchema),
   }).transform((v) => {
     return remap$(v, {
@@ -4660,9 +5882,9 @@ export const Three1$inboundSchema: z.ZodType<Three1, z.ZodTypeDef, unknown> = z
     metadata: z.lazy(() => ThreeMetadata$inboundSchema),
     last_error: z.nullable(z.string()).optional(),
     source: ThreeSource$inboundSchema,
-    category: z.literal("UserUploaded").optional(),
+    category: z.literal("UserUploaded").default("UserUploaded").optional(),
     state: ThreeState$inboundSchema,
-    type: z.literal("UserImage").optional(),
+    type: z.literal("UserImage").default("UserImage").optional(),
     data: z.lazy(() => ThreeData$inboundSchema),
   }).transform((v) => {
     return remap$(v, {
@@ -4968,9 +6190,10 @@ export const Two3$inboundSchema: z.ZodType<Two3, z.ZodTypeDef, unknown> = z
     deleted_at: z.nullable(z.string()).optional(),
     metadata: z.lazy(() => Series2Metadata$inboundSchema),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("LumaGeneratedVideo").optional(),
+    type: z.literal("LumaGeneratedVideo").default("LumaGeneratedVideo")
+      .optional(),
     source: z.nullable(Series2Source$inboundSchema),
-    category: z.literal("AIGenerated").optional(),
+    category: z.literal("AIGenerated").default("AIGenerated").optional(),
     state: Series2State$inboundSchema,
     data: z.nullable(z.lazy(() => Series2ThumbnailData$inboundSchema)),
   }).transform((v) => {
@@ -5044,6 +6267,27 @@ export function two3FromJSON(
 }
 
 /** @internal */
+export const TwoAnimationModel$inboundSchema: z.ZodNativeEnum<
+  typeof TwoAnimationModel
+> = z.nativeEnum(TwoAnimationModel);
+
+/** @internal */
+export const TwoAnimationModel$outboundSchema: z.ZodNativeEnum<
+  typeof TwoAnimationModel
+> = TwoAnimationModel$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TwoAnimationModel$ {
+  /** @deprecated use `TwoAnimationModel$inboundSchema` instead. */
+  export const inboundSchema = TwoAnimationModel$inboundSchema;
+  /** @deprecated use `TwoAnimationModel$outboundSchema` instead. */
+  export const outboundSchema = TwoAnimationModel$outboundSchema;
+}
+
+/** @internal */
 export const TwoMetadata$inboundSchema: z.ZodType<
   TwoMetadata,
   z.ZodTypeDef,
@@ -5051,10 +6295,18 @@ export const TwoMetadata$inboundSchema: z.ZodType<
 > = z.object({
   source_image_url: z.nullable(z.string()).optional(),
   parent_media_id: z.nullable(z.string()).optional(),
+  animation_prompt: z.nullable(z.string()).optional(),
+  animation_model: z.nullable(TwoAnimationModel$inboundSchema).optional(),
+  image_style_preset_id: z.nullable(z.string()).optional(),
+  image_style_custom_prompt: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "source_image_url": "sourceImageUrl",
     "parent_media_id": "parentMediaId",
+    "animation_prompt": "animationPrompt",
+    "animation_model": "animationModel",
+    "image_style_preset_id": "imageStylePresetId",
+    "image_style_custom_prompt": "imageStyleCustomPrompt",
   });
 });
 
@@ -5062,6 +6314,10 @@ export const TwoMetadata$inboundSchema: z.ZodType<
 export type TwoMetadata$Outbound = {
   source_image_url?: string | null | undefined;
   parent_media_id?: string | null | undefined;
+  animation_prompt?: string | null | undefined;
+  animation_model?: string | null | undefined;
+  image_style_preset_id?: string | null | undefined;
+  image_style_custom_prompt?: string | null | undefined;
 };
 
 /** @internal */
@@ -5072,10 +6328,18 @@ export const TwoMetadata$outboundSchema: z.ZodType<
 > = z.object({
   sourceImageUrl: z.nullable(z.string()).optional(),
   parentMediaId: z.nullable(z.string()).optional(),
+  animationPrompt: z.nullable(z.string()).optional(),
+  animationModel: z.nullable(TwoAnimationModel$outboundSchema).optional(),
+  imageStylePresetId: z.nullable(z.string()).optional(),
+  imageStyleCustomPrompt: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     sourceImageUrl: "source_image_url",
     parentMediaId: "parent_media_id",
+    animationPrompt: "animation_prompt",
+    animationModel: "animation_model",
+    imageStylePresetId: "image_style_preset_id",
+    imageStyleCustomPrompt: "image_style_custom_prompt",
   });
 });
 
@@ -5224,13 +6488,11 @@ export function twoVideoFromJSON(
 export const Result$inboundSchema: z.ZodType<Result, z.ZodTypeDef, unknown> = z
   .object({
     video: z.lazy(() => TwoVideo$inboundSchema),
-    seed: z.number(),
   });
 
 /** @internal */
 export type Result$Outbound = {
   video: TwoVideo$Outbound;
-  seed: number;
 };
 
 /** @internal */
@@ -5240,7 +6502,6 @@ export const Result$outboundSchema: z.ZodType<
   Result
 > = z.object({
   video: z.lazy(() => TwoVideo$outboundSchema),
-  seed: z.number(),
 });
 
 /**
@@ -5331,9 +6592,9 @@ export const Two2$inboundSchema: z.ZodType<Two2, z.ZodTypeDef, unknown> = z
     deleted_at: z.nullable(z.string()).optional(),
     metadata: z.lazy(() => TwoMetadata$inboundSchema),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("GeneratedVideo").optional(),
+    type: z.literal("GeneratedVideo").default("GeneratedVideo").optional(),
     source: z.nullable(TwoSource$inboundSchema),
-    category: z.literal("AIGenerated").optional(),
+    category: z.literal("AIGenerated").default("AIGenerated").optional(),
     state: TwoState$inboundSchema,
     data: z.nullable(z.lazy(() => Series2Data$inboundSchema)),
   }).transform((v) => {
@@ -5426,6 +6687,46 @@ export namespace TwoAspectRatio$ {
 }
 
 /** @internal */
+export const Quality$inboundSchema: z.ZodNativeEnum<typeof Quality> = z
+  .nativeEnum(Quality);
+
+/** @internal */
+export const Quality$outboundSchema: z.ZodNativeEnum<typeof Quality> =
+  Quality$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Quality$ {
+  /** @deprecated use `Quality$inboundSchema` instead. */
+  export const inboundSchema = Quality$inboundSchema;
+  /** @deprecated use `Quality$outboundSchema` instead. */
+  export const outboundSchema = Quality$outboundSchema;
+}
+
+/** @internal */
+export const AnimationModel$inboundSchema: z.ZodNativeEnum<
+  typeof AnimationModel
+> = z.nativeEnum(AnimationModel);
+
+/** @internal */
+export const AnimationModel$outboundSchema: z.ZodNativeEnum<
+  typeof AnimationModel
+> = AnimationModel$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace AnimationModel$ {
+  /** @deprecated use `AnimationModel$inboundSchema` instead. */
+  export const inboundSchema = AnimationModel$inboundSchema;
+  /** @deprecated use `AnimationModel$outboundSchema` instead. */
+  export const outboundSchema = AnimationModel$outboundSchema;
+}
+
+/** @internal */
 export const Series2ThumbnailMetadata$inboundSchema: z.ZodType<
   Series2ThumbnailMetadata,
   z.ZodTypeDef,
@@ -5435,13 +6736,26 @@ export const Series2ThumbnailMetadata$inboundSchema: z.ZodType<
   translated_prompt: z.nullable(z.string()).optional(),
   rephrased_prompt: z.nullable(z.string()).optional(),
   image_style_preset_id: z.nullable(z.string()).optional(),
+  image_style_custom_prompt: z.nullable(z.string()).optional(),
   aspect_ratio: z.nullable(TwoAspectRatio$inboundSchema).optional(),
+  width: z.nullable(z.number()).optional(),
+  height: z.nullable(z.number()).optional(),
+  cloned_media_id: z.nullable(z.string()).optional(),
+  original_image_url: z.nullable(z.string()).optional(),
+  quality: z.nullable(Quality$inboundSchema).optional(),
+  animation_model: z.nullable(AnimationModel$inboundSchema).optional(),
+  animation_prompt: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "translated_prompt": "translatedPrompt",
     "rephrased_prompt": "rephrasedPrompt",
     "image_style_preset_id": "imageStylePresetId",
+    "image_style_custom_prompt": "imageStyleCustomPrompt",
     "aspect_ratio": "aspectRatio",
+    "cloned_media_id": "clonedMediaId",
+    "original_image_url": "originalImageUrl",
+    "animation_model": "animationModel",
+    "animation_prompt": "animationPrompt",
   });
 });
 
@@ -5451,7 +6765,15 @@ export type Series2ThumbnailMetadata$Outbound = {
   translated_prompt?: string | null | undefined;
   rephrased_prompt?: string | null | undefined;
   image_style_preset_id?: string | null | undefined;
+  image_style_custom_prompt?: string | null | undefined;
   aspect_ratio?: string | null | undefined;
+  width?: number | null | undefined;
+  height?: number | null | undefined;
+  cloned_media_id?: string | null | undefined;
+  original_image_url?: string | null | undefined;
+  quality?: string | null | undefined;
+  animation_model?: string | null | undefined;
+  animation_prompt?: string | null | undefined;
 };
 
 /** @internal */
@@ -5464,13 +6786,26 @@ export const Series2ThumbnailMetadata$outboundSchema: z.ZodType<
   translatedPrompt: z.nullable(z.string()).optional(),
   rephrasedPrompt: z.nullable(z.string()).optional(),
   imageStylePresetId: z.nullable(z.string()).optional(),
+  imageStyleCustomPrompt: z.nullable(z.string()).optional(),
   aspectRatio: z.nullable(TwoAspectRatio$outboundSchema).optional(),
+  width: z.nullable(z.number()).optional(),
+  height: z.nullable(z.number()).optional(),
+  clonedMediaId: z.nullable(z.string()).optional(),
+  originalImageUrl: z.nullable(z.string()).optional(),
+  quality: z.nullable(Quality$outboundSchema).optional(),
+  animationModel: z.nullable(AnimationModel$outboundSchema).optional(),
+  animationPrompt: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     translatedPrompt: "translated_prompt",
     rephrasedPrompt: "rephrased_prompt",
     imageStylePresetId: "image_style_preset_id",
+    imageStyleCustomPrompt: "image_style_custom_prompt",
     aspectRatio: "aspect_ratio",
+    clonedMediaId: "cloned_media_id",
+    originalImageUrl: "original_image_url",
+    animationModel: "animation_model",
+    animationPrompt: "animation_prompt",
   });
 });
 
@@ -5548,181 +6883,6 @@ export namespace Series2ThumbnailState$ {
 }
 
 /** @internal */
-export const Images$inboundSchema: z.ZodType<Images, z.ZodTypeDef, unknown> = z
-  .object({
-    url: z.string(),
-    width: z.number(),
-    height: z.number(),
-    content_type: z.string(),
-  }).transform((v) => {
-    return remap$(v, {
-      "content_type": "contentType",
-    });
-  });
-
-/** @internal */
-export type Images$Outbound = {
-  url: string;
-  width: number;
-  height: number;
-  content_type: string;
-};
-
-/** @internal */
-export const Images$outboundSchema: z.ZodType<
-  Images$Outbound,
-  z.ZodTypeDef,
-  Images
-> = z.object({
-  url: z.string(),
-  width: z.number(),
-  height: z.number(),
-  contentType: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    contentType: "content_type",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Images$ {
-  /** @deprecated use `Images$inboundSchema` instead. */
-  export const inboundSchema = Images$inboundSchema;
-  /** @deprecated use `Images$outboundSchema` instead. */
-  export const outboundSchema = Images$outboundSchema;
-  /** @deprecated use `Images$Outbound` instead. */
-  export type Outbound = Images$Outbound;
-}
-
-export function imagesToJSON(images: Images): string {
-  return JSON.stringify(Images$outboundSchema.parse(images));
-}
-
-export function imagesFromJSON(
-  jsonString: string,
-): SafeParseResult<Images, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Images$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Images' from JSON`,
-  );
-}
-
-/** @internal */
-export const Timings$inboundSchema: z.ZodType<Timings, z.ZodTypeDef, unknown> =
-  z.object({});
-
-/** @internal */
-export type Timings$Outbound = {};
-
-/** @internal */
-export const Timings$outboundSchema: z.ZodType<
-  Timings$Outbound,
-  z.ZodTypeDef,
-  Timings
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Timings$ {
-  /** @deprecated use `Timings$inboundSchema` instead. */
-  export const inboundSchema = Timings$inboundSchema;
-  /** @deprecated use `Timings$outboundSchema` instead. */
-  export const outboundSchema = Timings$outboundSchema;
-  /** @deprecated use `Timings$Outbound` instead. */
-  export type Outbound = Timings$Outbound;
-}
-
-export function timingsToJSON(timings: Timings): string {
-  return JSON.stringify(Timings$outboundSchema.parse(timings));
-}
-
-export function timingsFromJSON(
-  jsonString: string,
-): SafeParseResult<Timings, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Timings$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Timings' from JSON`,
-  );
-}
-
-/** @internal */
-export const TwoResults$inboundSchema: z.ZodType<
-  TwoResults,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  images: z.array(z.lazy(() => Images$inboundSchema)),
-  timings: z.lazy(() => Timings$inboundSchema),
-  seed: z.number(),
-  has_nsfw_concepts: z.array(z.boolean()),
-  prompt: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "has_nsfw_concepts": "hasNsfwConcepts",
-  });
-});
-
-/** @internal */
-export type TwoResults$Outbound = {
-  images: Array<Images$Outbound>;
-  timings: Timings$Outbound;
-  seed: number;
-  has_nsfw_concepts: Array<boolean>;
-  prompt: string;
-};
-
-/** @internal */
-export const TwoResults$outboundSchema: z.ZodType<
-  TwoResults$Outbound,
-  z.ZodTypeDef,
-  TwoResults
-> = z.object({
-  images: z.array(z.lazy(() => Images$outboundSchema)),
-  timings: z.lazy(() => Timings$outboundSchema),
-  seed: z.number(),
-  hasNsfwConcepts: z.array(z.boolean()),
-  prompt: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    hasNsfwConcepts: "has_nsfw_concepts",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TwoResults$ {
-  /** @deprecated use `TwoResults$inboundSchema` instead. */
-  export const inboundSchema = TwoResults$inboundSchema;
-  /** @deprecated use `TwoResults$outboundSchema` instead. */
-  export const outboundSchema = TwoResults$outboundSchema;
-  /** @deprecated use `TwoResults$Outbound` instead. */
-  export type Outbound = TwoResults$Outbound;
-}
-
-export function twoResultsToJSON(twoResults: TwoResults): string {
-  return JSON.stringify(TwoResults$outboundSchema.parse(twoResults));
-}
-
-export function twoResultsFromJSON(
-  jsonString: string,
-): SafeParseResult<TwoResults, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => TwoResults$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TwoResults' from JSON`,
-  );
-}
-
-/** @internal */
 export const Artifacts$inboundSchema: z.ZodType<
   Artifacts,
   z.ZodTypeDef,
@@ -5787,7 +6947,7 @@ export function artifactsFromJSON(
 export const TwoData$inboundSchema: z.ZodType<TwoData, z.ZodTypeDef, unknown> =
   z.object({
     path: z.nullable(z.string()).optional(),
-    results: z.lazy(() => TwoResults$inboundSchema).optional(),
+    results: z.record(z.any()).optional(),
     result: z.nullable(z.string()).optional(),
     artifacts: z.array(z.lazy(() => Artifacts$inboundSchema)).optional(),
   });
@@ -5795,7 +6955,7 @@ export const TwoData$inboundSchema: z.ZodType<TwoData, z.ZodTypeDef, unknown> =
 /** @internal */
 export type TwoData$Outbound = {
   path?: string | null | undefined;
-  results?: TwoResults$Outbound | undefined;
+  results?: { [k: string]: any } | undefined;
   result?: string | null | undefined;
   artifacts?: Array<Artifacts$Outbound> | undefined;
 };
@@ -5807,7 +6967,7 @@ export const TwoData$outboundSchema: z.ZodType<
   TwoData
 > = z.object({
   path: z.nullable(z.string()).optional(),
-  results: z.lazy(() => TwoResults$outboundSchema).optional(),
+  results: z.record(z.any()).optional(),
   result: z.nullable(z.string()).optional(),
   artifacts: z.array(z.lazy(() => Artifacts$outboundSchema)).optional(),
 });
@@ -5847,9 +7007,9 @@ export const Two1$inboundSchema: z.ZodType<Two1, z.ZodTypeDef, unknown> = z
     deleted_at: z.nullable(z.string()).optional(),
     metadata: z.lazy(() => Series2ThumbnailMetadata$inboundSchema),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("GeneratedImage").optional(),
+    type: z.literal("GeneratedImage").default("GeneratedImage").optional(),
     source: z.nullable(Series2ThumbnailSource$inboundSchema),
-    category: z.literal("AIGenerated").optional(),
+    category: z.literal("AIGenerated").default("AIGenerated").optional(),
     state: Series2ThumbnailState$inboundSchema,
     data: z.nullable(z.lazy(() => TwoData$inboundSchema)),
   }).transform((v) => {
@@ -6093,16 +7253,16 @@ export function series1ThumbnailMedia7DataFromJSON(
 }
 
 /** @internal */
-export const Seven$inboundSchema: z.ZodType<Seven, z.ZodTypeDef, unknown> = z
+export const One7$inboundSchema: z.ZodType<One7, z.ZodTypeDef, unknown> = z
   .object({
     url: z.nullable(z.string()),
     deleted_at: z.nullable(z.string()).optional(),
     metadata: z.any().optional(),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("Image").optional(),
+    type: z.literal("Image").default("Image").optional(),
     category: z.literal("Stock").default("Stock"),
-    state: z.literal("completed").optional(),
-    source: z.literal("Wikimedia").optional(),
+    state: z.literal("completed").default("completed").optional(),
+    source: z.literal("Wikimedia").default("Wikimedia").optional(),
     data: z.lazy(() => Series1ThumbnailMedia7Data$inboundSchema),
   }).transform((v) => {
     return remap$(v, {
@@ -6112,7 +7272,7 @@ export const Seven$inboundSchema: z.ZodType<Seven, z.ZodTypeDef, unknown> = z
   });
 
 /** @internal */
-export type Seven$Outbound = {
+export type One7$Outbound = {
   url: string | null;
   deleted_at?: string | null | undefined;
   metadata?: any | undefined;
@@ -6125,51 +7285,48 @@ export type Seven$Outbound = {
 };
 
 /** @internal */
-export const Seven$outboundSchema: z.ZodType<
-  Seven$Outbound,
-  z.ZodTypeDef,
-  Seven
-> = z.object({
-  url: z.nullable(z.string()),
-  deletedAt: z.nullable(z.string()).optional(),
-  metadata: z.any().optional(),
-  lastError: z.nullable(z.string()).optional(),
-  type: z.literal("Image").default("Image" as const),
-  category: z.literal("Stock").default("Stock" as const),
-  state: z.literal("completed").default("completed" as const),
-  source: z.literal("Wikimedia").default("Wikimedia" as const),
-  data: z.lazy(() => Series1ThumbnailMedia7Data$outboundSchema),
-}).transform((v) => {
-  return remap$(v, {
-    deletedAt: "deleted_at",
-    lastError: "last_error",
+export const One7$outboundSchema: z.ZodType<One7$Outbound, z.ZodTypeDef, One7> =
+  z.object({
+    url: z.nullable(z.string()),
+    deletedAt: z.nullable(z.string()).optional(),
+    metadata: z.any().optional(),
+    lastError: z.nullable(z.string()).optional(),
+    type: z.literal("Image").default("Image" as const),
+    category: z.literal("Stock").default("Stock" as const),
+    state: z.literal("completed").default("completed" as const),
+    source: z.literal("Wikimedia").default("Wikimedia" as const),
+    data: z.lazy(() => Series1ThumbnailMedia7Data$outboundSchema),
+  }).transform((v) => {
+    return remap$(v, {
+      deletedAt: "deleted_at",
+      lastError: "last_error",
+    });
   });
-});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Seven$ {
-  /** @deprecated use `Seven$inboundSchema` instead. */
-  export const inboundSchema = Seven$inboundSchema;
-  /** @deprecated use `Seven$outboundSchema` instead. */
-  export const outboundSchema = Seven$outboundSchema;
-  /** @deprecated use `Seven$Outbound` instead. */
-  export type Outbound = Seven$Outbound;
+export namespace One7$ {
+  /** @deprecated use `One7$inboundSchema` instead. */
+  export const inboundSchema = One7$inboundSchema;
+  /** @deprecated use `One7$outboundSchema` instead. */
+  export const outboundSchema = One7$outboundSchema;
+  /** @deprecated use `One7$Outbound` instead. */
+  export type Outbound = One7$Outbound;
 }
 
-export function sevenToJSON(seven: Seven): string {
-  return JSON.stringify(Seven$outboundSchema.parse(seven));
+export function one7ToJSON(one7: One7): string {
+  return JSON.stringify(One7$outboundSchema.parse(one7));
 }
 
-export function sevenFromJSON(
+export function one7FromJSON(
   jsonString: string,
-): SafeParseResult<Seven, SDKValidationError> {
+): SafeParseResult<One7, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Seven$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Seven' from JSON`,
+    (x) => One7$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'One7' from JSON`,
   );
 }
 
@@ -6651,10 +7808,10 @@ export const One6$inboundSchema: z.ZodType<One6, z.ZodTypeDef, unknown> = z
     deleted_at: z.nullable(z.string()).optional(),
     metadata: z.any().optional(),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("Image").optional(),
+    type: z.literal("Image").default("Image").optional(),
     category: z.literal("Stock").default("Stock"),
-    state: z.literal("completed").optional(),
-    source: z.literal("Unsplash").optional(),
+    state: z.literal("completed").default("completed").optional(),
+    source: z.literal("Unsplash").default("Unsplash").optional(),
     data: z.lazy(() => Series1ThumbnailMedia6Data$inboundSchema),
   }).transform((v) => {
     return remap$(v, {
@@ -7117,10 +8274,10 @@ export const One5$inboundSchema: z.ZodType<One5, z.ZodTypeDef, unknown> = z
     deleted_at: z.nullable(z.string()).optional(),
     metadata: z.any().optional(),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("Video").optional(),
+    type: z.literal("Video").default("Video").optional(),
     category: z.literal("Stock").default("Stock"),
-    state: z.literal("completed").optional(),
-    source: z.literal("Pixabay").optional(),
+    state: z.literal("completed").default("completed").optional(),
+    source: z.literal("Pixabay").default("Pixabay").optional(),
     data: z.lazy(() => Series1ThumbnailMediaData$inboundSchema),
   }).transform((v) => {
     return remap$(v, {
@@ -7318,10 +8475,10 @@ export const One4$inboundSchema: z.ZodType<One4, z.ZodTypeDef, unknown> = z
     deleted_at: z.nullable(z.string()).optional(),
     metadata: z.any().optional(),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("Image").optional(),
+    type: z.literal("Image").default("Image").optional(),
     category: z.literal("Stock").default("Stock"),
-    state: z.literal("completed").optional(),
-    source: z.literal("Pixabay").optional(),
+    state: z.literal("completed").default("completed").optional(),
+    source: z.literal("Pixabay").default("Pixabay").optional(),
     data: z.lazy(() => Series1ThumbnailData$inboundSchema),
   }).transform((v) => {
     return remap$(v, {
@@ -7440,22 +8597,22 @@ export function userFromJSON(
 }
 
 /** @internal */
-export const Quality$inboundSchema: z.ZodNativeEnum<typeof Quality> = z
-  .nativeEnum(Quality);
+export const OneQuality$inboundSchema: z.ZodNativeEnum<typeof OneQuality> = z
+  .nativeEnum(OneQuality);
 
 /** @internal */
-export const Quality$outboundSchema: z.ZodNativeEnum<typeof Quality> =
-  Quality$inboundSchema;
+export const OneQuality$outboundSchema: z.ZodNativeEnum<typeof OneQuality> =
+  OneQuality$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Quality$ {
-  /** @deprecated use `Quality$inboundSchema` instead. */
-  export const inboundSchema = Quality$inboundSchema;
-  /** @deprecated use `Quality$outboundSchema` instead. */
-  export const outboundSchema = Quality$outboundSchema;
+export namespace OneQuality$ {
+  /** @deprecated use `OneQuality$inboundSchema` instead. */
+  export const inboundSchema = OneQuality$inboundSchema;
+  /** @deprecated use `OneQuality$outboundSchema` instead. */
+  export const outboundSchema = OneQuality$outboundSchema;
 }
 
 /** @internal */
@@ -7465,7 +8622,7 @@ export const VideoFiles$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.number(),
-  quality: z.nullable(Quality$inboundSchema),
+  quality: z.nullable(OneQuality$inboundSchema),
   file_type: z.string(),
   width: z.nullable(z.number()),
   height: z.nullable(z.number()),
@@ -7495,7 +8652,7 @@ export const VideoFiles$outboundSchema: z.ZodType<
   VideoFiles
 > = z.object({
   id: z.number(),
-  quality: z.nullable(Quality$outboundSchema),
+  quality: z.nullable(OneQuality$outboundSchema),
   fileType: z.string(),
   width: z.nullable(z.number()),
   height: z.nullable(z.number()),
@@ -7689,10 +8846,10 @@ export const One3$inboundSchema: z.ZodType<One3, z.ZodTypeDef, unknown> = z
     deleted_at: z.nullable(z.string()).optional(),
     metadata: z.any().optional(),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("Video").optional(),
+    type: z.literal("Video").default("Video").optional(),
     category: z.literal("Stock").default("Stock"),
-    state: z.literal("completed").optional(),
-    source: z.literal("Pexels").optional(),
+    state: z.literal("completed").default("completed").optional(),
+    source: z.literal("Pexels").default("Pexels").optional(),
     data: z.lazy(() => Series1Data$inboundSchema),
   }).transform((v) => {
     return remap$(v, {
@@ -7921,10 +9078,10 @@ export const One2$inboundSchema: z.ZodType<One2, z.ZodTypeDef, unknown> = z
     deleted_at: z.nullable(z.string()).optional(),
     metadata: z.any().optional(),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("Image").optional(),
+    type: z.literal("Image").default("Image").optional(),
     category: z.literal("Stock").default("Stock"),
-    state: z.literal("completed").optional(),
-    source: z.literal("Pexels").optional(),
+    state: z.literal("completed").default("completed").optional(),
+    source: z.literal("Pexels").default("Pexels").optional(),
     data: z.lazy(() => OneData$inboundSchema),
   }).transform((v) => {
     return remap$(v, {
@@ -8178,10 +9335,10 @@ export const One1$inboundSchema: z.ZodType<One1, z.ZodTypeDef, unknown> = z
     deleted_at: z.nullable(z.string()).optional(),
     metadata: z.any().optional(),
     last_error: z.nullable(z.string()).optional(),
-    type: z.literal("Image").optional(),
+    type: z.literal("Image").default("Image").optional(),
     category: z.literal("Stock").default("Stock"),
-    state: z.literal("completed").optional(),
-    source: z.literal("Google").optional(),
+    state: z.literal("completed").default("completed").optional(),
+    source: z.literal("Google").default("Google").optional(),
     data: z.lazy(() => Series1ThumbnailMedia1Data$inboundSchema),
   }).transform((v) => {
     return remap$(v, {
@@ -8258,7 +9415,7 @@ export const One$inboundSchema: z.ZodType<One, z.ZodTypeDef, unknown> = z.union(
     z.lazy(() => One4$inboundSchema),
     z.lazy(() => One5$inboundSchema),
     z.lazy(() => One6$inboundSchema),
-    z.lazy(() => Seven$inboundSchema),
+    z.lazy(() => One7$inboundSchema),
   ],
 );
 
@@ -8270,7 +9427,7 @@ export type One$Outbound =
   | One4$Outbound
   | One5$Outbound
   | One6$Outbound
-  | Seven$Outbound;
+  | One7$Outbound;
 
 /** @internal */
 export const One$outboundSchema: z.ZodType<One$Outbound, z.ZodTypeDef, One> = z
@@ -8281,7 +9438,7 @@ export const One$outboundSchema: z.ZodType<One$Outbound, z.ZodTypeDef, One> = z
     z.lazy(() => One4$outboundSchema),
     z.lazy(() => One5$outboundSchema),
     z.lazy(() => One6$outboundSchema),
-    z.lazy(() => Seven$outboundSchema),
+    z.lazy(() => One7$outboundSchema),
   ]);
 
 /**
@@ -8314,8 +9471,10 @@ export function oneFromJSON(
 /** @internal */
 export const Media$inboundSchema: z.ZodType<Media, z.ZodTypeDef, unknown> = z
   .union([
-    z.lazy(() => Five$inboundSchema),
     z.lazy(() => Four$inboundSchema),
+    z.lazy(() => Eight$inboundSchema),
+    z.lazy(() => Five$inboundSchema),
+    z.lazy(() => Nine$inboundSchema),
     z.union([
       z.lazy(() => One1$inboundSchema),
       z.lazy(() => One2$inboundSchema),
@@ -8323,7 +9482,7 @@ export const Media$inboundSchema: z.ZodType<Media, z.ZodTypeDef, unknown> = z
       z.lazy(() => One4$inboundSchema),
       z.lazy(() => One5$inboundSchema),
       z.lazy(() => One6$inboundSchema),
-      z.lazy(() => Seven$inboundSchema),
+      z.lazy(() => One7$inboundSchema),
     ]),
     z.union([
       z.lazy(() => Two1$inboundSchema),
@@ -8337,22 +9496,28 @@ export const Media$inboundSchema: z.ZodType<Media, z.ZodTypeDef, unknown> = z
       z.lazy(() => Three4$inboundSchema),
     ]),
     z.union([
-      z.lazy(() => Six1$inboundSchema),
       z.lazy(() => Six2$inboundSchema),
+      z.lazy(() => Six1$inboundSchema),
+    ]),
+    z.union([
+      z.lazy(() => Seven1$inboundSchema),
+      z.lazy(() => Seven2$inboundSchema),
     ]),
   ]);
 
 /** @internal */
 export type Media$Outbound =
-  | Five$Outbound
   | Four$Outbound
+  | Eight$Outbound
+  | Five$Outbound
+  | Nine$Outbound
   | One1$Outbound
   | One2$Outbound
   | One3$Outbound
   | One4$Outbound
   | One5$Outbound
   | One6$Outbound
-  | Seven$Outbound
+  | One7$Outbound
   | Two1$Outbound
   | Two2$Outbound
   | Two3$Outbound
@@ -8360,8 +9525,10 @@ export type Media$Outbound =
   | Three2$Outbound
   | Three3$Outbound
   | Three4$Outbound
+  | Six2$Outbound
   | Six1$Outbound
-  | Six2$Outbound;
+  | Seven1$Outbound
+  | Seven2$Outbound;
 
 /** @internal */
 export const Media$outboundSchema: z.ZodType<
@@ -8369,8 +9536,10 @@ export const Media$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Media
 > = z.union([
-  z.lazy(() => Five$outboundSchema),
   z.lazy(() => Four$outboundSchema),
+  z.lazy(() => Eight$outboundSchema),
+  z.lazy(() => Five$outboundSchema),
+  z.lazy(() => Nine$outboundSchema),
   z.union([
     z.lazy(() => One1$outboundSchema),
     z.lazy(() => One2$outboundSchema),
@@ -8378,7 +9547,7 @@ export const Media$outboundSchema: z.ZodType<
     z.lazy(() => One4$outboundSchema),
     z.lazy(() => One5$outboundSchema),
     z.lazy(() => One6$outboundSchema),
-    z.lazy(() => Seven$outboundSchema),
+    z.lazy(() => One7$outboundSchema),
   ]),
   z.union([
     z.lazy(() => Two1$outboundSchema),
@@ -8392,8 +9561,12 @@ export const Media$outboundSchema: z.ZodType<
     z.lazy(() => Three4$outboundSchema),
   ]),
   z.union([
-    z.lazy(() => Six1$outboundSchema),
     z.lazy(() => Six2$outboundSchema),
+    z.lazy(() => Six1$outboundSchema),
+  ]),
+  z.union([
+    z.lazy(() => Seven1$outboundSchema),
+    z.lazy(() => Seven2$outboundSchema),
   ]),
 ]);
 
@@ -8440,8 +9613,10 @@ export const Thumbnail$inboundSchema: z.ZodType<
   theme: Theme$inboundSchema,
   media: z.nullable(
     z.union([
-      z.lazy(() => Five$inboundSchema),
       z.lazy(() => Four$inboundSchema),
+      z.lazy(() => Eight$inboundSchema),
+      z.lazy(() => Five$inboundSchema),
+      z.lazy(() => Nine$inboundSchema),
       z.union([
         z.lazy(() => One1$inboundSchema),
         z.lazy(() => One2$inboundSchema),
@@ -8451,7 +9626,7 @@ export const Thumbnail$inboundSchema: z.ZodType<
         ),
         z.lazy(() => One5$inboundSchema),
         z.lazy(() => One6$inboundSchema),
-        z.lazy(() => Seven$inboundSchema),
+        z.lazy(() => One7$inboundSchema),
       ]),
       z.union([
         z.lazy(() => Two1$inboundSchema),
@@ -8465,8 +9640,12 @@ export const Thumbnail$inboundSchema: z.ZodType<
         z.lazy(() => Three4$inboundSchema),
       ]),
       z.union([
-        z.lazy(() => Six1$inboundSchema),
         z.lazy(() => Six2$inboundSchema),
+        z.lazy(() => Six1$inboundSchema),
+      ]),
+      z.union([
+        z.lazy(() => Seven1$inboundSchema),
+        z.lazy(() => Seven2$inboundSchema),
       ]),
     ]),
   ),
@@ -8492,15 +9671,17 @@ export type Thumbnail$Outbound = {
   text: string | null;
   theme: string;
   media:
-    | Five$Outbound
     | Four$Outbound
+    | Eight$Outbound
+    | Five$Outbound
+    | Nine$Outbound
     | One1$Outbound
     | One2$Outbound
     | One3$Outbound
     | One4$Outbound
     | One5$Outbound
     | One6$Outbound
-    | Seven$Outbound
+    | One7$Outbound
     | Two1$Outbound
     | Two2$Outbound
     | Two3$Outbound
@@ -8508,8 +9689,10 @@ export type Thumbnail$Outbound = {
     | Three2$Outbound
     | Three3$Outbound
     | Three4$Outbound
-    | Six1$Outbound
     | Six2$Outbound
+    | Six1$Outbound
+    | Seven1$Outbound
+    | Seven2$Outbound
     | null;
 };
 
@@ -8529,8 +9712,10 @@ export const Thumbnail$outboundSchema: z.ZodType<
   theme: Theme$outboundSchema,
   media: z.nullable(
     z.union([
-      z.lazy(() => Five$outboundSchema),
       z.lazy(() => Four$outboundSchema),
+      z.lazy(() => Eight$outboundSchema),
+      z.lazy(() => Five$outboundSchema),
+      z.lazy(() => Nine$outboundSchema),
       z.union([
         z.lazy(() => One1$outboundSchema),
         z.lazy(() => One2$outboundSchema),
@@ -8540,7 +9725,7 @@ export const Thumbnail$outboundSchema: z.ZodType<
         ),
         z.lazy(() => One5$outboundSchema),
         z.lazy(() => One6$outboundSchema),
-        z.lazy(() => Seven$outboundSchema),
+        z.lazy(() => One7$outboundSchema),
       ]),
       z.union([
         z.lazy(() => Two1$outboundSchema),
@@ -8554,8 +9739,12 @@ export const Thumbnail$outboundSchema: z.ZodType<
         z.lazy(() => Three4$outboundSchema),
       ]),
       z.union([
-        z.lazy(() => Six1$outboundSchema),
         z.lazy(() => Six2$outboundSchema),
+        z.lazy(() => Six1$outboundSchema),
+      ]),
+      z.union([
+        z.lazy(() => Seven1$outboundSchema),
+        z.lazy(() => Seven2$outboundSchema),
       ]),
     ]),
   ),

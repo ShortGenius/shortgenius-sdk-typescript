@@ -6,11 +6,11 @@
 import { Three2 } from "shortgenius/models/operations";
 
 let value: Three2 = {
-  id: "874e6066-dc3d-4351-b0ae-7dcafc4cb613",
-  url: "https://zany-popularity.info/",
+  id: "32b897dc-0fc2-4cd8-9721-ce27c0dffae5",
+  url: "https://vague-corporation.name/",
   metadata: {},
   source: "ImagePicker",
-  state: "completed",
+  state: "uploading",
   data: {
     uploadId: "<id>",
     key: "<key>",

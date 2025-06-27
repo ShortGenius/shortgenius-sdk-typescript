@@ -5,7 +5,7 @@
 ```typescript
 import { SeriesMediaSource } from "shortgenius/models/components";
 
-let value: SeriesMediaSource = "UserImage";
+let value: SeriesMediaSource = "Image";
 ```
 
 ## Values

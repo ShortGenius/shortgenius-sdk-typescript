@@ -8,58 +8,34 @@ Public series information.
 import { Series } from "shortgenius/models/components";
 
 let value: Series = {
-  id: "a6cb7a8c-7849-4492-a266-420047b7e025",
-  createdAt: "1736665510751",
+  id: "61e162d5-c39d-4204-a94c-d64208dc8250",
+  createdAt: "1704242613463",
   nextPostingAt: "<value>",
-  type: "SingleVideo",
+  type: "Series",
   schedule: {
-    timeZone: "America/Argentina/Buenos_Aires",
-    times: [
-      {
-        dayOfWeek: 618.89,
-        timeOfDay: 8213.04,
-      },
-    ],
+    timeZone: "Asia/Seoul",
+    times: [],
   },
   aspectRatio: "16:9",
-  soundtrackBehavior: "FullMusic",
-  locale: "zh-TW",
+  soundtrackBehavior: "NoMusic",
+  locale: "el-GR",
   soundtrack: {
-    tracks: [
-      {
-        url: "https://courteous-saw.net/",
-      },
-    ],
-    recommendations: [
-      {
-        url: "https://muted-wasabi.info",
-        reason: "<value>",
-      },
-    ],
-    playbackRate: 6019.44,
-    volume: 633.69,
+    tracks: [],
+    recommendations: [],
+    playbackRate: 5149.2,
+    volume: 226.36,
   },
   styles: {},
   imageStyle: {},
   voice: {
-    voices: [
-      {
-        id: "<id>",
-        name: "<value>",
-        description: "blah pfft pigpen aha now ouch",
-        tags: {},
-        previewUrl: "https://wiggly-encouragement.net",
-        locale: "hu-HU",
-        source: "CartesiaClonedVoice",
-      },
-    ],
-    playbackRate: 2305.94,
-    volume: 3440.1,
+    voices: [],
+    playbackRate: 2102.24,
+    volume: 2319.15,
   },
   connections: [
     {
-      id: "f43947d3-698f-4abf-9650-232c8ad35b60",
-      type: "X",
+      id: "4f4251b6-8e9a-4f12-bee9-2ad8c73fa73d",
+      type: "Email",
     },
   ],
 };

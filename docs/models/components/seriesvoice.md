@@ -12,15 +12,16 @@ let value: SeriesVoice = {
     {
       id: "<id>",
       name: "<value>",
-      description: "oof oof ugh beneath",
+      description:
+        "scamper woot dead merrily joyfully wriggler shadowbox politely frightfully not",
       tags: {},
-      previewUrl: "https://shameful-flint.info",
-      locale: "hu-HU",
+      previewUrl: "https://extra-large-decision.net/",
+      locale: null,
       source: "ElevenLabsShared",
     },
   ],
-  playbackRate: 9004.11,
-  volume: 1731.93,
+  playbackRate: 1326.33,
+  volume: 7724.22,
 };
 ```
 

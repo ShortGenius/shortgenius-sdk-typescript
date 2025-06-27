@@ -5,7 +5,7 @@
 ```typescript
 import { GetSeries3ResponseState } from "shortgenius/models/operations";
 
-let value: GetSeries3ResponseState = "error";
+let value: GetSeries3ResponseState = "pending";
 ```
 
 ## Values

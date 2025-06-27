@@ -6,11 +6,11 @@
 import { Three4 } from "shortgenius/models/operations";
 
 let value: Three4 = {
-  id: "0196a4ec-1cff-4b19-b4fb-9b75e506caf1",
-  url: "https://liquid-horde.com/",
+  id: "a7dd2ac0-a512-4286-8998-5b7cab235c2a",
+  url: "https://orderly-populist.com",
   metadata: {},
   source: "Upload",
-  state: "completed",
+  state: "uploading",
   data: {},
 };
 ```

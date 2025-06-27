@@ -6,9 +6,9 @@
 import { User } from "shortgenius/models/components";
 
 let value: User = {
-  id: 8671.15,
+  id: 5035.72,
   name: "<value>",
-  url: "https://jam-packed-season.net/",
+  url: "https://lanky-lobster.net/",
 };
 ```
 

@@ -9,7 +9,7 @@ import { GetUsageResponseBody } from "shortgenius/models/operations";
 
 let value: GetUsageResponseBody = {
   balance: {
-    credits: 5231.54,
+    credits: 292.97,
   },
 };
 ```

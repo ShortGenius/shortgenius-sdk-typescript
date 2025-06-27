@@ -6,10 +6,10 @@
 import { Medium } from "shortgenius/models/components";
 
 let value: Medium = {
-  url: "https://total-ocelot.com",
-  width: 7008.56,
-  height: 9132.85,
-  size: 5245.77,
+  url: "https://experienced-statue.biz",
+  width: 6070.75,
+  height: 784.01,
+  size: 2703.22,
   thumbnail: "<value>",
 };
 ```

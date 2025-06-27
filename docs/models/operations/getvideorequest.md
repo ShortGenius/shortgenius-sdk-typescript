@@ -6,7 +6,7 @@
 import { GetVideoRequest } from "shortgenius/models/operations";
 
 let value: GetVideoRequest = {
-  id: "8309cc06-0333-454f-95e2-c070cf0ec5e4",
+  id: "d213b5b7-6f91-4edd-aa82-8ec05e1b6b61",
 };
 ```
 

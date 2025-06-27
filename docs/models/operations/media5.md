@@ -6,12 +6,12 @@
 import { Media5 } from "shortgenius/models/operations";
 
 let value: Media5 = {
-  url: "https://good-natured-pressure.info",
+  url: "https://mediocre-steeple.net",
   metadata: {
     muxPlaybackId: "<id>",
-    startTime: 1049.9,
-    endTime: 3926.92,
-    durationTillEnd: 5515.7,
+    startTime: 4695.2,
+    endTime: 762.04,
+    durationTillEnd: 778.87,
   },
   source: "Gameplay",
   data: {
@@ -23,14 +23,14 @@ let value: Media5 = {
 
 ## Fields
 
-| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `url`                                                                | *string*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |
-| `deletedAt`                                                          | *string*                                                             | :heavy_minus_sign:                                                   | N/A                                                                  |
-| `metadata`                                                           | [operations.MediaMetadata](../../models/operations/mediametadata.md) | :heavy_check_mark:                                                   | N/A                                                                  |
-| `lastError`                                                          | *string*                                                             | :heavy_minus_sign:                                                   | N/A                                                                  |
-| `type`                                                               | *string*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |
-| `source`                                                             | [operations.MediaSource](../../models/operations/mediasource.md)     | :heavy_check_mark:                                                   | N/A                                                                  |
-| `category`                                                           | *string*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |
-| `state`                                                              | *string*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |
-| `data`                                                               | [operations.MediaData](../../models/operations/mediadata.md)         | :heavy_check_mark:                                                   | N/A                                                                  |
+| Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `url`                                                                                  | *string*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `deletedAt`                                                                            | *string*                                                                               | :heavy_minus_sign:                                                                     | N/A                                                                                    |
+| `metadata`                                                                             | [operations.GetSeriesMediaMetadata](../../models/operations/getseriesmediametadata.md) | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `lastError`                                                                            | *string*                                                                               | :heavy_minus_sign:                                                                     | N/A                                                                                    |
+| `type`                                                                                 | *string*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `source`                                                                               | [operations.GetSeriesMediaSource](../../models/operations/getseriesmediasource.md)     | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `category`                                                                             | *string*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `state`                                                                                | *string*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `data`                                                                                 | [operations.GetSeriesMediaData](../../models/operations/getseriesmediadata.md)         | :heavy_check_mark:                                                                     | N/A                                                                                    |

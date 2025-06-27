@@ -5,25 +5,25 @@ Details of the requested image record.
 
 ## Supported Types
 
-### `operations.One`
+### `operations.ResponseBody1`
 
 ```typescript
-const value: operations.One = {
-  id: "76037975-cbf0-4b04-8eca-6047670a70f3",
-  url: "https://guilty-numeric.com",
-  state: "generating",
-  createdAt: "1710556790876",
+const value: operations.ResponseBody1 = {
+  id: "f8a4be70-4674-4598-adb4-b17f499c3f07",
+  url: null,
+  state: "error",
+  createdAt: "1735011501938",
 };
 ```
 
-### `operations.Two`
+### `operations.ResponseBody2`
 
 ```typescript
-const value: operations.Two = {
-  id: "33f4d6da-0101-43cb-836d-191f7e2f00dc",
-  url: "https://linear-typewriter.name/",
-  userId: "dd29f17c-f16c-49e1-a89d-d790b0a8f26d",
-  createdAt: "1735463617749",
+const value: operations.ResponseBody2 = {
+  id: "7a5878d8-21b1-4c20-9805-cb8430e987c7",
+  url: "https://bustling-pillow.name",
+  userId: "115e2977-1a03-4443-a522-0168be091f71",
+  createdAt: "1710529126091",
 };
 ```
 
@@ -31,10 +31,10 @@ const value: operations.Two = {
 
 ```typescript
 const value: operations.Three = {
-  id: "8ae0e2c9-5fd4-4355-b2ee-d7c5de878316",
-  url: "https://teeming-icebreaker.com",
-  userId: "8063d276-d879-4385-91c5-40045b5c9520",
-  createdAt: "1722599956707",
+  id: "d43ed8c4-6536-4465-b5e8-ca5a21e293cb",
+  url: "https://noxious-carboxyl.info",
+  userId: "031298d6-6916-4dd9-ae4f-b0e386c72d8d",
+  createdAt: "1733614177562",
 };
 ```
 
@@ -42,9 +42,9 @@ const value: operations.Three = {
 
 ```typescript
 const value: operations.Four = {
-  id: "5c1138be-4284-4f03-ac68-da9a1195fde2",
-  url: "https://shocked-appliance.net/",
-  createdAt: "1716470889211",
+  id: "35bf96ca-76a4-4aa9-8a79-b956b86aa7b2",
+  url: "https://raw-antelope.biz/",
+  createdAt: "1728793722082",
 };
 ```
 
@@ -52,10 +52,10 @@ const value: operations.Four = {
 
 ```typescript
 const value: operations.Five = {
-  id: "940a7b08-02c3-4122-9d9c-4ae8d3f1c318",
-  url: "https://joyful-window.name/",
-  state: "generating",
-  createdAt: "1740865036413",
+  id: "f89bde20-34d5-4845-b136-550084a5b427",
+  url: "https://mediocre-travel.com",
+  state: "pending",
+  createdAt: "1714474218581",
 };
 ```
 
@@ -63,9 +63,9 @@ const value: operations.Five = {
 
 ```typescript
 const value: operations.Six = {
-  id: "4b4ca973-9d0b-4e94-85b5-01465c36dc35",
-  url: "https://nifty-fat.name/",
-  createdAt: "1728313951496",
+  id: "f7e5f0f8-0b24-4c12-ba21-b533fd5e345e",
+  url: "https://rubbery-diagram.net/",
+  createdAt: "1714740890414",
 };
 ```
 
@@ -73,10 +73,10 @@ const value: operations.Six = {
 
 ```typescript
 const value: operations.Seven = {
-  id: "9f3e001a-8228-4f24-819e-37eb8abb743e",
-  url: "https://rotating-nerve.info/",
-  state: "pending",
-  createdAt: "1714173782008",
+  id: "923af417-178f-41e1-b5af-edcb4cea1c50",
+  url: "https://distant-alligator.net/",
+  state: "completed",
+  createdAt: "1731208527000",
 };
 ```
 
@@ -84,10 +84,10 @@ const value: operations.Seven = {
 
 ```typescript
 const value: operations.Eight = {
-  id: "b7556a91-210c-4d6f-bdd5-fb5e0981d467",
-  url: "https://nutritious-freckle.biz",
-  state: "error",
-  createdAt: "1717838437935",
+  id: "b438cd3a-e50a-4b23-8cf3-c631231d1a7f",
+  url: "https://feline-disclosure.com/",
+  state: "uploading",
+  createdAt: "1730483230792",
 };
 ```
 
@@ -95,10 +95,10 @@ const value: operations.Eight = {
 
 ```typescript
 const value: operations.Nine = {
-  id: "57ded8b5-7f52-47a2-814e-a39a8c03f714",
-  url: "https://zesty-mouser.name",
+  id: "7464a22d-984a-4c2c-b7fb-ee76465e41f7",
+  url: "https://illustrious-nun.name",
   state: "error",
-  createdAt: "1717248683648",
+  createdAt: "1730939929894",
 };
 ```
 
@@ -106,10 +106,10 @@ const value: operations.Nine = {
 
 ```typescript
 const value: operations.Ten = {
-  id: "8e0969d7-3621-46a4-8eba-b0de09a3da3f",
-  url: "https://lined-puritan.com",
-  state: "request_smart_motion",
-  createdAt: "1716222391400",
+  id: "7f6ab0d5-2716-410c-a6c3-2e0a2e325036",
+  url: "https://awesome-confusion.net/",
+  state: "error",
+  createdAt: "1708658427677",
 };
 ```
 
@@ -117,10 +117,10 @@ const value: operations.Ten = {
 
 ```typescript
 const value: operations.Eleven = {
-  id: "385703ce-3c00-4622-aadc-5ed870218a9d",
-  url: "https://cooperative-commodity.org",
-  state: "generating",
-  createdAt: "1716616898422",
+  id: "2813e039-b64a-4317-b9f5-7b4cb2717df2",
+  url: "https://spanish-colonialism.name",
+  state: "completed",
+  createdAt: "1705135796199",
 };
 ```
 

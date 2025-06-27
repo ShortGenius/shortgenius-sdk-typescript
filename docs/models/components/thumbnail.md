@@ -9,16 +9,20 @@ import { Thumbnail } from "shortgenius/models/components";
 
 let value: Thumbnail = {
   text: "<value>",
-  theme: "TikTokGlitch",
+  theme: "None",
   media: {
-    id: "1e12d4ad-9fb1-48bc-90bd-b878be9eb184",
-    url: "https://gifted-mixture.net/",
+    url: "https://reckless-hexagon.org",
     metadata: {
-      prompt: "<value>",
+      muxPlaybackId: "<id>",
+      startTime: 506.86,
+      endTime: 2554.98,
+      durationTillEnd: 3483.63,
     },
-    source: "stability.stable-diffusion-xl-v1",
-    state: "pending",
-    data: {},
+    source: null,
+    data: {
+      id: "<id>",
+      collectionId: "<id>",
+    },
   },
 };
 ```
